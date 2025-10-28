@@ -247,6 +247,9 @@
   position: relative;
   overflow: hidden;
 }
+section.slider {
+    padding-top: 165px;
+}
 
 /* --- Round indicator dots --- */
 .carousel-indicators [data-bs-target] {
