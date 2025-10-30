@@ -1,19 +1,11 @@
-// js/include.js
-function includeHTML() {
-  const includes = document.querySelectorAll('[data-include]');
-  includes.forEach(el => {
-    const file = el.getAttribute('data-include');
-    if (file) {
-      fetch(file)
-        .then(response => response.text())
-        .then(data => {
-          el.innerHTML = data;
-        })
-        .catch(error => {
-          el.innerHTML = "<p>Component not found.</p>";
-        });
-    }
-  });
+function loadComponent(id, file) {
+  fetch(file)
+    .then(res => res.text())
+    .then(data => document.getElementById(id).innerHTML = data);
 }
 
-document.addEventListener("DOMContentLoaded", includeHTML);
+window.addEventListener("DOMContentLoaded", () => {
+  loadComponent("header", "components/header.html");
+  loadComponent("footer", "components/footer.html");
+  loadComponent("sidebar", "components/sidebar.html");
+});

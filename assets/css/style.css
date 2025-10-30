@@ -1,13 +1,8 @@
         body {
             font-family: "Segoe UI", sans-serif;
         }
-          header.header-section.main-header01 {
-    position: fixed;
-    z-index: 999;
-    width: 100%;
-}
-        header {
 
+        header {
             .top-bar {
                 background-color: #f8f9fa;
                 border-bottom: 1px solid #e5e5e5;
@@ -246,9 +241,6 @@
 .slider {
   position: relative;
   overflow: hidden;
-}
-section.slider {
-    padding-top: 165px;
 }
 
 /* --- Round indicator dots --- */
