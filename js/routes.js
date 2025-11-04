@@ -36,6 +36,11 @@ const Routes = {
     page: 'pages/business.html',
     title: 'Business - Publications Division'
   },
+    login: {
+    path: '/login',
+    page: 'pages/login.html',
+    title: 'login page'
+  },
   submit: {
     path: '/submit',
     page: 'pages/submit.html',
