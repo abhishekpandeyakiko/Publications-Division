@@ -1,5 +1,6 @@
         body {
-            font-family: "Segoe UI", sans-serif;
+            /* font-family: "Segoe UI", sans-serif; */
+             font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         }
 
         header {
@@ -242,9 +243,7 @@
   position: relative;
   overflow: hidden;
 }
-section.slider {
-    padding-top: 140px;
-}
+
 
 /* --- Round indicator dots --- */
 .carousel-indicators [data-bs-target] {
