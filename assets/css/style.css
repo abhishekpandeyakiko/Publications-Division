@@ -242,6 +242,9 @@
   position: relative;
   overflow: hidden;
 }
+section.slider {
+    padding-top: 140px;
+}
 
 /* --- Round indicator dots --- */
 .carousel-indicators [data-bs-target] {
@@ -1081,3 +1084,5 @@ h4.pardentoff {
     }
 
 /* ---------------------------------------------end footer ---------------------------------------- */
+
+/*-------------------------------------------- login css -------------------------------------------*/
