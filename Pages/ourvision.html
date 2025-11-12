@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vision & Mission | Publications Division</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    /* Global Styles */
+    body {
+      /* font-family: "Segoe UI", Arial, sans-serif; */
+      background: linear-gradient(180deg, #e9f7f8 0%, #f8fbfb 100%);
+      color: #333;
+    }
+
+    /* Hero Section */
+    .intro-section {
+      background: linear-gradient(135deg, #006b7a, #0095a8);
+      color: #fff;
+      padding: 4rem 1rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .intro-section::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.15), transparent 50%);
+      animation: rotateGlow 18s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes rotateGlow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .intro-section h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      position: relative;
+      z-index: 2;
+    }
+
+    .breadcrumb {
+      background: transparent;
+      justify-content: center;
+      margin-top: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .breadcrumb-item a {
+      color: #d8f2f3;
+      text-decoration: none;
+    }
+
+    .breadcrumb-item.active {
+      color: #fff;
+    }
+
+    /* Section */
+    .content-section {
+      padding: 4rem 1rem;
+    }
+
+    .highlight-box {
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(0, 107, 122, 0.2);
+      border-left: 5px solid #006b7a;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+      backdrop-filter: blur(6px);
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .highlight-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 107, 122, 0.2);
+    }
+
+    .section-title {
+      color: #006b7a;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title i {
+      color: #0095a8;
+      font-size: 1.3rem;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 1rem;
+    }
+
+    ul li {
+      position: relative;
+      padding-left: 1.4rem;
+      margin-bottom: 0.7rem;
+      line-height: 1.6;
+    }
+
+    ul li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: #0095a8;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #004d57;
+      color: #cfe8e9;
+      text-align: center;
+      padding: 1.2rem;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .intro-section h1 {
+        font-size: 2rem;
+      }
+      .highlight-box {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="intro-section">
+    <div class="container position-relative z-2">
+      <h1>Vision & Mission</h1>
+      <!-- <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Vision & Mission</li>
+        </ol>
+      </nav> -->
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="content-section container">
+    
+    <!-- Vision -->
+    <div class="highlight-box">
+      <h4 class="section-title"><i class="fa-solid fa-eye"></i> Our Vision</h4>
+      <p class="mb-0 fs-5 fst-italic text-secondary">
+        “Continually produce and efficiently distribute books and journals in friendly and new-age formats — those reflecting and carrying matters of national importance ranging from multi-faceted heritage and values to modern and contemporary ideas; those seeking to empower an aspirational generation and those facilitating a sustained and mutually beneficial citizen-government engagement.”
+      </p>
+    </div>
+
+    <!-- Mission -->
+    <div class="highlight-box">
+      <h4 class="section-title"><i class="fa-solid fa-bullseye"></i> Our Mission</h4>
+      <ul class="fs-6">
+        <li>
+          Establish DPD as a modern and techno-savvy publishing house – with intellectual vibrancy, clarity of practices,
+          strategies and goals in terms of content, presentation, and business; and enhance its reputation for quality
+          publications at affordable prices.
+        </li>
+        <li>
+          Contribute towards a better understanding of India – past, present, and future – through publications on various topics.
+        </li>
+        <li>
+          Set high standards of book publishing, both in content and production quality, inspiring the publishing sector in India.
+        </li>
+        <li>
+          Adopt technological advancements and best industry practices to ensure the widest outreach of publications at affordable
+          prices, including a digital distribution mechanism.
+        </li>
+      </ul>
+    </div>
+  </section>
+</body>
+</html>

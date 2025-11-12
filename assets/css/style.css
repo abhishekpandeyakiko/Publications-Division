@@ -2,8 +2,25 @@
             /* font-family: "Segoe UI", sans-serif; */
              font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        div#header-placeholder {
+    position: fixed;
+    display: block;
+    width: 100%;
+    z-index: 9999;
+    box-shadow: inherit;
+}
+main#app-content
+ {
+    padding-top: 165px;
+}
         header {
+          @media (max-width: 992px) {
+    .container{
+        max-width: 990px;
+    }
+    
+}
+          
             .top-bar {
                 background-color: #f8f9fa;
                 border-bottom: 1px solid #e5e5e5;
@@ -79,6 +96,7 @@
                 font-size: 32px;
                 font-weight: 700;
                 color: #004b4b;
+                white-space: pre;
                 margin-bottom: 0px;
             }
 
@@ -143,9 +161,15 @@
   padding: 10px 12px;
   font-size: 15px;
   color: #222;
+          border-bottom: 2px solid #f8f9fa;
   font-weight: 500;
   white-space: nowrap;
   transition: color 0.2s ease;
+}
+          @media (max-width: 1292px) {
+    .nav-link {
+  font-size: 14px;
+}
 }
 
 .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
@@ -167,6 +191,15 @@
   }
 }
         }
+.dropdown-item:active {
+    color: var(--bs-dropdown-link-active-color);
+    text-decoration: none;
+    background-color: #004b4b;
+}
+
+
+
+
 
  /* Sidebar base style */
     #sidebar {
@@ -179,7 +212,7 @@
       box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
       transition: all 0.3s ease;
       z-index: 1050;
-      padding-top: 60px;
+      padding-top: 10px;
     }
 
     /* Show sidebar */
@@ -232,6 +265,37 @@
         display: none;
       }
     }
+    .custom-close {
+  background-color: #e6f4f4;      
+  border-radius: 50%; 
+  width: 25px;
+  height: 25px;
+  border: none;
+  opacity: 1;  
+  transition: all 0.3s ease;
+}
+
+.custom-close::before {
+  content: "×";
+  font-size: 20px;
+  color: #004b4b;
+  font-weight: bold;
+  line-height: 0;
+}
+
+/* Remove Bootstrap’s default SVG icon */
+.custom-close::after {
+  content: none !important;
+}
+
+/* Hover effect */
+.custom-close:hover {
+  background-color: #004b4b;
+}
+
+.custom-close:hover::before {
+  color: #ffffff;
+}
 
 
         
@@ -1085,3 +1149,87 @@ h4.pardentoff {
 /* ---------------------------------------------end footer ---------------------------------------- */
 
 /*-------------------------------------------- login css -------------------------------------------*/
+/*--------------------------------------- navbar about screen css ---------------------------------*/
+    :root {
+      --teal: #006b7a;
+      --light-bg: #f8f9fa;
+    }
+    body {
+      background-color: #ffffff;
+      font-family: "Inter", sans-serif;
+      line-height: 1.8;
+      color: #333;
+    }
+    .section-title {
+      color: var(--teal);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-left: 4px solid var(--teal);
+      padding-left: 10px;
+      margin-bottom: 1rem;
+    }
+    /* .intro-section {
+      background: linear-gradient(135deg, #006b7a 0%, #009ba9 100%);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+    } */
+         .intro-section {
+      background: linear-gradient(135deg, #006b7a, #0095a8);
+      color: #fff;
+      padding: 4rem 1rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .intro-section::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.15), transparent 50%);
+      animation: rotateGlow 18s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes rotateGlow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .intro-section h1 {
+      font-weight: 700;
+      font-size: 2.5rem;
+    }
+    .intro-section p {
+      max-width: 900px;
+      margin: 20px auto;
+      opacity: 0.9;
+    }
+    .content-section {
+      padding: 60px 20px;
+    }
+    .highlight-box {
+      background: var(--light-bg);
+      border-left: 5px solid var(--teal);
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .highlight-box h5 {
+      color: var(--teal);
+      font-weight: 600;
+    }
+    .journal-card {
+      border: none;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+    .journal-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    }
