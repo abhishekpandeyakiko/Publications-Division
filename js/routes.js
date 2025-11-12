@@ -16,6 +16,11 @@ const Routes = {
     page: 'pages/about.html',
     title: 'About Us - Publications Division'
   },
+  ourVision: {
+    path: '/ourvision',
+    page: 'pages/ourvision.html',
+    title: 'Vision & Mission - Publications Division'
+  },
   publications: {
     path: '/publications',
     page: 'pages/publications.html',
@@ -36,10 +41,20 @@ const Routes = {
     page: 'pages/business.html',
     title: 'Business - Publications Division'
   },
-    login: {
+  login: {
     path: '/login',
     page: 'pages/login.html',
-    title: 'login page'
+    title: 'Login - Publications Division'
+  },
+  register: {
+    path: '/register',
+    page: 'pages/register.html',
+    title: 'Register - Publications Division'
+  },
+  forgetPassword: {
+    path: '/forgetpassword',
+    page: 'pages/forgetpassword.html',
+    title: 'Forgot Password - Publications Division'
   },
   submit: {
     path: '/submit',
