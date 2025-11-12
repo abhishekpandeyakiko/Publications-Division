@@ -1,245 +1,166 @@
-<div class="auth-page login-page py-5">
-  <div class="container">
-    <div class="login-wrapper">
-      <div class="login-card row g-0">
-        <div class="col-md-5 login-left">
-          <img src="images/Logo.svg" alt="Logo">
-          <h3>Publications Division</h3>
-          <p>Ministry of Information &amp; Broadcasting<br>Government of India</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Publications Division</title>
+
+  <!-- Bootstrap + Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f5f7fa;
+      font-family: "Poppins", sans-serif;
+      color: #333;
+    }
+
+    .login-left {
+      background: linear-gradient(130deg, #005b3f 0%, #198958 100%);
+    }
+
+    .login-left img {
+      background: #fff;
+      border-radius: 50%;
+      padding: 10px;
+    }
+
+    .btn-login {
+      background: linear-gradient(135deg, #1b8e5a, #004d40);
+      color: #fff;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-login:hover,
+    .btn-login:active {
+      color: #fff !important;
+      background: linear-gradient(135deg, #004d40, #157a54);
+    }
+
+    #refreshCaptcha:hover {
+      background-color: #e8f5e9 !important;
+      border-color: #004d40 !important;
+    }
+
+    .forgot-link {
+      color: #004d40;
+      font-weight: 500;
+      font-size: 14px;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .forgot-link:hover {
+      color: #005b3f;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .login-left {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="auth-page login-page py-5">
+    <div class="container d-flex align-items-center justify-content-center">
+      <div class="row g-0 bg-white rounded-4 overflow-hidden shadow-lg w-100" style="max-width:920px;">
+
+        <!-- Left Side -->
+        <div class="col-md-5 login-left text-white text-center d-flex flex-column justify-content-center align-items-center p-5">
+          <img src="images/Logo.svg" alt="Logo" class="mb-3" style="max-width:120px;">
+          <h3 class="fw-semibold mb-2">Publications Division</h3>
+          <p class="small opacity-75 mb-0">Ministry of Information &amp; Broadcasting<br>Government of India</p>
         </div>
 
-        <div class="col-md-7 login-right">
-          <h4>SIGN IN</h4>
-          <p>Welcome, please sign in to your account</p>
+        <!-- Right Side -->
+        <div class="col-md-7 p-5">
+          <h4 class="fw-bold mb-2">Sign In</h4>
+          <p class="text-muted small mb-4">Welcome back! Please login to continue.</p>
 
           <form>
             <div class="mb-3">
               <label class="form-label small fw-semibold">E-Mail Address</label>
-              <input type="email" class="form-control" placeholder="Enter your email" required>
+              <input type="email" class="form-control rounded-3" placeholder="Enter your email" required>
             </div>
 
             <div class="mb-3">
               <label class="form-label small fw-semibold">Password</label>
-              <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
-            </div>
-
-            <div class="form-check mb-3">
-              <input type="checkbox" class="form-check-input" id="showPass">
-              <label for="showPass" class="form-check-label">Show Password</label>
+              <div class="input-group rounded-3">
+                <input type="password" class="form-control rounded-start-3" id="password" placeholder="Enter your password" required>
+                <button class="btn btn-outline-secondary rounded-end-3" type="button" id="togglePassword" title="Show password">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
             </div>
 
             <div class="mb-4">
               <label class="form-label small fw-semibold">Captcha</label>
-
-              <div class="d-flex align-items-center gap-2 mb-2">
-                <div class="captcha-img position-relative">
-                  <img src="images/recapcha-img.png" alt="Captcha" class="border rounded" style="height: 45px;">
-                  <button type="button" class="btn btn-light border ms-2 p-2" id="refreshCaptcha"
-                    title="Refresh captcha">
+              <div class="d-flex align-items-center gap-2">
+                <div class="captcha-img d-flex align-items-center">
+                  <img src="images/recapcha-img.png" alt="Captcha" class="border rounded-2" style="height:45px;">
+                  <button type="button" class="btn btn-light border ms-2 p-2 rounded-2" id="refreshCaptcha" title="Refresh captcha">
                     <i class="bi bi-arrow-clockwise"></i>
                   </button>
                 </div>
-
-                <input type="text" class="form-control" placeholder="Enter the code" required>
+                <input type="text" class="form-control rounded-3" placeholder="Enter the code" required>
               </div>
-
-              <div class="d-flex justify-content-end mb-3">
-                <a href="/forgetpassword" class="forgot">Forgot Password?</a>
-              </div>
-
-              <button type="submit" class="btn btn-login w-100">LOGIN</button>
-              <p class="text-center mt-2 auth-switch-text">
-                Don’t have an account?
-                <a href="/register" class="text-success fw-semibold text-decoration-none">Sign up</a>
-              </p>
             </div>
 
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="rememberMe">
+                <label class="form-check-label small" for="rememberMe">
+                  Remember me
+                </label>
+              </div>
+              <a href="/forgetpassword" class="forgot-link">Forgot Password?</a>
+            </div>
+
+            <button type="submit" class="btn btn-login w-100 rounded-3 py-2">Login</button>
+
+            <p class="text-center small mt-3 mb-0">
+              Don’t have an account?
+              <a href="/register" class="text-success fw-semibold text-decoration-none">Sign up</a>
+            </p>
           </form>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<style>
-@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-.auth-page {
-  background-color: #f5f7fa;
-  font-family: "Poppins", sans-serif;
-  color: #333;
-}
+  <script>
+    (() => {
+      const togglePasswordBtn = document.getElementById('togglePassword');
+      const passwordInput = document.getElementById('password');
+      const refreshCaptcha = document.getElementById('refreshCaptcha');
 
-.auth-page .login-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: calc(100vh - 250px);
-}
+      if (togglePasswordBtn && passwordInput) {
+        togglePasswordBtn.addEventListener('click', () => {
+          const isText = passwordInput.type === 'text';
+          passwordInput.type = isText ? 'password' : 'text';
+          togglePasswordBtn.innerHTML = isText ? '<i class="bi bi-eye"></i>' : '<i class="bi bi-eye-slash"></i>';
+          togglePasswordBtn.setAttribute('title', isText ? 'Show password' : 'Hide password');
+        });
+      }
 
-.auth-page .login-card {
-  background: #fff;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  max-width: 920px;
-  width: 100%;
-}
-
-.auth-page .login-left {
-  background: linear-gradient(135deg, #005b3f 0%, #bbe9e9 100%);
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 50px 30px;
-  text-align: center;
-}
-
-.auth-page .login-left img {
-  max-width: 120px;
-  margin-bottom: 20px;
-  background: #fff;
-  border-radius: 50%;
-  padding: 10px;
-}
-
-.auth-page .login-left h3 {
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.auth-page .login-left p {
-  font-size: 14px;
-  opacity: 0.9;
-}
-
-.auth-page .login-right {
-  padding: 50px 40px;
-}
-
-.auth-page .login-right h4 {
-  font-weight: 700;
-  color: #333;
-  margin-bottom: 8px;
-}
-
-.auth-page .login-right p {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 25px;
-}
-
-.auth-page .form-control {
-  border-radius: 8px;
-  padding: 10px 14px;
-  font-size: 14px;
-  border: 1px solid #dcdcdc;
-}
-
-.auth-page .form-control:focus {
-  border-color: #48a868;
-  box-shadow: none;
-}
-
-.auth-page .form-check-label {
-  font-size: 14px;
-}
-
-.auth-page .btn-login {
-  background: linear-gradient(135deg, #1b8e5a, #004d40);
-  color: #fff;
-  font-weight: 600;
-  border-radius: 8px;
-  padding: 10px 25px;
-  transition: 0.3s;
-  border: none;
-}
-
-.auth-page .btn-login:hover {
-  background: linear-gradient(135deg, #004d40, #157a54);
-}
-
-.auth-page .captcha-img {
-  display: flex;
-  align-items: center;
-}
-
-.auth-page .captcha-img img {
-  border-radius: 6px;
-  border: 1px solid #ddd;
-}
-
-.auth-page #refreshCaptcha {
-  border-radius: 6px;
-  background-color: #f8f9fa;
-  transition: 0.3s;
-}
-
-.auth-page #refreshCaptcha:hover {
-  background-color: #e8f5e9;
-  border-color: #48a868;
-}
-
-.auth-page .forgot {
-  text-decoration: none;
-  color: #48a868;
-  font-weight: 500;
-  font-size: 14px;
-  transition: color 0.2s ease;
-}
-
-.auth-page .forgot:hover {
-  color: #005b3f;
-  text-decoration: underline;
-}
-
-.auth-page .auth-switch-text {
-  font-size: 14px;
-}
-
-@media (max-width: 768px) {
-  .auth-page .login-left {
-    display: none;
-  }
-
-  .auth-page .login-right {
-    padding: 40px 25px;
-  }
-
-  .auth-page .login-card {
-    border-radius: 15px;
-    margin: 15px;
-  }
-
-  .auth-page .login-wrapper {
-    min-height: auto;
-  }
-}
-</style>
-
-<script>
-  (() => {
-    const toggle = document.getElementById('showPass');
-    const passwordInput = document.getElementById('password');
-    const refreshCaptcha = document.getElementById('refreshCaptcha');
-
-    if (toggle && passwordInput) {
-      toggle.addEventListener('change', () => {
-        passwordInput.type = toggle.checked ? 'text' : 'password';
-      });
-    }
-
-    if (refreshCaptcha) {
-      refreshCaptcha.addEventListener('click', () => {
-        const captcha = document.querySelector('.captcha-img img');
-        if (captcha) {
-          const base = 'images/recapcha-img.png';
-          captcha.src = `${base}?${Date.now()}`;
-        }
-      });
-    }
-  })();
-</script>
+      if (refreshCaptcha) {
+        refreshCaptcha.addEventListener('click', () => {
+          const captcha = document.querySelector('.captcha-img img');
+          if (captcha) {
+            const base = 'images/recapcha-img.png';
+            captcha.src = `${base}?${Date.now()}`;
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
