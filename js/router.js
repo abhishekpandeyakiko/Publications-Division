@@ -4,7 +4,8 @@ class Router {
   constructor(routes) {
     this.routes = routes;
     this.currentRoute = null;
-    this.contentContainer = null;
+    this.currentLayout = null;
+    this.appContainer = document.body;
     this.init();
   }
 
@@ -12,12 +13,6 @@ class Router {
    * Initialize router
    */
   init() {
-    this.contentContainer = document.getElementById('app-content');
-    if (!this.contentContainer) {
-      console.error('Content container (#app-content) not found');
-      return;
-    }
-
     // Listen for browser navigation (back/forward buttons)
     window.addEventListener('popstate', (e) => {
       this.handleRoute(window.location.pathname);
@@ -43,19 +38,23 @@ class Router {
       // Update document title
       document.title = route.title || 'Publications Division';
 
-      // Load page content
-      await this.loadPage(route.page);
+      // Determine layout (default to 'default' if not specified)
+      const layout = route.layout || 'default';
 
-      // Update current route
+      // Load layout and page
+      await this.loadLayoutAndPage(layout, route.page);
+
+      // Update current route and layout
       this.currentRoute = route;
+      this.currentLayout = layout;
 
       // Update URL without page reload (if different)
       if (window.location.pathname !== route.path) {
         window.history.pushState({ route: route.path }, '', route.path);
       }
 
-      // Update active nav link
-      if (window.LayoutManager) {
+      // Update active nav link (only if layout manager exists)
+      if (window.LayoutManager && layout !== 'none') {
         window.LayoutManager.updateActiveNavLink();
       }
 
@@ -72,23 +71,47 @@ class Router {
   }
 
   /**
-   * Load page content
+   * Load layout template and page content
+   * @param {string} layoutName - Name of the layout (or 'none' for no layout)
    * @param {string} pagePath - Path to page HTML file
    */
-  async loadPage(pagePath) {
+  async loadLayoutAndPage(layoutName, pagePath) {
     try {
-      const response = await fetch(pagePath);
-      
-      if (!response.ok) {
-        throw new Error(`Failed to load page: ${response.statusText}`);
+      // If layout is 'none', load page directly into body
+      if (layoutName === 'none') {
+        const pageHtml = await this.fetchPage(pagePath);
+        // Extract body content if it's a full HTML document
+        const bodyContent = this.extractBodyContent(pageHtml);
+        this.appContainer.innerHTML = bodyContent;
+        return;
       }
 
-      const html = await response.text();
-      this.contentContainer.innerHTML = html;
+      // Load layout template
+      const layoutPath = `layouts/${layoutName}.html`;
+      const layoutHtml = await this.fetchPage(layoutPath);
+      
+      // Replace body content with layout
+      this.appContainer.innerHTML = layoutHtml;
+
+      // Find content container in layout
+      const contentContainer = document.getElementById('app-content');
+      if (!contentContainer) {
+        throw new Error(`Layout '${layoutName}' must contain an element with id="app-content"`);
+      }
+
+      // Load page content into layout
+      const pageHtml = await this.fetchPage(pagePath);
+      const pageContent = this.extractBodyContent(pageHtml);
+      contentContainer.innerHTML = pageContent;
+
+      // Initialize layout components (header, footer, etc.)
+      if (window.LayoutManager) {
+        await window.LayoutManager.initLayout(layoutName);
+      }
 
     } catch (error) {
-      console.error('Page load error:', error);
-      this.contentContainer.innerHTML = `
+      console.error('Layout/Page load error:', error);
+      this.appContainer.innerHTML = `
         <div class="container py-5 text-center">
           <h2>Page Load Error</h2>
           <p>Unable to load the requested page.</p>
@@ -97,6 +120,48 @@ class Router {
       `;
       throw error;
     }
+  }
+
+  /**
+   * Fetch page content
+   * @param {string} path - Path to HTML file
+   * @returns {Promise<string>} HTML content
+   */
+  async fetchPage(path) {
+    const response = await fetch(path);
+    if (!response.ok) {
+      throw new Error(`Failed to load: ${response.statusText}`);
+    }
+    return await response.text();
+  }
+
+  /**
+   * Extract body content from HTML
+   * Handles both full HTML documents and content fragments
+   * Also extracts style and script tags from head if present
+   * @param {string} html - HTML string
+   * @returns {string} Body content with styles/scripts
+   */
+  extractBodyContent(html) {
+    // Check if it's a full HTML document
+    const bodyMatch = html.match(/<body[^>]*>([\s\S]*)<\/body>/i);
+    if (bodyMatch) {
+      let bodyContent = bodyMatch[1];
+      
+      // Extract style tags from head (page-specific styles)
+      const headMatch = html.match(/<head[^>]*>([\s\S]*)<\/head>/i);
+      if (headMatch) {
+        const headContent = headMatch[1];
+        const styleMatch = headContent.match(/<style[^>]*>([\s\S]*?)<\/style>/gi);
+        if (styleMatch) {
+          bodyContent = styleMatch.join('') + bodyContent;
+        }
+      }
+      
+      return bodyContent;
+    }
+    // Otherwise, return as-is (content fragment)
+    return html;
   }
 
   /**
@@ -112,8 +177,11 @@ class Router {
    * Looks for scripts in the loaded page content
    */
   executePageScripts() {
+    // Find content container (could be in layout or body)
+    const contentContainer = document.getElementById('app-content') || document.body;
+    
     // Find and execute any script tags in the loaded content
-    const scripts = this.contentContainer.querySelectorAll('script');
+    const scripts = contentContainer.querySelectorAll('script');
     
     scripts.forEach(oldScript => {
       const newScript = document.createElement('script');
@@ -127,12 +195,12 @@ class Router {
 
     // Trigger custom event for page-specific initialization
     window.dispatchEvent(new CustomEvent('pageLoaded', {
-      detail: { route: this.currentRoute }
+      detail: { route: this.currentRoute, layout: this.currentLayout }
     }));
 
-    // Call page-specific initialization if it exists
-    if (this.currentRoute && this.currentRoute.path === '/' && typeof window.initHomePage === 'function') {
-      window.initHomePage();
+    // Call route-specific initialization if it exists
+    if (this.currentRoute && this.currentRoute.init && typeof this.currentRoute.init === 'function') {
+      this.currentRoute.init();
     }
   }
 

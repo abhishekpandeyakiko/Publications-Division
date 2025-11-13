@@ -1,16 +1,14 @@
-# Routing System Guide
+# Routing Structure Guide - React Router-like Architecture
 
-## Overview
+This project now uses a flexible routing system similar to React Router, where routes can specify different layouts easily.
 
-This project uses a flexible routing system with layout support. Routes can specify different layouts, making it easy to create pages with or without layouts.
-
-## Architecture
+## Architecture Overview
 
 ### File Structure
 
 ```
 Publications-Division/
-├── index.html              # Main entry point (minimal structure)
+├── index.html              # Main entry point
 ├── layouts/                # Layout templates
 │   ├── default.html        # Default layout (header + footer)
 │   ├── minimal.html        # Minimal layout (no header/footer)
@@ -45,12 +43,6 @@ const Routes = {
     page: 'pages/login.html',
     layout: 'minimal',  // Uses layouts/minimal.html
     title: 'Login - Publications Division'
-  },
-  custom: {
-    path: '/custom',
-    page: 'pages/custom.html',
-    layout: 'none',  // No layout - page loads directly
-    title: 'Custom Page'
   }
 };
 ```
@@ -59,7 +51,6 @@ const Routes = {
 - `default` - Full layout with header and footer
 - `minimal` - No header or footer (clean page)
 - `auth` - Header only (for authentication pages)
-- `none` - No layout (page loads directly into body)
 - Custom layouts can be added by creating new files in `layouts/`
 
 ### 2. Layout Templates (`layouts/`)
@@ -82,8 +73,6 @@ Layout files define the structure using placeholders:
 </div>
 ```
 
-**Important:** Layout files MUST include `<div id="app-content">` for page content to load.
-
 ### 3. Router (`js/router.js`)
 
 The router automatically:
@@ -91,16 +80,6 @@ The router automatically:
 - Loads the appropriate layout template
 - Switches layouts when navigating between routes with different layouts
 - Loads page content into the layout
-- Extracts styles from page `<head>` if present
-- Handles both full HTML documents and content fragments
-
-### 4. Layout Manager (`js/layout.js`)
-
-The layout manager:
-- Loads header and footer components based on layout type
-- Initializes layout-specific functionality (sidebar, navigation, etc.)
-- Handles navigation event delegation
-- Updates active navigation links
 
 ## Adding New Routes
 
@@ -114,7 +93,7 @@ const Routes = {
   newPage: {
     path: '/new-page',
     page: 'pages/new-page.html',
-    layout: 'default',  // or 'minimal', 'auth', 'none'
+    layout: 'default',  // or 'minimal', 'auth', etc.
     title: 'New Page - Publications Division'
   }
 };
@@ -134,39 +113,6 @@ Create `pages/new-page.html` with just the content (no HTML structure):
         </div>
     </div>
 </section>
-```
-
-**For pages with custom styles:**
-```html
-<style>
-  /* Page-specific styles */
-  .custom-style {
-    color: #333;
-  }
-</style>
-
-<section class="container py-5">
-    <div class="custom-style">
-        <h1>Page with Custom Styles</h1>
-    </div>
-</section>
-```
-
-**For full HTML pages (with layout: 'none'):**
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Full Page</title>
-    <style>
-        /* Styles here */
-    </style>
-</head>
-<body>
-    <!-- Full page content -->
-</body>
-</html>
 ```
 
 ### Step 3: Update Navigation (if using default layout)
@@ -213,23 +159,6 @@ customRoute: {
 }
 ```
 
-### Step 3: Update Layout Manager (if needed)
-
-If your custom layout needs special initialization, update `js/layout.js`:
-
-```javascript
-async initLayout(layoutName) {
-  this.currentLayout = layoutName;
-  
-  if (layoutName === 'custom') {
-    // Custom layout initialization
-    await this.loadCustomComponents();
-    this.attachEventListeners();
-  }
-  // ... other layouts
-}
-```
-
 ## Layout Switching
 
 The router automatically handles layout switching:
@@ -237,52 +166,15 @@ The router automatically handles layout switching:
 - When navigating from a route with `default` layout to one with `minimal` layout, the header and footer are removed
 - When navigating back, they are restored
 - Layout components (header/footer) are only loaded when needed
-- The transition is seamless with no page reload
-
-## Page Content Types
-
-### Content Fragments (Recommended)
-
-Pages that are just content fragments (no HTML structure):
-
-```html
-<section class="container py-5">
-    <h1>Page Title</h1>
-    <p>Page content here.</p>
-</section>
-```
-
-### Full HTML Documents
-
-Pages that are full HTML documents (for use with `layout: 'none'`):
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Full Page</title>
-    <style>
-        /* Styles */
-    </style>
-</head>
-<body>
-    <!-- Full page content -->
-</body>
-</html>
-```
-
-The router will automatically extract the body content and any styles from the `<head>`.
 
 ## Best Practices
 
-1. **Page Content**: Keep page files as content fragments when using layouts (no `<html>`, `<head>`, or `<body>` tags)
+1. **Page Content**: Keep page files as content fragments only (no `<html>`, `<head>`, or `<body>` tags)
 
 2. **Layout Selection**:
    - Use `default` for most pages (with navigation)
    - Use `minimal` for login, registration, standalone pages
    - Use `auth` for authentication-related pages with minimal header
-   - Use `none` for completely standalone pages
 
 3. **Route Organization**: Group routes by layout in `routes.js` for better readability
 
@@ -295,21 +187,6 @@ window.addEventListener('pageLoaded', function(e) {
     // Initialize page-specific code
   }
 });
-```
-
-5. **Route-Specific Initialization**: Add an `init` function to routes for page-specific setup:
-
-```javascript
-newPage: {
-  path: '/new-page',
-  page: 'pages/new-page.html',
-  layout: 'default',
-  title: 'New Page',
-  init: function() {
-    // Page-specific initialization
-    console.log('New page initialized');
-  }
-}
 ```
 
 ## Examples
@@ -336,38 +213,23 @@ login: {
 }
 ```
 
-### Example 3: Standalone Page with No Layout
+### Example 3: Dashboard with Custom Layout
 
 ```javascript
-standalone: {
-  path: '/standalone',
-  page: 'pages/standalone.html',
-  layout: 'none',
-  title: 'Standalone Page'
+dashboard: {
+  path: '/dashboard',
+  page: 'pages/dashboard.html',
+  layout: 'dashboard',  // Custom layout
+  title: 'Dashboard'
 }
 ```
 
-## Navigation
+## Migration Notes
 
-Navigation is handled automatically by the router. All internal links (starting with `/`) are intercepted and handled by the router:
-
-```html
-<a href="/about">About</a>  <!-- Uses router navigation -->
-<a href="/login">Login</a>  <!-- Uses router navigation -->
-<a href="https://example.com">External</a>  <!-- Normal link -->
-```
-
-## Programmatic Navigation
-
-```javascript
-// Navigate to a route
-window.Router.navigate('/about');
-
-// Get current route
-const currentRoute = window.Router.getCurrentRoute();
-console.log(currentRoute.path);  // '/about'
-console.log(currentRoute.layout);  // 'default'
-```
+- Existing routes without `layout` property default to `'default'`
+- All existing pages continue to work
+- Layout switching is automatic and seamless
+- No changes needed to existing page files
 
 ## Troubleshooting
 
@@ -382,37 +244,7 @@ console.log(currentRoute.layout);  // 'default'
 - Check that page file exists
 
 ### Header/Footer Not Appearing
-- Verify route uses `layout: 'default'` or `layout: 'auth'`
+- Verify route uses `layout: 'default'`
 - Check that `components/header.html` and `components/footer.html` exist
-- Ensure LayoutManager is initialized (automatic for layouts)
+- Ensure LayoutManager is initialized (automatic for default layout)
 
-### Styles Not Loading
-- For page-specific styles, include them in a `<style>` tag in the page file
-- The router automatically extracts styles from the `<head>` of full HTML documents
-- Check that CSS file paths are correct (relative to page file)
-
-### Navigation Not Working
-- Ensure router is initialized (`window.Router` exists)
-- Check navigation links have correct paths (starting with `/`)
-- Verify event listeners are attached (automatic)
-- Check browser console for errors
-
-## Migration Notes
-
-- Existing routes without `layout` property default to `'default'`
-- All existing pages continue to work
-- Layout switching is automatic and seamless
-- No changes needed to existing page files (they work as-is)
-
-## Summary
-
-This routing system provides:
-- ✅ Easy route creation with layout support
-- ✅ Flexible layout switching
-- ✅ Support for pages with or without layouts
-- ✅ Automatic navigation handling
-- ✅ Page-specific script execution
-- ✅ Style extraction from page head
-- ✅ Clean, maintainable code structure
-
-The architecture is designed to be simple yet powerful, making it easy to add new routes and layouts while maintaining code quality and performance.
