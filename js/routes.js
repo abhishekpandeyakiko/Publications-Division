@@ -68,8 +68,8 @@ const Routes = {
     title: 'Register - Publications Division'
   },
   forgetPassword: {
-    path: '/forgetpassword',
-    page: 'pages/forgetpassword.html',
+    path: '/forget-password',
+    page: 'pages/forget-password.html',
     layout: 'default',
     title: 'Forgot Password - Publications Division'
   },
