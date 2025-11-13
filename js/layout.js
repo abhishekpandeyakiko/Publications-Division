@@ -10,7 +10,7 @@ class LayoutManager {
 
   /**
    * Initialize layout based on layout name
-   * @param {string} layoutName - Name of the layout ('default', 'minimal', 'auth', etc.)
+   * @param {string} layoutName - Name of the layout ('default', 'minimal', 'auth', 'content-only', etc.)
    */
   async initLayout(layoutName) {
     this.currentLayout = layoutName;
@@ -27,6 +27,12 @@ class LayoutManager {
       } else if (layoutName === 'auth') {
         // Auth layout: header only
         await this.loadHeader();
+        this.attachEventListeners();
+      } else if (layoutName === 'content-only') {
+        // Content-only layout: default structure but no header/footer components
+        // Has placeholder divs but doesn't load components
+        // Hide the placeholder divs so they don't affect layout
+        this.hidePlaceholders();
         this.attachEventListeners();
       } else if (layoutName === 'minimal') {
         // Minimal layout: no header/footer
@@ -87,6 +93,22 @@ class LayoutManager {
       footerPlaceholder.innerHTML = '<p class="text-danger">Footer component failed to load.</p>';
       console.error('Footer load error:', error);
       throw error;
+    }
+  }
+
+  /**
+   * Hide header and footer placeholders
+   * Used for content-only layout
+   */
+  hidePlaceholders() {
+    const headerPlaceholder = document.getElementById('header-placeholder');
+    const footerPlaceholder = document.getElementById('footer-placeholder');
+    
+    if (headerPlaceholder) {
+      headerPlaceholder.style.display = 'none';
+    }
+    if (footerPlaceholder) {
+      footerPlaceholder.style.display = 'none';
     }
   }
 

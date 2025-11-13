@@ -1,6 +1,11 @@
 // Route Configuration
 // Centralized route definitions with layout support
-// Layout options: 'default' (header + footer), 'minimal' (no header/footer), 'auth' (header only), 'none' (no layout)
+// Layout options: 
+//   'default' (header + footer), 
+//   'content-only' (default structure but no header/footer components), 
+//   'minimal' (no header/footer), 
+//   'auth' (header only), 
+//   'none' (no layout)
 const Routes = {
   home: {
     path: '/',
@@ -23,6 +28,7 @@ const Routes = {
   ourVision: {
     path: '/ourvision',
     page: 'pages/ourvision.html',
+    layout: 'default',
     title: 'Vision & Mission - Publications Division'
   },
   publications: {
@@ -50,22 +56,21 @@ const Routes = {
     title: 'Business - Publications Division'
   },
   login: {
-  login: {
     path: '/login',
     page: 'pages/login.html',
-    layout: 'minimal',
+    layout: 'default',
     title: 'Login - Publications Division'
   },
   register: {
     path: '/register',
     page: 'pages/register.html',
-    layout: 'minimal',
+    layout: 'default',
     title: 'Register - Publications Division'
   },
   forgetPassword: {
-    path: '/forget-password',
+    path: '/forgetpassword',
     page: 'pages/forgetpassword.html',
-    layout: 'minimal',
+    layout: 'default',
     title: 'Forgot Password - Publications Division'
   },
   submit: {
@@ -91,7 +96,14 @@ const Routes = {
     page: 'pages/404.html',
     layout: 'default',
     title: '404 - Page Not Found'
-  }
+  },
+  listingProduct: {
+    path: '/listing-product',
+    page: 'pages/listingProduct.html',
+    layout: 'default',
+    title: 'Listing Product - Publications Division'
+  },
+
 };
 
 // Helper function to get route by path

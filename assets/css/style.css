@@ -4,16 +4,24 @@
              font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         }
         div#header-placeholder {
-    position: fixed;
+    position: sticky;
+    top: 0;
     display: block;
     width: 100%;
     z-index: 9999;
-    box-shadow: inherit;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
 }
-main#app-content
- {
-    padding-top: 165px;
+main#app-content,
+div#app-content {
+    /* No padding needed - header takes its natural space */
+    padding-top: 0;
 }
+        header.header-section,
+        header.main-header01 {
+          background-color: #fff;
+        }
+        
         header {
           @media (max-width: 992px) {
     .container{
@@ -150,6 +158,7 @@ main#app-content
 
             .navbar {
   border-bottom: 1px solid #ddd;
+  background-color: #fff;
 }
 
 .navbar-nav {
