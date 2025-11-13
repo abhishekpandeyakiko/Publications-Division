@@ -20,6 +20,11 @@ const Routes = {
     layout: 'default',
     title: 'About Us - Publications Division'
   },
+  ourVision: {
+    path: '/ourvision',
+    page: 'pages/ourvision.html',
+    title: 'Vision & Mission - Publications Division'
+  },
   publications: {
     path: '/publications',
     page: 'pages/publications.html',
@@ -44,6 +49,7 @@ const Routes = {
     layout: 'default',
     title: 'Business - Publications Division'
   },
+  login: {
   login: {
     path: '/login',
     page: 'pages/login.html',
