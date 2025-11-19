@@ -128,7 +128,9 @@ class Router {
    * @returns {Promise<string>} HTML content
    */
   async fetchPage(path) {
-    const response = await fetch(path);
+    // Ensure path is absolute (starts with /) to work from any route
+    const absolutePath = path.startsWith('/') ? path : `/${path}`;
+    const response = await fetch(absolutePath);
     if (!response.ok) {
       throw new Error(`Failed to load: ${response.statusText}`);
     }

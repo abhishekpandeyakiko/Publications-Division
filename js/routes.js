@@ -55,6 +55,60 @@ const Routes = {
     layout: 'default',
     title: 'Business - Publications Division'
   },
+  salesEmporiumAddress: {
+    path: '/business/sales-emporium-address',
+    page: 'pages/business/sales-emporium-address.html',
+    layout: 'default',
+    title: 'Sales Emporium Address - Publications Division'
+  },
+  eResourceAggregator: {
+    path: '/business/e-resource-aggregator',
+    page: 'pages/business/e-resource-aggregator.html',
+    layout: 'default',
+    title: 'E Resource Aggregator - Publications Division'
+  },
+  businessPolicyGuidelines: {
+    path: '/business/business-policy-guidelines',
+    page: 'pages/business/business-policy-guidelines.html',
+    layout: 'default',
+    title: 'Business Policy/Guidelines - Publications Division'
+  },
+  agentsBooks: {
+    path: '/business/agents-books',
+    page: 'pages/business/agents-books.html',
+    layout: 'default',
+    title: 'Agents (Books) - Publications Division'
+  },
+  homeLibraryScheme: {
+    path: '/business/home-library-scheme',
+    page: 'pages/business/home-library-scheme.html',
+    layout: 'default',
+    title: 'Home Library Scheme - Publications Division'
+  },
+  attractiveDiscounts: {
+    path: '/business/attractive-discounts',
+    page: 'pages/business/attractive-discounts.html',
+    layout: 'default',
+    title: 'Attractive Discounts - Publications Division'
+  },
+  agentsJournals: {
+    path: '/business/agents-journals',
+    page: 'pages/business/agents-journals.html',
+    layout: 'default',
+    title: 'Agents (Journals) - Publications Division'
+  },
+  agentsEmpNews: {
+    path: '/business/agents-emp-news',
+    page: 'pages/business/agents-emp-news.html',
+    layout: 'default',
+    title: 'Agents (Emp News) - Publications Division'
+  },
+  agentBooksAgreement: {
+    path: '/business/agent-books-agreement',
+    page: 'pages/business/agent-books-agreement.html',
+    layout: 'default',
+    title: 'Agent Books Agreement - Publications Division'
+  },
   login: {
     path: '/login',
     page: 'pages/login.html',

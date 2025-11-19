@@ -56,7 +56,8 @@ class LayoutManager {
     }
 
     try {
-      const response = await fetch('components/header.html');
+      // Use absolute path to work from any route
+      const response = await fetch('/components/header.html');
       if (!response.ok) throw new Error('Failed to load header');
       
       const html = await response.text();
@@ -83,7 +84,8 @@ class LayoutManager {
     }
 
     try {
-      const response = await fetch('components/footer.html');
+      // Use absolute path to work from any route
+      const response = await fetch('/components/footer.html');
       if (!response.ok) throw new Error('Failed to load footer');
       
       const html = await response.text();
@@ -140,15 +142,30 @@ class LayoutManager {
       });
     }
 
+    // Initialize Bootstrap dropdowns
+    if (typeof bootstrap !== 'undefined') {
+      const dropdownElementList = document.querySelectorAll('.dropdown-toggle');
+      dropdownElementList.forEach(dropdownToggleEl => {
+        new bootstrap.Dropdown(dropdownToggleEl);
+      });
+    }
+
     // Language dropdown
     document.querySelectorAll('.dropdown-item').forEach(item => {
-      item.addEventListener('click', () => {
-        const dropdown = document.getElementById('languageDropdown');
-        if (dropdown) {
-          dropdown.textContent = item.textContent.trim();
-        }
-      });
+      const href = item.getAttribute('href');
+      // Only handle language dropdown items (those without href or with #)
+      if (!href || href === '#') {
+        item.addEventListener('click', () => {
+          const dropdown = document.getElementById('languageDropdown');
+          if (dropdown) {
+            dropdown.textContent = item.textContent.trim();
+          }
+        });
+      }
     });
+
+    // Ensure navigation event listeners are attached after header loads
+    this.attachEventListeners();
   }
 
   /**
