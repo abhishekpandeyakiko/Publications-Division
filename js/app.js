@@ -1,16 +1,13 @@
 // Main Application Entry Point
-// Initializes router and layout system following best practices
+// Initializes router which handles layout and page loading
 
 /**
  * Initialize the application
- * Loads layout components first, then initializes routing
+ * Router will handle layout and page loading
  */
-async function initApp() {
+function initApp() {
   try {
-    // Initialize layout (header, footer) first
-    await window.LayoutManager.init();
-
-    // Initialize router after layout is ready
+    // Initialize router (it will handle layout and page loading)
     initializeRouter();
 
     // Initialize global event handlers
@@ -26,17 +23,8 @@ async function initApp() {
  * Setup global event handlers
  */
 function setupGlobalEventHandlers() {
-  // Handle all internal navigation links
-  document.addEventListener('click', (e) => {
-    const link = e.target.closest('a[href^="/"]');
-    if (link && link.getAttribute('href').startsWith('/')) {
-      e.preventDefault();
-      const path = link.getAttribute('href');
-      if (window.Router) {
-        window.Router.navigate(path);
-      }
-    }
-  });
+  // Navigation is handled by LayoutManager's event delegation
+  // This ensures it works with dynamically loaded content
 
   // Handle page-specific initialization events
   window.addEventListener('pageLoaded', handlePageLoad);

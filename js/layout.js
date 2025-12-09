@@ -2,25 +2,44 @@
 // Handles loading and managing layout components (header, footer, sidebar)
 class LayoutManager {
   constructor() {
+    this.currentLayout = null;
     this.headerLoaded = false;
     this.footerLoaded = false;
-    this.initialized = false;
+    this.eventListenersAttached = false;
   }
 
   /**
-   * Initialize layout components
-   * Loads header and footer asynchronously
+   * Initialize layout based on layout name
+   * @param {string} layoutName - Name of the layout ('default', 'minimal', 'auth', 'content-only', etc.)
    */
-  async init() {
-    if (this.initialized) return;
+  async initLayout(layoutName) {
+    this.currentLayout = layoutName;
     
     try {
-      await Promise.all([
-        this.loadHeader(),
-        this.loadFooter()
-      ]);
-      this.initialized = true;
-      this.attachEventListeners();
+      // Load components based on layout type
+      if (layoutName === 'default') {
+        // Default layout: header + footer
+        await Promise.all([
+          this.loadHeader(),
+          this.loadFooter()
+        ]);
+        this.attachEventListeners();
+      } else if (layoutName === 'auth') {
+        // Auth layout: header only
+        await this.loadHeader();
+        this.attachEventListeners();
+      } else if (layoutName === 'content-only') {
+        // Content-only layout: default structure but no header/footer components
+        // Has placeholder divs but doesn't load components
+        // Hide the placeholder divs so they don't affect layout
+        this.hidePlaceholders();
+        this.attachEventListeners();
+      } else if (layoutName === 'minimal') {
+        // Minimal layout: no header/footer
+        // Just attach event listeners for any dynamic content
+        this.attachEventListeners();
+      }
+      // For 'none' layout, do nothing
     } catch (error) {
       console.error('Layout initialization failed:', error);
     }
@@ -30,8 +49,6 @@ class LayoutManager {
    * Load header component
    */
   async loadHeader() {
-    if (this.headerLoaded) return;
-    
     const headerPlaceholder = document.getElementById('header-placeholder');
     if (!headerPlaceholder) {
       console.warn('Header placeholder not found');
@@ -39,7 +56,8 @@ class LayoutManager {
     }
 
     try {
-      const response = await fetch('components/header.html');
+      // Use absolute path to work from any route
+      const response = await fetch('/components/header.html');
       if (!response.ok) throw new Error('Failed to load header');
       
       const html = await response.text();
@@ -51,6 +69,7 @@ class LayoutManager {
     } catch (error) {
       headerPlaceholder.innerHTML = '<p class="text-danger">Header component failed to load.</p>';
       console.error('Header load error:', error);
+      throw error;
     }
   }
 
@@ -58,8 +77,6 @@ class LayoutManager {
    * Load footer component
    */
   async loadFooter() {
-    if (this.footerLoaded) return;
-    
     const footerPlaceholder = document.getElementById('footer-placeholder');
     if (!footerPlaceholder) {
       console.warn('Footer placeholder not found');
@@ -67,7 +84,8 @@ class LayoutManager {
     }
 
     try {
-      const response = await fetch('components/footer.html');
+      // Use absolute path to work from any route
+      const response = await fetch('/components/footer.html');
       if (!response.ok) throw new Error('Failed to load footer');
       
       const html = await response.text();
@@ -76,6 +94,23 @@ class LayoutManager {
     } catch (error) {
       footerPlaceholder.innerHTML = '<p class="text-danger">Footer component failed to load.</p>';
       console.error('Footer load error:', error);
+      throw error;
+    }
+  }
+
+  /**
+   * Hide header and footer placeholders
+   * Used for content-only layout
+   */
+  hidePlaceholders() {
+    const headerPlaceholder = document.getElementById('header-placeholder');
+    const footerPlaceholder = document.getElementById('footer-placeholder');
+    
+    if (headerPlaceholder) {
+      headerPlaceholder.style.display = 'none';
+    }
+    if (footerPlaceholder) {
+      footerPlaceholder.style.display = 'none';
     }
   }
 
@@ -107,42 +142,58 @@ class LayoutManager {
       });
     }
 
+    // Initialize Bootstrap dropdowns
+    if (typeof bootstrap !== 'undefined') {
+      const dropdownElementList = document.querySelectorAll('.dropdown-toggle');
+      dropdownElementList.forEach(dropdownToggleEl => {
+        new bootstrap.Dropdown(dropdownToggleEl);
+      });
+    }
+
     // Language dropdown
     document.querySelectorAll('.dropdown-item').forEach(item => {
-      item.addEventListener('click', () => {
-        const dropdown = document.getElementById('languageDropdown');
-        if (dropdown) {
-          dropdown.textContent = item.textContent.trim();
-        }
-      });
+      const href = item.getAttribute('href');
+      // Only handle language dropdown items (those without href or with #)
+      if (!href || href === '#') {
+        item.addEventListener('click', () => {
+          const dropdown = document.getElementById('languageDropdown');
+          if (dropdown) {
+            dropdown.textContent = item.textContent.trim();
+          }
+        });
+      }
     });
+
+    // Ensure navigation event listeners are attached after header loads
+    this.attachEventListeners();
   }
 
   /**
    * Attach navigation event listeners
    * Updates links to use router navigation
+   * Only attaches once to prevent duplicate listeners
    */
   attachEventListeners() {
-    // Delay to ensure router is initialized
-    setTimeout(() => {
-      // Update all navigation links to use router
-      document.querySelectorAll('a[href^="/"]').forEach(link => {
-        // Prevent duplicate listeners
-        if (link.dataset.routerBound) return;
-        link.dataset.routerBound = 'true';
-        
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-          const path = link.getAttribute('href');
-          if (window.Router) {
-            window.Router.navigate(path);
-          }
-        });
-      });
-
-      // Update active nav link based on current route
+    // Only attach once
+    if (this.eventListenersAttached) {
       this.updateActiveNavLink();
-    }, 100);
+      return;
+    }
+
+    // Use event delegation for dynamic content
+    document.body.addEventListener('click', (e) => {
+      const link = e.target.closest('a[href^="/"]');
+      if (link && link.getAttribute('href').startsWith('/')) {
+        e.preventDefault();
+        const path = link.getAttribute('href');
+        if (window.Router) {
+          window.Router.navigate(path);
+        }
+      }
+    });
+
+    this.eventListenersAttached = true;
+    this.updateActiveNavLink();
   }
 
   /**
@@ -161,7 +212,7 @@ class LayoutManager {
   }
 }
 
-// Initialize layout manager
+// Create layout manager instance
 const layoutManager = new LayoutManager();
 
 // Export for global access
