@@ -99,15 +99,29 @@ class Router {
         throw new Error(`Layout '${layoutName}' must contain an element with id="app-content"`);
       }
 
-      // Load page content into layout
+      // Initialize layout components (header, footer, etc.) FIRST
+      // This ensures header is loaded before page content
+      if (window.LayoutManager) {
+        await window.LayoutManager.initLayout(layoutName);
+        
+        // Verify header was loaded (for default and auth layouts)
+        if (layoutName === 'default' || layoutName === 'auth') {
+          const headerPlaceholder = document.getElementById('header-placeholder');
+          if (headerPlaceholder) {
+            const hasHeaderContent = headerPlaceholder.querySelector('header, .header-section, .main-header01');
+            if (!hasHeaderContent) {
+              console.warn('Header placeholder exists but header content not found. Retrying...');
+              // Retry loading header
+              await window.LayoutManager.loadHeader();
+            }
+          }
+        }
+      }
+
+      // Load page content into layout AFTER header is loaded
       const pageHtml = await this.fetchPage(pagePath);
       const pageContent = this.extractBodyContent(pageHtml);
       contentContainer.innerHTML = pageContent;
-
-      // Initialize layout components (header, footer, etc.)
-      if (window.LayoutManager) {
-        await window.LayoutManager.initLayout(layoutName);
-      }
 
     } catch (error) {
       console.error('Layout/Page load error:', error);
@@ -129,10 +143,17 @@ class Router {
    */
   async fetchPage(path) {
     // Ensure path is absolute (starts with /) to work from any route
-    const absolutePath = path.startsWith('/') ? path : `/${path}`;
-    const response = await fetch(absolutePath);
+    let absolutePath = path.startsWith('/') ? path : `/${path}`;
+    let response = await fetch(absolutePath);
+    
+    // If root-relative path fails, try relative path
+    if (!response.ok && path.startsWith('/')) {
+      absolutePath = path.substring(1); // Remove leading slash
+      response = await fetch(absolutePath);
+    }
+    
     if (!response.ok) {
-      throw new Error(`Failed to load: ${response.statusText}`);
+      throw new Error(`Failed to load: ${response.status} ${response.statusText}`);
     }
     return await response.text();
   }

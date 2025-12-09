@@ -157,6 +157,186 @@ const Routes = {
     layout: 'default',
     title: 'Listing Product - Publications Division'
   },
+  // BUY sub-pages
+  buyBooks: {
+    path: '/buy/books',
+    page: 'pages/buy/books.html',
+    layout: 'default',
+    title: 'Books - Publications Division'
+  },
+  buyEbooks: {
+    path: '/buy/ebooks',
+    page: 'pages/buy/ebooks.html',
+    layout: 'default',
+    title: 'EBooks/EJournal - Publications Division'
+  },
+  buyJournal: {
+    path: '/buy/journal',
+    page: 'pages/buy/journal.html',
+    layout: 'default',
+    title: 'Journal - Publications Division'
+  },
+  // Publications sub-pages
+  publicationsBooks: {
+    path: '/publications/books',
+    page: 'pages/publications/books.html',
+    layout: 'default',
+    title: 'Books - Publications Division'
+  },
+  publicationsEbooks: {
+    path: '/publications/ebooks',
+    page: 'pages/publications/ebooks.html',
+    layout: 'default',
+    title: 'eBooks/eJournals - Publications Division'
+  },
+  publicationsJournals: {
+    path: '/publications/journals',
+    page: 'pages/publications/journals.html',
+    layout: 'default',
+    title: 'Journals - Publications Division'
+  },
+  publicationsCatalogue: {
+    path: '/publications/catalogue',
+    page: 'pages/publications/catalogue.html',
+    layout: 'default',
+    title: 'Catalogue - Publications Division'
+  },
+  publicationsEmpanelledPrinters: {
+    path: '/publications/empanelled-printers',
+    page: 'pages/publications/empanelled-printers.html',
+    layout: 'default',
+    title: 'Empanelled Printers - Publications Division'
+  },
+  publicationsListOfReprints: {
+    path: '/publications/list-of-reprints',
+    page: 'pages/publications/list-of-reprints.html',
+    layout: 'default',
+    title: 'List of Reprints - Publications Division'
+  },
+  // Feedback sub-pages
+  searchGrievance: {
+    path: '/feedback/search-grievance',
+    page: 'pages/feedback/search-grievance.html',
+    layout: 'default',
+    title: 'Search Grievance - Publications Division'
+  },
+  grievanceReopen: {
+    path: '/feedback/grievance-reopen',
+    page: 'pages/feedback/grievance-reopen.html',
+    layout: 'default',
+    title: 'Grievance Reopen - Publications Division'
+  },
+  // Documents sub-pages
+  royaltyStructure: {
+    path: '/documents/royalty-structure',
+    page: 'pages/documents/royalty-structure.html',
+    layout: 'default',
+    title: 'Royalty Structure - Publications Division'
+  },
+  tenders: {
+    path: '/documents/tenders',
+    page: 'pages/documents/tenders.html',
+    layout: 'default',
+    title: 'Tenders - Publications Division'
+  },
+  tendersAwarded: {
+    path: '/documents/tenders-awarded',
+    page: 'pages/documents/tenders-awarded.html',
+    layout: 'default',
+    title: 'Tenders Awarded - Publications Division'
+  },
+  rti: {
+    path: '/documents/rti',
+    page: 'pages/documents/rti.html',
+    layout: 'default',
+    title: 'RTI - Publications Division'
+  },
+  budget: {
+    path: '/documents/budget',
+    page: 'pages/documents/budget.html',
+    layout: 'default',
+    title: 'Budget - Publications Division'
+  },
+  authorAgreement: {
+    path: '/documents/author-agreement',
+    page: 'pages/documents/author-agreement.html',
+    layout: 'default',
+    title: 'Author Agreement - Publications Division'
+  },
+  bookSelectionPublishingProcess: {
+    path: '/documents/book-selection-publishing-process',
+    page: 'pages/documents/book-selection-publishing-process.html',
+    layout: 'default',
+    title: 'Book Selection & Publishing Process - Publications Division'
+  },
+  jobNotification: {
+    path: '/documents/job-notification',
+    page: 'pages/documents/job-notification.html',
+    layout: 'default',
+    title: 'Job Notification - Publications Division'
+  },
+  ordersNotices: {
+    path: '/documents/orders-notices',
+    page: 'pages/documents/orders-notices.html',
+    layout: 'default',
+    title: 'Orders and Notices - Publications Division'
+  },
+  suoMotoDisclosure: {
+    path: '/documents/suo-moto-disclosure',
+    page: 'pages/documents/suo-moto-disclosure.html',
+    layout: 'default',
+    title: 'Suo Moto Disclosure - Publications Division'
+  },
+  internalComplaintsCommittee: {
+    path: '/documents/internal-complaints-committee',
+    page: 'pages/documents/internal-complaints-committee.html',
+    layout: 'default',
+    title: 'Internal Complaints Committee - Publications Division'
+  },
+  refundPolicy: {
+    path: '/documents/refund-policy',
+    page: 'pages/documents/refund-policy.html',
+    layout: 'default',
+    title: 'Refund Policy - Publications Division'
+  },
+  // Submit sub-pages
+  createAuthorAccount: {
+    path: '/submit/create-author-account',
+    page: 'pages/submit/create-author-account.html',
+    layout: 'default',
+    title: 'Create Author Account - Publications Division'
+  },
+  submissionProcess: {
+    path: '/submit/submission-process',
+    page: 'pages/submit/submission-process.html',
+    layout: 'default',
+    title: 'Submission Process - Publications Division'
+  },
+  // View More sub-pages
+  citizenCharter: {
+    path: '/view-more/citizen-charter',
+    page: 'pages/view-more/citizen-charter.html',
+    layout: 'default',
+    title: 'Citizen Charter - Publications Division'
+  },
+  videoGallery: {
+    path: '/view-more/video-gallery',
+    page: 'pages/view-more/video-gallery.html',
+    layout: 'default',
+    title: 'Video Gallery - Publications Division'
+  },
+  photoGallery: {
+    path: '/view-more/photo-gallery',
+    page: 'pages/view-more/photo-gallery.html',
+    layout: 'default',
+    title: 'Photo Gallery - Publications Division'
+  },
+  faqs: {
+    path: '/view-more/faqs',
+    page: 'pages/view-more/faqs.html',
+    layout: 'default',
+    title: "FAQ's - Publications Division"
+  },
 
 };
 

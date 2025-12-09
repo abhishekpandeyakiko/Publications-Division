@@ -6,6 +6,20 @@ class LayoutManager {
     this.headerLoaded = false;
     this.footerLoaded = false;
     this.eventListenersAttached = false;
+    this.basePath = this.getBasePath();
+  }
+
+  /**
+   * Get base path for the application
+   * Works whether app is at root or in a subdirectory
+   */
+  getBasePath() {
+    // If we're in a subdirectory, get the path
+    const path = window.location.pathname;
+    // Remove the filename if present
+    const pathParts = path.split('/').filter(p => p && !p.includes('.html'));
+    // Base path is root if no path parts, otherwise use the first part
+    return pathParts.length > 0 && !path.startsWith('/pages/') ? '' : '';
   }
 
   /**
@@ -19,7 +33,8 @@ class LayoutManager {
       // Load components based on layout type
       if (layoutName === 'default') {
         // Default layout: header + footer
-        await Promise.all([
+        // Load header and footer in parallel, but don't fail if one fails
+        await Promise.allSettled([
           this.loadHeader(),
           this.loadFooter()
         ]);
@@ -42,34 +57,90 @@ class LayoutManager {
       // For 'none' layout, do nothing
     } catch (error) {
       console.error('Layout initialization failed:', error);
+      // Continue even if layout initialization has issues
     }
   }
 
   /**
    * Load header component
+   * Always reloads header to ensure it's fresh on each page
    */
   async loadHeader() {
-    const headerPlaceholder = document.getElementById('header-placeholder');
+    let headerPlaceholder = document.getElementById('header-placeholder');
     if (!headerPlaceholder) {
-      console.warn('Header placeholder not found');
-      return;
+      console.warn('Header placeholder not found in DOM');
+      // Try to find it again after a short delay
+      await new Promise(resolve => setTimeout(resolve, 100));
+      headerPlaceholder = document.getElementById('header-placeholder');
+      if (!headerPlaceholder) {
+        console.error('Header placeholder still not found after retry');
+        return;
+      }
     }
 
+    // Always clear existing content to ensure fresh load
+    headerPlaceholder.innerHTML = '';
+    this.headerLoaded = false; // Reset flag to force reload
+
     try {
-      // Use absolute path to work from any route
-      const response = await fetch('/components/header.html');
-      if (!response.ok) throw new Error('Failed to load header');
+      // Try multiple path strategies to ensure header loads
+      let response;
+      const pathsToTry = [
+        '/components/header.html',
+        'components/header.html',
+        './components/header.html',
+        '../components/header.html'
+      ];
+      
+      let lastError;
+      let successfulPath = null;
+      for (const path of pathsToTry) {
+        try {
+          response = await fetch(path);
+          if (response.ok) {
+            successfulPath = path;
+            break;
+          }
+        } catch (err) {
+          lastError = err;
+          continue;
+        }
+      }
+      
+      if (!response || !response.ok) {
+        throw new Error(`Failed to load header: ${lastError?.message || 'All paths failed'}`);
+      }
       
       const html = await response.text();
+      if (!html || html.trim().length === 0) {
+        throw new Error('Header HTML is empty');
+      }
+      
       headerPlaceholder.innerHTML = html;
+      
+      // Ensure header placeholder is visible
+      headerPlaceholder.style.display = 'block';
+      headerPlaceholder.style.visibility = 'visible';
+      
       this.headerLoaded = true;
+      
+      // Small delay to ensure DOM is updated
+      await new Promise(resolve => setTimeout(resolve, 50));
       
       // Initialize header-specific scripts after load
       this.initializeHeaderScripts();
+      
+      // Verify header was actually inserted
+      const headerContent = headerPlaceholder.querySelector('header, .header-section, .main-header01');
+      if (!headerContent) {
+        console.warn('Header HTML loaded but header element not found in content');
+      } else {
+        console.log(`Header loaded successfully from: ${successfulPath}`);
+      }
     } catch (error) {
-      headerPlaceholder.innerHTML = '<p class="text-danger">Header component failed to load.</p>';
+      headerPlaceholder.innerHTML = '<div class="alert alert-warning">Header component failed to load. Please refresh the page.</div>';
       console.error('Header load error:', error);
-      throw error;
+      // Don't throw - allow page to continue loading even if header fails
     }
   }
 
@@ -84,9 +155,31 @@ class LayoutManager {
     }
 
     try {
-      // Use absolute path to work from any route
-      const response = await fetch('/components/footer.html');
-      if (!response.ok) throw new Error('Failed to load footer');
+      // Try multiple path strategies to ensure footer loads
+      let response;
+      const pathsToTry = [
+        '/components/footer.html',
+        'components/footer.html',
+        './components/footer.html',
+        '../components/footer.html'
+      ];
+      
+      let lastError;
+      for (const path of pathsToTry) {
+        try {
+          response = await fetch(path);
+          if (response.ok) {
+            break;
+          }
+        } catch (err) {
+          lastError = err;
+          continue;
+        }
+      }
+      
+      if (!response || !response.ok) {
+        throw new Error(`Failed to load footer: ${lastError?.message || 'All paths failed'}`);
+      }
       
       const html = await response.text();
       footerPlaceholder.innerHTML = html;
@@ -94,7 +187,7 @@ class LayoutManager {
     } catch (error) {
       footerPlaceholder.innerHTML = '<p class="text-danger">Footer component failed to load.</p>';
       console.error('Footer load error:', error);
-      throw error;
+      // Don't throw - allow page to continue loading even if footer fails
     }
   }
 
