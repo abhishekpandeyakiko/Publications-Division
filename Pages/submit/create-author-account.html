@@ -4,14 +4,585 @@
   <p>
     Register as an author to submit your manuscript to Publications Division.
   </p>
+  <span>Home &gt; Create Author Account</span>
 </section>
 
-<section class="content-section container">
-  <h4 class="section-title">Author Registration</h4>
-  <div class="highlight-box">
-    <p>
-      Create an author account to submit your manuscript for consideration by Publications Division. Registration allows you to track your submission status and communicate with our editorial team.
-    </p>
+<style>
+  
+</style>
+
+<div class="container py-4">
+  <div class="highlight-box shadow-lg rounded bg-white">
+    <!-- <h4 class="text-center mb-4">Author Registration</h4> -->
+
+    <div class="stepper">
+      <div class="step active">
+        <div class="circle">1</div><span>Basic Details</span>
+      </div>
+      <div class="step">
+        <div class="circle">2</div><span>Additional Info</span>
+      </div>
+      <div class="step">
+        <div class="circle">3</div><span>Bank Details</span>
+      </div>
+      <div class="step">
+        <div class="circle">4</div><span>Address</span>
+      </div>
+      <div class="step">
+        <div class="circle">5</div><span>Guide Lines</span>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <form id="multiStepForm">
+
+      <!-- STEP 1 -->
+      <div class="form-step active">
+        <div class="text-left register-border mb-3">
+          <h4 class="fw-bold mb-1 name-title">Author Basic Details</h4>
+          <p class="fw-semibold text-secondary mb-3 small"> Please fill in the basic information below</p>
+        </div>
+        <section class="">
+          <form>
+            <div class="row g-2">
+
+              <!-- Username -->
+              <div class="col-md-4">
+                <label for="username" class="form-label fw-medium small mb-1">Username</label>
+                <input type="text" class="form-control" id="username" placeholder="Enter username">
+              </div>
+
+              <!-- First Name -->
+              <div class="col-md-4">
+                <label for="firstName" class="form-label fw-medium small mb-1">First Name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="Enter first name">
+              </div>
+
+              <!-- Last Name -->
+              <div class="col-md-4">
+                <label for="lastName" class="form-label fw-medium small mb-1">Last Name</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Enter last name">
+              </div>
+
+              <!-- Email -->
+              <div class="col-md-6">
+                <label for="email" class="form-label fw-medium small mb-1">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email">
+              </div>
+
+              <!-- Gender -->
+              <div class="col-md-6">
+                <label class="form-label fw-medium small mb-1">Gender</label>
+                <div class="d-flex gap-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="male" checked>
+                    <label class="form-check-label" for="male">Male</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="female">
+                    <label class="form-check-label" for="female">Female</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="other">
+                    <label class="form-check-label" for="other">Other</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Password -->
+              <div class="col-md-4">
+                <label for="password" class="form-label fw-medium small mb-1">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter password">
+              </div>
+
+              <!-- Confirm Password -->
+              <div class="col-md-4">
+                <label for="confirmPassword" class="form-label fw-medium small mb-1">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm password">
+              </div>
+
+              <!-- Profile Photo -->
+              <div class="col-md-4">
+
+                <div class="d-flex align-items-center gap-3">
+                  <img src="" alt="Preview" class="rounded border border-secondary" width="80" height="80"
+                    id="imgPreview">
+                  <div>
+                    <label for="photo" class="form-label fw-medium small mb-1">Profile Photo</label>
+                    <input class="form-control form-control-sm" type="file" id="photo" accept=".jpg,.jpeg,.png,.gif">
+                    <small class="text-danger">Note: jpg, jpeg, png, gif only</small>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+          </form>
+          <script>
+            const photoInput = document.getElementById('photo');
+            const imgPreview = document.getElementById('imgPreview');
+
+            photoInput.addEventListener('change', function () {
+              const file = this.files[0];
+              if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                  imgPreview.src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+              }
+            });
+          </script>
+        </section>
+
+
+
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="form-step">
+        <section class="Additional-Information">
+          <div class="">
+            <div class="card-body p-4">
+              <div class="text-left register-border mb-3">
+                <h4 class="fw-bold mb-1 name-title">Additional Information</h4>
+                <p class="fw-semibold text-secondary mb-3 small"> Please fill in the Additional Information Details
+                  below</p>
+              </div>
+
+              <form>
+                <div class="row g-2">
+
+                  <!-- Awards / Certifications -->
+                  <div class="col-md-6 col-lg-4">
+                    <label for="awards" class="form-label fw-medium small mb-1">Awards / Certifications</label>
+                    <input type="text" class="form-control" id="awards">
+                  </div>
+
+                  <!-- Previous Books -->
+                  <div class="col-md-6 col-lg-4">
+                    <label for="previousBooks" class="form-label fw-medium small mb-1">Previous Books</label>
+                    <input type="text" class="form-control" id="previousBooks">
+                  </div>
+
+                  <!-- Field of Expertise -->
+                  <div class="col-md-6 col-lg-4">
+                    <label for="expertise" class="form-label fw-medium small mb-1">Field of Expertise</label>
+                    <input type="text" class="form-control" id="expertise">
+                  </div>
+
+                  <!-- DPD Books -->
+                  <div class="col-md-6 col-lg-4">
+                    <label for="dpdBooks" class="form-label fw-medium small mb-1">DPD Books</label>
+                    <input type="text" class="form-control" id="dpdBooks">
+                  </div>
+
+                  <!-- Category -->
+                  <div class="col-md-6 col-lg-4">
+                    <label for="category" class="form-label fw-medium small mb-1">Category</label>
+                    <select class="form-select" id="category">
+                      <option value="">-Select Category-</option>
+                      <option value="Art and Culture">Art and Culture</option>
+                      <option value="Builders of Modern India ">Builders of Modern India </option>
+                      <option value="Children's Literature">Children's Literature</option>
+                      <option value="Cultural Leaders of India">Cultural Leaders of India</option>
+                      <option value="Gandhian Literature">Gandhian Literature</option>
+                      <option value="Health and Nutrition">Health and Nutrition</option>
+                      <option value="History and Freedom Struggle">History and Freedom Struggle</option>
+                      <option value="Land and People">Land and People</option>
+                      <option value="Media and Communication">Media and Communication</option>
+                      <option value="Others">Others</option>
+                      <option value="Personalities and Biographies">Personalities and Biographies</option>
+                      <option value="Rashtrapati Bhavan Series">Rashtrapati Bhavan Series</option>
+                      <option value="Science, Technology and Enfironment">Science, Technology and Enfironment</option>
+                      <option value="Speeches and Writings">Speeches and Writings</option>
+                      <option value="Sports and Sports Personalities">Sports and Sports Personalities</option>
+                    </select>
+                  </div>
+
+                  <!-- Experience -->
+                  <div class="col-md-6 col-lg-4">
+                    <label for="experience" class="form-label fw-medium small mb-1">Experience</label>
+                    <input type="text" class="form-control" id="experience">
+                  </div>
+
+                  <!-- KYA Upload -->
+                  <div class="col-12">
+                    <label for="kyaForm" class="form-label fw-medium small mb-1">KYA Form Upload</label>
+                    <input type="file" class="form-control" id="kyaForm" accept=".doc,.docx,.pdf">
+                  </div>
+
+                  <!-- Notes -->
+                  <div class="col-12">
+                    <div class="alert alert-danger small mb-2">
+                      <strong>Note:</strong><br>
+                      1. Please upload <strong>doc, docx, pdf</strong> file types only.<br>
+                      2. It is mandatory to upload <strong>Know Your Author (KYA)</strong> form, otherwise your
+                      submission will be rejected.
+                    </div>
+
+                    <p class="mb-1">
+                      <a href="KYA_Form.docx" download class="btn btn-outline-secondary">
+                        Click here to download KYA form format
+                      </a>
+                    </p>
+
+                    <p class="text-danger small mb-0">
+                      Please upload a valid Know Your Author (KYA) Form
+                    </p>
+                  </div>
+
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="form-step">
+        <section class="Bank-KYC-Details">
+          <div class="card-body p-4">
+            <div class="text-left register-border mb-3">
+              <h4 class="fw-bold mb-1 name-title">Bank & KYC Details</h4>
+              <p class="fw-semibold text-secondary mb-3 small"> Please fill in the Bank & KYC Details below</p>
+            </div>
+            <form>
+              <div class="row g-3">
+
+                <!-- Bank Name -->
+                <div class="col-md-6 col-lg-4">
+                  <label for="bankName" class="form-label fw-medium small mb-1">Select Bank</label>
+                  <select class="form-select" id="bankName">
+                    <option selected>- Select Bank -</option>
+                    <option>SBI</option>
+                    <option>HDFC Bank</option>
+                    <option>ICICI Bank</option>
+                    <option>Punjab National Bank</option>
+                    <option>Axis Bank</option>
+                  </select>
+                </div>
+
+                <!-- IFSC Code -->
+                <div class="col-md-6 col-lg-4">
+                  <label for="ifscCode" class="form-label fw-medium small mb-1">IFSC Code</label>
+                  <input type="text" class="form-control" id="ifscCode" placeholder="Enter IFSC Code">
+                </div>
+
+                <!-- Branch Name -->
+                <div class="col-md-6 col-lg-4">
+                  <label for="branchName" class="form-label fw-medium small mb-1">Branch Name</label>
+                  <input type="text" class="form-control" id="branchName" placeholder="Enter Branch Name">
+                </div>
+
+                <!-- Tax Registration Number -->
+                <div class="col-md-6 col-lg-4">
+                  <label for="taxRegNo" class="form-label fw-medium small mb-1">Tax Registration No.</label>
+                  <input type="text" class="form-control" id="taxRegNo" placeholder="Enter Tax Reg No">
+                </div>
+
+                <!-- Bank Account Number -->
+                <div class="col-md-6 col-lg-4">
+                  <label for="accountNumber" class="form-label fw-medium small mb-1">Bank Account Number</label>
+                  <input type="text" class="form-control" id="accountNumber" placeholder="Enter Account Number">
+                </div>
+
+                <!-- Account Holder Name -->
+                <div class="col-md-6 col-lg-4">
+                  <label for="accountHolder" class="form-label fw-medium small mb-1">Account Holder Name</label>
+                  <input type="text" class="form-control" id="accountHolder" placeholder="Enter Account Holder Name">
+                </div>
+
+                <!-- Country -->
+                <div class="col-md-6 col-lg-4">
+                  <label for="country" class="form-label fw-medium small mb-1">Country</label>
+                  <input type="text" class="form-control" id="country" value="India" readonly>
+                </div>
+
+                <!-- Aadhaar Number -->
+                <div class="col-md-6 col-lg-4">
+                  <label for="aadhaarNumber" class="form-label fw-medium small mb-1">Aadhaar Number</label>
+                  <input type="text" class="form-control" id="aadhaarNumber" placeholder="Enter Aadhaar Number">
+                </div>
+
+                <!-- PAN Card Upload -->
+                <div class="col-md-6 col-lg-4">
+                  <label for="panUpload" class="form-label fw-medium small mb-1">Upload PAN Card</label>
+                  <input type="file" class="form-control" id="panUpload" accept=".jpg,.jpeg,.png,.gif,.pdf">
+
+                  <div class="form-text text-danger">
+                    <strong>Note:</strong> Please upload <strong>jpg, jpeg, png, gif, pdf</strong> file types only.
+                  </div>
+                </div>
+
+              </div>
+            </form>
+
+          </div>
+        </section>
+
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="form-step">
+        <section class="Address-Details-sec">
+          <div class="card-body">
+            <div class="text-left register-border mb-3">
+              <h4 class="fw-bold mb-1 name-title">Address Details</h4>
+              <p class="fw-semibold text-secondary mb-3 small"> Please fill in the Address Details below</p>
+            </div>
+            <form>
+              <div class="row g-4">
+
+                <!-- Address Line 1 -->
+                <div class="col-md-6">
+                  <label for="addressLine1" class="form-label fw-medium small mb-1">Address Line 1</label>
+                  <input type="text" class="form-control" id="addressLine1" placeholder="House No, Street, Locality">
+                </div>
+
+                <!-- Address Line 2 -->
+                <div class="col-md-6">
+                  <label for="addressLine2" class="form-label fw-medium small mb-1">Address Line 2</label>
+                  <input type="text" class="form-control" id="addressLine2" placeholder="Area, Landmark (Optional)">
+                </div>
+
+                <!-- City -->
+                <div class="col-md-4">
+                  <label for="city" class="form-label fw-medium small mb-1">City</label>
+                  <input type="text" class="form-control" id="city" placeholder="Enter City">
+                </div>
+
+                <!-- District -->
+                <div class="col-md-4">
+                  <label for="district" class="form-label fw-medium small mb-1">District</label>
+                  <input type="text" class="form-control" id="district" placeholder="Enter District">
+                </div>
+
+                <!-- State -->
+                <div class="col-md-4">
+                  <label for="state" class="form-label fw-medium small mb-1">State</label>
+                  <select class="form-select" id="state">
+                    <option selected>- Select State -</option>
+                    <option>Andhra Pradesh</option>
+                    <option>Delhi</option>
+                    <option>Maharashtra</option>
+                    <option>Uttar Pradesh</option>
+                    <option>Rajasthan</option>
+                  </select>
+                </div>
+
+                <!-- PIN Code -->
+                <div class="col-md-4">
+                  <label for="pincode" class="form-label fw-medium small mb-1">PIN Code</label>
+                  <input type="text" class="form-control" id="pincode" placeholder="Enter PIN Code">
+                </div>
+
+                <!-- Country -->
+                <div class="col-md-4">
+                  <label for="country" class="form-label fw-medium small mb-1">Country</label>
+                  <input type="text" class="form-control" id="country" value="India" readonly>
+                </div>
+
+                <!-- Address Type -->
+                <div class="col-md-4">
+                  <label for="addressType" class="form-label fw-medium small mb-1">Address Type</label>
+                  <select class="form-select" id="addressType">
+                    <option selected>- Select Address Type -</option>
+                    <option>Residential</option>
+                    <option>Office</option>
+                    <option>Correspondence</option>
+                  </select>
+                </div>
+
+              </div>
+            </form>
+
+          </div>
+        </section>
+
+      </div>
+
+      <!-- STEP 5 -->
+      <div class="form-step">
+        <section class="Guidelines-sec">
+          <div class="card-body">
+            <div class="text-left register-border mb-3">
+              <h4 class="fw-bold mb-1 name-title"> User Guidelines & Instructions</h4>
+            </div>
+            <div class="accordion" id="authorGuide">
+
+              <!-- Basic Details -->
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#basicInfo">
+                    Basic Information
+                  </button>
+                </h2>
+                <div id="basicInfo" class="accordion-collapse collapse show">
+                  <div class="accordion-body small">
+
+                    <p><strong>UserName:</strong> Enter the username. If the user name is already existing, then try
+                      entering the other username. The username should be minimum of 4 characters.</p>
+
+                    <p><strong>First Name:</strong> Please Enter First Name. it should be the letter.</p>
+
+                    <p><strong>Last Name:</strong> Enter the Last Name. it should be the letter.</p>
+
+                    <p><strong>Email:</strong> Enter the valid email address.</p>
+
+                    <p><strong>Password:</strong> In this field, enter the password, <strong>Confirm Password:</strong>
+                      Re-enter the same password to confirm.</p>
+
+                    <p>The password should be minimum of 6 characters, including 1 special character, 1 digit, and 1
+                      Upper-case.</p>
+
+                    <p><strong>Mobile Number:</strong> Enter the mobile number. The mobile number should be of 10
+                      digits.</p>
+
+                    <p>Click Choose File next to Choose paragraph to browse and select the desired image file you would
+                      like to upload Note: You can only upload the image files that are in jpg, jpeg, png, and gif
+                      formats.</p>
+
+                  </div>
+                </div>
+              </div>
+
+              <!-- Additional Information -->
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#additionalInfo">
+                    Additional Information (Optional)
+                  </button>
+                </h2>
+                <div id="additionalInfo" class="accordion-collapse collapse">
+                  <div class="accordion-body small">
+
+                    <p>After filling in the details, navigate to Additional Information tab (Optional) and provide the
+                      required information in the appropriate fields.</p>
+
+                    <p><strong>Aadhar:</strong> Enter the valid Aadhar Number. The number should be of 12 digits.</p>
+
+                    <p><strong>Awards/Certifications:</strong> Provide the certifications or prestigious awards that you
+                      have won for the authoring works.</p>
+
+                    <p><strong>Field of Expertise:</strong> Enter your expertise in the authoring field.</p>
+
+                    <p><strong>Profile (CV):</strong> Click Choose file to browse and select the CV to upload, Note: You
+                      can only upload the CV in doc, docx formats.</p>
+
+                    <p><strong>Pan Card:</strong> Click Choose file to browse and upload the PAN card, Note: You can
+                      only upload the pan card in jpg, jpeg, png, pdf file formats.</p>
+
+                    <p><strong>Previous Books:</strong> Enter the previous books that you have authored.</p>
+
+                    <p><strong>DPD Books:</strong> Enter the DPD books that you have authored before.</p>
+
+                    <p><strong>Experience:</strong> Enter the years of experience you have as an author.</p>
+
+                    <p><strong>Select Category:</strong> Select your book category from the list.</p>
+
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bank Details -->
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#bankInfo">
+                    Bank Details (Optional)
+                  </button>
+                </h2>
+                <div id="bankInfo" class="accordion-collapse collapse">
+                  <div class="accordion-body small">
+
+                    <p>In Bank Details tab (Optional) , provide your account details in the designated fields.</p>
+
+                    <p><strong>Note:</strong> You can skip from providing the bank details, but if you select the bank
+                      name and its branch, then it is mandatory to provide all your bank details.</p>
+
+                    <p><strong>Select Bank Name:</strong> From the list, select the bank name in which you hold an
+                      account.</p>
+
+                    <p><strong>Select Branch Name:</strong> From the list, select the Branch Name.</p>
+
+                    <p><strong>Bank Account Number:</strong> Enter the Bank Account Number.</p>
+
+                    <p><strong>Account Holder Name:</strong> Enter the Account holder’s name.</p>
+
+                    <p><strong>IFSC Code:</strong> Enter the valid IFSC code of the respective bank branch.</p>
+
+                    <p><strong>Tax Reg No:</strong> Provide the valid Tax registration number.</p>
+
+                  </div>
+                </div>
+              </div>
+
+              <!-- Address -->
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#addressInfo">
+                    Address Details (Optional)
+                  </button>
+                </h2>
+                <div id="addressInfo" class="accordion-collapse collapse">
+                  <div class="accordion-body small">
+
+                    <p>Address detailss (Optional) Author should provide the address details in the respective fields .
+                    </p>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        <div class="form-check mt-3">
+          <input class="form-check-input" type="checkbox">
+          <label class="form-check-label">I agree to guidelines</label>
+        </div>
+      </div>
+
+      <!-- BUTTONS -->
+      <div class="d-flex border-top pt-3 justify-content-between mt-4">
+        <button type="button" class="btn btn-outline-secondary" id="prevBtn" disabled>Previous</button>
+        <button type="button" class="btn next-btn btn-success" id="nextBtn">Next</button>
+      </div>
+
+    </form>
   </div>
-</section>
+</div>
 
+<script>
+  const steps = document.querySelectorAll('.form-step');
+  const stepIndicators = document.querySelectorAll('.step');
+  let currentStep = 0;
+
+  function updateStep() {
+    steps.forEach((step, i) => step.classList.toggle('active', i === currentStep));
+    stepIndicators.forEach((step, i) => {
+      step.classList.toggle('active', i === currentStep);
+      step.classList.toggle('completed', i < currentStep);
+    });
+    document.getElementById('prevBtn').disabled = currentStep === 0;
+    document.getElementById('nextBtn').textContent = currentStep === steps.length - 1 ? 'Submit' : 'Next';
+  }
+
+  document.getElementById('nextBtn').onclick = () => {
+    if (currentStep < steps.length - 1) currentStep++;
+    updateStep();
+  };
+
+  document.getElementById('prevBtn').onclick = () => {
+    if (currentStep > 0) currentStep--;
+    updateStep();
+  };
+</script>
