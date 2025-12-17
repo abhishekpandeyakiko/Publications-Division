@@ -337,6 +337,72 @@ const Routes = {
     layout: 'default',
     title: "FAQ's - Publications Division"
   },
+  imageGallery: {
+    path: '/view-more/image-gallery',
+    page: 'pages/view-more/image-gallery.html',
+    layout: 'default',
+    title: 'Image Gallery - Publications Division'
+  },
+  eventsHighlights: {
+    path: '/view-more/events-highlights',
+    page: 'pages/view-more/events-highlights.html',
+    layout: 'default',
+    title: 'Events & Highlights - Publications Division'
+  },
+  webInformationManager: {
+    path: '/web-information-manager',
+    page: 'pages/web-information-manager.html',
+    layout: 'default',
+    title: 'Web Information Manager - Publications Division'
+  },
+  termsConditions: {
+    path: '/terms-conditions',
+    page: 'pages/terms-conditions.html',
+    layout: 'default',
+    title: 'Terms & Conditions - Publications Division'
+  },
+  contactUs: {
+    path: '/contact-us',
+    page: 'pages/contact-us.html',
+    layout: 'default',
+    title: 'Contact Us - Publications Division'
+  },
+  privacyPolicy: {
+    path: '/privacy-policy',
+    page: 'pages/privacy-policy.html',
+    layout: 'default',
+    title: 'Privacy Policy - Publications Division'
+  },
+  copyrightPolicy: {
+    path: '/copyright-policy',
+    page: 'pages/copyright-policy.html',
+    layout: 'default',
+    title: 'Copyright Policy - Publications Division'
+  },
+  accessibilityStatement: {
+    path: '/accessibility-statement',
+    page: 'pages/accessibility-statement.html',
+    layout: 'default',
+    title: 'Accessibility Statement - Publications Division'
+  },
+  siteMap: {
+    path: '/site-map',
+    page: 'pages/site-map.html',
+    layout: 'default',
+    title: 'Site Map - Publications Division'
+  },
+  notifications: {
+    path: '/notifications',
+    page: 'pages/notifications.html',
+    layout: 'default',
+    title: 'Notifications - Publications Division'
+  },
+  cart: {
+    path: '/cart',
+    page: 'pages/cart.html',
+    layout: 'default',
+    title: 'Shopping Cart - Publications Division'
+  },
 
 };
 
