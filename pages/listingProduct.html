@@ -1,702 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book Listing </title>
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-
-  <style>
-body {
-  background-color: #f5f7fa;
-  font-family: "Inter", "Segoe UI", sans-serif;
-}
-
-.product-listing-page {
-  background-color: #f5f7fa;
-  min-height: 100vh;
-}
-
-/* Breadcrumb Enhancement */
-.product-listing-page nav[aria-label="breadcrumb"] {
-  padding: 12px 0;
-  font-size: 14px;
-  color: #6b7280;
-}
-
-.product-listing-page nav[aria-label="breadcrumb"] a {
-  color: #004d40;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.product-listing-page nav[aria-label="breadcrumb"] a:hover {
-  color: #00695c;
-}
-
-/* Header Section Enhancement */
-.listing-header {
-  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-  padding: 16px 0;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.listing-header h6 {
-  font-size: 15px;
-  color: #1f2937;
-  font-weight: 600;
-}
-
-.listing-header .text-muted {
-  color: #6b7280 !important;
-  font-weight: 500;
-}
-
-.sort-dropdown {
-  min-width: 180px;
-  border: 1.5px solid #d1d5db;
-  border-radius: 8px;
-  padding: 8px 12px;
-  font-size: 14px;
-  background-color: #ffffff;
-  transition: all 0.2s;
-  cursor: pointer;
-}
-
-.sort-dropdown:hover {
-  border-color: #004d40;
-  box-shadow: 0 0 0 3px rgba(0, 77, 64, 0.1);
-}
-
-.sort-dropdown:focus {
-  border-color: #004d40;
-  box-shadow: 0 0 0 3px rgba(0, 77, 64, 0.15);
-  outline: none;
-}
-
-/* Filter Box Enhancement */
-.filter-box {
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  background: #ffffff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  position: sticky;
-  top: 100px;
-  max-height: calc(100vh - 120px);
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.filter-box .accordion {
-  overflow: visible;
-}
-
-.filter-box::-webkit-scrollbar {
-  width: 6px;
-}
-
-.filter-box::-webkit-scrollbar-track {
-  background: #f1f5f9;
-  border-radius: 10px;
-}
-
-.filter-box::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 10px;
-}
-
-.filter-box::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
-}
-
-.filter-box h5 {
-  font-size: 18px;
-  font-weight: 700;
-  color: #1f2937;
-  margin-bottom: 20px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid #e5e7eb;
-}
-
-.accordion-button {
-  font-size: 14px;
-  font-weight: 600;
-  color: #374151;
-  padding: 12px 16px;
-  background-color: transparent;
-  border: none;
-  border-radius: 6px;
-  transition: all 0.2s ease;
-}
-
-.accordion-button:hover {
-  background-color: #f9fafb;
-}
-
-.accordion-button:not(.collapsed) {
-  color: #004d40;
-  background-color: #f0fdf4;
-  box-shadow: none;
-}
-
-.accordion-button:focus {
-  box-shadow: none;
-  border-color: transparent;
-}
-
-.accordion-button::after {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23004d40'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-}
-
-.accordion-item {
-  border: 0 !important;
-  margin-bottom: 12px;
-  border-bottom: 1px solid #e5e7eb !important;
-  padding-bottom: 12px;
-  overflow: visible;
-}
-
-.accordion-item:last-child {
-  border-bottom: none !important;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-.accordion-item .accordion-collapse {
-  overflow: visible;
-}
-
-.accordion-body {
-  padding: 16px;
-  background-color: #fafafa;
-  overflow: visible;
-  position: relative;
-}
-
-.form-check {
-  padding: 10px 0;
-  margin-bottom: 4px;
-}
-
-.form-check-input {
-  width: 18px;
-  height: 18px;
-  margin-top: 2px;
-  cursor: pointer;
-  border: 2px solid #d1d5db;
-  transition: all 0.2s;
-}
-
-.form-check-input:checked {
-  background-color: #004d40;
-  border-color: #004d40;
-}
-
-.form-check-input:focus {
-  box-shadow: 0 0 0 3px rgba(0, 77, 64, 0.15);
-}
-
-.form-check-label {
-  font-size: 14px;
-  color: #4b5563;
-  margin-left: 8px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-
-.form-check-label:hover {
-  color: #004d40;
-}
-
-/* Price Range Slider */
-.form-range {
-  height: 6px;
-  background: #e5e7eb;
-  border-radius: 5px;
-  outline: none;
-}
-
-.form-range::-webkit-slider-thumb {
-  width: 20px;
-  height: 20px;
-  background: #004d40;
-  border: 2px solid #ffffff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.form-range::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
-  background: #004d40;
-  border: 2px solid #ffffff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.price-display {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px;
-  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-  border-radius: 10px;
-  border: 1px solid #bbf7d0;
-  margin: 16px 0;
-}
-
-.price-min, .price-max {
-  flex: 1;
-}
-
-.price-current {
-  flex: 1;
-  text-align: center;
-}
-
-.price-current .badge {
-  font-size: 16px;
-  padding: 8px 16px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-}
-
-.price-input-group {
-  margin-top: 16px;
-}
-
-.price-input-group .form-control {
-  border: 1.5px solid #d1d5db;
-  border-radius: 6px;
-  padding: 8px 12px;
-  font-weight: 600;
-  transition: all 0.2s;
-}
-
-.price-input-group .form-control:focus {
-  border-color: #004d40;
-  box-shadow: 0 0 0 3px rgba(0, 77, 64, 0.1);
-  outline: none;
-}
-
-.price-input-group .form-label {
-  font-size: 12px;
-  font-weight: 600;
-  color: #4b5563;
-  margin-bottom: 6px;
-}
-
-/* Price Range Header */
-.price-range-header {
-  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-  padding: 12px 16px;
-  border-radius: 8px;
-  border: 1px solid #bbf7d0;
-}
-
-/* Price Slider Container */
-.price-slider-container {
-  position: relative;
-  padding: 25px 0 55px 0;
-  margin: 20px 0;
-  overflow: visible !important;
-  z-index: 1;
-  min-height: 80px;
-}
-
-.price-slider-container .form-range {
-  margin: 0;
-  height: 8px;
-  position: relative;
-  z-index: 2;
-}
-
-.price-slider-container .position-relative {
-  overflow: visible !important;
-}
-
-.price-slider-container:hover .slider-value-display {
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-/* Slider Value Display Tooltip */
-.slider-value-display {
-  position: absolute;
-  top: -50px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #374151;
-  color: white;
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 700;
-  white-space: nowrap;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-  pointer-events: none;
-  z-index: 1000;
-  transition: opacity 0.2s ease, transform 0.1s ease, visibility 0.2s ease;
-  opacity: 0;
-  visibility: hidden;
-  min-width: 80px;
-  text-align: center;
-}
-
-.price-slider-container:hover .slider-value-display,
-.price-slider-container:active .slider-value-display,
-.price-slider-container input:focus ~ .slider-value-display,
-.price-slider-container input:active ~ .slider-value-display {
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-.slider-value-display .tooltip-arrow {
-  position: absolute;
-  bottom: -7px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-top: 9px solid #374151;
-}
-
-/* Enhanced slider styling */
-.price-slider-container .form-range {
-  cursor: pointer;
-}
-
-.price-slider-container .form-range:hover {
-  cursor: grab;
-}
-
-.price-slider-container .form-range:active {
-  cursor: grabbing;
-}
-
-/* Input Group Styling */
-.price-input-group .input-group-text {
-  border: 1.5px solid #d1d5db;
-  border-right: none;
-  color: #6b7280;
-  font-weight: 600;
-  font-size: 13px;
-}
-
-.price-input-group .input-group .form-control {
-  border-left: none;
-  border-radius: 0 6px 6px 0;
-}
-
-.price-input-group .input-group .form-control:focus {
-  border-left: 1.5px solid #004d40;
-  border-color: #004d40;
-}
-
-.btn-dark {
-  background-color: #004d40;
-  border: none;
-  font-weight: 600;
-  padding: 12px;
-  border-radius: 8px;
-  transition: all 0.3s;
-  box-shadow: 0 2px 4px rgba(0, 77, 64, 0.2);
-}
-
-.btn-dark:hover {
-  background-color: #00695c;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0, 77, 64, 0.3);
-}
-
-.btn-dark:active {
-  transform: translateY(0);
-}
-/* product css  */
-/* =========================
-   Book Card – Modern Style
-   ========================= */
-.book-card {
-  border: 1px solid #e5e7eb;
-  border-radius: 16px;
-  background: #ffffff;
-  overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 2px 8px rgba(17, 24, 39, 0.08);
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.book-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 40px rgba(17, 24, 39, 0.12);
-  border-color: #004d40;
-}
-
-/* ---------- Image ---------- */
-.book-img {
-  width: 85px;
-  height: 120px;
-  border-radius: 10px;
-  object-fit: cover;
-  object-position: center;
-  flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid #f3f4f6;
-}
-
-.book-card:hover .book-img {
-  transform: scale(1.06) rotate(1deg);
-}
-
-/* Responsive Image Size */
-@media (min-width: 768px) {
-  .book-img { width: 90px; height: 130px; }
-}
-@media (min-width: 992px) {
-  .book-img { width: 100px; height: 150px; }
-}
-
-/* ---------- Text ---------- */
-.book-title {
-  font-size: 15px;
-  font-weight: 700;
-  color: #1f2937;
-  line-height: 1.4;
-  margin-bottom: 8px;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  transition: color 0.2s;
-}
-
-.book-card:hover .book-title {
-  color: #004d40;
-}
-
-.book-author {
-  font-size: 13px;
-  color: #6b7280;
-  margin-bottom: 10px;
-  font-weight: 500;
-}
-
-/* ---------- Rating ---------- */
-.rating {
-  margin-bottom: 10px;
-}
-
-.rating i {
-  color: #fbbf24;
-  margin-right: 2px;
-  font-size: 14px;
-  filter: drop-shadow(0 1px 2px rgba(251, 191, 36, 0.3));
-}
-
-.rating small {
-  color: #6b7280;
-  font-size: 12px;
-  font-weight: 500;
-  margin-left: 4px;
-}
-
-/* ---------- Price ---------- */
-.book-price {
-  color: #004d40;
-  font-weight: 800;
-  font-size: 18px;
-  margin-bottom: 12px;
-  letter-spacing: -0.5px;
-}
-
-/* ---------- Buttons ---------- */
-.btn-teal {
-    background: linear-gradient(135deg, #004d40 0%, #00695c 100%);
-    color: white;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 10px 16px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 2px 6px rgba(0, 77, 64, 0.25);
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-}
-
-.btn-teal:hover {
-   background: linear-gradient(135deg, #00695c 0%, #00897b 100%);
-   color: white;
-   transform: translateY(-2px);
-   box-shadow: 0 4px 12px rgba(0, 77, 64, 0.35);
-}
-
-.btn-teal:active {
-   transform: translateY(0);
-   box-shadow: 0 2px 6px rgba(0, 77, 64, 0.25);
-}
-
-
-
-/* Wishlist Button */
-.wishlist-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 2px solid #f3f4f6;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #ffffff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 10;
-}
-
-.wishlist-btn i {
-  font-size: 18px;
-  color: #ef4444;
-  transition: all 0.2s;
-}
-
-.wishlist-btn:hover {
-  background: #fef2f2;
-  border-color: #ef4444;
-  transform: scale(1.1) rotate(5deg);
-  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.25);
-}
-
-.wishlist-btn:active {
-  transform: scale(1.05);
-}
-
-/* ---------- Layout ---------- */
-.book-card .d-flex.align-items-center {
-  gap: 16px;
-}
-.book-card .ms-3 {
-  margin-left: 16px !important;
-}
-.book-card .p-3 {
-  padding: 20px !important;
-}
-
-.book-card .flex-grow-1 {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 150px;
-}
-
-/* Pagination Enhancement */
-.pagination {
-  gap: 8px;
-}
-
-.page-link {
-  border: 1.5px solid #e5e7eb;
-  color: #374151;
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: all 0.2s;
-  background-color: #ffffff;
-}
-
-.page-link:hover {
-  background-color: #f0fdf4;
-  border-color: #004d40;
-  color: #004d40;
-  transform: translateY(-2px);
-}
-
-.page-item.active .page-link {
-  background-color: #004d40;
-  border-color: #004d40;
-  color: #ffffff;
-  box-shadow: 0 2px 8px rgba(0, 77, 64, 0.3);
-}
-
-.page-item.active .page-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 77, 64, 0.4);
-}
-
-/* Responsive Improvements */
-@media (max-width: 768px) {
-  .filter-box {
-    position: relative;
-    top: 0;
-    max-height: none;
-    margin-bottom: 24px;
-  }
-  
-  .book-img {
-    width: 70px;
-    height: 100px;
-  }
-  
-  .listing-header {
-    flex-direction: column;
-    gap: 12px;
-    align-items: flex-start !important;
-  }
-  
-  .sort-dropdown {
-    width: 100%;
-  }
-}
-
-/* Loading State */
-.book-card.loading {
-  opacity: 0.6;
-  pointer-events: none;
-}
-
-/* Empty State */
-.empty-state {
-  text-align: center;
-  padding: 60px 20px;
-  color: #6b7280;
-}
-
-.empty-state i {
-  font-size: 64px;
-  color: #d1d5db;
-  margin-bottom: 16px;
-}
-
-  </style>
-</head>
-<body>
-
+<section class="intro-section">
+    <div class="container position-relative z-2 py-4 py-lg-5">
+        <h1>Product Listing</h1>
+    </div>
+    <span>Home > Listing</span>
+</section>
 <section class="product-listing-page py-4">
-  <!-- Breadcrumb -->
-  <div class="container-fluid">
-    <nav aria-label="breadcrumb" class="small">
-      <a href="/">Home</a> / <span class="text-muted">Listing</span>
-    </nav>
-  </div>
 
   <!-- Product count and sort -->
-  <div class="container-fluid listing-header mt-3">
-    <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+  <div class="container-fluid ">
+    <div class="listing-header mt-3 d-flex justify-content-between align-items-center flex-wrap gap-3">
       <h6 class="mb-0">
         <i class="fa-solid fa-book me-2" style="color: #004d40;"></i>
-        Total Books <span class="text-muted">9</span>
+        Total Books <span class="text-muted">(9)</span>
       </h6>
       <div class="d-flex align-items-center gap-2">
-        <i class="fa-solid fa-arrow-down-wide-short text-muted"></i>
         <select class="form-select form-select-sm shadow-none sort-dropdown">
           <option selected>Sort by</option>
           <option>Price: Low to High</option>
@@ -712,15 +29,14 @@ body {
   <!-- Main Section -->
   <div class="container-fluid mt-3">
     <div class="row">
-      <!-- FILTER SIDEBAR -->
       <div class="col-lg-3 col-md-4 mb-4">
         <div class="filter-box p-3 rounded shadow-sm bg-white">
           <div class="accordion" id="filterAccordion">
-            
-            <!-- Books Category -->
+
             <div class="accordion-item">
               <h2 class="accordion-header" id="categoryHeading">
-                <button class="accordion-button collapsed fw-semibold shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#categoryFilter">
+                <button class="accordion-button collapsed fw-semibold shadow-none" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#categoryFilter">
                   Books category
                 </button>
               </h2>
@@ -745,50 +61,20 @@ body {
             <!-- Price Filter -->
             <div class="accordion-item">
               <h2 class="accordion-header" id="priceHeading">
-                <button class="accordion-button collapsed fw-semibold shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#priceFilter">
-                  <i class="fa-solid fa-indian-rupee-sign me-2" style="font-size: 14px;"></i>
+                <button class="accordion-button collapsed fw-semibold shadow-none" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#priceFilter">
                   Price Range
                 </button>
               </h2>
               <div id="priceFilter" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
                 <div class="accordion-body">
-                  <!-- Price Range Display -->
-                  <div class="price-range-header mb-3">
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                      <span class="small text-muted fw-semibold">Price Range</span>
-                      <span class="badge bg-success fs-6 px-3 py-2" id="priceValue">Rs. 500</span>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <span class="small fw-bold text-dark">Rs. <span id="minPriceDisplay">0</span></span>
-                      <span class="small fw-bold text-dark">Rs. <span id="maxPriceDisplay">1000</span></span>
-                    </div>
-                  </div>
-                  
-                  <!-- Slider with inline price display -->
+
                   <div class="price-slider-container mb-4">
                     <div class="position-relative">
                       <input type="range" class="form-range" min="0" max="1000" value="500" step="50" id="priceRange">
-                      <div class="slider-value-display" id="sliderValueDisplay">
+
+                      <div class="slider-value-display position-absolute">
                         <span id="sliderValueText">Rs. 500</span>
-                        <span class="tooltip-arrow"></span>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <!-- Price Input Fields -->
-                  <div class="price-input-group d-flex gap-2">
-                    <div class="flex-grow-1">
-                      <label class="form-label small text-muted fw-semibold">Min Price</label>
-                      <div class="input-group input-group-sm">
-                        <span class="input-group-text bg-light">Rs.</span>
-                        <input type="number" class="form-control" id="minPriceInput" value="0" min="0" max="1000">
-                      </div>
-                    </div>
-                    <div class="flex-grow-1">
-                      <label class="form-label small text-muted fw-semibold">Max Price</label>
-                      <div class="input-group input-group-sm">
-                        <span class="input-group-text bg-light">Rs.</span>
-                        <input type="number" class="form-control" id="maxPriceInput" value="500" min="0" max="1000">
                       </div>
                     </div>
                   </div>
@@ -799,7 +85,8 @@ body {
             <!-- Language Filter -->
             <div class="accordion-item">
               <h2 class="accordion-header" id="langHeading">
-                <button class="accordion-button collapsed fw-semibold shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#langFilter">
+                <button class="accordion-button collapsed fw-semibold shadow-none" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#langFilter">
                   Language
                 </button>
               </h2>
@@ -819,304 +106,296 @@ body {
           </div>
 
           <!-- Reset Filter Button -->
-          <button class="btn btn-dark w-100 mt-3 py-2 rounded-3"> <i class="fa-solid fa-filter"></i> Reset Filter</button>
+          <button class="btn btn-dark w-100 mt-3 py-2 rounded-3"> <i class="fa-solid fa-filter"></i> Reset
+            Filter</button>
         </div>
       </div>
 
       <!-- PRODUCT GRID -->
       <div class="col-lg-9 col-md-8">
-                <div class="row">
-                    <div class=" col-md-6 col-lg-4 col-xl-4 mb-2">
-                        <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
-                            <button
-                                class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
-                                <i class="fa-regular fa-heart"></i>
-                            </button>
+        <div class="row">
+          <div class=" col-md-6 col-lg-4 col-xl-4 mb-2">
+            <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
+              <button class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
+                <i class="fa-regular fa-heart"></i>
+              </button>
 
-                            <div class="d-flex align-items-center">
-                                <img src="images/books/books1.png" class="book-img rounded" alt="Book Cover">
-                                <div class="ms-3 flex-grow-1">
-                                    <p class="text-muted mb-1 small">writer Name..</p>
-                                    <h6 class="fw-semibold mb-2 text-dark book-title">AZADI KI LADAI KE Jabtashuda
-                                        Tarane
-                                    </h6>
+              <div class="d-flex align-items-center">
+                <img src="images/books/books1.png" class="book-img rounded" alt="Book Cover">
+                <div class="ms-3 flex-grow-1">
+                  <p class="text-muted mb-1 small">writer Name..</p>
+                  <h6 class="fw-semibold mb-2 text-dark book-title">AZADI KI LADAI KE Jabtashuda
+                    Tarane
+                  </h6>
 
-                                    <div class="rating">
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-regular fa-star text-warning"></i>
-                                        <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
-                                    </div>
+                  <div class="rating">
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-regular fa-star text-warning"></i>
+                    <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
+                  </div>
 
-                                    <div class="fw-semibold text-dark mb-1">Rs. 420.00</div>
+                  <div class="fw-semibold text-dark mb-1">Rs. 420.00</div>
 
-                                    <button class="btn btn-teal w-100 py-1 rounded-3">
-                                        <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
-                        <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
-                            <button
-                                class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
-                                <i class="fa-regular fa-heart"></i>
-                            </button>
-
-                            <div class="d-flex align-items-center">
-                                <img src="images/books/books2.png" class="book-img rounded" alt="Book Cover">
-                                <div class="ms-3 flex-grow-1">
-                                    <p class="text-muted mb-1 small">writer Name..</p>
-                                    <h6 class="fw-semibold mb-2 text-dark book-title">SARDAR PATEL SACHITRA JEEVANEE
-                                        ...
-                                    </h6>
-
-                                    <div class="rating">
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-regular fa-star text-warning"></i>
-                                        <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
-                                    </div>
-
-                                    <div class="fw-semibold text-dark mb-1">Rs. 200.00</div>
-
-                                    <button class="btn btn-teal w-100 py-1 rounded-3">
-                                        <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
-                        <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
-                            <button
-                                class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
-                                <i class="fa-regular fa-heart"></i>
-                            </button>
-
-                            <div class="d-flex align-items-center">
-                                <img src="images/books/books3.png" class="book-img rounded" alt="Book Cover">
-                                <div class="ms-3 flex-grow-1">
-                                    <p class="text-muted mb-1 small">writer Name..</p>
-                                    <h6 class="fw-semibold mb-2 text-dark book-title">NETAJI - A LIFE IN PICTURES
-                                    </h6>
-
-                                    <div class="rating">
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-regular fa-star text-warning"></i>
-                                        <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
-                                    </div>
-
-                                    <div class="fw-semibold text-dark mb-1">Rs. 610.00</div>
-
-                                    <button class="btn btn-teal w-100 py-1 rounded-3">
-                                        <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
-                        <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
-                            <button
-                                class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
-                                <i class="fa-regular fa-heart"></i>
-                            </button>
-
-                            <div class="d-flex align-items-center">
-                                <img src="images/books/books4.png" class="book-img rounded" alt="Book Cover">
-                                <div class="ms-3 flex-grow-1">
-                                    <p class="text-muted mb-1 small">writer Name..</p>
-                                    <h6 class="fw-semibold mb-2 text-dark book-title">BHAGAT SINGH- SACHIT..</h6>
-
-                                    <div class="rating">
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-regular fa-star text-warning"></i>
-                                        <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
-                                    </div>
-
-                                    <div class="fw-semibold text-dark mb-1">Rs. 875.00</div>
-
-                                    <button class="btn btn-teal w-100 py-1 rounded-3">
-                                        <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
-                        <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
-                            <button
-                                class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
-                                <i class="fa-regular fa-heart"></i>
-                            </button>
-
-                            <div class="d-flex align-items-center">
-                                <img src="images/books/books5.png" class="book-img rounded" alt="Book Cover">
-                                <div class="ms-3 flex-grow-1">
-                                    <p class="text-muted mb-1 small">writer Name..</p>
-                                    <h6 class="fw-semibold mb-2 text-dark book-title">GREAT INDIAN WOMEN</h6>
-
-                                    <div class="rating">
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-regular fa-star text-warning"></i>
-                                        <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
-                                    </div>
-
-                                    <div class="fw-semibold text-dark mb-1">Rs. 120.00</div>
-
-                                    <button class="btn btn-teal w-100 py-1 rounded-3">
-                                        <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
-                        <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
-                            <button
-                                class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
-                                <i class="fa-regular fa-heart"></i>
-                            </button>
-
-                            <div class="d-flex align-items-center">
-                                <img src="images/books/books6.png" class="book-img rounded" alt="Book Cover">
-                                <div class="ms-3 flex-grow-1">
-                                    <p class="text-muted mb-1 small">writer Name..</p>
-                                    <h6 class="fw-semibold mb-2 text-dark book-title">INDIA VOTES 2024 A </h6>
-
-                                    <div class="rating">
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-regular fa-star text-warning"></i>
-                                        <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
-                                    </div>
-
-                                    <div class="fw-semibold text-dark mb-1">Rs. 775.00</div>
-
-                                    <button class="btn btn-teal w-100 py-1 rounded-3">
-                                        <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
-                        <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
-                            <button
-                                class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
-                                <i class="fa-regular fa-heart"></i>
-                            </button>
-
-                            <div class="d-flex align-items-center">
-                                <img src="images/books/books7.png" class="book-img rounded" alt="Book Cover">
-                                <div class="ms-3 flex-grow-1">
-                                    <p class="text-muted mb-1 small">writer Name..</p>
-                                    <h6 class="fw-semibold mb-2 text-dark book-title">CHILDREN'S RAMAYANA ..</h6>
-
-                                    <div class="rating">
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-regular fa-star text-warning"></i>
-                                        <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
-                                    </div>
-
-                                    <div class="fw-semibold text-dark mb-1">Rs. 90.00</div>
-
-                                    <button class="btn btn-teal w-100 py-1 rounded-3">
-                                        <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
-                        <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
-                            <button
-                                class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
-                                <i class="fa-regular fa-heart"></i>
-                            </button>
-
-                            <div class="d-flex align-items-center">
-                                <img src="images/books/books8.png" class="book-img rounded" alt="Book Cover">
-                                <div class="ms-3 flex-grow-1">
-                                    <p class="text-muted mb-1 small">writer Name..</p>
-                                    <h6 class="fw-semibold mb-2 text-dark book-title">CHILDREN'S RAMAYANA ..</h6>
-
-                                    <div class="rating">
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-regular fa-star text-warning"></i>
-                                        <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
-                                    </div>
-
-                                    <div class="fw-semibold text-dark mb-1">Rs. 640.00</div>
-
-                                    <button class="btn btn-teal w-100 py-1 rounded-3">
-                                        <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
-                        <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
-                            <button
-                                class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
-                                <i class="fa-regular fa-heart"></i>
-                            </button>
-
-                            <div class="d-flex align-items-center">
-                                <img src="images/books/books4.png" class="book-img rounded" alt="Book Cover">
-                                <div class="ms-3 flex-grow-1">
-                                    <p class="text-muted mb-1 small">writer Name..</p>
-                                    <h6 class="fw-semibold mb-2 text-dark book-title">RUTHE BADAL (POP)</h6>
-
-                                    <div class="rating">
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-solid fa-star text-warning"></i>
-                                        <i class="fa-regular fa-star text-warning"></i>
-                                        <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
-                                    </div>
-
-                                    <div class="fw-semibold text-dark mb-1">Rs. 110.00</div>
-
-                                    <button class="btn btn-teal w-100 py-1 rounded-3">
-                                        <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                  <button class="btn btn-teal w-100 py-1 rounded-3">
+                    <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
+                  </button>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+            <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
+              <button class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+
+              <div class="d-flex align-items-center">
+                <img src="images/books/books2.png" class="book-img rounded" alt="Book Cover">
+                <div class="ms-3 flex-grow-1">
+                  <p class="text-muted mb-1 small">writer Name..</p>
+                  <h6 class="fw-semibold mb-2 text-dark book-title">SARDAR PATEL SACHITRA JEEVANEE
+                    ...
+                  </h6>
+
+                  <div class="rating">
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-regular fa-star text-warning"></i>
+                    <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
+                  </div>
+
+                  <div class="fw-semibold text-dark mb-1">Rs. 200.00</div>
+
+                  <button class="btn btn-teal w-100 py-1 rounded-3">
+                    <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+            <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
+              <button class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+
+              <div class="d-flex align-items-center">
+                <img src="images/books/books3.png" class="book-img rounded" alt="Book Cover">
+                <div class="ms-3 flex-grow-1">
+                  <p class="text-muted mb-1 small">writer Name..</p>
+                  <h6 class="fw-semibold mb-2 text-dark book-title">NETAJI - A LIFE IN PICTURES
+                  </h6>
+
+                  <div class="rating">
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-regular fa-star text-warning"></i>
+                    <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
+                  </div>
+
+                  <div class="fw-semibold text-dark mb-1">Rs. 610.00</div>
+
+                  <button class="btn btn-teal w-100 py-1 rounded-3">
+                    <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+            <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
+              <button class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+
+              <div class="d-flex align-items-center">
+                <img src="images/books/books4.png" class="book-img rounded" alt="Book Cover">
+                <div class="ms-3 flex-grow-1">
+                  <p class="text-muted mb-1 small">writer Name..</p>
+                  <h6 class="fw-semibold mb-2 text-dark book-title">BHAGAT SINGH- SACHIT..</h6>
+
+                  <div class="rating">
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-regular fa-star text-warning"></i>
+                    <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
+                  </div>
+
+                  <div class="fw-semibold text-dark mb-1">Rs. 875.00</div>
+
+                  <button class="btn btn-teal w-100 py-1 rounded-3">
+                    <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+            <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
+              <button class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+
+              <div class="d-flex align-items-center">
+                <img src="images/books/books5.png" class="book-img rounded" alt="Book Cover">
+                <div class="ms-3 flex-grow-1">
+                  <p class="text-muted mb-1 small">writer Name..</p>
+                  <h6 class="fw-semibold mb-2 text-dark book-title">GREAT INDIAN WOMEN</h6>
+
+                  <div class="rating">
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-regular fa-star text-warning"></i>
+                    <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
+                  </div>
+
+                  <div class="fw-semibold text-dark mb-1">Rs. 120.00</div>
+
+                  <button class="btn btn-teal w-100 py-1 rounded-3">
+                    <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+            <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
+              <button class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+
+              <div class="d-flex align-items-center">
+                <img src="images/books/books6.png" class="book-img rounded" alt="Book Cover">
+                <div class="ms-3 flex-grow-1">
+                  <p class="text-muted mb-1 small">writer Name..</p>
+                  <h6 class="fw-semibold mb-2 text-dark book-title">INDIA VOTES 2024 A </h6>
+
+                  <div class="rating">
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-regular fa-star text-warning"></i>
+                    <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
+                  </div>
+
+                  <div class="fw-semibold text-dark mb-1">Rs. 775.00</div>
+
+                  <button class="btn btn-teal w-100 py-1 rounded-3">
+                    <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+            <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
+              <button class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+
+              <div class="d-flex align-items-center">
+                <img src="images/books/books7.png" class="book-img rounded" alt="Book Cover">
+                <div class="ms-3 flex-grow-1">
+                  <p class="text-muted mb-1 small">writer Name..</p>
+                  <h6 class="fw-semibold mb-2 text-dark book-title">CHILDREN'S RAMAYANA ..</h6>
+
+                  <div class="rating">
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-regular fa-star text-warning"></i>
+                    <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
+                  </div>
+
+                  <div class="fw-semibold text-dark mb-1">Rs. 90.00</div>
+
+                  <button class="btn btn-teal w-100 py-1 rounded-3">
+                    <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+            <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
+              <button class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+
+              <div class="d-flex align-items-center">
+                <img src="images/books/books8.png" class="book-img rounded" alt="Book Cover">
+                <div class="ms-3 flex-grow-1">
+                  <p class="text-muted mb-1 small">writer Name..</p>
+                  <h6 class="fw-semibold mb-2 text-dark book-title">CHILDREN'S RAMAYANA ..</h6>
+
+                  <div class="rating">
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-regular fa-star text-warning"></i>
+                    <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
+                  </div>
+
+                  <div class="fw-semibold text-dark mb-1">Rs. 640.00</div>
+
+                  <button class="btn btn-teal w-100 py-1 rounded-3">
+                    <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+            <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
+              <button class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+
+              <div class="d-flex align-items-center">
+                <img src="images/books/books4.png" class="book-img rounded" alt="Book Cover">
+                <div class="ms-3 flex-grow-1">
+                  <p class="text-muted mb-1 small">writer Name..</p>
+                  <h6 class="fw-semibold mb-2 text-dark book-title">RUTHE BADAL (POP)</h6>
+
+                  <div class="rating">
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-regular fa-star text-warning"></i>
+                    <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
+                  </div>
+
+                  <div class="fw-semibold text-dark mb-1">Rs. 110.00</div>
+
+                  <button class="btn btn-teal w-100 py-1 rounded-3">
+                    <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
@@ -1143,254 +422,37 @@ body {
   </div>
 </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // Price Range Slider and Input Synchronization
-    const priceRange = document.getElementById('priceRange');
-    const priceValue = document.getElementById('priceValue');
-    const sliderValueDisplay = document.getElementById('sliderValueDisplay');
-    const minPriceInput = document.getElementById('minPriceInput');
-    const maxPriceInput = document.getElementById('maxPriceInput');
-    const minPriceDisplay = document.getElementById('minPriceDisplay');
-    const maxPriceDisplay = document.getElementById('maxPriceDisplay');
-    
-    // Function to show tooltip
-    function showTooltip() {
-      if (sliderValueDisplay) {
-        sliderValueDisplay.style.opacity = '1';
-        sliderValueDisplay.style.visibility = 'visible';
-      }
-    }
-    
-    // Function to hide tooltip
-    function hideTooltip() {
-      if (sliderValueDisplay && !priceRange.matches(':active')) {
-        sliderValueDisplay.style.opacity = '0';
-        sliderValueDisplay.style.visibility = 'hidden';
-      }
-    }
-    
-    // Function to update slider tooltip position
-    function updateSliderTooltip() {
-      if (priceRange && sliderValueDisplay) {
-        const value = parseInt(priceRange.value);
-        const min = parseInt(priceRange.min);
-        const max = parseInt(priceRange.max);
-        const percentage = ((value - min) / (max - min)) * 100;
-        
-        // Position tooltip above slider handle
-        sliderValueDisplay.style.left = percentage + '%';
-        sliderValueDisplay.style.transform = 'translateX(-50%)';
-        
-        // Update tooltip text
-        const sliderValueText = document.getElementById('sliderValueText');
-        if (sliderValueText) {
-          sliderValueText.textContent = 'Rs. ' + value;
-        } else {
-          // Fallback: find the first span that's not the arrow
-          const spans = sliderValueDisplay.querySelectorAll('span');
-          spans.forEach(span => {
-            if (!span.classList.contains('tooltip-arrow')) {
-              span.textContent = 'Rs. ' + value;
-            }
-          });
-        }
-        
-        // Show tooltip when updating
-        showTooltip();
-      }
-    }
-    
-    // Function to update price display
-    function updatePriceDisplay() {
-      if (priceRange && priceValue) {
-        const maxPrice = priceRange.value;
-        priceValue.textContent = 'Rs. ' + maxPrice;
-        
-        // Update slider tooltip
-        updateSliderTooltip();
-        
-        // Update max price input
-        if (maxPriceInput) {
-          maxPriceInput.value = maxPrice;
-        }
-        
-        // Update max price display
-        if (maxPriceDisplay) {
-          maxPriceDisplay.textContent = maxPrice;
-        }
-      }
-      
-      // Update min price display
-      if (minPriceInput && minPriceDisplay) {
-        minPriceDisplay.textContent = minPriceInput.value || '0';
-      }
-    }
-    
-    // Initialize price display
-    if (priceRange && priceValue) {
-      // Initial tooltip position
-      updatePriceDisplay();
-      updateSliderTooltip();
-      
-      // Show tooltip on hover over slider container
-      const sliderContainer = document.querySelector('.price-slider-container');
-      if (sliderContainer) {
-        sliderContainer.addEventListener('mouseenter', function() {
-          showTooltip();
-          updateSliderTooltip();
-        });
-        
-        sliderContainer.addEventListener('mouseleave', function() {
-          // Only hide if not actively dragging
-          setTimeout(function() {
-            if (!priceRange.matches(':active') && document.activeElement !== priceRange) {
-              hideTooltip();
-            }
-          }, 200);
-        });
-      }
-      
-      // Show tooltip on hover over slider
-      priceRange.addEventListener('mouseenter', function() {
-        showTooltip();
-        updateSliderTooltip();
-      });
-      
-      // Update when slider changes (while dragging or clicking)
-      priceRange.addEventListener('input', function() {
-        updatePriceDisplay();
-        showTooltip();
-        updateSliderTooltip();
-      });
-      
-      // Update tooltip on mouse move over slider
-      priceRange.addEventListener('mousemove', function(e) {
-        updateSliderTooltip();
-        showTooltip();
-      });
-      
-      // Keep tooltip visible while dragging
-      priceRange.addEventListener('mousedown', function() {
-        showTooltip();
-        updateSliderTooltip();
-      });
-      
-      // Update on touch for mobile
-      priceRange.addEventListener('touchmove', function() {
-        updateSliderTooltip();
-        showTooltip();
-      });
-      
-      // Show tooltip when price filter accordion is expanded
-      const priceFilter = document.getElementById('priceFilter');
-      if (priceFilter) {
-        // Use MutationObserver to detect when accordion opens
-        const observer = new MutationObserver(function(mutations) {
-          mutations.forEach(function(mutation) {
-            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-              if (priceFilter.classList.contains('show')) {
-                // Accordion is open, show tooltip
-                setTimeout(function() {
-                  showTooltip();
-                  updateSliderTooltip();
-                }, 100);
-              }
-            }
-          });
-        });
-        
-        observer.observe(priceFilter, {
-          attributes: true,
-          attributeFilter: ['class']
-        });
-        
-        // Also check on click of accordion button
-        const priceHeading = document.getElementById('priceHeading');
-        if (priceHeading) {
-          const accordionButton = priceHeading.querySelector('button');
-          if (accordionButton) {
-            accordionButton.addEventListener('click', function() {
-              setTimeout(function() {
-                if (priceFilter.classList.contains('show')) {
-                  showTooltip();
-                  updateSliderTooltip();
-                }
-              }, 300);
-            });
-          }
-        }
-      }
-    }
-    
-    // Sync max price input with slider
-    if (maxPriceInput && priceRange) {
-      maxPriceInput.addEventListener('input', function() {
-        let value = parseInt(this.value);
-        const max = parseInt(priceRange.max);
-        const min = parseInt(priceRange.min);
-        
-        // Validate range
-        if (value > max) value = max;
-        if (value < min) value = min;
-        
-        this.value = value;
-        priceRange.value = value;
-        updatePriceDisplay();
-      });
-      
-      maxPriceInput.addEventListener('blur', function() {
-        if (!this.value || this.value < 0) {
-          this.value = 0;
-          priceRange.value = 0;
-          updatePriceDisplay();
-        }
-      });
-    }
-    
-    // Sync min price input
-    if (minPriceInput && priceRange) {
-      minPriceInput.addEventListener('input', function() {
-        let value = parseInt(this.value);
-        const max = parseInt(priceRange.max);
-        const min = parseInt(priceRange.min);
-        
-        // Validate range
-        if (value > max) value = max;
-        if (value < min) value = min;
-        
-        // Ensure min doesn't exceed max
-        if (maxPriceInput && value > parseInt(maxPriceInput.value)) {
-          value = parseInt(maxPriceInput.value);
-        }
-        
-        this.value = value;
-      });
-      
-      minPriceInput.addEventListener('blur', function() {
-        if (!this.value || this.value < 0) {
-          this.value = 0;
-        }
-        updatePriceDisplay();
-      });
-    }
 
-    // Wishlist Toggle
-    document.querySelectorAll('.wishlist-btn').forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        const icon = this.querySelector('i');
-        if (icon.classList.contains('fa-regular')) {
-          icon.classList.remove('fa-regular');
-          icon.classList.add('fa-solid');
-          this.style.background = '#fef2f2';
-        } else {
-          icon.classList.remove('fa-solid');
-          icon.classList.add('fa-regular');
-          this.style.background = '#ffffff';
-        }
-      });
+<script>
+  document.querySelectorAll('.wishlist-btn').forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      const icon = this.querySelector('i');
+
+      icon.classList.toggle('fa-regular');
+      icon.classList.toggle('fa-solid');
     });
-  </script>
-</body>
-</html>
+  });
+  const priceRange = document.getElementById('priceRange');
+  const sliderValueText = document.getElementById('sliderValueText');
+  const sliderValueBox = document.querySelector('.slider-value-display');
+
+  function updateSliderValue() {
+    const value = priceRange.value;
+    const min = priceRange.min;
+    const max = priceRange.max;
+
+    // update text
+    sliderValueText.textContent = 'Rs. ' + value;
+
+    // calculate position
+    const percent = ((value - min) / (max - min)) * 100;
+    sliderValueBox.style.left = percent + '%';
+  }
+
+  // initial position
+  updateSliderValue();
+
+  // on slide
+  priceRange.addEventListener('input', updateSliderValue);
+</script>
