@@ -1,0 +1,12 @@
+   /* Filter Button */
+    .btn-outline-secondary {
+      border-radius: 30px;
+      padding: 6px 16px;
+      font-weight: 500;
+    }
+
+    .btn-outline-secondary:hover {
+      background-color: #004d40;
+      color: #fff;
+      border-color: #004d40;
+    }
