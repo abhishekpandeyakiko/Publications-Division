@@ -1,14 +1,14 @@
 <section class="intro-section">
-    <div class="container position-relative z-2 py-4 py-lg-5">
-        <h1>Product Listing</h1>
-    </div>
-    <span>Home > Listing</span>
+  <div class="container position-relative z-2 py-4 py-lg-5">
+    <h1>Product Listing</h1>
+  </div>
+  <span>Home > Listing</span>
 </section>
 <section class="product-listing-page py-4">
 
   <!-- Product count and sort -->
   <div class="container-fluid ">
-    <div class="listing-header mt-3 d-flex justify-content-between align-items-center flex-wrap gap-3">
+    <div class="listing-header d-flex justify-content-between align-items-center flex-wrap gap-3">
       <h6 class="mb-0">
         <i class="fa-solid fa-book me-2" style="color: #004d40;"></i>
         Total Books <span class="text-muted">(9)</span>
@@ -28,33 +28,119 @@
 
   <!-- Main Section -->
   <div class="container-fluid mt-3">
+    
     <div class="row">
       <div class="col-lg-3 col-md-4 mb-4">
-        <div class="filter-box p-3 rounded shadow-sm bg-white">
+        <div class="filter-box p-3 rounded-4 shadow-sm bg-white">
           <div class="accordion" id="filterAccordion">
 
             <div class="accordion-item">
               <h2 class="accordion-header" id="categoryHeading">
                 <button class="accordion-button collapsed fw-semibold shadow-none" type="button"
-                  data-bs-toggle="collapse" data-bs-target="#categoryFilter">
+                  data-bs-toggle="collapse" aria-expanded="true" data-bs-target="#categoryFilter">
                   Books category
                 </button>
               </h2>
-              <div id="categoryFilter" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+              <div id="categoryFilter" class="accordion-collapse collapse show" data-bs-parent="#filterAccordion">
                 <div class="accordion-body">
+
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="">
-                    <label class="form-check-label">Biography</label>
+                    <input class="form-check-input" type="checkbox" id="catArtCulture">
+                    <label class="form-check-label" for="catArtCulture">Art and culture</label>
                   </div>
+
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="">
-                    <label class="form-check-label">History</label>
+                    <input class="form-check-input" type="checkbox" id="catBMI">
+                    <label class="form-check-label" for="catBMI">Builders of modern india (BMI series)</label>
                   </div>
+
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="">
-                    <label class="form-check-label">Children’s Books</label>
+                    <input class="form-check-input" type="checkbox" id="catChildren">
+                    <label class="form-check-label" for="catChildren">Children's literature</label>
                   </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="catGandhiWorks">
+                    <label class="form-check-label" for="catGandhiWorks">Collected works of Mahatma Gandhi</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="catCLI">
+                    <label class="form-check-label" for="catCLI">Cultural leaders of India (CLI series)</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="catFlora">
+                    <label class="form-check-label" for="catFlora">Flora & fauna</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="catGandhian">
+                    <label class="form-check-label" for="catGandhian">Gandhian literature</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="catHealth">
+                    <label class="form-check-label" for="catHealth">Health and nutrition</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="catHistoryFreedom">
+                    <label class="form-check-label" for="catHistoryFreedom">History and freedom struggle</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="catLand">
+                    <label class="form-check-label" for="catLand">Land and people</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="catLanguage">
+                    <label class="form-check-label" for="catLanguage">Language and literature</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="catMedia">
+                    <label class="form-check-label" for="catMedia">Media and communication</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="catMisc">
+                    <label class="form-check-label" for="catMisc">Miscellaneous</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="catPersonality">
+                    <label class="form-check-label" for="catPersonality">Personalities and biographies</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="catRB">
+                    <label class="form-check-label" for="catRB">Rashtrapati Bhavan series (RB series)</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="catReference">
+                    <label class="form-check-label" for="catReference">Reference works</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="catScience">
+                    <label class="form-check-label" for="catScience">Science, technology and environment</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="catSpeeches">
+                    <label class="form-check-label" for="catSpeeches">Speeches and writings</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="catSports">
+                    <label class="form-check-label" for="catSports">Sports and sports personalities</label>
+                  </div>
+
                 </div>
+
               </div>
             </div>
 
@@ -69,7 +155,7 @@
               <div id="priceFilter" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
                 <div class="accordion-body">
 
-                  <div class="price-slider-container mb-4">
+                  <div class="price-slider-container">
                     <div class="position-relative">
                       <input type="range" class="form-range" min="0" max="1000" value="500" step="50" id="priceRange">
 
@@ -113,10 +199,10 @@
 
       <!-- PRODUCT GRID -->
       <div class="col-lg-9 col-md-8">
-        <div class="row">
-          <div class=" col-md-6 col-lg-4 col-xl-4 mb-2">
+        <div class="row gy-3">
+          <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
             <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
-              <button class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
+              <button class="wishlist-btn">
                 <i class="fa-regular fa-heart"></i>
               </button>
 
@@ -124,7 +210,7 @@
                 <img src="images/books/books1.png" class="book-img rounded" alt="Book Cover">
                 <div class="ms-3 flex-grow-1">
                   <p class="text-muted mb-1 small">writer Name..</p>
-                  <h6 class="fw-semibold mb-2 text-dark book-title">AZADI KI LADAI KE Jabtashuda
+                  <h6 class="book-title">AZADI KI LADAI KE Jabtashuda
                     Tarane
                   </h6>
 
@@ -137,7 +223,7 @@
                     <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
                   </div>
 
-                  <div class="fw-semibold text-dark mb-1">Rs. 420.00</div>
+                  <div class="card-price">Rs. 420.00</div>
 
                   <button class="btn btn-teal w-100 py-1 rounded-3">
                     <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
@@ -146,10 +232,9 @@
               </div>
             </div>
           </div>
-
-          <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+          <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
             <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
-              <button class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
+              <button class="wishlist-btn">
                 <i class="fa-regular fa-heart"></i>
               </button>
 
@@ -157,7 +242,7 @@
                 <img src="images/books/books2.png" class="book-img rounded" alt="Book Cover">
                 <div class="ms-3 flex-grow-1">
                   <p class="text-muted mb-1 small">writer Name..</p>
-                  <h6 class="fw-semibold mb-2 text-dark book-title">SARDAR PATEL SACHITRA JEEVANEE
+                  <h6 class="book-title">SARDAR PATEL SACHITRA JEEVANEE
                     ...
                   </h6>
 
@@ -170,7 +255,7 @@
                     <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
                   </div>
 
-                  <div class="fw-semibold text-dark mb-1">Rs. 200.00</div>
+                  <div class="card-price">Rs. 200.00</div>
 
                   <button class="btn btn-teal w-100 py-1 rounded-3">
                     <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
@@ -179,10 +264,9 @@
               </div>
             </div>
           </div>
-
-          <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+          <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
             <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
-              <button class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
+              <button class="wishlist-btn">
                 <i class="fa-regular fa-heart"></i>
               </button>
 
@@ -190,7 +274,7 @@
                 <img src="images/books/books3.png" class="book-img rounded" alt="Book Cover">
                 <div class="ms-3 flex-grow-1">
                   <p class="text-muted mb-1 small">writer Name..</p>
-                  <h6 class="fw-semibold mb-2 text-dark book-title">NETAJI - A LIFE IN PICTURES
+                  <h6 class="book-title">NETAJI - A LIFE IN PICTURES
                   </h6>
 
                   <div class="rating">
@@ -202,7 +286,7 @@
                     <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
                   </div>
 
-                  <div class="fw-semibold text-dark mb-1">Rs. 610.00</div>
+                  <div class="card-price">Rs. 610.00</div>
 
                   <button class="btn btn-teal w-100 py-1 rounded-3">
                     <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
@@ -211,10 +295,9 @@
               </div>
             </div>
           </div>
-
-          <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+          <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
             <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
-              <button class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
+              <button class="wishlist-btn">
                 <i class="fa-regular fa-heart"></i>
               </button>
 
@@ -222,7 +305,7 @@
                 <img src="images/books/books4.png" class="book-img rounded" alt="Book Cover">
                 <div class="ms-3 flex-grow-1">
                   <p class="text-muted mb-1 small">writer Name..</p>
-                  <h6 class="fw-semibold mb-2 text-dark book-title">BHAGAT SINGH- SACHIT..</h6>
+                  <h6 class="book-title">BHAGAT SINGH- SACHIT..</h6>
 
                   <div class="rating">
                     <i class="fa-solid fa-star text-warning"></i>
@@ -233,7 +316,7 @@
                     <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
                   </div>
 
-                  <div class="fw-semibold text-dark mb-1">Rs. 875.00</div>
+                  <div class="card-price">Rs. 875.00</div>
 
                   <button class="btn btn-teal w-100 py-1 rounded-3">
                     <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
@@ -242,10 +325,9 @@
               </div>
             </div>
           </div>
-
-          <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+          <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
             <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
-              <button class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
+              <button class="wishlist-btn">
                 <i class="fa-regular fa-heart"></i>
               </button>
 
@@ -253,7 +335,7 @@
                 <img src="images/books/books5.png" class="book-img rounded" alt="Book Cover">
                 <div class="ms-3 flex-grow-1">
                   <p class="text-muted mb-1 small">writer Name..</p>
-                  <h6 class="fw-semibold mb-2 text-dark book-title">GREAT INDIAN WOMEN</h6>
+                  <h6 class="book-title">GREAT INDIAN WOMEN</h6>
 
                   <div class="rating">
                     <i class="fa-solid fa-star text-warning"></i>
@@ -264,7 +346,7 @@
                     <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
                   </div>
 
-                  <div class="fw-semibold text-dark mb-1">Rs. 120.00</div>
+                  <div class="card-price">Rs. 120.00</div>
 
                   <button class="btn btn-teal w-100 py-1 rounded-3">
                     <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
@@ -273,9 +355,9 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+          <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
             <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
-              <button class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
+              <button class="wishlist-btn">
                 <i class="fa-regular fa-heart"></i>
               </button>
 
@@ -283,7 +365,7 @@
                 <img src="images/books/books6.png" class="book-img rounded" alt="Book Cover">
                 <div class="ms-3 flex-grow-1">
                   <p class="text-muted mb-1 small">writer Name..</p>
-                  <h6 class="fw-semibold mb-2 text-dark book-title">INDIA VOTES 2024 A </h6>
+                  <h6 class="book-title">INDIA VOTES 2024 A </h6>
 
                   <div class="rating">
                     <i class="fa-solid fa-star text-warning"></i>
@@ -294,7 +376,7 @@
                     <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
                   </div>
 
-                  <div class="fw-semibold text-dark mb-1">Rs. 775.00</div>
+                  <div class="card-price">Rs. 775.00</div>
 
                   <button class="btn btn-teal w-100 py-1 rounded-3">
                     <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
@@ -303,10 +385,9 @@
               </div>
             </div>
           </div>
-
-          <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+          <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
             <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
-              <button class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
+              <button class="wishlist-btn">
                 <i class="fa-regular fa-heart"></i>
               </button>
 
@@ -314,7 +395,7 @@
                 <img src="images/books/books7.png" class="book-img rounded" alt="Book Cover">
                 <div class="ms-3 flex-grow-1">
                   <p class="text-muted mb-1 small">writer Name..</p>
-                  <h6 class="fw-semibold mb-2 text-dark book-title">CHILDREN'S RAMAYANA ..</h6>
+                  <h6 class="book-title">CHILDREN'S RAMAYANA ..</h6>
 
                   <div class="rating">
                     <i class="fa-solid fa-star text-warning"></i>
@@ -325,7 +406,7 @@
                     <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
                   </div>
 
-                  <div class="fw-semibold text-dark mb-1">Rs. 90.00</div>
+                  <div class="card-price">Rs. 90.00</div>
 
                   <button class="btn btn-teal w-100 py-1 rounded-3">
                     <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
@@ -334,9 +415,9 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+          <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
             <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
-              <button class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
+              <button class="wishlist-btn">
                 <i class="fa-regular fa-heart"></i>
               </button>
 
@@ -344,7 +425,7 @@
                 <img src="images/books/books8.png" class="book-img rounded" alt="Book Cover">
                 <div class="ms-3 flex-grow-1">
                   <p class="text-muted mb-1 small">writer Name..</p>
-                  <h6 class="fw-semibold mb-2 text-dark book-title">CHILDREN'S RAMAYANA ..</h6>
+                  <h6 class="book-title">CHILDREN'S RAMAYANA ..</h6>
 
                   <div class="rating">
                     <i class="fa-solid fa-star text-warning"></i>
@@ -355,7 +436,7 @@
                     <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
                   </div>
 
-                  <div class="fw-semibold text-dark mb-1">Rs. 640.00</div>
+                  <div class="card-price">Rs. 640.00</div>
 
                   <button class="btn btn-teal w-100 py-1 rounded-3">
                     <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
@@ -364,9 +445,9 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+          <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
             <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
-              <button class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
+              <button class="wishlist-btn">
                 <i class="fa-regular fa-heart"></i>
               </button>
 
@@ -374,7 +455,7 @@
                 <img src="images/books/books4.png" class="book-img rounded" alt="Book Cover">
                 <div class="ms-3 flex-grow-1">
                   <p class="text-muted mb-1 small">writer Name..</p>
-                  <h6 class="fw-semibold mb-2 text-dark book-title">RUTHE BADAL (POP)</h6>
+                  <h6 class="book-title">RUTHE BADAL (POP)</h6>
 
                   <div class="rating">
                     <i class="fa-solid fa-star text-warning"></i>
@@ -385,7 +466,7 @@
                     <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
                   </div>
 
-                  <div class="fw-semibold text-dark mb-1">Rs. 110.00</div>
+                  <div class="card-price">Rs. 110.00</div>
 
                   <button class="btn btn-teal w-100 py-1 rounded-3">
                     <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart

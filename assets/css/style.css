@@ -43,6 +43,11 @@
          padding: 5px 0;
        }
 
+       .logo-setup {
+         margin-left: 3px;
+         line-height: 20px;
+       }
+
        .screen-reader {
          font-weight: 500;
        }
