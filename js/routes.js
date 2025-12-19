@@ -157,11 +157,11 @@ const Routes = {
     layout: 'default',
     title: 'Listing Product - Publications Division'
   },
-    userprofile: {
+  userProfile: {
     path: '/user-profile',
     page: 'pages/user-info.html',
     layout: 'default',
-    title: 'userprofile'
+    title: 'User Profile - Publications Division'
   },
   // BUY sub-pages
   buyBooks: {

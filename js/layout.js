@@ -259,6 +259,14 @@ class LayoutManager {
 
     // Ensure navigation event listeners are attached after header loads
     this.attachEventListeners();
+    
+    // Initialize header authentication UI
+    if (typeof initHeaderAuth === 'function') {
+      initHeaderAuth();
+    }
+    
+    // Dispatch event for header loaded
+    document.dispatchEvent(new CustomEvent('headerLoaded'));
   }
 
   /**

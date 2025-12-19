@@ -37,8 +37,13 @@
                             </a>
                         </div>
 
-                        <!-- Login / Register Button -->
-                        <a class="btn btn-login ms-2" href="/login">Login / Register</a>
+                        <!-- Login / Register Button (shown when not logged in) -->
+                        <a class="btn btn-login ms-2 auth-login-btn" href="/login" style="display: none;">Login / Register</a>
+                        
+                        <!-- Profile Icon (shown when logged in) -->
+                        <button class="btn btn-profile ms-2 auth-profile-btn" id="profileIconBtn" style="display: none;" aria-label="User Profile">
+                            <i class="fa-solid fa-user-circle" style="font-size: 24px; color: #004b4b;"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -62,11 +67,11 @@
                     <i class="fa-solid fa-magnifying-glass search-icon"></i>
                 </div>
                 <div class="icons d-flex header-rec-icon align-items-center gap-2 gap-lg-3">
-                    <a href="/submit/submission-process" class="position-relative">
+                    <a href="#" class="position-relative wishlist-icon-link" id="wishlistHeaderLink">
                         <i class="fa-regular fa-heart"></i>
                          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 10px;">76</span>
                     </a>
-                    <a href="/cart" class="position-relative">
+                    <a href="#" class="position-relative cart-icon-link" id="cartHeaderLink">
                         <img src="images/cart.svg" alt="Shopping Bag" class="icon-img">
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 10px;">4</span>
                     </a>

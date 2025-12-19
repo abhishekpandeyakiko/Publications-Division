@@ -1471,3 +1471,615 @@
          font-size: 14px !important;
        }
      }
+
+     /*------------------------------------------------------------------- Profile Dashboard ----------------------------------------*/
+     .profile-dashboard {
+       background-color: #f8f9fa;
+       min-height: calc(100vh - 200px);
+     }
+
+     .profile-sidebar {
+       background-color: #fff;
+       border-right: 1px solid #e5e5e5;
+       min-height: calc(100vh - 200px);
+       position: sticky;
+       top: 0;
+       height: fit-content;
+       max-height: calc(100vh - 200px);
+       overflow-y: auto;
+     }
+
+     .sidebar-content {
+       padding: 20px 0;
+     }
+
+     .sidebar-header {
+       padding: 20px;
+       text-align: center;
+       border-bottom: 1px solid #e5e5e5;
+       margin-bottom: 20px;
+     }
+
+     .avatar-circle {
+       width: 80px;
+       height: 80px;
+       border-radius: 50%;
+       background: linear-gradient(135deg, #ff4f8b, #9b6bff);
+       color: #fff;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       font-size: 28px;
+       font-weight: 700;
+       margin: 0 auto 15px;
+     }
+
+     .user-name {
+       font-size: 18px;
+       font-weight: 600;
+       color: #004b4b;
+       margin-bottom: 5px;
+     }
+
+     .user-email {
+       font-size: 13px;
+       color: #6b7280;
+       margin-bottom: 10px;
+     }
+
+     .user-badge {
+       display: inline-block;
+       padding: 4px 12px;
+       background-color: #e0f2fe;
+       color: #004b4b;
+       border-radius: 12px;
+       font-size: 12px;
+       font-weight: 500;
+     }
+
+     .sidebar-nav {
+       padding: 0 10px;
+     }
+
+     .nav-menu {
+       list-style: none;
+       padding: 0;
+       margin: 0;
+     }
+
+     .nav-menu li {
+       margin-bottom: 5px;
+     }
+
+     .nav-item-btn {
+       width: 100%;
+       padding: 12px 15px;
+       border: none;
+       background: transparent;
+       color: #4b5563;
+       text-align: left;
+       display: flex;
+       align-items: center;
+       gap: 12px;
+       border-radius: 8px;
+       font-size: 14px;
+       font-weight: 500;
+       cursor: pointer;
+       transition: all 0.3s ease;
+     }
+
+     .nav-item-btn i {
+       width: 20px;
+       font-size: 16px;
+     }
+
+     .nav-item-btn:hover {
+       background-color: #f3f4f6;
+       color: #004b4b;
+     }
+
+     .nav-item-btn.active {
+       background: linear-gradient(135deg, #ff4f8b, #9b6bff);
+       color: #fff;
+     }
+
+     .nav-divider {
+       margin: 15px 0 10px;
+       padding: 0 15px;
+     }
+
+     .nav-section-title {
+       font-size: 12px;
+       font-weight: 600;
+       color: #9ca3af;
+       text-transform: uppercase;
+       letter-spacing: 0.5px;
+     }
+
+     .profile-content {
+       background-color: #fff;
+       padding: 30px;
+       min-height: calc(100vh - 200px);
+     }
+
+     .sidebar-toggle-btn {
+       background: linear-gradient(135deg, #ff4f8b, #9b6bff);
+       color: #fff;
+       border: none;
+       padding: 10px 20px;
+       border-radius: 8px;
+       font-size: 16px;
+       cursor: pointer;
+     }
+
+     .section-header {
+       margin-bottom: 25px;
+       padding-bottom: 15px;
+       border-bottom: 2px solid #e5e5e5;
+     }
+
+     .section-title {
+       font-size: 24px;
+       font-weight: 700;
+       color: #004b4b;
+       margin: 0;
+     }
+
+     .profile-section {
+       display: none;
+     }
+
+     .profile-section.active {
+       display: block;
+     }
+
+     /* Dashboard Stats */
+     .dashboard-stats {
+       margin-top: 20px;
+     }
+
+     .stat-card {
+       background: #fff;
+       border: 1px solid #e5e5e5;
+       border-radius: 12px;
+       padding: 20px;
+       display: flex;
+       align-items: center;
+       gap: 15px;
+       transition: transform 0.3s ease, box-shadow 0.3s ease;
+     }
+
+     .stat-card:hover {
+       transform: translateY(-2px);
+       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+     }
+
+     .stat-icon {
+       width: 50px;
+       height: 50px;
+       border-radius: 10px;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       font-size: 24px;
+     }
+
+     .stat-content {
+       flex: 1;
+     }
+
+     .stat-value {
+       font-size: 28px;
+       font-weight: 700;
+       color: #004b4b;
+       margin: 0;
+     }
+
+     .stat-label {
+       font-size: 14px;
+       color: #6b7280;
+       margin: 5px 0 0;
+     }
+
+     /* Wishlist Styles */
+     .wishlist-container {
+       display: flex;
+       flex-direction: column;
+       gap: 20px;
+     }
+
+     .wishlist-item {
+       display: flex;
+       gap: 20px;
+       padding: 20px;
+       border: 1px solid #e5e5e5;
+       border-radius: 12px;
+       background: #fff;
+       transition: box-shadow 0.3s ease;
+     }
+
+     .wishlist-item:hover {
+       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+     }
+
+     .wishlist-item-image {
+       position: relative;
+       flex-shrink: 0;
+     }
+
+     .wishlist-item-image .product-img {
+       width: 120px;
+       height: 120px;
+       object-fit: cover;
+       border-radius: 8px;
+     }
+
+     .wishlist-remove-btn {
+       position: absolute;
+       top: 5px;
+       right: 5px;
+       width: 30px;
+       height: 30px;
+       border-radius: 50%;
+       background: #fff;
+       border: 1px solid #e5e5e5;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       cursor: pointer;
+       transition: all 0.3s ease;
+     }
+
+     .wishlist-remove-btn:hover {
+       background: #ff4f8b;
+       border-color: #ff4f8b;
+       color: #fff;
+     }
+
+     .wishlist-item-details {
+       flex: 1;
+     }
+
+     .product-brand {
+       font-size: 14px;
+       color: #6b7280;
+       margin-bottom: 5px;
+       font-weight: 500;
+     }
+
+     .product-name {
+       font-size: 16px;
+       font-weight: 600;
+       color: #004b4b;
+       margin-bottom: 10px;
+     }
+
+     .product-rating {
+       display: flex;
+       align-items: center;
+       gap: 10px;
+       margin-bottom: 15px;
+     }
+
+     .stars {
+       color: #fbbf24;
+     }
+
+     .review-count {
+       font-size: 13px;
+       color: #6b7280;
+     }
+
+     .product-pricing {
+       display: flex;
+       flex-direction: column;
+       gap: 5px;
+     }
+
+     .price-row {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+     }
+
+     .price-label {
+       font-size: 13px;
+       color: #6b7280;
+     }
+
+     .wholesale-price {
+       font-size: 18px;
+       font-weight: 700;
+       color: #004b4b;
+     }
+
+     .discount-badge {
+       font-size: 12px;
+       color: #6b7280;
+     }
+
+     .retail-price {
+       font-size: 14px;
+       color: #9ca3af;
+       text-decoration: line-through;
+     }
+
+     .wishlist-item-actions {
+       display: flex;
+       flex-direction: column;
+       align-items: flex-end;
+       gap: 10px;
+       min-width: 150px;
+     }
+
+     .quantity-controls {
+       display: flex;
+       align-items: center;
+       gap: 10px;
+       border: 1px solid #e5e5e5;
+       border-radius: 6px;
+       padding: 5px;
+     }
+
+     .qty-btn {
+       width: 30px;
+       height: 30px;
+       border: none;
+       background: #f3f4f6;
+       border-radius: 4px;
+       cursor: pointer;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       font-size: 16px;
+       color: #004b4b;
+       transition: all 0.3s ease;
+     }
+
+     .qty-btn:hover {
+       background: #004b4b;
+       color: #fff;
+     }
+
+     .qty-input {
+       width: 50px;
+       border: none;
+       text-align: center;
+       font-size: 14px;
+       font-weight: 600;
+       color: #004b4b;
+     }
+
+     .qty-input:focus {
+       outline: none;
+     }
+
+     .unit-info {
+       font-size: 12px;
+       color: #6b7280;
+       margin: 0;
+       text-align: center;
+     }
+
+     .btn-add-to-cart {
+       background: linear-gradient(135deg, #ff4f8b, #9b6bff);
+       color: #fff;
+       border: none;
+       padding: 10px 20px;
+       border-radius: 8px;
+       font-size: 14px;
+       font-weight: 600;
+       cursor: pointer;
+       display: flex;
+       align-items: center;
+       gap: 8px;
+       transition: all 0.3s ease;
+       width: 100%;
+       justify-content: center;
+     }
+
+     .btn-add-to-cart:hover {
+       transform: translateY(-2px);
+       box-shadow: 0 4px 12px rgba(255, 79, 139, 0.3);
+     }
+
+     /* Order History */
+     .order-history-container {
+       margin-top: 20px;
+     }
+
+     .order-card {
+       background: #fff;
+       border: 1px solid #e5e5e5;
+       border-radius: 12px;
+       padding: 20px;
+       transition: box-shadow 0.3s ease;
+     }
+
+     .order-card:hover {
+       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+     }
+
+     .order-card-header {
+       padding-bottom: 15px;
+       border-bottom: 1px solid #e5e5e5;
+     }
+
+     .order-item-img {
+       width: 60px;
+       height: 60px;
+       object-fit: cover;
+       border-radius: 8px;
+     }
+
+     .order-items {
+       padding: 15px 0;
+     }
+
+     .order-item {
+       padding: 10px 0;
+     }
+
+     .order-card-footer {
+       border-top: 1px solid #e5e5e5;
+     }
+
+     .order-summary {
+       background-color: #f8f9fa;
+     }
+
+     /* Shipping Address */
+     .shipping-address-container {
+       margin-top: 20px;
+     }
+
+     .address-card {
+       background: #fff;
+       border: 1px solid #e5e5e5;
+       border-radius: 12px;
+       padding: 20px;
+       height: 100%;
+       transition: all 0.3s ease;
+       position: relative;
+     }
+
+     .address-card:hover {
+       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+       border-color: #004b4b;
+     }
+
+     .address-card-header {
+       border-bottom: 1px solid #e5e5e5;
+       padding-bottom: 15px;
+     }
+
+     .address-card-body {
+       padding-top: 15px;
+     }
+
+     .address-card-body p {
+       line-height: 1.6;
+     }
+
+     @media (max-width: 768px) {
+       .address-card {
+         margin-bottom: 20px;
+       }
+     }
+
+     @media (max-width: 576px) {
+       .order-card-header {
+         flex-direction: column;
+         align-items: flex-start !important;
+       }
+
+       .order-card-header .text-end {
+         text-align: left !important;
+         margin-top: 10px;
+       }
+
+       .order-item {
+         flex-direction: column;
+         align-items: flex-start !important;
+       }
+
+       .order-item-img {
+         margin-bottom: 10px;
+         margin-right: 0 !important;
+       }
+
+       .order-item .text-end {
+         text-align: left !important;
+         margin-top: 10px;
+       }
+     }
+
+     /* Mobile Responsive */
+     @media (max-width: 991px) {
+       .profile-sidebar {
+         position: fixed;
+         left: -100%;
+         top: 0;
+         height: 100vh;
+         z-index: 1050;
+         transition: left 0.3s ease;
+         box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+         max-height: 100vh;
+       }
+
+       .profile-sidebar.mobile-open {
+         left: 0;
+       }
+
+       .profile-content {
+         padding: 20px 15px;
+       }
+
+       .wishlist-item {
+         flex-direction: column;
+       }
+
+       .wishlist-item-image .product-img {
+         width: 100%;
+         height: auto;
+         max-height: 250px;
+       }
+
+       .wishlist-item-actions {
+         width: 100%;
+         align-items: stretch;
+       }
+
+       .btn-add-to-cart {
+         width: 100%;
+       }
+     }
+
+     /* Profile Section Specific Styles */
+     #profileSection .card {
+       border-radius: 1rem;
+     }
+
+     #profileSection .btn-light {
+       border: 1px solid rgba(255, 79, 139, 0.3);
+     }
+
+     #profileSection .btn-light:hover {
+       background-color: rgba(255, 255, 255, 0.9);
+     }
+
+     #profileSection .border-primary {
+       border-color: #004b4b !important;
+     }
+
+     #profileSection .form-check-input:checked {
+       background-color: #198754;
+       border-color: #198754;
+     }
+
+     @media (max-width: 576px) {
+       .profile-content {
+         padding: 15px 10px;
+       }
+
+       .section-title {
+         font-size: 20px;
+       }
+
+       .wishlist-item {
+         padding: 15px;
+       }
+
+       .stat-card {
+         flex-direction: column;
+         text-align: center;
+       }
+
+       .dashboard-stats {
+         gap: 15px;
+       }
+
+       #profileSection .card-body {
+         padding: 1rem !important;
+       }
+     }

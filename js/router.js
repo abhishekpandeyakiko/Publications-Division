@@ -15,11 +15,13 @@ class Router {
   init() {
     // Listen for browser navigation (back/forward buttons)
     window.addEventListener('popstate', (e) => {
-      this.handleRoute(window.location.pathname);
+      const path = window.location.pathname || '/';
+      this.handleRoute(path);
     });
 
     // Handle initial route
-    this.handleRoute(window.location.pathname || '/');
+    const path = window.location.pathname || '/';
+    this.handleRoute(path);
   }
 
   /**
@@ -28,10 +30,31 @@ class Router {
    */
   async handleRoute(path) {
     try {
-      const route = getRouteByPath(path);
+      // Strip query parameters and hash from path for route matching
+      const cleanPath = path.split('?')[0].split('#')[0];
       
+      // Check if getRouteByPath is available
+      if (typeof getRouteByPath === 'undefined') {
+        console.error('getRouteByPath function not found. Make sure routes.js is loaded before router.js');
+        return;
+      }
+      
+      const route = getRouteByPath(cleanPath);
+      
+      // Debug logging
+      console.log(`Router: Handling path "${cleanPath}", found route:`, route);
+      
+      // Check if route was found
       if (!route) {
+        console.warn(`Route not found for path: ${cleanPath}`);
         this.navigate('/404');
+        return;
+      }
+      
+      // Check if it's the notFound route
+      if (typeof Routes !== 'undefined' && Routes.notFound && route.path === Routes.notFound.path) {
+        console.warn(`Route not found for path: ${cleanPath}, redirecting to 404`);
+        // Don't navigate again, just return as we're already on 404
         return;
       }
 
@@ -49,8 +72,12 @@ class Router {
       this.currentLayout = layout;
 
       // Update URL without page reload (if different)
-      if (window.location.pathname !== route.path) {
-        window.history.pushState({ route: route.path }, '', route.path);
+      // Preserve query parameters if they exist
+      const currentPath = window.location.pathname;
+      const currentQuery = window.location.search;
+      if (currentPath !== route.path) {
+        const newUrl = route.path + currentQuery;
+        window.history.pushState({ route: route.path }, '', newUrl);
       }
 
       // Update active nav link (only if layout manager exists)
@@ -189,10 +216,17 @@ class Router {
 
   /**
    * Navigate to a new route
-   * @param {string} path - Route path
+   * @param {string} path - Route path (can include query parameters)
    */
   navigate(path) {
-    this.handleRoute(path);
+    // Extract just the pathname for route matching, but preserve query params in URL
+    const pathname = path.split('?')[0].split('#')[0];
+    this.handleRoute(pathname);
+    
+    // Update URL with full path including query params if different
+    if (window.location.pathname + window.location.search !== path) {
+      window.history.pushState({ route: pathname }, '', path);
+    }
   }
 
   /**
