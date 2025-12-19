@@ -33,7 +33,7 @@
                         <div class="position-relative me-2">
                             <a href="/notifications" style="text-decoration: none; display: inline-block;">
                                 <img src="images/bell.svg" alt="Notification" class="icon-img">
-                                <span class="notification-dot position-absolute top-0 start-100 translate-middle"></span>
+                                <span class="notification-dot position-absolute translate-middle"></span>
                             </a>
                         </div>
 
@@ -50,19 +50,22 @@
         <div class=" container d-flex flex-column flex-md-row justify-content-center justify-content-md-between align-items-center text-center text-md-start gap-3">
             <div class="d-flex align-items-center logo">
                 <img src="images/Logo.svg" alt="logo">
-                <div class="ms-2">
+                <div class="logo-setup">
                     <h4>Publications Division</h4>
                     <small>Ministry Of Information & Broadcasting, Government Of India</small>
                 </div>
             </div>
             <!-- search section -->
-            <div class="d-flex align-items-center flex-wrap gap-2 gap-lg-3">
-                <div class="search-box position-relative">
+            <div class="d-flex main-dev align-items-center flex-wrap gap-2 gap-lg-3">
+                <div class="search-box header-serch position-relative">
                     <input type="text" class="form-control" placeholder="Search Book Name..." />
                     <i class="fa-solid fa-magnifying-glass search-icon"></i>
                 </div>
-                <div class="icons d-flex align-items-center gap-2 gap-lg-3">
-                    <a href="/submit/submission-process"><i class="fa-regular fa-heart"></i></a>
+                <div class="icons d-flex header-rec-icon align-items-center gap-2 gap-lg-3">
+                    <a href="/submit/submission-process" class="position-relative">
+                        <i class="fa-regular fa-heart"></i>
+                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 10px;">76</span>
+                    </a>
                     <a href="/cart" class="position-relative">
                         <img src="images/cart.svg" alt="Shopping Bag" class="icon-img">
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 10px;">4</span>
@@ -88,13 +91,14 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="buyDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        BUY
+                        Buy
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="buyDropdown">
                         <!-- <li><a class="dropdown-item" href="/buy/books">Books</a></li> -->
                           <li><a class="dropdown-item" href="/listing-product">Books</a></li>
-                        <li><a class="dropdown-item" href="/buy/ebooks">EBooks/EJournal</a></li>
-                        <li><a class="dropdown-item" href="/buy/journal">Journal</a></li>
+                        <!-- <li><a class="dropdown-item" href="/buy/ebooks">EBooks/EJournal</a></li>
+                        <li><a class="dropdown-item" href="/buy/journal">Journal</a></li> -->
+                         <li><a class="dropdown-item" href="/user-profile">userInfo</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -207,18 +211,18 @@
         <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
             <li class="nav-item dropdown">
-                <a >
-                    BUY
-                </a>
-                <!-- <a class="nav-link dropdown-toggle" href="#" id="buyDropdownSidebar" role="button" data-bs-toggle="dropdown"
+               
+                <a class="nav-link dropdown-toggle" href="#" id="buyDropdownSidebar" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     BUY
-                </a> -->
-                <!-- <ul class="dropdown-menu" aria-labelledby="buyDropdownSidebar">
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="buyDropdownSidebar">
                     <li><a class="dropdown-item" href="/buy/books">Books</a></li>
-                    <li><a class="dropdown-item" href="/buy/ebooks">EBooks/EJournal</a></li>
-                    <li><a class="dropdown-item" href="/buy/journal">Journal</a></li>
-                </ul> -->
+                    <!-- <li><a class="dropdown-item" href="/buy/ebooks">EBooks/EJournal</a></li>
+                    <li><a class="dropdown-item" href="/buy/journal">Journal</a></li> -->
+                    
+                   
+                </ul>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="aboutDropdownSidebar" role="button" data-bs-toggle="dropdown"

@@ -1,0 +1,330 @@
+/* ===============================
+   Product Listing Page
+================================ */
+.product-listing-page {
+  background-color: #f5f7fa;
+  min-height: 100vh;
+}
+
+/* ===============================
+   Listing Header
+================================ */
+.listing-header {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.listing-header h6 {
+  font-size: 15px;
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.sort-dropdown {
+  min-width: 180px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 14px;
+  background-color: #ffffff;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.sort-dropdown:hover,
+.sort-dropdown:focus {
+  border-color: #004d40;
+  box-shadow: 0 0 0 3px rgba(0, 77, 64, 0.15);
+  outline: none;
+}
+
+/* ===============================
+   Filter Box
+================================ */
+.filter-box {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 100px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+
+/* Accordion */
+.accordion-item {
+  border: 0 !important;
+  border-bottom: 1px solid #e5e7eb !important;
+}
+
+.accordion-button {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  padding: 12px 16px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #004d40;
+  background-color: #f0fdf4;
+}
+
+.accordion-body {
+  padding: 16px;
+  background-color: #fafafa;
+  max-height: 200px;
+  overflow: auto;
+}
+
+/* ===============================
+   Checkbox
+================================ */
+.form-check {
+  /* display: flex;
+  align-items: center; */
+  padding-bottom: 2px;
+  margin-bottom: 6px;
+}
+
+
+.form-check-input {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #d1d5db;
+  cursor: pointer;
+}
+
+.form-check-input:checked {
+  background-color: #004d40;
+  border-color: #004d40;
+}
+
+.form-check-label {
+  font-size: 14px;
+  /* margin-left: 8px; */
+  color: #4b5563;
+}
+.form-check-label:hover {
+  color: #004d40;
+  font-weight: 600;
+}
+
+/* ===============================
+   Price Slider
+================================ */
+.price-slider-container {
+  position: relative;
+  padding: 25px 0 5px;
+}
+
+.form-range {
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-range::-webkit-slider-thumb,
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #004d40;
+  border: 2px solid #ffffff;
+}
+
+/* Slider Tooltip */
+.slider-value-display {
+  position: absolute;
+  top: -35px;
+  transform: translateX(-50%);
+  background: #004d40;
+  color: #ffffff;
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s ease, left 0.15s ease;
+}
+
+.price-slider-container:hover .slider-value-display {
+  opacity: 1;
+}
+
+/* ===============================
+   Reset Button
+================================ */
+.btn-dark {
+  background-color: #004d40;
+  border: none;
+  font-weight: 600;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.btn-dark:hover {
+  background-color: #00695c;
+}
+
+/* ===============================
+   Book Card
+================================ */
+.book-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background: #ffffff;
+  transition: all 0.3s;
+  box-shadow: 0 2px 8px rgba(17, 24, 39, 0.08);
+}
+
+.book-card:hover {
+  transform: translateY(-6px);
+  border-color: #004d40;
+}
+
+/* ---------- Image (ANIMATION PRESERVED) ---------- */
+.book-img {
+  width: 85px;
+  height: 120px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.book-card:hover .book-img {
+  transform: scale(1.06) rotate(1deg);
+}
+
+/* Responsive image size */
+@media (min-width: 768px) {
+  .book-img { width: 90px; height: 130px; }
+}
+@media (min-width: 992px) {
+  .book-img { width: 100px; height: 150px; }
+}
+
+/* ---------- Text ---------- */
+.book-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+  height: 32px;
+  margin-bottom: 0px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.rating i {
+  color: #fbbf24;
+  font-size: 14px;
+}
+
+.rating small {
+  font-size: 12px;
+  color: #6b7280;
+}
+.card-price {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    line-height: 14px;
+}
+/* ---------- Buttons ---------- */
+.btn-teal {
+  background: linear-gradient(135deg, #004d40, #00695c);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.btn-teal:hover {
+  background: linear-gradient(135deg, #00695c, #00897b);
+  color: white;
+}
+
+/* Wishlist */
+.wishlist-btn {
+    width: 35px;
+    height: 40px;
+    border-radius: 50%;
+    height: 34px;
+    background: #ffffff;
+    border: 2px solid #f3f4f6 ;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 0.5rem; 
+  margin-right: 0.5rem; 
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+}
+
+.wishlist-btn i {
+  font-size: 15px;
+  color: #ef4444;
+}
+
+/* ===============================
+   Pagination
+================================ */
+.pagination {
+  gap: 8px;
+}
+
+.page-link {
+  border: 1.5px solid #e5e7eb;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.page-item.active .page-link {
+  background-color: #004d40;
+  border-color: #004d40;
+  color: #ffffff;
+}
+
+/* ===============================
+   Responsive
+================================ */
+@media (max-width: 768px) {
+  .filter-box {
+    position: relative;
+    top: 0;
+    margin-bottom: 24px;
+  }
+
+  .book-img {
+    width: 70px;
+    height: 100px;
+  }
+
+  .sort-dropdown {
+    width: 100%;
+  }
+}
+
+/*---------------------------------------- card screen css ------------------------------------------*/
+.card-product-name {
+    max-width: 350px;
+    min-width: 150px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+.card-searchbox input{
+    height: 38px;
+}
+.add-more-btn{
+  height: 38px;
+}

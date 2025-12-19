@@ -43,6 +43,11 @@
          padding: 5px 0;
        }
 
+       .logo-setup {
+         margin-left: 3px;
+         line-height: 20px;
+       }
+
        .screen-reader {
          font-weight: 500;
        }
@@ -74,6 +79,7 @@
        .notification-dot {
          width: 9px;
          height: 9px;
+         left: 21px;
          background-color: red;
          border-radius: 50%;
          border: 1.5px solid #fff;
@@ -545,7 +551,7 @@
        .btn-teal:hover {
          background-color: #ffffff;
          font-weight: 500;
-         color: #004d4d;
+         /* color: #004d4d; */
          border: 1px solid #004d4d;
        }
 
@@ -733,10 +739,18 @@
        }
 
        .wishlist-btn {
-         border-radius: 25px;
-         padding: 2px;
-         height: 27px;
-         padding-bottom: 0px;
+         width: 35px;
+         height: 40px;
+         border-radius: 50%;
+         height: 34px;
+         background: #ffffff;
+         border: 2px solid #f3f4f6;
+         position: absolute;
+         top: 0;
+         right: 0;
+         margin-top: 0.5rem;
+         margin-right: 0.5rem;
+         box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
        }
 
        .book-card {
