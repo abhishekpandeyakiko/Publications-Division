@@ -1,893 +1,1578 @@
-<section class="profile-dashboard py-4">
-  <div class="container-fluid">
-    <div class="row g-0">
-      
-      <!-- Sidebar Navigation -->
-      <aside class="profile-sidebar col-lg-3 col-xl-2">
-        <div class="sidebar-content">
-          <!-- User Info Header -->
-          <div class="sidebar-header">
-            <div class="user-avatar">
-              <div class="avatar-circle">AP</div>
+<section class="profile-dashboard">
+    <div class="container-fluid">
+        <div class="row g-0">
+
+            <!-- Sidebar Navigation -->
+            <aside class="profile-sidebar col-lg-3 col-xl-3 col-xxl-2">
+                <div class="sidebar-content">
+                    <!-- User Info Header -->
+                    <div class="sidebar-header">
+                        <div class="user-avatar">
+                            <div class="avatar-circle">AP</div>
+                        </div>
+                        <h6 class="user-name">Abhi Pandey</h6>
+                        <p class="user-email">abhishekpandey@gmail.com</p>
+                        <span class="user-badge">Registered User</span>
+                    </div>
+
+                    <!-- Navigation Menu -->
+                    <nav class="sidebar-nav">
+                        <ul class="nav-menu">
+                            <li>
+                                <button class="nav-item-btn active" data-section="profile" aria-label="Profile">
+                                    <i class="fa-solid fa-user"></i>
+                                    <span>Profile</span>
+                                </button>
+                            </li>
+                            <li>
+                                <button class="nav-item-btn" data-section="wishlist" aria-label="Wishlist">
+                                    <i class="fa-solid fa-heart"></i>
+                                    <span>Wishlist</span>
+                                </button>
+                            </li>
+                            <li>
+                                <button class="nav-item-btn" data-section="cart" aria-label="Shopping Cart">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                    <span>Shopping Cart</span>
+                                </button>
+                            </li>
+                            <li>
+                                <button class="nav-item-btn" data-section="orderHistory" aria-label="Order History">
+                                    <i class="fa-solid fa-file-lines"></i>
+                                    <span>Order History</span>
+                                </button>
+                            </li>
+
+                            <li class="nav-divider">
+                                <span class="nav-section-title">Account Settings</span>
+                            </li>
+
+                            <li>
+                                <button class="nav-item-btn" data-section="shippingAddress"
+                                    aria-label="Shipping Address">
+                                    <i class="fa-solid fa-map-marker-alt"></i>
+                                    <span>Shipping Address</span>
+                                </button>
+                            </li>
+
+                            <li class="nav-divider">
+                                <span class="nav-section-title">Help</span>
+                            </li>
+
+                            <li>
+                                <button class="nav-item-btn" data-section="getStarted" aria-label="Get Started">
+                                    <i class="fa-solid fa-question-circle"></i>
+                                    <span>Get Started</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="profile-content col-lg-9 col-xl-9 col-xxl-10">
+                <div class="content-wrapper">
+
+                    <!-- Mobile Sidebar Toggle -->
+                    <button class="sidebar-toggle-btn d-lg-none mb-3" id="sidebarToggle" aria-label="Toggle Sidebar">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+                    <!------------------------------------------------------------ Profile Section -------------------------------------------------------->
+
+                    <div class="profile-section active" id="profileSection">
+                        <div class="container">
+                            <div class="row g-4">
+                                <!-- LEFT COLUMN -->
+                                <div class="col-lg-4">
+                                    <!-- Profile Card -->
+                                    <div class="card border-0 shadow-sm rounded-4 mb-4">
+                                        <div class="card-body user-profile text-center p-4">
+                                            <div class="mx-auto user-profile-img mb-3">
+                                                AP
+                                            </div>
+                                            <h5 class="text-white mb-1">Abhi Pandey</h5>
+                                            <p class="text-white-50 small mb-3">Registered User</p>
+                                            <button class="btn btn-light btn-sm px-4 rounded-pill fw-semibold">
+                                                Change Profile Photo
+                                            </button>
+                                            <div class="d-flex justify-content-center gap-3 mt-3">
+                                                <span class="btn btn-light btn-sm rounded-circle">
+                                                    <i class="fab fa-facebook-f"></i>
+                                                </span>
+                                                <span class="btn btn-light btn-sm rounded-circle">
+                                                    <i class="fab fa-google"></i>
+                                                </span>
+                                                <span class="btn btn-light btn-sm rounded-circle">
+                                                    <i class="fab fa-twitter"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Account Security -->
+                                    <div class="card border-0 shadow-sm rounded-4">
+                                        <div class="card-body p-4">
+                                            <h6 class="fw-semibold mb-3">Account Security</h6>
+                                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                                <span class="small fw-medium">Two-Factor Authentication</span>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" checked>
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-outline-danger w-100">
+                                                Change Password
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- RIGHT COLUMN -->
+                                <div class="col-lg-8">
+                                    <!-- Personal Information -->
+                                    <div class="card border-0 shadow-sm rounded-4 mb-4">
+                                        <div class="card-body p-4">
+                                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                                <h6 class="fw-semibold mb-0 border-bottom border-primary pb-2">
+                                                    Personal Information
+                                                </h6>
+                                                <button class="btn btn-primary btn-sm rounded-pill px-3">
+                                                    Edit Profile
+                                                </button>
+                                            </div>
+                                            <div class="row g-3 small">
+                                                <div class="col-md-6">
+                                                    <strong>First Name</strong>
+                                                    <p class="mb-0 text-muted">Abhi</p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Last Name</strong>
+                                                    <p class="mb-0 text-muted">Pandey</p>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <strong>Email Address</strong>
+                                                    <p class="mb-0 text-muted">
+                                                        abhishekpandey@gmail.com
+                                                        <span class="text-success fw-semibold ms-2">✔ verified</span>
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Mobile Number</strong>
+                                                    <p class="mb-0 text-muted">+91 756767576</p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>WhatsApp Number</strong>
+                                                    <p class="mb-0 text-muted">+91 756767576</p>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <strong>Tax/VAT Number</strong>
+                                                    <p class="mb-0 text-muted">Not provided</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Account Settings -->
+                                    <div class="card border-0 shadow-sm rounded-4">
+                                        <div class="card-body p-4">
+                                            <h6 class="fw-semibold mb-3 border-bottom border-primary pb-2">
+                                                Account Settings
+                                            </h6>
+                                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                                <div>
+                                                    <strong class="small">Receive special events and promotional
+                                                        information</strong>
+                                                    <p class="small text-muted mb-0">
+                                                        Get updates about upcoming events and special offers
+                                                    </p>
+                                                </div>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox">
+                                                </div>
+                                            </div>
+                                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                                <div>
+                                                    <strong class="small">Make profile private</strong>
+                                                    <p class="small text-muted mb-0">
+                                                        Only you can see your profile information
+                                                    </p>
+                                                </div>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" checked>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <button class="btn btn-outline-danger btn-sm">
+                                                    Delete Account Permanently
+                                                </button>
+                                                <button class="btn btn-outline-secondary btn-sm">
+                                                    Logout
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!------------------------------------------------------------- Wishlist Section ----------------------------------------------------->
+
+                    <div class="profile-section" id="wishlistSection">
+                        <!-- WISHLIST SECTION -->
+                        <section class="popular-section container" style="background: none;">
+                            <div
+                                class="d-flex flex-wrap justify-content-between align-items-center border-bottom pb-3 mb-4 gap-3">
+
+                                <!-- Left Title -->
+                                <div>
+                                    <h3 class="fw-bold mb-0">
+                                        My Wishlist <span class="text-muted fs-6">(9)</span>
+                                    </h3>
+                                </div>
+
+                                <!-- Right Search & Filter -->
+                                <div class="d-flex align-items-center gap-2">
+
+                                    <!-- Search Box -->
+                                    <div class="position-relative wishlist-search w-100 w-md-auto">
+                                        <input type="text" class="form-control modal-input ps-3 pe-5"
+                                            placeholder="Search books...">
+                                        <i class="fas fa-search search-icon-search-box"></i>
+                                    </div>
+
+                                    <!-- Filter Dropdown -->
+                                    <div class="dropdown">
+                                        <button class="btn btn-outline-secondary modal-input dropdown-toggle"
+                                            type="button" data-bs-toggle="dropdown">
+                                            Filter
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                                            <li><a class="dropdown-item" href="#">Author</a></li>
+                                            <li><a class="dropdown-item" href="#">Price: Low to High</a></li>
+                                            <li><a class="dropdown-item" href="#">Price: High to Low</a></li>
+                                            <li><a class="dropdown-item" href="#">Newest First</a></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class=" col-md-6 col-lg-6 col-xl-4 mb-4">
+                                    <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
+                                        <button
+                                            class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+
+                                        <div class="d-flex align-items-center">
+                                            <img src="images/books/books1.png" class="book-img rounded"
+                                                alt="Book Cover">
+                                            <div class="ms-3 flex-grow-1">
+                                                <p class="text-muted mb-1 small">writer Name..</p>
+                                                <h6 class="fw-semibold mb-2 text-dark book-title">AZADI KI LADAI KE
+                                                    Jabtashuda
+                                                    Tarane
+                                                </h6>
+
+                                                <div class="rating">
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-regular fa-star text-warning"></i>
+                                                    <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
+                                                </div>
+
+                                                <div class="fw-semibold text-dark mb-1">Rs. 420.00</div>
+
+                                                <button class="btn btn-teal w-100 py-1 rounded-3">
+                                                    <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-6 col-xl-4 mb-4">
+                                    <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
+                                        <button
+                                            class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+
+                                        <div class="d-flex align-items-center">
+                                            <img src="images/books/books2.png" class="book-img rounded"
+                                                alt="Book Cover">
+                                            <div class="ms-3 flex-grow-1">
+                                                <p class="text-muted mb-1 small">writer Name..</p>
+                                                <h6 class="fw-semibold mb-2 text-dark book-title">SARDAR PATEL SACHITRA
+                                                    JEEVANEE
+                                                    ...
+                                                </h6>
+
+                                                <div class="rating">
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-regular fa-star text-warning"></i>
+                                                    <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
+                                                </div>
+
+                                                <div class="fw-semibold text-dark mb-1">Rs. 200.00</div>
+
+                                                <button class="btn btn-teal w-100 py-1 rounded-3">
+                                                    <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-6 col-xl-4 mb-4">
+                                    <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
+                                        <button
+                                            class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+
+                                        <div class="d-flex align-items-center">
+                                            <img src="images/books/books3.png" class="book-img rounded"
+                                                alt="Book Cover">
+                                            <div class="ms-3 flex-grow-1">
+                                                <p class="text-muted mb-1 small">writer Name..</p>
+                                                <h6 class="fw-semibold mb-2 text-dark book-title">NETAJI - A LIFE IN
+                                                    PICTURES
+                                                </h6>
+
+                                                <div class="rating">
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-regular fa-star text-warning"></i>
+                                                    <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
+                                                </div>
+
+                                                <div class="fw-semibold text-dark mb-1">Rs. 610.00</div>
+
+                                                <button class="btn btn-teal w-100 py-1 rounded-3">
+                                                    <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-6 col-xl-4 mb-4">
+                                    <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
+                                        <button
+                                            class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+
+                                        <div class="d-flex align-items-center">
+                                            <img src="images/books/books4.png" class="book-img rounded"
+                                                alt="Book Cover">
+                                            <div class="ms-3 flex-grow-1">
+                                                <p class="text-muted mb-1 small">writer Name..</p>
+                                                <h6 class="fw-semibold mb-2 text-dark book-title">BHAGAT SINGH- SACHIT..
+                                                </h6>
+
+                                                <div class="rating">
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-regular fa-star text-warning"></i>
+                                                    <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
+                                                </div>
+
+                                                <div class="fw-semibold text-dark mb-1">Rs. 875.00</div>
+
+                                                <button class="btn btn-teal w-100 py-1 rounded-3">
+                                                    <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-6 col-xl-4 mb-4">
+                                    <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
+                                        <button
+                                            class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+
+                                        <div class="d-flex align-items-center">
+                                            <img src="images/books/books5.png" class="book-img rounded"
+                                                alt="Book Cover">
+                                            <div class="ms-3 flex-grow-1">
+                                                <p class="text-muted mb-1 small">writer Name..</p>
+                                                <h6 class="fw-semibold mb-2 text-dark book-title">GREAT INDIAN WOMEN
+                                                </h6>
+
+                                                <div class="rating">
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-regular fa-star text-warning"></i>
+                                                    <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
+                                                </div>
+
+                                                <div class="fw-semibold text-dark mb-1">Rs. 120.00</div>
+
+                                                <button class="btn btn-teal w-100 py-1 rounded-3">
+                                                    <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-6 col-xl-4 mb-4">
+                                    <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
+                                        <button
+                                            class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+
+                                        <div class="d-flex align-items-center">
+                                            <img src="images/books/books6.png" class="book-img rounded"
+                                                alt="Book Cover">
+                                            <div class="ms-3 flex-grow-1">
+                                                <p class="text-muted mb-1 small">writer Name..</p>
+                                                <h6 class="fw-semibold mb-2 text-dark book-title">INDIA VOTES 2024 A
+                                                </h6>
+
+                                                <div class="rating">
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-regular fa-star text-warning"></i>
+                                                    <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
+                                                </div>
+
+                                                <div class="fw-semibold text-dark mb-1">Rs. 775.00</div>
+
+                                                <button class="btn btn-teal w-100 py-1 rounded-3">
+                                                    <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-6 col-xl-4 mb-4">
+                                    <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
+                                        <button
+                                            class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+
+                                        <div class="d-flex align-items-center">
+                                            <img src="images/books/books7.png" class="book-img rounded"
+                                                alt="Book Cover">
+                                            <div class="ms-3 flex-grow-1">
+                                                <p class="text-muted mb-1 small">writer Name..</p>
+                                                <h6 class="fw-semibold mb-2 text-dark book-title">CHILDREN'S RAMAYANA ..
+                                                </h6>
+
+                                                <div class="rating">
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-regular fa-star text-warning"></i>
+                                                    <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
+                                                </div>
+
+                                                <div class="fw-semibold text-dark mb-1">Rs. 90.00</div>
+
+                                                <button class="btn btn-teal w-100 py-1 rounded-3">
+                                                    <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-6 col-xl-4 mb-4">
+                                    <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
+                                        <button
+                                            class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+
+                                        <div class="d-flex align-items-center">
+                                            <img src="images/books/books8.png" class="book-img rounded"
+                                                alt="Book Cover">
+                                            <div class="ms-3 flex-grow-1">
+                                                <p class="text-muted mb-1 small">writer Name..</p>
+                                                <h6 class="fw-semibold mb-2 text-dark book-title">CHILDREN'S RAMAYANA ..
+                                                </h6>
+
+                                                <div class="rating">
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-regular fa-star text-warning"></i>
+                                                    <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
+                                                </div>
+
+                                                <div class="fw-semibold text-dark mb-1">Rs. 640.00</div>
+
+                                                <button class="btn btn-teal w-100 py-1 rounded-3">
+                                                    <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-6 col-xl-4 mb-4">
+                                    <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
+                                        <button
+                                            class="wishlist-btn position-absolute top-0 end-0 mt-2 me-2 border-0 bg-white shadow-sm">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+
+                                        <div class="d-flex align-items-center">
+                                            <img src="images/books/books9.png" class="book-img rounded"
+                                                alt="Book Cover">
+                                            <div class="ms-3 flex-grow-1">
+                                                <p class="text-muted mb-1 small">writer Name..</p>
+                                                <h6 class="fw-semibold mb-2 text-dark book-title">RUTHE BADAL (POP)</h6>
+
+                                                <div class="rating">
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-solid fa-star text-warning"></i>
+                                                    <i class="fa-regular fa-star text-warning"></i>
+                                                    <small class="text-muted ms-2">(4.0) | 111 Reviews</small>
+                                                </div>
+
+                                                <div class="fw-semibold text-dark mb-1">Rs. 110.00</div>
+
+                                                <button class="btn btn-teal w-100 py-1 rounded-3">
+                                                    <i class="fa-solid fa-bag-shopping me-1"></i> Add to Cart
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </section>
+
+                    </div>
+
+                    <!--------------------------------------------------------------add to Cart Section ------------------------------------------------------->
+
+                    <div class="profile-section" id="cartSection">
+                        <!-- Cart/Checkout Page Content -->
+                        <section class="container-fluid">
+                            <div class="row g-4">
+                                <!-- Left Section - Cart Items -->
+                                <div class="col-xl-8">
+                                    <div class="card shadow-sm border-0">
+                                        <div class="card-body p-4">
+                                            <div
+                                                class="d-flex flex-wrap justify-content-between align-items-center mb-4 pb-3 gap-3 border-bottom">
+                                                <div>
+                                                    <h5 class="mb-1 fw-bold">
+                                                        <i class="fa-solid fa-shopping-cart me-2"
+                                                            style="color: #004d40;"></i>
+                                                        Cart
+                                                    </h5>
+                                                    <p class="text-muted small mb-0">
+                                                        <span class="badge bg-success me-2" id="cartCount">4</span>
+                                                        items in your cart
+                                                    </p>
+                                                </div>
+                                                <div class="d-flex align-items-center gap-2">
+
+                                                    <!-- Search Box -->
+                                                    <div class="position-relative card-searchbox w-md-auto">
+                                                        <input type="text" class="form-control ps-3 pe-5"
+                                                            placeholder="Search books...">
+                                                        <i class="fas fa-search search-icon-search-box"></i>
+                                                    </div>
+                                                    <div class="d-flex gap-2 flex-wrap">
+                                                        <a class="btn add-more-btn btn-outline-secondary text-nowrap btn-sm"
+                                                            href="/listing-product">
+                                                            <i class="fa-solid fa-plus me-2"></i>Add More
+                                                        </a>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                            <!-- Cart Table -->
+                                            <div class="table-responsive">
+                                                <table class="table table-hover align-middle mb-0">
+                                                    <thead class="table-light">
+                                                        <tr>
+                                                            <th class="border-0 py-3 px-3"
+                                                                style="font-weight: 600; font-size: 14px;">Products Name
+                                                            </th>
+                                                            <th class="border-0 py-3 px-3"
+                                                                style="font-weight: 600; font-size: 14px;">Price</th>
+                                                            <th class="border-0 py-3 px-3"
+                                                                style="font-weight: 600; font-size: 14px;">Quantity</th>
+                                                            <th class="border-0 py-3 px-3 text-center"
+                                                                style="font-weight: 600; font-size: 14px;">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="cart-item-row">
+                                                            <td class="px-3">
+                                                                <div class="d-flex align-items-center">
+                                                                    <img src="images/books/books1.png" alt="Book"
+                                                                        class="cart-item-img me-3">
+                                                                    <div>
+                                                                        <h6 class="card-product-name">AZADI KI LADAI KE
+                                                                            Jabtashuda Tarane</h6>
+                                                                        <small class="text-muted"
+                                                                            style="font-size: 12px;">ID: BK001</small>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-3">
+                                                                <div>
+                                                                    <span class="fw-bold d-block text-success"
+                                                                        style="font-size: 15px;">Rs. 420.00</span>
+                                                                    <button
+                                                                        class="btn btn-sm btn-success discount-badge">
+                                                                        <i class="fa-solid fa-tag me-1"></i>Save Rs. 250
+                                                                    </button>
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-3">
+                                                                <div class="d-flex flex-column gap-2">
+                                                                    <div
+                                                                        class="quantity-control d-flex align-items-center">
+                                                                        <button class="btn btn-sm quantity-btn"
+                                                                            data-action="decrease">-</button>
+                                                                        <input type="number"
+                                                                            class="form-control form-control-sm text-center border-0 quantity-input"
+                                                                            value="1" min="1">
+                                                                        <button class="btn btn-sm quantity-btn"
+                                                                            data-action="increase">+</button>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-3 text-center">
+                                                                <button
+                                                                    class="btn btn-sm btn-outline-danger delete-btn">
+                                                                    <i class="fa-solid fa-trash"></i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="cart-item-row">
+                                                            <td class="px-3">
+                                                                <div class="d-flex align-items-center">
+                                                                    <img src="images/books/books2.png" alt="Book"
+                                                                        class="cart-item-img me-3">
+                                                                    <div>
+                                                                        <h6 class="card-product-name ">SARDAR PATEL
+                                                                            SACHITRA JEEVANEE</h6>
+                                                                        <small class="text-muted"
+                                                                            style="font-size: 12px;">ID: BK002</small>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-3">
+                                                                <div>
+                                                                    <span class="fw-bold d-block text-success"
+                                                                        style="font-size: 15px;">Rs. 200.00</span>
+                                                                    <button
+                                                                        class="btn btn-sm btn-success discount-badge">
+                                                                        <i class="fa-solid fa-tag me-1"></i>Save Rs. 200
+                                                                    </button>
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-3">
+                                                                <div class="d-flex flex-column gap-2">
+                                                                    <small class="text-muted" style="font-size: 11px;">1
+                                                                        box = 60 units</small>
+                                                                    <div
+                                                                        class="quantity-control d-flex align-items-center">
+                                                                        <button class="btn btn-sm quantity-btn"
+                                                                            data-action="decrease">-</button>
+                                                                        <input type="number"
+                                                                            class="form-control form-control-sm text-center border-0 quantity-input"
+                                                                            value="2" min="1">
+                                                                        <button class="btn btn-sm quantity-btn"
+                                                                            data-action="increase">+</button>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-3 text-center">
+                                                                <button
+                                                                    class="btn btn-sm btn-outline-danger delete-btn">
+                                                                    <i class="fa-solid fa-trash"></i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="cart-item-row">
+                                                            <td class="px-3">
+                                                                <div class="d-flex align-items-center">
+                                                                    <img src="images/books/books3.png" alt="Book"
+                                                                        class="cart-item-img me-3">
+                                                                    <div>
+                                                                        <h6 class="card-product-name ">NETAJI - A LIFE
+                                                                            IN PICTURES</h6>
+                                                                        <small class="text-muted"
+                                                                            style="font-size: 12px;">ID: BK003</small>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-3">
+                                                                <div>
+                                                                    <span class="fw-bold d-block text-success"
+                                                                        style="font-size: 15px;">Rs. 610.00</span>
+                                                                    <button
+                                                                        class="btn btn-sm btn-success discount-badge">
+                                                                        <i class="fa-solid fa-tag me-1"></i>Save Rs. 300
+                                                                    </button>
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-3">
+                                                                <div class="d-flex flex-column gap-2">
+                                                                    <small class="text-muted" style="font-size: 11px;">1
+                                                                        box = 60 units</small>
+                                                                    <div
+                                                                        class="quantity-control d-flex align-items-center">
+                                                                        <button class="btn btn-sm quantity-btn"
+                                                                            data-action="decrease">-</button>
+                                                                        <input type="number"
+                                                                            class="form-control form-control-sm text-center border-0 quantity-input"
+                                                                            value="1" min="1">
+                                                                        <button class="btn btn-sm quantity-btn"
+                                                                            data-action="increase">+</button>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-3 text-center">
+                                                                <button
+                                                                    class="btn btn-sm btn-outline-danger delete-btn">
+                                                                    <i class="fa-solid fa-trash"></i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="cart-item-row">
+                                                            <td class="px-3">
+                                                                <div class="d-flex align-items-center">
+                                                                    <img src="images/books/books4.png" alt="Book"
+                                                                        class="cart-item-img me-3">
+                                                                    <div>
+                                                                        <h6 class="card-product-name ">BHAGAT SINGH-
+                                                                            SACHITRA JEEVANEE</h6>
+                                                                        <small class="text-muted"
+                                                                            style="font-size: 12px;">ID: BK004</small>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-3">
+                                                                <div>
+                                                                    <span class="fw-bold d-block text-success"
+                                                                        style="font-size: 15px;">Rs. 875.00</span>
+                                                                    <button
+                                                                        class="btn btn-sm btn-success discount-badge">
+                                                                        <i class="fa-solid fa-tag me-1"></i>Save Rs. 400
+                                                                    </button>
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-3">
+                                                                <div class="d-flex flex-column gap-2">
+                                                                    <small class="text-muted" style="font-size: 11px;">1
+                                                                        box = 60 units</small>
+                                                                    <div
+                                                                        class="quantity-control d-flex align-items-center">
+                                                                        <button class="btn btn-sm quantity-btn"
+                                                                            data-action="decrease">-</button>
+                                                                        <input type="number"
+                                                                            class="form-control form-control-sm text-center border-0 quantity-input"
+                                                                            value="1" min="1">
+                                                                        <button class="btn btn-sm quantity-btn"
+                                                                            data-action="increase">+</button>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-3 text-center">
+                                                                <button
+                                                                    class="btn btn-sm btn-outline-danger delete-btn">
+                                                                    <i class="fa-solid fa-trash"></i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <!-- Pagination -->
+                                            <div
+                                                class="d-flex justify-content-between align-items-center mt-4 pt-3 border-top">
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <label class="mb-0 small text-muted">Show</label>
+                                                    <select class="form-select form-select-sm d-inline-block"
+                                                        style="width: 80px;">
+                                                        <option>10</option>
+                                                        <option>20</option>
+                                                        <option>50</option>
+                                                    </select>
+                                                    <span class="small text-muted">Entries</span>
+                                                </div>
+                                                <nav>
+                                                    <ul class="pagination pagination-sm mb-0">
+                                                        <li class="page-item"><a class="page-link" href="#">&laquo;</a>
+                                                        </li>
+                                                        <li class="page-item active"><a class="page-link" href="#">1</a>
+                                                        </li>
+                                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">&raquo;</a>
+                                                        </li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Right Section - Order Summary -->
+                                <div class="col-xl-4">
+                                    <!-- Shipping Details -->
+                                    <div class="card shadow-sm border-0 mb-4">
+                                        <div
+                                            class="card-header d-flex justify-content-between align-items-center py-3 px-4">
+                                            <h6 class="mb-0 fw-semibold">Shipping Details</h6>
+                                            <button class="btn btn-sm btn-link text-success p-0 fw-semibold"
+                                                id="addAddressBtn" style="text-decoration: none;">
+                                                <i class="fa-solid fa-plus me-1"></i>Add New Address
+                                            </button>
+                                        </div>
+                                        <div class="card-body p-4">
+                                            <div class="shipping-address" id="shippingAddress" style="cursor: pointer;">
+                                                <h6 class="mb-3 fw-bold">Abhishek Pandey</h6>
+                                                <div class="mb-3">
+                                                    <p class="mb-2 small">
+                                                        <i class="fa-solid fa-phone me-2 text-muted"></i><span
+                                                            class="text-dark">8676877668</span>
+                                                    </p>
+                                                    <p class="mb-0 small">
+                                                        <i class="fa-solid fa-envelope me-2 text-muted"></i><span
+                                                            class="text-dark">abhishek@example.com</span>
+                                                    </p>
+                                                </div>
+                                                <div class="pt-3 border-top">
+                                                    <p class="mb-2 small">
+                                                        <span class="text-muted">Address:</span> <span
+                                                            class="text-dark">Sector 14, Anand Nagar near shani
+                                                            mandir</span>
+                                                    </p>
+                                                    <p class="mb-2 small">
+                                                        <span class="text-muted">City:</span> <span
+                                                            class="text-dark">Gurugram</span>
+                                                    </p>
+                                                    <p class="mb-2 small">
+                                                        <span class="text-muted">State:</span> <span
+                                                            class="text-dark">Haryana</span>
+                                                    </p>
+                                                    <p class="mb-2 small">
+                                                        <span class="text-muted">Country:</span> <span
+                                                            class="text-dark">India</span>
+                                                    </p>
+                                                    <p class="mb-0 small">
+                                                        <span class="text-muted">Zip Code:</span> <span
+                                                            class="text-dark">110078</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Price Details -->
+                                    <div class="card shadow-sm border-0 mb-4">
+                                        <div class="card-header py-3 px-4">
+                                            <h6 class="mb-0 fw-semibold">Price Details</h6>
+                                        </div>
+                                        <div class="card-body p-4">
+                                            <div class="d-flex justify-content-between mb-3">
+                                                <span class="text-muted small">Order Quantity</span>
+                                                <span class="fw-semibold">11 (612 units)</span>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-3">
+                                                <span class="text-muted small">Retail Total</span>
+                                                <span class="fw-semibold">Rs. 6,269.40</span>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-3">
+                                                <span class="text-muted small">Wholesale Total</span>
+                                                <span class="fw-semibold">Rs. 3,412.92</span>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-3">
+                                                <span class="text-muted small">Extra Discount</span>
+                                                <span class="fw-semibold text-success">3%</span>
+                                            </div>
+                                            <hr class="my-3">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="text-decoration-line-through text-muted small">Rs.
+                                                    3,412.92</span>
+                                                <div class="text-end">
+                                                    <div class="text-muted small mb-1">Total</div>
+                                                    <span class="fw-bold fs-7 text-success">Rs. 3,310.53</span>
+                                                </div>
+                                            </div>
+                                            <!-- Place Order Button -->
+                                            <button class="btn btn-primary mt-3 w-100 py-2 fs-7 fw-bold shadow-lg">
+                                                <i class="fa-solid fa-shopping-bag me-2"></i>Place Order
+                                            </button>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </section>
+
+                        <!---------------------------------- Address Drawer Modal---------------------------------------------------->
+
+
+                        <div class="modal fade" id="addressDrawer" tabindex="-1" aria-labelledby="addressDrawerLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header border-0 pb-0">
+                                        <button type="button" class="btn-close " data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body px-4 pb-4">
+                                        <div class="d-flex align-items-center mb-3 pb-3 border-bottom">
+                                            <button type="button" class="btn btn-link p-0 me-3 text-dark"
+                                                data-bs-dismiss="modal" style="text-decoration: none;">
+                                                <i class="fa-solid fa-arrow-left fs-6"></i>
+                                            </button>
+                                            <h4 class="mb-0 fw-bold">Add New Address</h4>
+                                        </div>
+
+                                        <form id="addressForm">
+                                            <!-- Contact Information -->
+                                            <div class="mb-3">
+                                                <h5 class="mb-2 fw-bold">Contact Information</h5>
+                                                <div class="row g-2">
+                                                    <div class="col-md-6">
+                                                        <label for="fullName" class="form-label">Full Name</label>
+                                                        <input type="text" class="form-control modal-input"
+                                                            id="fullName" placeholder="Enter your full name" required>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="userName" class="form-label">User Name</label>
+                                                        <input type="text" class="form-control modal-input"
+                                                            id="userName" placeholder="Enter User name" required>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="phoneNumber" class="form-label">Phone Number</label>
+                                                        <input type="tel" class="form-control modal-input"
+                                                            id="phoneNumber" placeholder="Enter your phone number"
+                                                            required>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="emailAddress" class="form-label">Email
+                                                            Address</label>
+                                                        <input type="email" class="form-control modal-input"
+                                                            id="emailAddress" placeholder="Enter your email" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <hr class="my-3">
+
+                                            <!-- Shipping Address -->
+                                            <div class="mb-2">
+                                                <h5 class="mb-2 fw-bold">Shipping Address</h5>
+                                                <div class="row g-1">
+                                                    <div class="col-12">
+                                                        <label for="addressLine" class="form-label">Address Line</label>
+                                                        <input type="text" class="form-control modal-input"
+                                                            id="addressLine" placeholder="Enter your street address"
+                                                            required>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="city" class="form-label">City</label>
+                                                        <input type="text" class="form-control modal-input" id="city"
+                                                            placeholder="Enter your city" required>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="postCode" class="form-label">Post Code</label>
+                                                        <input type="text" class="form-control modal-input"
+                                                            id="postCode" placeholder="Enter your Post code" required>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="state" class="form-label">State</label>
+                                                        <input type="text" class="form-control modal-input" id="state"
+                                                            placeholder="Enter your state" required>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="country" class="form-label">Country</label>
+                                                        <input type="text" class="form-control modal-input" id="country"
+                                                            placeholder="Enter your country" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex justify-content-end mt-4">
+                                                <button type="submit" class="btn btn-primary text-end mt-4">
+                                                    <i class="fa-solid fa-check me-2"></i>Save & Continue
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <script>
+                            // Quantity Controls
+                            document.querySelectorAll('.quantity-btn').forEach(btn => {
+                                btn.addEventListener('click', function () {
+                                    const input = this.parentElement.querySelector('input');
+                                    const action = this.getAttribute('data-action');
+                                    let value = parseInt(input.value);
+
+                                    if (action === 'increase') {
+                                        value++;
+                                    } else if (action === 'decrease' && value > 1) {
+                                        value--;
+                                    }
+
+                                    input.value = value;
+                                    updateCartTotal();
+                                });
+                            });
+
+                            // Open Address Drawer
+                            const addAddressBtn = document.getElementById('addAddressBtn');
+                            const shippingAddress = document.getElementById('shippingAddress');
+                            const addressDrawer = new bootstrap.Modal(document.getElementById('addressDrawer'));
+
+                            if (addAddressBtn) {
+                                addAddressBtn.addEventListener('click', function (e) {
+                                    e.preventDefault();
+                                    addressDrawer.show();
+                                });
+                            }
+
+                            if (shippingAddress) {
+                                shippingAddress.addEventListener('click', function () {
+                                    addressDrawer.show();
+                                });
+                            }
+
+                            // Handle Form Submission
+                            const addressForm = document.getElementById('addressForm');
+                            if (addressForm) {
+                                addressForm.addEventListener('submit', function (e) {
+                                    e.preventDefault();
+
+                                    // Get form values
+                                    const formData = {
+                                        fullName: document.getElementById('fullName').value,
+                                        userName: document.getElementById('userName').value,
+                                        phoneNumber: document.getElementById('phoneNumber').value,
+                                        emailAddress: document.getElementById('emailAddress').value,
+                                        addressLine: document.getElementById('addressLine').value,
+                                        city: document.getElementById('city').value,
+                                        postCode: document.getElementById('postCode').value,
+                                        state: document.getElementById('state').value,
+                                        country: document.getElementById('country').value
+                                    };
+
+                                    // Update shipping address display
+                                    updateShippingAddress(formData);
+
+                                    // Close modal
+                                    addressDrawer.hide();
+
+                                    // Reset form
+                                    addressForm.reset();
+                                });
+                            }
+
+                            function updateShippingAddress(data) {
+                                const addressElement = document.getElementById('shippingAddress');
+                                if (addressElement) {
+                                    addressElement.innerHTML = `
+        <h6 class="mb-3 fw-bold">${data.fullName}</h6>
+        <div class="mb-3">
+          <p class="mb-2 small">
+            <i class="fa-solid fa-phone me-2 text-muted"></i><span class="text-dark">${data.phoneNumber}</span>
+          </p>
+          <p class="mb-0 small">
+            <i class="fa-solid fa-envelope me-2 text-muted"></i><span class="text-dark">${data.emailAddress}</span>
+          </p>
+        </div>
+        <div class="pt-3 border-top">
+          <p class="mb-2 small">
+            <span class="text-muted">Address:</span> <span class="text-dark">${data.addressLine}</span>
+          </p>
+          <p class="mb-2 small">
+            <span class="text-muted">City:</span> <span class="text-dark">${data.city}</span>
+          </p>
+          <p class="mb-2 small">
+            <span class="text-muted">State:</span> <span class="text-dark">${data.state}</span>
+          </p>
+          <p class="mb-2 small">
+            <span class="text-muted">Country:</span> <span class="text-dark">${data.country}</span>
+          </p>
+          <p class="mb-0 small">
+            <span class="text-muted">Zip Code:</span> <span class="text-dark">${data.postCode}</span>
+          </p>
+        </div>
+      `;
+                                }
+                            }
+
+                            function updateCartTotal() {
+                                // Calculate total based on quantities
+                                // This is a placeholder - implement actual calculation logic
+                                console.log('Cart total updated');
+                            }
+                        </script>
+                    </div>
+
+                    <!-------------------------------------------------------------- Order History Section --------------------------------------------->
+
+                    <div class="profile-section" id="orderHistorySection">
+                        <div class="section-header d-flex flex-wrap justify-content-between align-items-center">
+                            <h4 class="section-title">Order History</h4>
+                            <div class="d-flex align-items-center gap-2">
+                                <!-- Search Box -->
+                                <div class="position-relative card-searchbox w-md-auto">
+                                    <input type="text" class="form-control ps-3 pe-5" placeholder="Search books...">
+                                    <i class="fas fa-search search-icon-search-box"></i>
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <select class="form-select form-select-sm" style="max-width: 150px;">
+                                        <option>All Orders</option>
+                                        <option>Delivered</option>
+                                        <option>Processing</option>
+                                        <option>Shipped</option>
+                                        <option>Cancelled</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-history-container">
+                            <div class="order-list-grid">
+                                <!-- Order Card -->
+                                <div class="order-card">
+                                    <div class="order-row">
+                                        <!-- Left: Image + Name -->
+                                        <div class="order-left">
+                                            <img src="images/books/81m5sLftpiL._SL1500_.jpg" class="order-img">
+
+                                            <div class="order-info">
+                                                <h6 class="product-title">
+                                                    Pawan (Sahitya) D.El.Ed Series 3rd Semester
+                                                </h6>
+                                                <p class="text-muted small mb-0">Sahitya Publication</p>
+                                            </div>
+                                        </div>
+                                        <div class="order-right">
+                                            <!-- Price -->
+                                            <div class="order-price">₹336</div>
+
+                                            <!-- Status -->
+                                            <div class="order-status">
+                                                <div class="delivery">
+                                                    <span class="dot"></span>
+                                                    <span>Delivered on Jul 16</span>
+                                                </div>
+                                                <p class="small text-muted mb-1">Your item has been delivered</p>
+                                                <a href="#" class="review-link">
+                                                    <i class="fa-solid fa-star"></i> Rate & Review Product
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Order Card -->
+                                <div class="order-card">
+                                    <div class="order-row">
+                                        <div class="order-left">
+                                            <img src="images/books/81v6NcNuRpL._SL1500_.jpg" class="order-img">
+                                            <div class="order-info">
+                                                <h6 class="product-title "
+                                                    data-bs-toggle="offcanvas" data-bs-target="#orderDetailCanvas">
+                                                    SAFARI ECLIPSE 2P SET 4W Cabin & Check-in
+                                                </h6>
+                                                <p class="text-muted small mb-0">Color: Teal</p>
+                                            </div>
+                                        </div>
+                                        <div class="order-right">
+                                            <div class="order-price">₹3,114</div>
+                                            <div class="order-status">
+                                                <div class="delivery">
+                                                    <span class="dot"></span>
+                                                    <span>Delivered on May 09</span>
+                                                </div>
+                                                <p class="small text-muted mb-1">Your item has been delivered</p>
+                                                <a href="#" class="review-link">
+                                                    <i class="fa-solid fa-star"></i> Rate & Review Product
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+<!-- -------------------------------------------modal order and invise section --------------------------- -->
+<div class="offcanvas offcanvas-end order-offcanvas"
+     tabindex="-1"
+     id="orderDetailCanvas">
+
+  <div class="offcanvas-header border-bottom">
+    <h6 class="fw-bold mb-0">Order Details</h6>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+
+  <div class="offcanvas-body p-3">
+
+<section class="container-fluid py-4 bg-light">
+
+  <div class="row g-4">
+
+    <!-- LEFT SECTION -->
+    <div class="col-lg-8">
+
+      <!-- Tracking Info -->
+      <div class="card mb-3 shadow-sm">
+        <div class="card-body small text-muted">
+          Order can be tracked by <strong>9555580991</strong>.<br>
+          Tracking link is shared via SMS.
+        </div>
+      </div>
+
+      <!-- Product Card -->
+      <div class="card mb-3 shadow-sm">
+        <div class="card-body">
+
+          <div class="d-flex justify-content-between">
+            <div>
+              <h6 class="fw-bold mb-1">
+                Pawan (Sahitya) D.El.Ed Series 3rd Semester (All 8 Subjects) in Hindi
+              </h6>
+              <p class="small text-muted mb-1">Sahitya Publication</p>
+              <p class="small text-muted mb-2">Seller: BestsellerBooks</p>
+              <span class="fw-bold text-success">₹336</span>
+              <span class="badge bg-success ms-2">Offer</span>
             </div>
-            <h6 class="user-name">Abhi Pandey</h6>
-            <p class="user-email">abhishekpandey@gmail.com</p>
-            <span class="user-badge">Registered User</span>
+
+            <img src="images/books/81v6NcNuRpL._SL1500_.jpg"
+                 width="80"
+                 class="rounded border">
           </div>
 
-          <!-- Navigation Menu -->
-          <nav class="sidebar-nav">
-            <ul class="nav-menu">
-              <li>
-                <button class="nav-item-btn active" data-section="profile" aria-label="Profile">
-                  <i class="fa-solid fa-user"></i>
-                  <span>Profile</span>
-                </button>
-              </li>
-              <li>
-                <button class="nav-item-btn" data-section="wishlist" aria-label="Wishlist">
-                  <i class="fa-solid fa-heart"></i>
-                  <span>Wishlist</span>
-                </button>
-              </li>
-              <li>
-                <button class="nav-item-btn" data-section="cart" aria-label="Shopping Cart">
-                  <i class="fa-solid fa-cart-shopping"></i>
-                  <span>Shopping Cart</span>
-                </button>
-              </li>
-              <li>
-                <button class="nav-item-btn" data-section="order-history" aria-label="Order History">
-                  <i class="fa-solid fa-file-lines"></i>
-                  <span>Order History</span>
-                </button>
-              </li>
-              
-              <li class="nav-divider">
-                <span class="nav-section-title">Account Settings</span>
-              </li>
-              
-              <li>
-                <button class="nav-item-btn" data-section="shipping-address" aria-label="Shipping Address">
-                  <i class="fa-solid fa-map-marker-alt"></i>
-                  <span>Shipping Address</span>
-                </button>
-              </li>
-              
-              <li class="nav-divider">
-                <span class="nav-section-title">Help</span>
-              </li>
-              
-              <li>
-                <button class="nav-item-btn" data-section="get-started" aria-label="Get Started">
-                  <i class="fa-solid fa-question-circle"></i>
-                  <span>Get Started</span>
-                </button>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </aside>
+          <hr>
 
-      <!-- Main Content Area -->
-      <main class="profile-content col-lg-9 col-xl-10">
-        <div class="content-wrapper">
-          
-          <!-- Mobile Sidebar Toggle -->
-          <button class="sidebar-toggle-btn d-lg-none mb-3" id="sidebarToggle" aria-label="Toggle Sidebar">
-            <i class="fa-solid fa-bars"></i>
+          <!-- Timeline -->
+          <ul class="list-unstyled small">
+            <li class="mb-2">
+              <span class="text-success fw-bold">●</span>
+              Order Confirmed, Jul 10
+            </li>
+            <li>
+              <span class="text-success fw-bold">●</span>
+              Delivered, Jul 16
+            </li>
+          </ul>
+
+          <a href="#" class="small text-primary fw-semibold">
+            See All Updates →
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Chat -->
+      <div class="card mb-3 shadow-sm">
+        <div class="card-body text-center small">
+          💬 <a href="#" class="text-decoration-none">Chat with us</a>
+        </div>
+      </div>
+
+      <!-- Rating -->
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h6 class="fw-bold mb-3">Rate your experience</h6>
+
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <span class="fw-semibold">Great</span>
+            <i class="fa-solid fa-star text-success"></i>
+            <i class="fa-solid fa-star text-success"></i>
+            <i class="fa-solid fa-star text-success"></i>
+            <i class="fa-solid fa-star text-success"></i>
+            <i class="fa-solid fa-star text-success"></i>
+          </div>
+
+          <button class="btn btn-outline-primary btn-sm">
+            Add a photo / video
           </button>
-
-          <!-- Profile Section -->
-          <div class="profile-section active" id="profileSection">
-            <div class="container">
-              <div class="row g-4">
-                <!-- LEFT COLUMN -->
-                <div class="col-lg-4">
-                  <!-- Profile Card -->
-                  <div class="card border-0 shadow-sm rounded-4 mb-4">
-                    <div class="card-body text-center p-4"
-                         style="background: linear-gradient(135deg,#ff4f8b,#9b6bff); border-radius: 1rem;">
-                      <div class="mx-auto mb-3"
-                           style="width:110px;height:110px;
-                                  border-radius:50%;
-                                  background:#fff;
-                                  display:flex;
-                                  align-items:center;
-                                  justify-content:center;
-                                  font-size:36px;
-                                  font-weight:700;">
-                        AP
-                      </div>
-                      <h5 class="text-white mb-1">Abhi Pandey</h5>
-                      <p class="text-white-50 small mb-3">Registered User</p>
-                      <button class="btn btn-light btn-sm px-4 rounded-pill fw-semibold">
-                        Change Profile Photo
-                      </button>
-                      <div class="d-flex justify-content-center gap-3 mt-3">
-                        <span class="btn btn-light btn-sm rounded-circle">
-                          <i class="fab fa-facebook-f"></i>
-                        </span>
-                        <span class="btn btn-light btn-sm rounded-circle">
-                          <i class="fab fa-google"></i>
-                        </span>
-                        <span class="btn btn-light btn-sm rounded-circle">
-                          <i class="fab fa-twitter"></i>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Account Security -->
-                  <div class="card border-0 shadow-sm rounded-4">
-                    <div class="card-body p-4">
-                      <h6 class="fw-semibold mb-3">Account Security</h6>
-                      <div class="d-flex justify-content-between align-items-center mb-3">
-                        <span class="small fw-medium">Two-Factor Authentication</span>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" checked>
-                        </div>
-                      </div>
-                      <button class="btn btn-outline-danger w-100">
-                        Change Password
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- RIGHT COLUMN -->
-                <div class="col-lg-8">
-                  <!-- Personal Information -->
-                  <div class="card border-0 shadow-sm rounded-4 mb-4">
-                    <div class="card-body p-4">
-                      <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h6 class="fw-semibold mb-0 border-bottom border-primary pb-2">
-                          Personal Information
-                        </h6>
-                        <button class="btn btn-primary btn-sm rounded-pill px-3">
-                          Edit Profile
-                        </button>
-                      </div>
-                      <div class="row g-3 small">
-                        <div class="col-md-6">
-                          <strong>First Name</strong>
-                          <p class="mb-0 text-muted">Abhi</p>
-                        </div>
-                        <div class="col-md-6">
-                          <strong>Last Name</strong>
-                          <p class="mb-0 text-muted">Pandey</p>
-                        </div>
-                        <div class="col-md-12">
-                          <strong>Email Address</strong>
-                          <p class="mb-0 text-muted">
-                            abhishekpandey@gmail.com
-                            <span class="text-success fw-semibold ms-2">✔ verified</span>
-                          </p>
-                        </div>
-                        <div class="col-md-6">
-                          <strong>Mobile Number</strong>
-                          <p class="mb-0 text-muted">+91 756767576</p>
-                        </div>
-                        <div class="col-md-6">
-                          <strong>WhatsApp Number</strong>
-                          <p class="mb-0 text-muted">+91 756767576</p>
-                        </div>
-                        <div class="col-md-12">
-                          <strong>Tax/VAT Number</strong>
-                          <p class="mb-0 text-muted">Not provided</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Account Settings -->
-                  <div class="card border-0 shadow-sm rounded-4">
-                    <div class="card-body p-4">
-                      <h6 class="fw-semibold mb-3 border-bottom border-primary pb-2">
-                        Account Settings
-                      </h6>
-                      <div class="d-flex justify-content-between align-items-center mb-3">
-                        <div>
-                          <strong class="small">Receive special events and promotional information</strong>
-                          <p class="small text-muted mb-0">
-                            Get updates about upcoming events and special offers
-                          </p>
-                        </div>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox">
-                        </div>
-                      </div>
-                      <div class="d-flex justify-content-between align-items-center mb-4">
-                        <div>
-                          <strong class="small">Make profile private</strong>
-                          <p class="small text-muted mb-0">
-                            Only you can see your profile information
-                          </p>
-                        </div>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" checked>
-                        </div>
-                      </div>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <button class="btn btn-outline-danger btn-sm">
-                          Delete Account Permanently
-                        </button>
-                        <button class="btn btn-outline-secondary btn-sm">
-                          Logout
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Wishlist Section -->
-          <div class="profile-section" id="wishlistSection">
-            <div class="section-header">
-              <h4 class="section-title">Wishlist</h4>
-            </div>
-            <div class="wishlist-container">
-              <!-- Wishlist Item 1 -->
-              <div class="wishlist-item">
-                <div class="wishlist-item-image">
-                  <img src="images/books/81m5sLftpiL._SL1500_.jpg" alt="Product" class="product-img">
-                  <button class="wishlist-remove-btn" aria-label="Remove from wishlist">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                </div>
-                <div class="wishlist-item-details">
-                  <h6 class="product-brand">Ratplan</h6>
-                  <h5 class="product-name">Advanced Snail 96 Mucin Power Essence 100ml</h5>
-                  <div class="product-rating">
-                    <div class="stars">
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                    </div>
-                    <span class="review-count">165 Reviews</span>
-                  </div>
-                  <div class="product-pricing">
-                    <div class="price-row">
-                      <span class="price-label">Wholesale Price</span>
-                      <span class="wholesale-price">$12.00</span>
-                    </div>
-                    <div class="price-row">
-                      <span class="discount-badge">40% off</span>
-                      <span class="retail-price">$20.00</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="wishlist-item-actions">
-                  <div class="quantity-controls">
-                    <button class="qty-btn minus" aria-label="Decrease quantity">-</button>
-                    <input type="number" class="qty-input" value="1" min="1" aria-label="Quantity">
-                    <button class="qty-btn plus" aria-label="Increase quantity">+</button>
-                  </div>
-                  <p class="unit-info">1 box = 60 units</p>
-                  <button class="btn-add-to-cart">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-
-              <!-- Wishlist Item 2 -->
-              <div class="wishlist-item">
-                <div class="wishlist-item-image">
-                  <img src="images/books/81v6NcNuRpL._SL1500_.jpg" alt="Product" class="product-img">
-                  <button class="wishlist-remove-btn" aria-label="Remove from wishlist">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                </div>
-                <div class="wishlist-item-details">
-                  <h6 class="product-brand">Fab You</h6>
-                  <h5 class="product-name">Premium Skincare Set - Complete Collection</h5>
-                  <div class="product-rating">
-                    <div class="stars">
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                    </div>
-                    <span class="review-count">89 Reviews</span>
-                  </div>
-                  <div class="product-pricing">
-                    <div class="price-row">
-                      <span class="price-label">Wholesale Price</span>
-                      <span class="wholesale-price">$15.00</span>
-                    </div>
-                    <div class="price-row">
-                      <span class="discount-badge">35% off</span>
-                      <span class="retail-price">$23.00</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="wishlist-item-actions">
-                  <div class="quantity-controls">
-                    <button class="qty-btn minus" aria-label="Decrease quantity">-</button>
-                    <input type="number" class="qty-input" value="1" min="1" aria-label="Quantity">
-                    <button class="qty-btn plus" aria-label="Increase quantity">+</button>
-                  </div>
-                  <p class="unit-info">1 box = 120 units</p>
-                  <button class="btn-add-to-cart">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-
-              <!-- Wishlist Item 3 -->
-              <div class="wishlist-item">
-                <div class="wishlist-item-image">
-                  <img src="images/books/81X+FPqsGcL._SL1500_.jpg" alt="Product" class="product-img">
-                  <button class="wishlist-remove-btn" aria-label="Remove from wishlist">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                </div>
-                <div class="wishlist-item-details">
-                  <h6 class="product-brand">Ratplan</h6>
-                  <h5 class="product-name">Natural Beauty Essentials - Organic Collection</h5>
-                  <div class="product-rating">
-                    <div class="stars">
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                    </div>
-                    <span class="review-count">234 Reviews</span>
-                  </div>
-                  <div class="product-pricing">
-                    <div class="price-row">
-                      <span class="price-label">Wholesale Price</span>
-                      <span class="wholesale-price">$18.00</span>
-                    </div>
-                    <div class="price-row">
-                      <span class="discount-badge">30% off</span>
-                      <span class="retail-price">$25.00</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="wishlist-item-actions">
-                  <div class="quantity-controls">
-                    <button class="qty-btn minus" aria-label="Decrease quantity">-</button>
-                    <input type="number" class="qty-input" value="1" min="1" aria-label="Quantity">
-                    <button class="qty-btn plus" aria-label="Increase quantity">+</button>
-                  </div>
-                  <p class="unit-info">1 box = 80 units</p>
-                  <button class="btn-add-to-cart">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Cart Section -->
-          <div class="profile-section" id="cartSection">
-            <div class="section-header">
-              <h4 class="section-title">Shopping Cart</h4>
-            </div>
-            <div class="wishlist-container">
-              <!-- Cart Item 1 -->
-              <div class="wishlist-item">
-                <div class="wishlist-item-image">
-                  <img src="images/books/81m5sLftpiL._SL1500_.jpg" alt="Product" class="product-img">
-                  <button class="wishlist-remove-btn" aria-label="Remove from cart">
-                    <i class="fa-solid fa-trash"></i>
-                  </button>
-                </div>
-                <div class="wishlist-item-details">
-                  <h6 class="product-brand">Ratplan</h6>
-                  <h5 class="product-name">Advanced Snail 96 Mucin Power Essence 100ml</h5>
-                  <div class="product-rating">
-                    <div class="stars">
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                    </div>
-                    <span class="review-count">165 Reviews</span>
-                  </div>
-                  <div class="product-pricing">
-                    <div class="price-row">
-                      <span class="price-label">Wholesale Price</span>
-                      <span class="wholesale-price">$12.00</span>
-                    </div>
-                    <div class="price-row">
-                      <span class="discount-badge">40% off</span>
-                      <span class="retail-price">$20.00</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="wishlist-item-actions">
-                  <div class="quantity-controls">
-                    <button class="qty-btn minus" aria-label="Decrease quantity">-</button>
-                    <input type="number" class="qty-input" value="2" min="1" aria-label="Quantity">
-                    <button class="qty-btn plus" aria-label="Increase quantity">+</button>
-                  </div>
-                  <p class="unit-info">1 box = 60 units</p>
-                  <button class="btn-add-to-cart">
-                    <i class="fa-solid fa-credit-card"></i>
-                    Checkout
-                  </button>
-                </div>
-              </div>
-
-              <!-- Cart Item 2 -->
-              <div class="wishlist-item">
-                <div class="wishlist-item-image">
-                  <img src="images/books/81v6NcNuRpL._SL1500_.jpg" alt="Product" class="product-img">
-                  <button class="wishlist-remove-btn" aria-label="Remove from cart">
-                    <i class="fa-solid fa-trash"></i>
-                  </button>
-                </div>
-                <div class="wishlist-item-details">
-                  <h6 class="product-brand">Fab You</h6>
-                  <h5 class="product-name">Premium Skincare Set - Complete Collection</h5>
-                  <div class="product-rating">
-                    <div class="stars">
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                    </div>
-                    <span class="review-count">89 Reviews</span>
-                  </div>
-                  <div class="product-pricing">
-                    <div class="price-row">
-                      <span class="price-label">Wholesale Price</span>
-                      <span class="wholesale-price">$15.00</span>
-                    </div>
-                    <div class="price-row">
-                      <span class="discount-badge">35% off</span>
-                      <span class="retail-price">$23.00</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="wishlist-item-actions">
-                  <div class="quantity-controls">
-                    <button class="qty-btn minus" aria-label="Decrease quantity">-</button>
-                    <input type="number" class="qty-input" value="1" min="1" aria-label="Quantity">
-                    <button class="qty-btn plus" aria-label="Increase quantity">+</button>
-                  </div>
-                  <p class="unit-info">1 box = 120 units</p>
-                  <button class="btn-add-to-cart">
-                    <i class="fa-solid fa-credit-card"></i>
-                    Checkout
-                  </button>
-                </div>
-              </div>
-
-              <!-- Cart Item 3 -->
-              <div class="wishlist-item">
-                <div class="wishlist-item-image">
-                  <img src="images/books/81X+FPqsGcL._SL1500_.jpg" alt="Product" class="product-img">
-                  <button class="wishlist-remove-btn" aria-label="Remove from cart">
-                    <i class="fa-solid fa-trash"></i>
-                  </button>
-                </div>
-                <div class="wishlist-item-details">
-                  <h6 class="product-brand">Ratplan</h6>
-                  <h5 class="product-name">Natural Beauty Essentials - Organic Collection</h5>
-                  <div class="product-rating">
-                    <div class="stars">
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                    </div>
-                    <span class="review-count">234 Reviews</span>
-                  </div>
-                  <div class="product-pricing">
-                    <div class="price-row">
-                      <span class="price-label">Wholesale Price</span>
-                      <span class="wholesale-price">$18.00</span>
-                    </div>
-                    <div class="price-row">
-                      <span class="discount-badge">30% off</span>
-                      <span class="retail-price">$25.00</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="wishlist-item-actions">
-                  <div class="quantity-controls">
-                    <button class="qty-btn minus" aria-label="Decrease quantity">-</button>
-                    <input type="number" class="qty-input" value="1" min="1" aria-label="Quantity">
-                    <button class="qty-btn plus" aria-label="Increase quantity">+</button>
-                  </div>
-                  <p class="unit-info">1 box = 80 units</p>
-                  <button class="btn-add-to-cart">
-                    <i class="fa-solid fa-credit-card"></i>
-                    Checkout
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Order History Section -->
-          <div class="profile-section" id="orderHistorySection">
-            <div class="section-header d-flex justify-content-between align-items-center">
-              <h4 class="section-title">Order History</h4>
-              <div class="d-flex gap-2">
-                <select class="form-select form-select-sm" style="max-width: 150px;">
-                  <option>All Orders</option>
-                  <option>Delivered</option>
-                  <option>Processing</option>
-                  <option>Shipped</option>
-                  <option>Cancelled</option>
-                </select>
-              </div>
-            </div>
-            <div class="order-history-container">
-              <!-- Order Card 1 -->
-              <div class="order-card mb-4">
-                <div class="order-card-header d-flex justify-content-between align-items-center mb-3">
-                  <div>
-                    <h6 class="mb-1">Order #ORD-2024-001</h6>
-                    <p class="text-muted small mb-0">Placed on 15 Dec 2024</p>
-                    <p class="text-muted small mb-0">Delivered on 20 Dec 2024</p>
-                  </div>
-                  <div class="text-end">
-                    <span class="badge bg-success">Delivered</span>
-                    <p class="text-muted small mb-0 mt-1">Total: ₹1,250</p>
-                  </div>
-                </div>
-                <div class="order-items">
-                  <div class="order-item d-flex align-items-center mb-3">
-                    <img src="images/books/81m5sLftpiL._SL1500_.jpg" alt="Product" class="order-item-img me-3">
-                    <div class="flex-grow-1">
-                      <h6 class="mb-1">Advanced Snail 96 Mucin Power Essence 100ml</h6>
-                      <p class="text-muted small mb-0">Brand: Ratplan</p>
-                      <p class="text-muted small mb-0">Quantity: 2 × ₹600 = ₹1,200</p>
-                    </div>
-                    <div class="text-end">
-                      <strong>₹1,200</strong>
-                    </div>
-                  </div>
-                  <div class="order-item d-flex align-items-center mb-3">
-                    <img src="images/books/81v6NcNuRpL._SL1500_.jpg" alt="Product" class="order-item-img me-3">
-                    <div class="flex-grow-1">
-                      <h6 class="mb-1">Premium Skincare Set - Complete Collection</h6>
-                      <p class="text-muted small mb-0">Brand: Fab You</p>
-                      <p class="text-muted small mb-0">Quantity: 1 × ₹50 = ₹50</p>
-                    </div>
-                    <div class="text-end">
-                      <strong>₹50</strong>
-                    </div>
-                  </div>
-                </div>
-                <div class="order-summary p-3 bg-light rounded mb-3">
-                  <div class="d-flex justify-content-between mb-2">
-                    <span>Subtotal:</span>
-                    <span>₹1,250</span>
-                  </div>
-                  <div class="d-flex justify-content-between mb-2">
-                    <span>Shipping:</span>
-                    <span class="text-success">Free</span>
-                  </div>
-                  <div class="d-flex justify-content-between fw-bold pt-2 border-top">
-                    <span>Total:</span>
-                    <span>₹1,250</span>
-                  </div>
-                </div>
-                <div class="order-card-footer d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
-                  <div>
-                    <p class="small text-muted mb-0">Payment Method: Credit Card</p>
-                    <p class="small text-muted mb-0">Tracking: #TRK123456789</p>
-                  </div>
-                  <div class="d-flex gap-2">
-                    <button class="btn btn-sm btn-outline-primary">View Invoice</button>
-                    <button class="btn btn-sm btn-outline-success">Reorder</button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Order Card 2 -->
-              <div class="order-card mb-4">
-                <div class="order-card-header d-flex justify-content-between align-items-center mb-3">
-                  <div>
-                    <h6 class="mb-1">Order #ORD-2024-002</h6>
-                    <p class="text-muted small mb-0">Placed on 10 Dec 2024</p>
-                    <p class="text-muted small mb-0">Expected delivery: 25 Dec 2024</p>
-                  </div>
-                  <div class="text-end">
-                    <span class="badge bg-warning text-dark">Processing</span>
-                    <p class="text-muted small mb-0 mt-1">Total: ₹850</p>
-                  </div>
-                </div>
-                <div class="order-items">
-                  <div class="order-item d-flex align-items-center mb-3">
-                    <img src="images/books/81X+FPqsGcL._SL1500_.jpg" alt="Product" class="order-item-img me-3">
-                    <div class="flex-grow-1">
-                      <h6 class="mb-1">Natural Beauty Essentials - Organic Collection</h6>
-                      <p class="text-muted small mb-0">Brand: Ratplan</p>
-                      <p class="text-muted small mb-0">Quantity: 1 × ₹850 = ₹850</p>
-                    </div>
-                    <div class="text-end">
-                      <strong>₹850</strong>
-                    </div>
-                  </div>
-                </div>
-                <div class="order-summary p-3 bg-light rounded mb-3">
-                  <div class="d-flex justify-content-between mb-2">
-                    <span>Subtotal:</span>
-                    <span>₹850</span>
-                  </div>
-                  <div class="d-flex justify-content-between mb-2">
-                    <span>Shipping:</span>
-                    <span class="text-success">Free</span>
-                  </div>
-                  <div class="d-flex justify-content-between fw-bold pt-2 border-top">
-                    <span>Total:</span>
-                    <span>₹850</span>
-                  </div>
-                </div>
-                <div class="order-card-footer d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
-                  <div>
-                    <p class="small text-muted mb-0">Payment Method: UPI</p>
-                    <p class="small text-muted mb-0">Status: Payment Confirmed</p>
-                  </div>
-                  <div class="d-flex gap-2">
-                    <button class="btn btn-sm btn-outline-primary">View Details</button>
-                    <button class="btn btn-sm btn-outline-danger">Cancel Order</button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Order Card 3 -->
-              <div class="order-card mb-4">
-                <div class="order-card-header d-flex justify-content-between align-items-center mb-3">
-                  <div>
-                    <h6 class="mb-1">Order #ORD-2024-003</h6>
-                    <p class="text-muted small mb-0">Placed on 5 Dec 2024</p>
-                    <p class="text-muted small mb-0">Shipped on 8 Dec 2024</p>
-                  </div>
-                  <div class="text-end">
-                    <span class="badge bg-info">Shipped</span>
-                    <p class="text-muted small mb-0 mt-1">Total: ₹2,100</p>
-                  </div>
-                </div>
-                <div class="order-items">
-                  <div class="order-item d-flex align-items-center mb-3">
-                    <img src="images/books/81m5sLftpiL._SL1500_.jpg" alt="Product" class="order-item-img me-3">
-                    <div class="flex-grow-1">
-                      <h6 class="mb-1">Advanced Snail 96 Mucin Power Essence 100ml</h6>
-                      <p class="text-muted small mb-0">Brand: Ratplan</p>
-                      <p class="text-muted small mb-0">Quantity: 3 × ₹700 = ₹2,100</p>
-                    </div>
-                    <div class="text-end">
-                      <strong>₹2,100</strong>
-                    </div>
-                  </div>
-                </div>
-                <div class="order-summary p-3 bg-light rounded mb-3">
-                  <div class="d-flex justify-content-between mb-2">
-                    <span>Subtotal:</span>
-                    <span>₹2,100</span>
-                  </div>
-                  <div class="d-flex justify-content-between mb-2">
-                    <span>Shipping:</span>
-                    <span class="text-success">Free</span>
-                  </div>
-                  <div class="d-flex justify-content-between fw-bold pt-2 border-top">
-                    <span>Total:</span>
-                    <span>₹2,100</span>
-                  </div>
-                </div>
-                <div class="order-card-footer d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
-                  <div>
-                    <p class="small text-muted mb-0">Payment Method: Debit Card</p>
-                    <p class="small text-muted mb-0">Tracking: #TRK987654321</p>
-                  </div>
-                  <div class="d-flex gap-2">
-                    <button class="btn btn-sm btn-outline-primary">View Invoice</button>
-                    <button class="btn btn-sm btn-outline-info">Track Order</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Shipping Address Section -->
-          <div class="profile-section" id="shippingAddressSection">
-            <div class="section-header d-flex justify-content-between align-items-center">
-              <h4 class="section-title">Shipping Address</h4>
-              <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addAddressModal">
-                <i class="fa-solid fa-plus"></i> Add New Address
-              </button>
-            </div>
-            <div class="shipping-address-container">
-              <div class="row g-4">
-                <!-- Address Card 1 - Default -->
-                <div class="col-md-6 col-lg-4">
-                  <div class="address-card">
-                    <div class="address-card-header d-flex justify-content-between align-items-start mb-3">
-                      <div>
-                        <h6 class="mb-1">Home Address</h6>
-                        <span class="badge bg-primary">Default</span>
-                      </div>
-                      <div class="dropdown">
-                        <button class="btn btn-sm btn-link text-muted p-0" type="button" data-bs-toggle="dropdown">
-                          <i class="fa-solid fa-ellipsis-vertical"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#" onclick="editAddress(1)"><i class="fa-solid fa-pen me-2"></i>Edit</a></li>
-                          <li><a class="dropdown-item" href="#" onclick="setDefaultAddress(1)"><i class="fa-solid fa-star me-2"></i>Set as Default</a></li>
-                          <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item text-danger" href="#" onclick="deleteAddress(1)"><i class="fa-solid fa-trash me-2"></i>Delete</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="address-card-body">
-                      <p class="mb-2"><strong>Abhi Pandey</strong></p>
-                      <p class="text-muted small mb-1">123, Main Street, Sector 5</p>
-                      <p class="text-muted small mb-1">New Delhi, Delhi 110001</p>
-                      <p class="text-muted small mb-2">India</p>
-                      <p class="text-muted small mb-0">
-                        <i class="fa-solid fa-phone me-1"></i> +91 756767576
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Address Card 2 -->
-                <div class="col-md-6 col-lg-4">
-                  <div class="address-card">
-                    <div class="address-card-header d-flex justify-content-between align-items-start mb-3">
-                      <div>
-                        <h6 class="mb-1">Office Address</h6>
-                      </div>
-                      <div class="dropdown">
-                        <button class="btn btn-sm btn-link text-muted p-0" type="button" data-bs-toggle="dropdown">
-                          <i class="fa-solid fa-ellipsis-vertical"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#" onclick="editAddress(2)"><i class="fa-solid fa-pen me-2"></i>Edit</a></li>
-                          <li><a class="dropdown-item" href="#" onclick="setDefaultAddress(2)"><i class="fa-solid fa-star me-2"></i>Set as Default</a></li>
-                          <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item text-danger" href="#" onclick="deleteAddress(2)"><i class="fa-solid fa-trash me-2"></i>Delete</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="address-card-body">
-                      <p class="mb-2"><strong>Abhi Pandey</strong></p>
-                      <p class="text-muted small mb-1">456, Business Park, Connaught Place</p>
-                      <p class="text-muted small mb-1">New Delhi, Delhi 110002</p>
-                      <p class="text-muted small mb-2">India</p>
-                      <p class="text-muted small mb-0">
-                        <i class="fa-solid fa-phone me-1"></i> +91 9876543210
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Address Card 3 -->
-                <div class="col-md-6 col-lg-4">
-                  <div class="address-card">
-                    <div class="address-card-header d-flex justify-content-between align-items-start mb-3">
-                      <div>
-                        <h6 class="mb-1">Alternate Address</h6>
-                      </div>
-                      <div class="dropdown">
-                        <button class="btn btn-sm btn-link text-muted p-0" type="button" data-bs-toggle="dropdown">
-                          <i class="fa-solid fa-ellipsis-vertical"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#" onclick="editAddress(3)"><i class="fa-solid fa-pen me-2"></i>Edit</a></li>
-                          <li><a class="dropdown-item" href="#" onclick="setDefaultAddress(3)"><i class="fa-solid fa-star me-2"></i>Set as Default</a></li>
-                          <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item text-danger" href="#" onclick="deleteAddress(3)"><i class="fa-solid fa-trash me-2"></i>Delete</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="address-card-body">
-                      <p class="mb-2"><strong>Abhi Pandey</strong></p>
-                      <p class="text-muted small mb-1">789, Residential Complex, Block A</p>
-                      <p class="text-muted small mb-1">Gurgaon, Haryana 122001</p>
-                      <p class="text-muted small mb-2">India</p>
-                      <p class="text-muted small mb-0">
-                        <i class="fa-solid fa-phone me-1"></i> +91 756767576
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Add/Edit Address Modal -->
-          <div class="modal fade" id="addAddressModal" tabindex="-1" aria-labelledby="addAddressModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="addAddressModalLabel">Add New Address</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <form id="addressForm">
-                    <div class="mb-3">
-                      <label class="form-label">Full Name <span class="text-danger">*</span></label>
-                      <input type="text" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                      <label class="form-label">Phone Number <span class="text-danger">*</span></label>
-                      <input type="tel" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                      <label class="form-label">Address Line 1 <span class="text-danger">*</span></label>
-                      <input type="text" class="form-control" placeholder="Street address, P.O. box" required>
-                    </div>
-                    <div class="mb-3">
-                      <label class="form-label">Address Line 2</label>
-                      <input type="text" class="form-control" placeholder="Apartment, suite, unit, building, floor, etc.">
-                    </div>
-                    <div class="row mb-3">
-                      <div class="col-md-6">
-                        <label class="form-label">City <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" required>
-                      </div>
-                      <div class="col-md-6">
-                        <label class="form-label">State <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" required>
-                      </div>
-                    </div>
-                    <div class="row mb-3">
-                      <div class="col-md-6">
-                        <label class="form-label">PIN Code <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" required>
-                      </div>
-                      <div class="col-md-6">
-                        <label class="form-label">Country <span class="text-danger">*</span></label>
-                        <select class="form-select" required>
-                          <option value="India" selected>India</option>
-                          <option value="USA">USA</option>
-                          <option value="UK">UK</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="mb-3">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="setAsDefault">
-                        <label class="form-check-label" for="setAsDefault">
-                          Set as default address
-                        </label>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                  <button type="button" class="btn btn-primary" onclick="saveAddress()">Save Address</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="profile-section" id="getStartedSection">
-            <div class="section-header">
-              <h4 class="section-title">Get Started</h4>
-            </div>
-            <div class="section-content">
-              <p class="text-muted">Help and getting started guide.</p>
-            </div>
-          </div>
-
         </div>
-      </main>
+      </div>
 
     </div>
+
+    <!-- RIGHT SECTION -->
+    <div class="col-lg-4">
+
+      <!-- Delivery Details -->
+      <div class="card mb-3 shadow-sm">
+        <div class="card-body">
+          <h6 class="fw-bold mb-3">Delivery details</h6>
+          <p class="small mb-1">
+            🏠 Home, koilari market near koilari market M2BH+26P,
+            Koilari, Bihar
+          </p>
+          <p class="small text-muted">
+            👤 Reetu Singh | 9555580991, 9670048399
+          </p>
+        </div>
+      </div>
+
+      <!-- Price Details -->
+      <div class="card mb-3 shadow-sm">
+        <div class="card-body">
+          <h6 class="fw-bold mb-3">Price details</h6>
+
+          <div class="d-flex justify-content-between small mb-2">
+            <span>Listing price</span>
+            <span class="text-decoration-line-through">₹600</span>
+          </div>
+
+          <div class="d-flex justify-content-between small mb-2">
+            <span>Selling price</span>
+            <span>₹363</span>
+          </div>
+
+          <div class="d-flex justify-content-between small mb-2">
+            <span>Total fees</span>
+            <span>₹13</span>
+          </div>
+
+          <div class="d-flex justify-content-between small mb-2 text-success">
+            <span>Order discount</span>
+            <span>- ₹40</span>
+          </div>
+
+          <hr>
+
+          <div class="d-flex justify-content-between fw-bold">
+            <span>Total amount</span>
+            <span>₹336</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Payment -->
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <p class="small mb-2">
+            💳 Payment method: <strong>Cash on Delivery</strong>
+          </p>
+
+          <button class="btn btn-outline-secondary w-100 btn-sm">
+            Download Invoice
+          </button>
+
+          <hr>
+
+          <button class="btn btn-light w-100 btn-sm">
+            🎁 Offers earned
+          </button>
+        </div>
+      </div>
+
+    </div>
+
   </div>
+
+</section>
+
+
+  </div>
+</div>
+
+
+
+
+                    </div>
+
+                    <!--------------------------------------------------------------- Shipping Address Section ------------------------------------------>
+
+                    <div class="profile-section" id="shippingAddressSection">
+                        <div class="section-header d-flex justify-content-between align-items-center">
+                            <h4 class="section-title">Shipping Address</h4>
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#addAddressModal">
+                                <i class="fa-solid fa-plus"></i> Add New Address
+                            </button>
+                        </div>
+                        <div class="shipping-address-container">
+                            <div class="row g-4">
+                                <!-- Address Card 1 - Default -->
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="address-card">
+                                        <div
+                                            class="address-card-header d-flex justify-content-between align-items-start mb-3">
+                                            <div>
+                                                <h6 class="mb-1">Home Address</h6>
+                                                <span class="badge bg-primary">Default</span>
+                                            </div>
+                                            <div class="dropdown">
+                                                <button class="btn btn-sm btn-link text-muted p-0" type="button"
+                                                    data-bs-toggle="dropdown">
+                                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="#" onclick="editAddress(1)"><i
+                                                                class="fa-solid fa-pen me-2"></i>Edit</a></li>
+                                                    <li><a class="dropdown-item" href="#"
+                                                            onclick="setDefaultAddress(1)"><i
+                                                                class="fa-solid fa-star me-2"></i>Set as Default</a>
+                                                    </li>
+                                                    <li>
+                                                        <hr class="dropdown-divider">
+                                                    </li>
+                                                    <li><a class="dropdown-item text-danger" href="#"
+                                                            onclick="deleteAddress(1)"><i
+                                                                class="fa-solid fa-trash me-2"></i>Delete</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="address-card-body">
+                                            <p class="mb-2"><strong>Abhi Pandey</strong></p>
+                                            <p class="text-muted small mb-1">123, Main Street, Sector 5</p>
+                                            <p class="text-muted small mb-1">New Delhi, Delhi 110001</p>
+                                            <p class="text-muted small mb-2">India</p>
+                                            <p class="text-muted small mb-0">
+                                                <i class="fa-solid fa-phone me-1"></i> +91 756767576
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Address Card 2 -->
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="address-card">
+                                        <div
+                                            class="address-card-header d-flex justify-content-between align-items-start mb-3">
+                                            <div>
+                                                <h6 class="mb-1">Office Address</h6>
+                                            </div>
+                                            <div class="dropdown">
+                                                <button class="btn btn-sm btn-link text-muted p-0" type="button"
+                                                    data-bs-toggle="dropdown">
+                                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="#" onclick="editAddress(2)"><i
+                                                                class="fa-solid fa-pen me-2"></i>Edit</a></li>
+                                                    <li><a class="dropdown-item" href="#"
+                                                            onclick="setDefaultAddress(2)"><i
+                                                                class="fa-solid fa-star me-2"></i>Set as Default</a>
+                                                    </li>
+                                                    <li>
+                                                        <hr class="dropdown-divider">
+                                                    </li>
+                                                    <li><a class="dropdown-item text-danger" href="#"
+                                                            onclick="deleteAddress(2)"><i
+                                                                class="fa-solid fa-trash me-2"></i>Delete</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="address-card-body">
+                                            <p class="mb-2"><strong>Abhi Pandey</strong></p>
+                                            <p class="text-muted small mb-1">456, Business Park, Connaught Place</p>
+                                            <p class="text-muted small mb-1">New Delhi, Delhi 110002</p>
+                                            <p class="text-muted small mb-2">India</p>
+                                            <p class="text-muted small mb-0">
+                                                <i class="fa-solid fa-phone me-1"></i> +91 9876543210
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Address Card 3 -->
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="address-card">
+                                        <div
+                                            class="address-card-header d-flex justify-content-between align-items-start mb-3">
+                                            <div>
+                                                <h6 class="mb-1">Alternate Address</h6>
+                                            </div>
+                                            <div class="dropdown">
+                                                <button class="btn btn-sm btn-link text-muted p-0" type="button"
+                                                    data-bs-toggle="dropdown">
+                                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="#" onclick="editAddress(3)"><i
+                                                                class="fa-solid fa-pen me-2"></i>Edit</a></li>
+                                                    <li><a class="dropdown-item" href="#"
+                                                            onclick="setDefaultAddress(3)"><i
+                                                                class="fa-solid fa-star me-2"></i>Set as Default</a>
+                                                    </li>
+                                                    <li>
+                                                        <hr class="dropdown-divider">
+                                                    </li>
+                                                    <li><a class="dropdown-item text-danger" href="#"
+                                                            onclick="deleteAddress(3)"><i
+                                                                class="fa-solid fa-trash me-2"></i>Delete</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="address-card-body">
+                                            <p class="mb-2"><strong>Abhi Pandey</strong></p>
+                                            <p class="text-muted small mb-1">789, Residential Complex, Block A</p>
+                                            <p class="text-muted small mb-1">Gurgaon, Haryana 122001</p>
+                                            <p class="text-muted small mb-2">India</p>
+                                            <p class="text-muted small mb-0">
+                                                <i class="fa-solid fa-phone me-1"></i> +91 756767576
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="profile-section" id="getStartedSection">
+                        <div class="section-header">
+                            <h4 class="section-title">Get Started</h4>
+                        </div>
+                        <div class="section-content">
+                            <p class="text-muted">Help and getting started guide.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+
+        </div>
+    </div>
 </section>
 
 <script src="js/profile-dashboard.js"></script>

@@ -113,46 +113,6 @@ function setupQuantityControls() {
 }
 
 /**
- * Setup wishlist actions
- */
-function setupWishlistActions() {
-  const removeButtons = document.querySelectorAll('.wishlist-remove-btn');
-  const addToCartButtons = document.querySelectorAll('.btn-add-to-cart');
-
-  removeButtons.forEach(btn => {
-    btn.addEventListener('click', function() {
-      const wishlistItem = this.closest('.wishlist-item');
-      if (wishlistItem) {
-        // Add fade out animation
-        wishlistItem.style.transition = 'opacity 0.3s';
-        wishlistItem.style.opacity = '0';
-        setTimeout(() => {
-          wishlistItem.remove();
-        }, 300);
-      }
-    });
-  });
-
-  addToCartButtons.forEach(btn => {
-    btn.addEventListener('click', function() {
-      const wishlistItem = this.closest('.wishlist-item');
-      const productName = wishlistItem?.querySelector('.product-name')?.textContent;
-      const quantity = wishlistItem?.querySelector('.qty-input')?.value || 1;
-      const buttonText = this.textContent.trim();
-      
-      // Check if it's a checkout button (cart) or add to cart button (wishlist)
-      if (buttonText.includes('Checkout')) {
-        // Checkout functionality for cart
-        alert(`Proceeding to checkout with ${quantity} item(s): ${productName}`);
-      } else {
-        // Add to cart functionality for wishlist
-        alert(`Added ${quantity} item(s) to cart: ${productName}`);
-      }
-    });
-  });
-}
-
-/**
  * Handle URL section parameter
  */
 function handleURLSection() {

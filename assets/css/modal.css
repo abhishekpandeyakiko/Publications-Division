@@ -1,7 +1,7 @@
-  .cart-page {
+  /* .cart-page {
     background-color: #f5f7fa;
     min-height: 100vh;
-  }
+  } */
 .btn-close {
   background-color: #f5f7fa;
   border-radius: 50%;
@@ -284,3 +284,36 @@
       font-size: 13px;
     }
   }
+  /* ------------------------------------------order modal ------------------------------------- */
+
+/* header height = 70px (adjust if needed) */
+.order-offcanvas {
+ border-radius: 10px !important;
+
+}
+
+/* Desktop sidebar width */
+@media (min-width: 992px) {
+  .order-offcanvas {
+    width: 80% !important;
+  }
+}
+
+/* Mobile full width */
+@media (max-width: 992px) {
+  .order-offcanvas {
+    width: 100% !important;
+  }
+  .order-offcanvas {
+ border-radius: 10px !important;
+
+}
+}
+
+/* clickable title */
+.product-title {
+  cursor: pointer;
+}
+.product-title:hover {
+  text-decoration: underline;
+}
