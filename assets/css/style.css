@@ -666,7 +666,6 @@
 
      /* ----------------------------------------------books section-------------------------------------------------- */
      .popular-section {
-       padding: 50px 0;
        background: linear-gradient(to right, #FFFAFF, #F5F0F8, #FFF6F9);
 
        .section-header {
@@ -1888,3 +1887,71 @@
          padding: 1rem !important;
        }
      }
+
+/*-------------------------------------- product description ----------------------------------------*/
+.product-gallery{
+position: sticky;
+top: 180px;
+}
+.w-15 {
+  width: 15% !important;
+}
+.thumb-scroll {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;        /* Firefox */
+  -webkit-overflow-scrolling: touch;
+}
+
+.thumb-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.thumb-scroll::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+.thumb-img {
+  flex: 0 0 auto;
+  width: 15%;
+  min-width: 90px;
+  cursor: pointer;
+  transition: transform .2s, border-color .2s;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    width: 30px;
+    height: 30px;
+    font-size: 16px !important;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+}
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    display: inline-block;
+    width: 1rem;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 100% 100%;
+}
+/* Wishlist */
+.wishlist-btn-dec {
+  width: 36px;
+  height: 36px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .3s ease;
+}
+
+.wishlist-btn-dec:hover {
+  background: #ffe6ea;
+  color: #dc3545;
+}
+.wishlist-btn-dec.active {
+  background: #dc3545;
+  color: #fff;
+}

@@ -189,6 +189,12 @@ const Routes = {
     layout: 'default',
     title: 'Books - Publications Division'
   },
+    productdescription: {
+    path: '/description.html',
+    page: 'pages/product-description.html',
+    layout: 'default',
+    title: 'description - Publications Division'
+  },
   publicationsEbooks: {
     path: '/publications/ebooks',
     page: 'pages/publications/ebooks.html',
