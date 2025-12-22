@@ -470,3 +470,56 @@
 }
  
 }
+/*------------------------------------------ Frequntly ask Question -------------------------------------- */
+
+.faq-tab {
+      background: #fff;
+      border: 2px solid #eee;
+      border-radius: 16px;
+      padding: 18px 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.3s;
+      height: 100%;
+    }
+
+    .faq-tab:hover {
+      transform: translateY(-3px);
+    }
+
+    .faq-tab .icon {
+      width: 48px;
+      height: 48px;
+      background: #f3f3f3;
+      border-radius: 50%;
+      margin: 0 auto 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #00695c;
+      font-size: 18px;
+    }
+
+    .faq-tab.active {
+    border-color: #00695c;
+    box-shadow: 0 10px 25px #65e3a854;
+    }
+
+    .faq-tab.active .icon {
+      background: #00695c;
+      color: #fff;
+    }
+
+    .faq-pane {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .faq-pane.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }

@@ -137,7 +137,8 @@
                                                 <h6 class="fw-semibold mb-0 border-bottom border-primary pb-2">
                                                     Personal Information
                                                 </h6>
-                                                <button class="btn btn-primary btn-sm rounded-pill px-3">
+                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                    data-bs-target="#rtlModal">
                                                     Edit Profile
                                                 </button>
                                             </div>
@@ -165,10 +166,6 @@
                                                     <strong>WhatsApp Number</strong>
                                                     <p class="mb-0 text-muted">+91 756767576</p>
                                                 </div>
-                                                <div class="col-md-12">
-                                                    <strong>Tax/VAT Number</strong>
-                                                    <p class="mb-0 text-muted">Not provided</p>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -179,7 +176,8 @@
                                             <h6 class="fw-semibold mb-3 border-bottom border-primary pb-2">
                                                 Account Settings
                                             </h6>
-                                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <!-- <div
+                                                class="d-flex justify-content-between align-items-center border-bottom mb-2 pb-2">
                                                 <div>
                                                     <strong class="small">Receive special events and promotional
                                                         information</strong>
@@ -191,7 +189,8 @@
                                                     <input class="form-check-input" type="checkbox">
                                                 </div>
                                             </div>
-                                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                            <div
+                                                class="d-flex justify-content-between align-items-center border-bottom mb-2 pb-2">
                                                 <div>
                                                     <strong class="small">Make profile private</strong>
                                                     <p class="small text-muted mb-0">
@@ -201,15 +200,76 @@
                                                 <div class="form-check form-switch">
                                                     <input class="form-check-input" type="checkbox" checked>
                                                 </div>
+                                            </div> -->
+                                            <div class="">
+                                                <div class="mb-3">
+                                                    <strong class="small">Delete Account Permanently</strong>
+                                                    <p class="small text-muted mb-0">
+                                                        This action cannot be undone
+                                                    </p>
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                                    <button class="btn btn-outline-danger btn-sm">
+                                                        Delete Account Permanently
+                                                    </button>
+                                                    <button class="btn btn-outline-secondary btn-sm">
+                                                        Logout
+                                                    </button>
+                                                </div>
                                             </div>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <button class="btn btn-outline-danger btn-sm">
-                                                    Delete Account Permanently
-                                                </button>
-                                                <button class="btn btn-outline-secondary btn-sm">
-                                                    Logout
-                                                </button>
-                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!---------------------------------------------- modal edit profile ---------------------------------------------->
+                            <div class="modal fade" id="rtlModal" tabindex="-1" aria-labelledby="rtlModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-slide modal-fullheight">
+                                    <div class="modal-content p-4">
+                                        <div class="modal-header border-0">
+                                            <h5 class="modal-title" id="rtlModalLabel">Edit Profile</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <!-- Example form -->
+                                            <form id="editProfileForm">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Username</label>
+                                                    <input type="text" class="form-control"
+                                                        placeholder="Enter username">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">First Name</label>
+                                                    <input type="text" class="form-control"
+                                                        placeholder="Enter first name">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Last Name</label>
+                                                    <input type="text" class="form-control"
+                                                        placeholder="Enter last name">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Email</label>
+                                                    <input type="email" class="form-control" placeholder="Enter email">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Phone</label>
+                                                    <input type="tel" class="form-control"
+                                                        placeholder="Enter phone number">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Optional Number</label>
+                                                    <input type="tel" class="form-control" placeholder="Optional">
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer border-0">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Cancel</button>
+                                            <button type="submit" form="editProfileForm" class="btn btn-primary">Save
+                                                Changes</button>
                                         </div>
                                     </div>
                                 </div>
@@ -855,9 +915,11 @@
                                             class="card-header d-flex justify-content-between align-items-center py-3 px-4">
                                             <h6 class="mb-0 fw-semibold">Shipping Details</h6>
                                             <button class="btn btn-sm btn-link text-success p-0 fw-semibold"
-                                                id="addAddressBtn" style="text-decoration: none;">
+                                                id="addAddressBtn" data-bs-toggle="modal"
+                                                data-bs-target="#addAddressModal" style="text-decoration: none;">
                                                 <i class="fa-solid fa-plus me-1"></i>Add New Address
                                             </button>
+
                                         </div>
                                         <div class="card-body p-4">
                                             <div class="shipping-address" id="shippingAddress" style="cursor: pointer;">
@@ -937,17 +999,16 @@
                                         </div>
                                     </div>
 
-
+                                    <!-- add new addresh  -->
                                 </div>
                             </div>
                         </section>
 
-                        <!---------------------------------- Address Drawer Modal---------------------------------------------------->
+                        <!---------------------------------- shipping Card Address Modal---------------------------------------------------->
 
 
-                        <div class="modal fade" id="addressDrawer" tabindex="-1" aria-labelledby="addressDrawerLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal fade" id="addAddressModal" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog modal-slide-right">
                                 <div class="modal-content">
                                     <div class="modal-header border-0 pb-0">
                                         <button type="button" class="btn-close " data-bs-dismiss="modal"
@@ -1036,114 +1097,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <script>
-                            // Quantity Controls
-                            document.querySelectorAll('.quantity-btn').forEach(btn => {
-                                btn.addEventListener('click', function () {
-                                    const input = this.parentElement.querySelector('input');
-                                    const action = this.getAttribute('data-action');
-                                    let value = parseInt(input.value);
-
-                                    if (action === 'increase') {
-                                        value++;
-                                    } else if (action === 'decrease' && value > 1) {
-                                        value--;
-                                    }
-
-                                    input.value = value;
-                                    updateCartTotal();
-                                });
-                            });
-
-                            // Open Address Drawer
-                            const addAddressBtn = document.getElementById('addAddressBtn');
-                            const shippingAddress = document.getElementById('shippingAddress');
-                            const addressDrawer = new bootstrap.Modal(document.getElementById('addressDrawer'));
-
-                            if (addAddressBtn) {
-                                addAddressBtn.addEventListener('click', function (e) {
-                                    e.preventDefault();
-                                    addressDrawer.show();
-                                });
-                            }
-
-                            if (shippingAddress) {
-                                shippingAddress.addEventListener('click', function () {
-                                    addressDrawer.show();
-                                });
-                            }
-
-                            // Handle Form Submission
-                            const addressForm = document.getElementById('addressForm');
-                            if (addressForm) {
-                                addressForm.addEventListener('submit', function (e) {
-                                    e.preventDefault();
-
-                                    // Get form values
-                                    const formData = {
-                                        fullName: document.getElementById('fullName').value,
-                                        userName: document.getElementById('userName').value,
-                                        phoneNumber: document.getElementById('phoneNumber').value,
-                                        emailAddress: document.getElementById('emailAddress').value,
-                                        addressLine: document.getElementById('addressLine').value,
-                                        city: document.getElementById('city').value,
-                                        postCode: document.getElementById('postCode').value,
-                                        state: document.getElementById('state').value,
-                                        country: document.getElementById('country').value
-                                    };
-
-                                    // Update shipping address display
-                                    updateShippingAddress(formData);
-
-                                    // Close modal
-                                    addressDrawer.hide();
-
-                                    // Reset form
-                                    addressForm.reset();
-                                });
-                            }
-
-                            function updateShippingAddress(data) {
-                                const addressElement = document.getElementById('shippingAddress');
-                                if (addressElement) {
-                                    addressElement.innerHTML = `
-        <h6 class="mb-3 fw-bold">${data.fullName}</h6>
-        <div class="mb-3">
-          <p class="mb-2 small">
-            <i class="fa-solid fa-phone me-2 text-muted"></i><span class="text-dark">${data.phoneNumber}</span>
-          </p>
-          <p class="mb-0 small">
-            <i class="fa-solid fa-envelope me-2 text-muted"></i><span class="text-dark">${data.emailAddress}</span>
-          </p>
-        </div>
-        <div class="pt-3 border-top">
-          <p class="mb-2 small">
-            <span class="text-muted">Address:</span> <span class="text-dark">${data.addressLine}</span>
-          </p>
-          <p class="mb-2 small">
-            <span class="text-muted">City:</span> <span class="text-dark">${data.city}</span>
-          </p>
-          <p class="mb-2 small">
-            <span class="text-muted">State:</span> <span class="text-dark">${data.state}</span>
-          </p>
-          <p class="mb-2 small">
-            <span class="text-muted">Country:</span> <span class="text-dark">${data.country}</span>
-          </p>
-          <p class="mb-0 small">
-            <span class="text-muted">Zip Code:</span> <span class="text-dark">${data.postCode}</span>
-          </p>
-        </div>
-      `;
-                                }
-                            }
-
-                            function updateCartTotal() {
-                                // Calculate total based on quantities
-                                // This is a placeholder - implement actual calculation logic
-                                console.log('Cart total updated');
-                            }
-                        </script>
                     </div>
 
                     <!-------------------------------------------------------------- Order History Section --------------------------------------------->
@@ -1209,8 +1162,8 @@
                                         <div class="order-left">
                                             <img src="images/books/81v6NcNuRpL._SL1500_.jpg" class="order-img">
                                             <div class="order-info">
-                                                <h6 class="product-title "
-                                                    data-bs-toggle="offcanvas" data-bs-target="#orderDetailCanvas">
+                                                <h6 class="product-title " data-bs-toggle="offcanvas"
+                                                    data-bs-target="#orderDetailCanvas">
                                                     SAFARI ECLIPSE 2P SET 4W Cabin & Check-in
                                                 </h6>
                                                 <p class="text-muted small mb-0">Color: Teal</p>
@@ -1236,187 +1189,225 @@
                         </div>
 
 
-<!-- -------------------------------------------modal order and invise section --------------------------- -->
-<div class="offcanvas offcanvas-end order-offcanvas"
-     tabindex="-1"
-     id="orderDetailCanvas">
+                        <!-- -------------------------------------------modal order and invise section --------------------------- -->
+                        <div class="offcanvas offcanvas-end order-offcanvas" tabindex="-1" id="orderDetailCanvas">
+                            <div class="offcanvas-header border-bottom">
+                                <h6 class="fw-bold mb-0">Order Details</h6>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                            </div>
+                            <div class="offcanvas-body p-3">
+                                <section class="container-fluid py-4">
+                                    <div class="row g-4">
+                                        <!-- LEFT SECTION -->
+                                        <div class="col-lg-8">
+                                            <!-- Tracking Info -->
+                                            <div class="card mb-3 shadow-sm">
+                                                <div class="card-body small text-muted">
+                                                    Order can be tracked by <strong>9555580991</strong>.<br>
+                                                    Tracking link is shared via SMS.
+                                                </div>
+                                            </div>
 
-  <div class="offcanvas-header border-bottom">
-    <h6 class="fw-bold mb-0">Order Details</h6>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-  </div>
+                                            <!-- Product Card -->
+                                            <div class="card mb-3 shadow-sm">
+                                                <div class="card-body">
+                                                    <div class="d-flex justify-content-between">
+                                                        <div>
+                                                            <h6 class="fw-bold mb-1">
+                                                                Pawan (Sahitya) D.El.Ed Series 3rd Semester (All 8
+                                                                Subjects) in Hindi
+                                                            </h6>
+                                                            <p class="small text-muted mb-1">Sahitya Publication</p>
+                                                            <p class="small text-muted mb-2">Seller: BestsellerBooks</p>
+                                                            <span class="fw-bold text-success">₹336</span>
+                                                            <span class="badge bg-success ms-2">Offer</span>
+                                                        </div>
+                                                        <img src="images/books/81v6NcNuRpL._SL1500_.jpg" width="80"
+                                                            class="rounded border">
+                                                    </div>
+                                                    <hr>
+                                                    <!-- Timeline -->
+                                                    <ul class="list-unstyled small">
+                                                        <li class="mb-2">
+                                                            <span class="text-success fw-bold">●</span>
+                                                            Order Confirmed, Jul 10
+                                                        </li>
+                                                        <li>
+                                                            <span class="text-success fw-bold">●</span>
+                                                            Delivered, Jul 16
+                                                        </li>
+                                                    </ul>
+                                                    <a href="javascript:void(0)" class="small text-primary fw-semibold"
+                                                        data-bs-toggle="modal" data-bs-target="#orderUpdatesModal">
+                                                        See All Updates →
+                                                    </a>
+                                                </div>
+                                            </div>
 
-  <div class="offcanvas-body p-3">
+                                            <!-- Chat -->
+                                            <!-- <div class="card mb-3 shadow-sm">
+                                                <div class="card-body text-center small">
+                                                    💬 <a href="#" class="text-decoration-none">Chat with us</a>
+                                                </div>
+                                            </div> -->
 
-<section class="container-fluid py-4 bg-light">
+                                            <!-- Rating -->
+                                            <div class="card shadow-sm">
+                                                <div class="card-body">
+                                                    <h6 class="fw-bold mb-3">Rate your experience</h6>
 
-  <div class="row g-4">
+                                                    <div class="d-flex align-items-center gap-2 mb-3">
+                                                        <span class="fw-semibold">Great</span>
+                                                        <i class="fa-solid fa-star text-success"></i>
+                                                        <i class="fa-solid fa-star text-success"></i>
+                                                        <i class="fa-solid fa-star text-success"></i>
+                                                        <i class="fa-solid fa-star text-success"></i>
+                                                        <i class="fa-solid fa-star text-success"></i>
+                                                    </div>
 
-    <!-- LEFT SECTION -->
-    <div class="col-lg-8">
+                                                    <button class="btn btn-outline-primary btn-sm">
+                                                        Add a photo / video
+                                                    </button>
+                                                </div>
+                                            </div>
 
-      <!-- Tracking Info -->
-      <div class="card mb-3 shadow-sm">
-        <div class="card-body small text-muted">
-          Order can be tracked by <strong>9555580991</strong>.<br>
-          Tracking link is shared via SMS.
-        </div>
-      </div>
+                                        </div>
 
-      <!-- Product Card -->
-      <div class="card mb-3 shadow-sm">
-        <div class="card-body">
+                                        <!-- RIGHT SECTION -->
+                                        <div class="col-lg-4">
 
-          <div class="d-flex justify-content-between">
-            <div>
-              <h6 class="fw-bold mb-1">
-                Pawan (Sahitya) D.El.Ed Series 3rd Semester (All 8 Subjects) in Hindi
-              </h6>
-              <p class="small text-muted mb-1">Sahitya Publication</p>
-              <p class="small text-muted mb-2">Seller: BestsellerBooks</p>
-              <span class="fw-bold text-success">₹336</span>
-              <span class="badge bg-success ms-2">Offer</span>
-            </div>
+                                            <!-- Delivery Details -->
+                                            <div class="card mb-3 shadow-sm">
+                                                <div class="card-body">
+                                                    <h6 class="fw-bold mb-3">Delivery details</h6>
+                                                    <p class="small mb-1">
+                                                        🏠 Home, koilari market near koilari market M2BH+26P,
+                                                        Koilari, Bihar
+                                                    </p>
+                                                    <p class="small text-muted">
+                                                        👤 Reetu Singh | 9555580991, 999999999
+                                                    </p>
+                                                </div>
+                                            </div>
 
-            <img src="images/books/81v6NcNuRpL._SL1500_.jpg"
-                 width="80"
-                 class="rounded border">
-          </div>
+                                            <!-- Price Details -->
+                                            <div class="card mb-3 shadow-sm">
+                                                <div class="card-body">
+                                                    <h6 class="fw-bold mb-3">Price details</h6>
 
-          <hr>
+                                                    <div class="d-flex justify-content-between small mb-2">
+                                                        <span>Listing price</span>
+                                                        <span class="text-decoration-line-through">₹600</span>
+                                                    </div>
 
-          <!-- Timeline -->
-          <ul class="list-unstyled small">
-            <li class="mb-2">
-              <span class="text-success fw-bold">●</span>
-              Order Confirmed, Jul 10
-            </li>
-            <li>
-              <span class="text-success fw-bold">●</span>
-              Delivered, Jul 16
-            </li>
-          </ul>
+                                                    <div class="d-flex justify-content-between small mb-2">
+                                                        <span>Selling price</span>
+                                                        <span>₹363</span>
+                                                    </div>
 
-          <a href="#" class="small text-primary fw-semibold">
-            See All Updates →
-          </a>
+                                                    <div class="d-flex justify-content-between small mb-2">
+                                                        <span>Total fees</span>
+                                                        <span>₹13</span>
+                                                    </div>
 
-        </div>
-      </div>
+                                                    <div class="d-flex justify-content-between small mb-2 text-success">
+                                                        <span>Order discount</span>
+                                                        <span>- ₹40</span>
+                                                    </div>
 
-      <!-- Chat -->
-      <div class="card mb-3 shadow-sm">
-        <div class="card-body text-center small">
-          💬 <a href="#" class="text-decoration-none">Chat with us</a>
-        </div>
-      </div>
+                                                    <hr>
 
-      <!-- Rating -->
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <h6 class="fw-bold mb-3">Rate your experience</h6>
+                                                    <div class="d-flex justify-content-between fw-bold">
+                                                        <span>Total amount</span>
+                                                        <span>₹336</span>
+                                                    </div>
 
-          <div class="d-flex align-items-center gap-2 mb-3">
-            <span class="fw-semibold">Great</span>
-            <i class="fa-solid fa-star text-success"></i>
-            <i class="fa-solid fa-star text-success"></i>
-            <i class="fa-solid fa-star text-success"></i>
-            <i class="fa-solid fa-star text-success"></i>
-            <i class="fa-solid fa-star text-success"></i>
-          </div>
+                                                </div>
+                                            </div>
 
-          <button class="btn btn-outline-primary btn-sm">
-            Add a photo / video
-          </button>
-        </div>
-      </div>
+                                            <!-- Payment -->
+                                            <div class="card shadow-sm">
+                                                <div class="card-body">
+                                                    <p class="small mb-2">
+                                                        💳 Payment method: <strong>Cash on Delivery</strong>
+                                                    </p>
 
-    </div>
+                                                    <button class="btn btn-outline-secondary w-100 btn-sm">
+                                                        Download Invoice
+                                                    </button>
+                                                </div>
+                                            </div>
 
-    <!-- RIGHT SECTION -->
-    <div class="col-lg-4">
+                                        </div>
 
-      <!-- Delivery Details -->
-      <div class="card mb-3 shadow-sm">
-        <div class="card-body">
-          <h6 class="fw-bold mb-3">Delivery details</h6>
-          <p class="small mb-1">
-            🏠 Home, koilari market near koilari market M2BH+26P,
-            Koilari, Bihar
-          </p>
-          <p class="small text-muted">
-            👤 Reetu Singh | 9555580991, 9670048399
-          </p>
-        </div>
-      </div>
+                                    </div>
 
-      <!-- Price Details -->
-      <div class="card mb-3 shadow-sm">
-        <div class="card-body">
-          <h6 class="fw-bold mb-3">Price details</h6>
-
-          <div class="d-flex justify-content-between small mb-2">
-            <span>Listing price</span>
-            <span class="text-decoration-line-through">₹600</span>
-          </div>
-
-          <div class="d-flex justify-content-between small mb-2">
-            <span>Selling price</span>
-            <span>₹363</span>
-          </div>
-
-          <div class="d-flex justify-content-between small mb-2">
-            <span>Total fees</span>
-            <span>₹13</span>
-          </div>
-
-          <div class="d-flex justify-content-between small mb-2 text-success">
-            <span>Order discount</span>
-            <span>- ₹40</span>
-          </div>
-
-          <hr>
-
-          <div class="d-flex justify-content-between fw-bold">
-            <span>Total amount</span>
-            <span>₹336</span>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Payment -->
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <p class="small mb-2">
-            💳 Payment method: <strong>Cash on Delivery</strong>
-          </p>
-
-          <button class="btn btn-outline-secondary w-100 btn-sm">
-            Download Invoice
-          </button>
-
-          <hr>
-
-          <button class="btn btn-light w-100 btn-sm">
-            🎁 Offers earned
-          </button>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
+                                </section>
 
 
-  </div>
-</div>
+                            </div>
+                        </div>
+                        <!------------------------------------------------- Product tracking ------------------------------------------>
+                        <div class="modal fade" id="orderUpdatesModal" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                <div class="modal-content">
 
+                                    <div class="modal-header">
+                                        <h6 class="modal-title fw-bold">Order Updates</h6>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
 
+                                    <div class="modal-body">
 
+                                        <ul class="list-unstyled timeline mt-3">
 
+                                            <!-- DELIVERY -->
+                                            <li class="step delivery1">
+                                                <span class="dot"></span>
+                                                <div class="content">
+                                                    <strong>Order Confirmed</strong>
+                                                    <div class="small text-muted">Jul 10</div>
+                                                </div>
+                                            </li>
+
+                                            <li class="step delivery1">
+                                                <span class="dot"></span>
+                                                <div class="content">
+                                                    <strong>Shipped</strong>
+                                                    <div class="small text-muted">Jul 12</div>
+                                                </div>
+                                            </li>
+
+                                            <!-- CANCEL -->
+                                            <li class="step cancel">
+                                                <span class="dot"></span>
+                                                <div class="content">
+                                                    <strong>Order Cancelled</strong>
+                                                    <div class="small text-muted">Jul 13</div>
+                                                </div>
+                                            </li>
+
+                                            <!-- RETURN -->
+                                            <li class="step return">
+                                                <span class="dot"></span>
+                                                <div class="content">
+                                                    <strong>Return Requested</strong>
+                                                    <div class="small text-muted">Jul 18</div>
+                                                </div>
+                                            </li>
+
+                                            <li class="step return">
+                                                <span class="dot"></span>
+                                                <div class="content">
+                                                    <strong>Refund Initiated</strong>
+                                                    <div class="small text-muted">Jul 20</div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <!--------------------------------------------------------------- Shipping Address Section ------------------------------------------>
@@ -1424,10 +1415,11 @@
                     <div class="profile-section" id="shippingAddressSection">
                         <div class="section-header d-flex justify-content-between align-items-center">
                             <h4 class="section-title">Shipping Address</h4>
-                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                                data-bs-target="#addAddressModal">
+                            <button class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#shippingaddAddressModal">
                                 <i class="fa-solid fa-plus"></i> Add New Address
                             </button>
+
                         </div>
                         <div class="shipping-address-container">
                             <div class="row g-4">
@@ -1556,21 +1548,642 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!------------------------------------------------ add new shipping address Modal  ----------------------------------------------->
+
+                        <div class="modal fade" id="shippingaddAddressModal" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog modal-slide-right">
+                                <div class="modal-content">
+
+                                    <!-- Header -->
+                                    <div class="modal-header border-0 px-4">
+                                        <h5 class="modal-title fw-bold">Add Shipping Address</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+
+                                    <!-- Body -->
+                                    <div class="modal-body px-4">
+                                        <form>
+
+                                            <div class="mb-3">
+                                                <label class="form-label">Full Name</label>
+                                                <input type="text" class="form-control" placeholder="Enter full name">
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label class="form-label">Mobile Number</label>
+                                                <input type="tel" class="form-control"
+                                                    placeholder="Enter mobile number">
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label class="form-label">Alternate Mobile Number (Optional)</label>
+                                                <input type="tel" class="form-control" placeholder="Optional">
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label class="form-label">Address Line</label>
+                                                <textarea class="form-control" rows="3"
+                                                    placeholder="House No, Street, Area, Landmark"></textarea>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label class="form-label">City</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label class="form-label">State</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label class="form-label">Pincode</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label class="form-label">Country</label>
+                                                    <input type="text" class="form-control" value="India" readonly>
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label class="form-label">Address Type</label>
+                                                <div class="d-flex gap-3">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="addressType"
+                                                            checked>
+                                                        <label class="form-check-label">Home</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="addressType">
+                                                        <label class="form-check-label">Office</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-check mb-4">
+                                                <input class="form-check-input" type="checkbox">
+                                                <label class="form-check-label">
+                                                    Set as default shipping address
+                                                </label>
+                                            </div>
+
+                                        </form>
+                                    </div>
+
+                                    <!-- Footer -->
+                                    <div class="modal-footer border-0 px-4">
+                                        <button class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                                        <button class="btn btn-primary">Save Address</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
-
+                    <!--------------------------------------------------------------- getStarted Section ------------------------------------------>
                     <div class="profile-section" id="getStartedSection">
                         <div class="section-header">
                             <h4 class="section-title">Get Started</h4>
                         </div>
-                        <div class="section-content">
-                            <p class="text-muted">Help and getting started guide.</p>
-                        </div>
-                    </div>
+                        <section class="faq-section py-5">
+                            <div class="container">
 
+                                <h3 class="fw-bold text-center mb-1">Frequently Asked Questions</h3>
+                                <p class="text-center text-muted mb-4">
+                                    Find quick answers to all your questions here.
+                                </p>
+                                <div class="row g-3 justify-content-center mb-5">
+                                    <div class="col-md-4 col-lg-3 col-xl-2">
+                                        <div class="faq-tab active" data-target="#ordering">
+                                            <div class="icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                                            <h6>Ordering</h6>
+                                            <small>7 Questions</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-lg-3 col-xl-2">
+                                        <div class="faq-tab" data-target="#payments">
+                                            <div class="icon"><i class="fa-solid fa-credit-card"></i></div>
+                                            <h6>Payments</h6>
+                                            <small>6 Questions</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-lg-3 col-xl-2">
+                                        <div class="faq-tab" data-target="#shipping">
+                                            <div class="icon"><i class="fa-solid fa-truck"></i></div>
+                                            <h6>Shipping</h6>
+                                            <small>5 Questions</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-lg-3 col-xl-2">
+                                        <div class="faq-tab" data-target="#account">
+                                            <div class="icon"><i class="fa-solid fa-user"></i></div>
+                                            <h6>Account</h6>
+                                            <small>6 Questions</small>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- CONTENT -->
+                                <div class="faq-pane active" id="ordering">
+                                    <h5 class="fw-bold mb-3">Ordering Questions</h5>
+                                    <div class="accordion" id="faqAccordion">
+
+                                        <!-- Question 1 -->
+                                        <div class="accordion-item">
+                                            <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                data-bs-target="#o1">
+                                                How can I place an order for books?
+                                            </button>
+                                            <div id="o1" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    Browse the available books, add your selection to the cart, and
+                                                    proceed to checkout. Payment can be made online or via
+                                                    government-approved methods.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Question 2 -->
+                                        <div class="accordion-item">
+                                            <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                data-bs-target="#o2">
+                                                How do I order eBooks or eJournals?
+                                            </button>
+                                            <div id="o2" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    Select the desired eBook or eJournal, add it to your cart, and
+                                                    complete the checkout process. You will receive a download link or
+                                                    access credentials after payment.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Question 3 -->
+                                        <div class="accordion-item">
+                                            <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                data-bs-target="#o3">
+                                                Are there journal-type publications available for subscription?
+                                            </button>
+                                            <div id="o3" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    Yes, you can subscribe to journal-type publications. Choose the
+                                                    journal, select the subscription period, and complete the order.
+                                                    Delivery will be made as per the subscription plan.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Question 4 -->
+                                        <div class="accordion-item">
+                                            <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                data-bs-target="#o4">
+                                                Can I order multiple copies of a book?
+                                            </button>
+                                            <div id="o4" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    Yes, you can select the quantity while adding the book to your cart
+                                                    and place the order for multiple copies.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Question 5 -->
+                                        <div class="accordion-item">
+                                            <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                data-bs-target="#o5">
+                                                What payment methods are accepted?
+                                            </button>
+                                            <div id="o5" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    Payments can be made online using credit/debit cards, net banking,
+                                                    or through government-approved payment options.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Question 6 -->
+                                        <div class="accordion-item">
+                                            <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                data-bs-target="#o6">
+                                                How long does delivery take for physical books?
+                                            </button>
+                                            <div id="o6" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    Delivery usually takes 7-14 working days depending on your location.
+                                                    You will receive a tracking number once the order is shipped.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Question 7 -->
+                                        <div class="accordion-item">
+                                            <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                data-bs-target="#o7">
+                                                Is there a return or refund policy?
+                                            </button>
+                                            <div id="o7" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    Yes, defective or incorrect items can be returned within 15 days of
+                                                    delivery. Refunds will be processed after verification according to
+                                                    government guidelines.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="faq-pane" id="payments">
+                                    <h5 class="fw-bold mb-3">Payment Questions</h5>
+                                    <div class="accordion" id="paymentAccordion">
+
+                                        <!-- Question 1 -->
+                                        <div class="accordion-item">
+                                            <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                data-bs-target="#p1">
+                                                What payment methods are accepted?
+                                            </button>
+                                            <div id="p1" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    We accept online payments via credit/debit cards, net banking, UPI,
+                                                    and government-approved payment methods.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Question 2 -->
+                                        <div class="accordion-item">
+                                            <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                data-bs-target="#p2">
+                                                Is online payment secure?
+                                            </button>
+                                            <div id="p2" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    Yes, all online transactions are secured with SSL encryption and
+                                                    follow government-mandated security standards.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Question 3 -->
+                                        <div class="accordion-item">
+                                            <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                data-bs-target="#p3">
+                                                Can I pay through offline methods?
+                                            </button>
+                                            <div id="p3" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    Some items may allow payment via demand draft or government-approved
+                                                    offline methods. Please check the item details for available
+                                                    options.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Question 4 -->
+                                        <div class="accordion-item">
+                                            <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                data-bs-target="#p4">
+                                                What should I do if my payment fails?
+                                            </button>
+                                            <div id="p4" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    If your payment fails, you will receive a notification. Please retry
+                                                    the payment or contact the support team for assistance.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Question 5 -->
+                                        <div class="accordion-item">
+                                            <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                data-bs-target="#p5">
+                                                Will I get a receipt after payment?
+                                            </button>
+                                            <div id="p5" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    Yes, a digital receipt will be emailed to you immediately after
+                                                    successful payment. You can also download it from your account order
+                                                    history.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Question 6 -->
+                                        <div class="accordion-item">
+                                            <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                data-bs-target="#p6">
+                                                Can I request a refund?
+                                            </button>
+                                            <div id="p6" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    Refunds are processed according to government guidelines for
+                                                    returned or canceled orders. Please contact support for detailed
+                                                    instructions.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="faq-pane" id="shipping">
+                                    <h5 class="fw-bold mb-3">Shipping & Delivery Questions</h5>
+                                    <div class="accordion" id="shippingAccordion">
+
+                                        <!-- Question 1 -->
+                                        <div class="accordion-item">
+                                            <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                data-bs-target="#s1">
+                                                Is shipping free?
+                                            </button>
+                                            <div id="s1" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    Yes, shipping is free for all physical book orders across India.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Question 2 -->
+                                        <div class="accordion-item">
+                                            <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                data-bs-target="#s2">
+                                                How long does delivery take?
+                                            </button>
+                                            <div id="s2" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    Delivery typically takes 7-14 working days depending on your
+                                                    location. You will receive a tracking number once the order is
+                                                    shipped.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Question 3 -->
+                                        <div class="accordion-item">
+                                            <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                data-bs-target="#s3">
+                                                Can I track my order?
+                                            </button>
+                                            <div id="s3" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    Yes, after your order is shipped, a tracking link or number will be
+                                                    provided to monitor the delivery status.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Question 4 -->
+                                        <div class="accordion-item">
+                                            <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                data-bs-target="#s4">
+                                                What if my order is delayed?
+                                            </button>
+                                            <div id="s4" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    In case of delays, please contact our support team. We will assist
+                                                    you and provide updates on the expected delivery date.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Question 5 -->
+                                        <div class="accordion-item">
+                                            <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                data-bs-target="#s5">
+                                                Do you deliver to remote areas?
+                                            </button>
+                                            <div id="s5" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    Yes, we deliver to all locations in India. Shipping remains free
+                                                    regardless of location.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="faq-pane" id="account">
+                                    <h5 class="fw-bold mb-3">Account Questions</h5>
+                                    <div class="accordion" id="accountAccordion">
+
+                                        <!-- Question 1 -->
+                                        <div class="accordion-item">
+                                            <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                data-bs-target="#a1">
+                                                How do I create an account?
+                                            </button>
+                                            <div id="a1" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    Click on the "Register" button, fill in your details including name,
+                                                    email, and password, and submit the form. You will receive a
+                                                    verification email to activate your account.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Question 2 -->
+                                        <div class="accordion-item">
+                                            <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                data-bs-target="#a2">
+                                                How do I reset my password?
+                                            </button>
+                                            <div id="a2" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    On the login page, click "Forgot Password," enter your registered
+                                                    email, and follow the instructions in the email to reset your
+                                                    password.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Question 3 -->
+                                        <div class="accordion-item">
+                                            <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                data-bs-target="#a3">
+                                                Can I update my personal information?
+                                            </button>
+                                            <div id="a3" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    Yes, log in to your account, go to the "Profile" section, and update
+                                                    your personal details such as name, contact information, or address.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Question 4 -->
+                                        <div class="accordion-item">
+                                            <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                data-bs-target="#a4">
+                                                How do I delete my account?
+                                            </button>
+                                            <div id="a4" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    To delete your account, contact the support team through the
+                                                    "Contact Us" page. Your account will be permanently removed
+                                                    following verification.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Question 5 -->
+                                        <div class="accordion-item">
+                                            <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                data-bs-target="#a5">
+                                                How can I view my order history?
+                                            </button>
+                                            <div id="a5" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    Log in to your account and navigate to the "My Orders" section to
+                                                    view all past and current orders along with their statuses.
+                                                </div>
+                                            </div>
+                                            <div class="faq-pane" id="account">
+                                                <h5 class="fw-bold mb-3">Account Questions</h5>
+                                                <div class="accordion" id="accountAccordion">
+
+                                                    <!-- Question 1 -->
+                                                    <div class="accordion-item">
+                                                        <button class="accordion-button collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#a1">
+                                                            How do I create an account?
+                                                        </button>
+                                                        <div id="a1" class="accordion-collapse collapse">
+                                                            <div class="accordion-body">
+                                                                Click on the "Register" button, fill in your details
+                                                                including name, email, and password, and submit the
+                                                                form. You will receive a verification email to activate
+                                                                your account.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Question 2 -->
+                                                    <div class="accordion-item">
+                                                        <button class="accordion-button collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#a2">
+                                                            How do I reset my password?
+                                                        </button>
+                                                        <div id="a2" class="accordion-collapse collapse">
+                                                            <div class="accordion-body">
+                                                                On the login page, click "Forgot Password," enter your
+                                                                registered email, and follow the instructions in the
+                                                                email to reset your password.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Question 3 -->
+                                                    <div class="accordion-item">
+                                                        <button class="accordion-button collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#a3">
+                                                            Can I update my personal information?
+                                                        </button>
+                                                        <div id="a3" class="accordion-collapse collapse">
+                                                            <div class="accordion-body">
+                                                                Yes, log in to your account, go to the "Profile"
+                                                                section, and update your personal details such as name,
+                                                                contact information, or address.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Question 4 -->
+                                                    <div class="accordion-item">
+                                                        <button class="accordion-button collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#a4">
+                                                            How do I delete my account?
+                                                        </button>
+                                                        <div id="a4" class="accordion-collapse collapse">
+                                                            <div class="accordion-body">
+                                                                To delete your account, contact the support team through
+                                                                the "Contact Us" page. Your account will be permanently
+                                                                removed following verification.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Question 5 -->
+                                                    <div class="accordion-item">
+                                                        <button class="accordion-button collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#a5">
+                                                            How can I view my order history?
+                                                        </button>
+                                                        <div id="a5" class="accordion-collapse collapse">
+                                                            <div class="accordion-body">
+                                                                Log in to your account and navigate to the "My Orders"
+                                                                section to view all past and current orders along with
+                                                                their statuses.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Question 6 -->
+                                                    <div class="accordion-item">
+                                                        <button class="accordion-button collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#a6">
+                                                            What if I forget my registered email?
+                                                        </button>
+                                                        <div id="a6" class="accordion-collapse collapse">
+                                                            <div class="accordion-body">
+                                                                Please contact the support team with your registered
+                                                                phone number or other identification details to recover
+                                                                your account information.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <!-- Question 6 -->
+                                        <div class="accordion-item">
+                                            <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                data-bs-target="#a6">
+                                                What if I forget my registered email?
+                                            </button>
+                                            <div id="a6" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    Please contact the support team with your registered phone number or
+                                                    other identification details to recover your account information.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <script>
+                                document.addEventListener("click", function (e) {
+                                    const tab = e.target.closest(".faq-tab");
+                                    if (!tab) return;
+
+                                    document.querySelectorAll(".faq-tab").forEach(t => t.classList.remove("active"));
+                                    document.querySelectorAll(".faq-pane").forEach(p => p.classList.remove("active"));
+
+                                    tab.classList.add("active");
+                                    document.querySelector(tab.dataset.target).classList.add("active");
+                                });
+                            </script>
+                        </section>
+                    </div>
                 </div>
             </main>
-
         </div>
     </div>
 </section>

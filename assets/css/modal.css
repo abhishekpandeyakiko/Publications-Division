@@ -170,7 +170,7 @@
   }
 
   .modal-body {
-    max-height: 85vh;
+    /* max-height: 85vh; */
     overflow-y: auto;
     padding-top: 0;
   }
@@ -316,4 +316,174 @@
 }
 .product-title:hover {
   text-decoration: underline;
+}
+/* ----------------------------------- tracking ------------------------------------ */
+.timeline {
+  position: relative;
+}
+
+.timeline .step {
+  position: relative;
+  display: flex;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+.timeline .step {
+    position: relative;
+    flex: 1;
+    text-align: left;
+}
+/* DOT */
+.timeline .dot {
+  width: 12px;
+  height: 15px;
+  border-radius: 50%;
+  margin-top: 6px;
+  animation: dotFill 0.4s ease forwards;
+}
+
+/* LINE */
+.timeline .step::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 25px;
+  width: 2px;
+  height: 0;
+  animation: lineGrow 0.6s ease forwards;
+}
+
+/* LAST STEP */
+.timeline .step:last-child::before {
+  display: none;
+}
+
+/* 🎯 STATUS COLORS */
+.step.delivery1 .dot,
+.step.delivery1::before {
+  background-color: #28a745;
+}
+
+.step.return .dot,
+.step.return::before {
+  background-color: #0d6efd;
+}
+
+.step.cancel .dot,
+.step.cancel::before {
+  background-color: #dc3545;
+}
+
+/* ⏱ SEQUENTIAL FLOW */
+.step:nth-child(1) .dot { animation-delay: 0s; }
+.step:nth-child(1)::before { animation-delay: 0.4s; }
+
+.step:nth-child(2) .dot { animation-delay: 1s; }
+.step:nth-child(2)::before { animation-delay: 1.4s; }
+
+.step:nth-child(3) .dot { animation-delay: 2s; }
+.step:nth-child(3)::before { animation-delay: 2.4s; }
+
+.step:nth-child(4) .dot { animation-delay: 3s; }
+.step:nth-child(4)::before { animation-delay: 3.4s; }
+
+.step:nth-child(5) .dot { animation-delay: 4s; }
+
+/* ANIMATIONS */
+@keyframes dotFill {
+  from { transform: scale(0.6); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes lineGrow {
+  from { height: 0; }
+  to { height: 100%; }
+}
+
+/*--------------------------------------- edit profile css  ------------------------------------*/
+form#editProfileForm {
+    border-top: 1px solid #d2d2d2;
+    margin-top: 10px;
+}
+.modal-dialog.modal-dialog-slide {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 0;
+    height: 100vh;
+    max-width: 60%;
+    min-width: 500px;
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+}
+
+.modal.fade .modal-dialog.modal-dialog-slide.show {
+    transform: translateX(0);
+}
+
+.modal-content {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0;
+}
+
+.modal-body {
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* Mobile view */
+@media (max-width: 767px) {
+    .modal-dialog.modal-dialog-slide {
+        max-width: 100% !important;
+    }
+    .modal-dialog.modal-dialog-slide {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 0;
+    height: 100%;
+    min-width: 100%;
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+}
+}
+/*--------------------------------------------- add card address ------------------------------------------*/
+
+/*---------------------------- shipping address modal -----------------------------------------*/
+.modal-dialog.modal-slide-right {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 0;
+    height: 100%;
+    max-width: 60%;
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+}
+
+/* Show animation */
+.modal.fade .modal-dialog.modal-slide-right.show {
+    transform: translateX(0);
+}
+
+/* Full height modal */
+.modal-slide-right .modal-content {
+    height: 100%;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-slide-right .modal-body {
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* Mobile full width */
+@media (max-width: 768px) {
+    .modal-dialog.modal-slide-right {
+        max-width: 100%;
+    }
 }
