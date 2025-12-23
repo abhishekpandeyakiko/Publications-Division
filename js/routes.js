@@ -164,24 +164,24 @@ const Routes = {
     title: 'User Profile - Publications Division'
   },
   // BUY sub-pages
-  buyBooks: {
-    path: '/buy/books',
-    page: 'pages/buy/books.html',
-    layout: 'default',
-    title: 'Books - Publications Division'
-  },
-  buyEbooks: {
-    path: '/buy/ebooks',
-    page: 'pages/buy/ebooks.html',
-    layout: 'default',
-    title: 'EBooks/EJournal - Publications Division'
-  },
-  buyJournal: {
-    path: '/buy/journal',
-    page: 'pages/buy/journal.html',
-    layout: 'default',
-    title: 'Journal - Publications Division'
-  },
+  // buyBooks: {
+  //   path: '/buy/books',
+  //   page: 'pages/buy/books.html',
+  //   layout: 'default',
+  //   title: 'Books - Publications Division'
+  // },
+  // buyEbooks: {
+  //   path: '/buy/ebooks',
+  //   page: 'pages/buy/ebooks.html',
+  //   layout: 'default',
+  //   title: 'EBooks/EJournal - Publications Division'
+  // },
+  // buyJournal: {
+  //   path: '/buy/journal',
+  //   page: 'pages/buy/journal.html',
+  //   layout: 'default',
+  //   title: 'Journal - Publications Division'
+  // },
   // Publications sub-pages
   publicationsBooks: {
     path: '/publications/books',

@@ -1,0 +1,235 @@
+
+  /* ====================================================== Grievance Form Styles ================================================== */
+  .grv-card {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 22px;
+  }
+
+  .grv-form-control,
+  .grv-form-select {
+    border-radius: 6px;
+    padding-left: 44px;
+  }
+
+  .grv-input-wrapper {
+    position: relative;
+  }
+
+  .grv-input-icon {
+    position: absolute;
+    top: 71%;
+    left: 25px;
+    transform: translateY(-50%);
+    color: #6c757d;
+    font-size: 1.1rem;
+  }
+
+  .grv-form-control:focus,
+  .grv-form-select:focus {
+    border-color: #198754;
+    box-shadow: 0 0 0 0.18rem rgba(25, 135, 84, 0.25);
+  }
+
+  .grv-textarea {
+    border-radius: 16px;
+  }
+
+  .grv-submit-btn {
+    background: linear-gradient(135deg, #004d4d, #198754);
+    border: none;
+    border-radius: 6px;
+    padding: 8px 21px;
+    transition: all 0.3s ease;
+  }
+
+  .grv-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(25, 135, 84, 0.35);
+  }
+
+
+/* ========================================================== Grievance Search Section =========================================== */
+
+
+  .grv-search-section {
+    background: linear-gradient(135deg, #f6f9fc, #eef3f7);
+    padding: 40px 0;
+  }
+
+  .grv-search-card {
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  .grv-search-title {
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+  }
+
+  .grv-search-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 40px;
+    height: 3px;
+    background: #004d4d;
+    border-radius: 2px;
+  }
+
+  .grv-search-input {
+    padding-left: 44px;
+    border-radius: 6px;
+  }
+
+  .grv-search-icon {
+    position: absolute;
+    top: 73%;
+    left: 22px;
+    transform: translateY(-50%);
+    color: #6c757d;
+    font-size: 1.1rem;
+  }
+
+  .grv-search-btn {
+    background: #004d4d;
+    border: none;
+    border-radius: 30px;
+    padding: 7px 25px;
+    font-weight: 600;
+  }
+
+  .grv-search-btn:hover {
+    background: #198754;
+    box-shadow: 0 10px 25px #bdffe0;
+  }
+  /* .table-responsive {
+   border-radius: 10px;
+    border: 1px solid #e4e4e4;
+    margin: 15px;
+} */
+table.table.Grievance-table td {
+    min-width: 350px;
+}
+/* ============================ Document section =========================================*/
+.tender-card {
+    background: #ffffff;
+  }
+.card-header {
+    border-bottom: 1px solid #e5e7eb;
+    background-color: #ffffff;
+}
+  .tender-header {
+    padding: 1rem 1.5rem;
+    border-radius: 1rem 1rem 0 0;
+  }
+
+  .tender-table thead {
+    background: #fff3e6;
+  }
+
+  .tender-table thead th {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #292929;
+    border-bottom: none;
+    white-space: nowrap;
+  }
+
+  .tender-table tbody tr {
+    transition: all 0.2s ease-in-out;
+  }
+
+  .tender-table tbody tr:hover {
+    background-color: #fff7ef;
+  }
+
+  .tender-table td {
+    font-size: 0.9rem;
+    color: #333;
+    border-top: 1px solid #198754;
+    vertical-align: middle;
+  }
+
+  .btn-outline-success {
+    border-width: 2px;
+  }
+
+  @media (max-width: 768px) {
+    .tender-table thead {
+      font-size: 0.8rem;
+    }
+    .tender-table td {
+      font-size: 0.85rem;
+    }
+  }
+  .table>:not(caption)>*>* {
+    padding: .5rem 1rem;
+}
+.tender-table td{
+    white-space: nowrap;
+}
+a.pdf-action {
+    color:#00695c;
+    font-size: 20px;
+        padding: 3px 6px;
+    border: 2px solid #00695c;
+    border-radius: 18px;
+}
+a.pdf-action:hover {
+    color:#ffffff;
+    background: #00695c;
+    font-size: 20px;
+    border: 2px solid #00695c;
+}
+/* ================================================================ RTI ==========================================================*/
+ /* .section-dot {
+    width: 10px;
+    height: 10px;
+    background: #e56b00;
+    border-radius: 50%;
+  } */
+
+  .officer-card {
+    border: 0;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .officer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  }
+
+  .officer-badge {
+    background: linear-gradient(135deg, #004d4d, #198754);
+    font-weight: 500;
+  }
+
+  .subject-box {
+    background: #f3fff9;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    border-left: 4px solid #004d4d;
+  }
+
+  @media (max-width: 576px) {
+    h5 {
+      font-size: 1rem;
+    }
+  }
+  .btn-budget {
+    background: #004d4d;
+    color: #fff;
+    border-radius: 30px;
+    padding: 6px 18px;
+    font-size: 0.85rem;
+}
+  .btn-budget:hover {
+    background: #198754;
+}

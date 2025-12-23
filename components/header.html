@@ -38,12 +38,32 @@
                         </div>
 
                         <!-- Login / Register Button (shown when not logged in) -->
-                        <a class="btn btn-login ms-2 auth-login-btn" href="/login" style="display: none;">Login / Register</a>
-                        
-                        <!-- Profile Icon (shown when logged in) -->
-                        <button class="btn btn-profile ms-2 auth-profile-btn" id="profileIconBtn" style="display: none;" aria-label="User Profile">
-                            <i class="fa-solid fa-user-circle" style="font-size: 24px; color: #004b4b;"></i>
-                        </button>
+                        <a class="btn btn-login ms-2 auth-login-btn" href="/login" style="display: none;">Login /
+                            Register</a>
+
+                        <!-- Profile Dropdown (shown when logged in) -->
+                        <div class="dropdown auth-profile-btn ms-2" style="display: none;">
+                            <button class="btn btn-profile p-0 border-0" type="button" id="profileDropdown"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-user-circle" style="font-size: 28px; color: #004b4b;"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-4 mt-2"
+                                aria-labelledby="profileDropdown">
+                                <li>
+                                    <a class="dropdown-item py-2 px-3" href="/user-profile">
+                                        <i class="fa-regular fa-user me-2"></i> User Profile
+                                    </a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider my-1">
+                                </li>
+                                <li>
+                                    <a class="dropdown-item py-2 px-3 text-danger" href="#" id="headerLogoutBtn">
+                                        <i class="fa-solid fa-arrow-right-from-bracket me-2"></i> Logout
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -52,7 +72,8 @@
 
     <!-- 🔹 Main Header -->
     <header class=" main-header">
-        <div class=" container d-flex flex-column flex-md-row justify-content-center justify-content-md-between align-items-center text-center text-md-start gap-3">
+        <div
+            class=" container d-flex flex-column flex-md-row justify-content-center justify-content-md-between align-items-center text-center text-md-start gap-3">
             <div class="d-flex align-items-center logo">
                 <img src="images/Logo.svg" alt="logo">
                 <div class="logo-setup">
@@ -69,11 +90,13 @@
                 <div class="icons d-flex header-rec-icon align-items-center gap-2 gap-lg-3">
                     <a href="#" class="position-relative wishlist-icon-link" id="wishlistHeaderLink">
                         <i class="fa-regular fa-heart"></i>
-                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 10px;">76</span>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                            style="font-size: 10px;">76</span>
                     </a>
                     <a href="#" class="position-relative cart-icon-link" id="cartHeaderLink">
                         <img src="images/cart.svg" alt="Shopping Bag" class="icon-img">
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 10px;">4</span>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                            style="font-size: 10px;">4</span>
                     </a>
                 </div>
             </div>
@@ -100,10 +123,12 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="buyDropdown">
                         <!-- <li><a class="dropdown-item" href="/buy/books">Books</a></li> -->
-                          <li><a class="dropdown-item" href="/listing-product">Books</a></li>
-                        <!-- <li><a class="dropdown-item" href="/buy/ebooks">EBooks/EJournal</a></li>
+                          <!-- <li><a class="dropdown-item" href="/buy/ebooks">EBooks/EJournal</a></li>
                         <li><a class="dropdown-item" href="/buy/journal">Journal</a></li> -->
-                         <li><a class="dropdown-item" href="/user-profile">userInfo</a></li>
+                        <li><a class="dropdown-item" href="/listing-product">Books</a></li>
+                        <li><a class="dropdown-item" href="/listing-product">EBooks/EJournal</a></li>
+                        <li><a class="dropdown-item" href="/listing-product">Journal</a></li>
+                       
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -129,17 +154,25 @@
                         <li><a class="dropdown-item" href="/publications/empanelled-printers" target="_blank">Empanelled Printers</a></li>
                         <li><a class="dropdown-item" href="/publications/list-of-reprints" target="_blank">List of Reprints</a></li>
                     </ul> -->
+                     <ul class="dropdown-menu" aria-labelledby="publicationsDropdown">
+                        <li><a class="dropdown-item" href="/listing-product">Books</a></li>
+                        <li><a class="dropdown-item" href="/listing-product">eBooks/eJournals</a></li>
+                        <li><a class="dropdown-item" href="/listing-product">Journals</a></li>
+                        <li><a class="dropdown-item" href="system/storage/upload/catalog_directory/catalog_en.pdf" target="_blank">Catalogue</a></li>
+                        <li><a class="dropdown-item" href="system/storage/upload/empanelled_directory/list-for-offset-printers_en.pdf" target="_blank">Empanelled Printers</a></li>
+                        <li><a class="dropdown-item" href="system/storage/upload/Reprint_directory/DetailsofReprintsDPDPublished_hi.pdf" target="_blank">List of Reprints</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="feedbackDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Feedback and Grievance
                     </a>
-                    <!-- <ul class="dropdown-menu" aria-labelledby="feedbackDropdown">
+                    <ul class="dropdown-menu" aria-labelledby="feedbackDropdown">
                         <li><a class="dropdown-item" href="/feedback">Feedback / Grievance</a></li>
                         <li><a class="dropdown-item" href="/feedback/search-grievance">Search Grievance</a></li>
                         <li><a class="dropdown-item" href="/feedback/grievance-reopen">Grievance Reopen</a></li>
-                    </ul> -->
+                    </ul>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="documentsDropdown" role="button"
@@ -149,7 +182,7 @@
                     <ul class="dropdown-menu" aria-labelledby="documentsDropdown">
                         <li><a class="dropdown-item" href="/documents/royalty-structure">Royalty Structure</a></li>
                         <li><a class="dropdown-item" href="/documents/tenders">Tenders</a></li>
-                        <!-- <li><a class="dropdown-item" href="/documents/tenders-awarded">Tenders Awarded</a></li>
+                        <li><a class="dropdown-item" href="/documents/tenders-awarded">Tenders Awarded</a></li>
                         <li><a class="dropdown-item" href="/documents/rti">RTI</a></li>
                         <li><a class="dropdown-item" href="/documents/budget">Budget</a></li>
                         <li><a class="dropdown-item" href="/documents/author-agreement">Author Agreement</a></li>
@@ -158,7 +191,7 @@
                         <li><a class="dropdown-item" href="/documents/orders-notices">Orders and Notices</a></li>
                         <li><a class="dropdown-item" href="/documents/suo-moto-disclosure">Suo Moto Disclosure</a></li>
                         <li><a class="dropdown-item" href="/documents/internal-complaints-committee">Internal Complaints Committee</a></li>
-                        <li><a class="dropdown-item" href="/documents/refund-policy">Refund Policy</a></li> -->
+                        <li><a class="dropdown-item" href="/documents/refund-policy">Refund Policy</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -167,15 +200,19 @@
                         Business
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="businessDropdown">
-                        <li><a class="dropdown-item" href="/business/sales-emporium-address">Sales Emporium Address</a></li>
-                        <li><a class="dropdown-item" href="/business/e-resource-aggregator">E Resource Aggregator</a></li>
-                        <li><a class="dropdown-item" href="/business/business-policy-guidelines">Business Policy/Guidelines</a></li>
+                        <li><a class="dropdown-item" href="/business/sales-emporium-address">Sales Emporium Address</a>
+                        </li>
+                        <li><a class="dropdown-item" href="/business/e-resource-aggregator">E Resource Aggregator</a>
+                        </li>
+                        <li><a class="dropdown-item" href="/business/business-policy-guidelines">Business
+                                Policy/Guidelines</a></li>
                         <li><a class="dropdown-item" href="/business/agents-books">Agents (Books)</a></li>
                         <li><a class="dropdown-item" href="/business/home-library-scheme">Home library Scheme</a></li>
                         <li><a class="dropdown-item" href="/business/attractive-discounts">Attractive Discounts</a></li>
                         <li><a class="dropdown-item" href="/business/agents-journals">Agents(Journals)</a></li>
                         <li><a class="dropdown-item" href="/business/agents-emp-news">Agents(Emp News)</a></li>
-                        <li><a class="dropdown-item" href="/business/agent-books-agreement">Agent Books Agreement</a></li>
+                        <li><a class="dropdown-item" href="/business/agent-books-agreement">Agent Books Agreement</a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -185,8 +222,9 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="submitDropdown">
                         <li><a class="dropdown-item" href="/submit/create-author-account">Create Author Account</a></li>
-                         <!-- <li><a class="dropdown-item" href="/submit/submission-process" target="_blank">Submission Process</a></li> -->
-                     <li><a class="dropdown-item" href="Submission_Process_hi.pdf"  target="_blank">Submission Process</a></li>
+                        <!-- <li><a class="dropdown-item" href="/submit/submission-process" target="_blank">Submission Process</a></li> -->
+                        <li><a class="dropdown-item" href="Submission_Process_hi.pdf" target="_blank">Submission
+                                Process</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -216,22 +254,22 @@
         <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
             <li class="nav-item dropdown">
-               
-                <a class="nav-link dropdown-toggle" href="#" id="buyDropdownSidebar" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
+
+                <a class="nav-link dropdown-toggle" href="#" id="buyDropdownSidebar" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
                     BUY
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="buyDropdownSidebar">
                     <li><a class="dropdown-item" href="/buy/books">Books</a></li>
                     <!-- <li><a class="dropdown-item" href="/buy/ebooks">EBooks/EJournal</a></li>
                     <li><a class="dropdown-item" href="/buy/journal">Journal</a></li> -->
-                    
-                   
+
+
                 </ul>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="aboutDropdownSidebar" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="aboutDropdownSidebar" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
                     About Us
                 </a>
                 <!-- <ul class="dropdown-menu" aria-labelledby="aboutDropdownSidebar">
@@ -240,8 +278,8 @@
                 </ul> -->
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="publicationsDropdownSidebar" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="publicationsDropdownSidebar" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
                     Publications
                 </a>
                 <!-- <ul class="dropdown-menu" aria-labelledby="publicationsDropdownSidebar">
@@ -254,8 +292,8 @@
                 </ul> -->
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="feedbackDropdownSidebar" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="feedbackDropdownSidebar" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
                     Feedback and Grievance
                 </a>
                 <!-- <ul class="dropdown-menu" aria-labelledby="feedbackDropdownSidebar">
@@ -265,8 +303,8 @@
                 </ul> -->
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="documentsDropdownSidebar" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="documentsDropdownSidebar" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
                     Documents
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="documentsDropdownSidebar">
@@ -285,14 +323,15 @@
                 </ul>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="businessDropdownSidebar" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="businessDropdownSidebar" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
                     Business
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="businessDropdownSidebar">
                     <li><a class="dropdown-item" href="/business/sales-emporium-address">Sales Emporium Address</a></li>
                     <li><a class="dropdown-item" href="/business/e-resource-aggregator">E Resource Aggregator</a></li>
-                    <li><a class="dropdown-item" href="/business/business-policy-guidelines">Business Policy/Guidelines</a></li>
+                    <li><a class="dropdown-item" href="/business/business-policy-guidelines">Business
+                            Policy/Guidelines</a></li>
                     <li><a class="dropdown-item" href="/business/agents-books">Agents (Books)</a></li>
                     <li><a class="dropdown-item" href="/business/home-library-scheme">Home library Scheme</a></li>
                     <li><a class="dropdown-item" href="/business/attractive-discounts">Attractive Discounts</a></li>
@@ -302,19 +341,20 @@
                 </ul>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="submitDropdownSidebar" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="submitDropdownSidebar" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
                     Submit Book Manuscript
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="submitDropdownSidebar">
                     <li><a class="dropdown-item" href="/submit/create-author-account">Create Author Account</a></li>
                     <!-- <li><a class="dropdown-item" href="/submit/submission-process" target="_blank">Submission Process</a></li> -->
-                     <li><a class="dropdown-item" href="Submission_Process_hi.pdf"  target="_blank">Submission Process</a></li>
+                    <li><a class="dropdown-item" href="Submission_Process_hi.pdf" target="_blank">Submission Process</a>
+                    </li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="viewMoreDropdownSidebar" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="viewMoreDropdownSidebar" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
                     View More
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="viewMoreDropdownSidebar">

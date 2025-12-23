@@ -115,8 +115,21 @@ function setupQuantityControls() {
 /**
  * Handle URL section parameter
  */
+/**
+ * Handle URL section parameter
+ */
 function handleURLSection() {
-  const urlParams = new URLSearchParams(window.location.search);
+  // Try to get params from window.search first
+  let urlParams = new URLSearchParams(window.location.search);
+
+  // If no params and using hash routing, try to parse from hash
+  if (!urlParams.has('section') && window.location.hash.includes('?')) {
+    const hashQuery = window.location.hash.split('?')[1];
+    if (hashQuery) {
+      urlParams = new URLSearchParams(hashQuery);
+    }
+  }
+
   const section = urlParams.get('section');
 
   if (section) {

@@ -28,7 +28,7 @@ class LayoutManager {
    */
   async initLayout(layoutName) {
     this.currentLayout = layoutName;
-    
+
     try {
       // Load components based on layout type
       if (layoutName === 'default') {
@@ -91,7 +91,7 @@ class LayoutManager {
         './components/header.html',
         '../components/header.html'
       ];
-      
+
       let lastError;
       let successfulPath = null;
       for (const path of pathsToTry) {
@@ -106,30 +106,30 @@ class LayoutManager {
           continue;
         }
       }
-      
+
       if (!response || !response.ok) {
         throw new Error(`Failed to load header: ${lastError?.message || 'All paths failed'}`);
       }
-      
+
       const html = await response.text();
       if (!html || html.trim().length === 0) {
         throw new Error('Header HTML is empty');
       }
-      
+
       headerPlaceholder.innerHTML = html;
-      
+
       // Ensure header placeholder is visible
       headerPlaceholder.style.display = 'block';
       headerPlaceholder.style.visibility = 'visible';
-      
+
       this.headerLoaded = true;
-      
+
       // Small delay to ensure DOM is updated
       await new Promise(resolve => setTimeout(resolve, 50));
-      
+
       // Initialize header-specific scripts after load
       this.initializeHeaderScripts();
-      
+
       // Verify header was actually inserted
       const headerContent = headerPlaceholder.querySelector('header, .header-section, .main-header01');
       if (!headerContent) {
@@ -163,7 +163,7 @@ class LayoutManager {
         './components/footer.html',
         '../components/footer.html'
       ];
-      
+
       let lastError;
       for (const path of pathsToTry) {
         try {
@@ -176,11 +176,11 @@ class LayoutManager {
           continue;
         }
       }
-      
+
       if (!response || !response.ok) {
         throw new Error(`Failed to load footer: ${lastError?.message || 'All paths failed'}`);
       }
-      
+
       const html = await response.text();
       footerPlaceholder.innerHTML = html;
       this.footerLoaded = true;
@@ -198,7 +198,7 @@ class LayoutManager {
   hidePlaceholders() {
     const headerPlaceholder = document.getElementById('header-placeholder');
     const footerPlaceholder = document.getElementById('footer-placeholder');
-    
+
     if (headerPlaceholder) {
       headerPlaceholder.style.display = 'none';
     }
@@ -259,12 +259,12 @@ class LayoutManager {
 
     // Ensure navigation event listeners are attached after header loads
     this.attachEventListeners();
-    
+
     // Initialize header authentication UI
     if (typeof initHeaderAuth === 'function') {
       initHeaderAuth();
     }
-    
+
     // Dispatch event for header loaded
     document.dispatchEvent(new CustomEvent('headerLoaded'));
   }
@@ -301,10 +301,22 @@ class LayoutManager {
    * Update active navigation link
    */
   updateActiveNavLink() {
-    const currentPath = window.location.pathname || '/';
+    // Get current path from Router if available, otherwise from hash
+    let currentPath = '/';
+
+    if (window.Router && window.Router.getCurrentRoute()) {
+      currentPath = window.Router.getCurrentRoute().path;
+    } else {
+      // Fallback: parse hash manually
+      const hash = window.location.hash.slice(1); // Remove '#'
+      if (hash) {
+        currentPath = hash.startsWith('/') ? hash : '/' + hash;
+      }
+    }
+
     document.querySelectorAll('.nav-link').forEach(link => {
       const href = link.getAttribute('href');
-      if (href === currentPath || (currentPath === '/' && href === '/')) {
+      if (href === currentPath) {
         link.classList.add('active');
       } else {
         link.classList.remove('active');

@@ -13,15 +13,25 @@ class Router {
    * Initialize router
    */
   init() {
-    // Listen for browser navigation (back/forward buttons)
-    window.addEventListener('popstate', (e) => {
-      const path = window.location.pathname || '/';
-      this.handleRoute(path);
+    // Listen for hash changes
+    window.addEventListener('hashchange', (e) => {
+      this.handleRoute(this.getHashPath());
     });
 
     // Handle initial route
-    const path = window.location.pathname || '/';
-    this.handleRoute(path);
+    this.handleRoute(this.getHashPath());
+  }
+
+  /**
+   * Get clean path from hash
+   * Converts '#/' or '' to '/' and '#/about' to '/about'
+   */
+  getHashPath() {
+    const hash = window.location.hash.slice(1); // Remove '#'
+    // If empty or just '/', return '/'
+    if (!hash || hash === '/') return '/';
+    // Ensure it starts with /
+    return hash.startsWith('/') ? hash : '/' + hash;
   }
 
   /**
@@ -30,8 +40,8 @@ class Router {
    */
   async handleRoute(path) {
     try {
-      // Strip query parameters and hash from path for route matching
-      const cleanPath = path.split('?')[0].split('#')[0];
+      // Strip query parameters for route matching
+      const cleanPath = path.split('?')[0];
       
       // Check if getRouteByPath is available
       if (typeof getRouteByPath === 'undefined') {
@@ -53,8 +63,11 @@ class Router {
       
       // Check if it's the notFound route
       if (typeof Routes !== 'undefined' && Routes.notFound && route.path === Routes.notFound.path) {
-        console.warn(`Route not found for path: ${cleanPath}, redirecting to 404`);
-        // Don't navigate again, just return as we're already on 404
+        // Only redirect if we are not already on the 404 path to avoid loops
+        if (cleanPath !== '/404') {
+             console.warn(`Route not found for path: ${cleanPath}, redirecting to 404`);
+             this.navigate('/404');
+        }
         return;
       }
 
@@ -71,15 +84,6 @@ class Router {
       this.currentRoute = route;
       this.currentLayout = layout;
 
-      // Update URL without page reload (if different)
-      // Preserve query parameters if they exist
-      const currentPath = window.location.pathname;
-      const currentQuery = window.location.search;
-      if (currentPath !== route.path) {
-        const newUrl = route.path + currentQuery;
-        window.history.pushState({ route: route.path }, '', newUrl);
-      }
-
       // Update active nav link (only if layout manager exists)
       if (window.LayoutManager && layout !== 'none') {
         window.LayoutManager.updateActiveNavLink();
@@ -93,7 +97,10 @@ class Router {
 
     } catch (error) {
       console.error('Route handling error:', error);
-      this.navigate('/404');
+      // Only navigate to 404 if not already there
+      if (path !== '/404') {
+          this.navigate('/404');
+      }
     }
   }
 
@@ -156,7 +163,7 @@ class Router {
         <div class="container py-5 text-center">
           <h2>Page Load Error</h2>
           <p>Unable to load the requested page.</p>
-          <a href="/" class="btn btn-primary">Return Home</a>
+          <a href="#/" class="btn btn-primary">Return Home</a>
         </div>
       `;
       throw error;
@@ -219,14 +226,8 @@ class Router {
    * @param {string} path - Route path (can include query parameters)
    */
   navigate(path) {
-    // Extract just the pathname for route matching, but preserve query params in URL
-    const pathname = path.split('?')[0].split('#')[0];
-    this.handleRoute(pathname);
-    
-    // Update URL with full path including query params if different
-    if (window.location.pathname + window.location.search !== path) {
-      window.history.pushState({ route: pathname }, '', path);
-    }
+    // Just setting the hash triggers the hashchange event which calls handleRoute
+    window.location.hash = path;
   }
 
   /**

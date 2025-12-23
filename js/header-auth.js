@@ -6,13 +6,13 @@
  */
 function initHeaderAuth() {
   updateAuthUI();
-  
+
   // Listen for auth status changes
   window.addEventListener('authStatusChanged', updateAuthUI);
-  
+
   // Setup click handlers for wishlist and cart icons
   setupIconClickHandlers();
-  
+
   // Setup profile icon click handler
   setupProfileIconHandler();
 }
@@ -28,10 +28,10 @@ function updateAuthUI() {
   } else {
     loggedIn = localStorage.getItem('userLoggedIn') === 'true';
   }
-  
+
   const loginBtn = document.querySelector('.auth-login-btn');
   const profileBtn = document.querySelector('.auth-profile-btn');
-  
+
   if (loginBtn && profileBtn) {
     if (loggedIn) {
       loginBtn.style.display = 'none';
@@ -49,16 +49,16 @@ function updateAuthUI() {
 function setupIconClickHandlers() {
   const wishlistLink = document.getElementById('wishlistHeaderLink');
   const cartLink = document.getElementById('cartHeaderLink');
-  
+
   if (wishlistLink) {
-    wishlistLink.addEventListener('click', function(e) {
+    wishlistLink.addEventListener('click', function (e) {
       e.preventDefault();
       handleWishlistClick();
     });
   }
-  
+
   if (cartLink) {
-    cartLink.addEventListener('click', function(e) {
+    cartLink.addEventListener('click', function (e) {
       e.preventDefault();
       handleCartClick();
     });
@@ -75,20 +75,18 @@ function handleWishlistClick() {
   } else {
     loggedIn = localStorage.getItem('userLoggedIn') === 'true';
   }
-  
+
   if (loggedIn) {
-    // Redirect to profile page with wishlist section
+    // Redirect to profile page with wishlist section ID
     if (window.Router) {
-      window.Router.navigate('/user-profile?section=wishlist');
+      window.Router.navigate('/user-profile?target=wishlistSection');
     } else {
-      window.location.href = '/user-profile?section=wishlist';
+      window.location.href = '/user-profile?target=wishlistSection';
     }
   } else {
-    // Redirect to login page
-    if (window.Router) {
-      window.Router.navigate('/login');
-    } else {
-      window.location.href = '/login';
+    // Logic for non-logged in users
+    if (window.AuthGuard) {
+      window.AuthGuard.showModal();
     }
   }
 }
@@ -103,21 +101,18 @@ function handleCartClick() {
   } else {
     loggedIn = localStorage.getItem('userLoggedIn') === 'true';
   }
-  
+
   if (loggedIn) {
-    // Redirect to profile page (or cart page if you want separate cart)
-    // Based on user request: "wishlist and card redirect to that common sidebar one page"
+    // Redirect to profile page with cart section ID
     if (window.Router) {
-      window.Router.navigate('/user-profile?section=cart');
+      window.Router.navigate('/user-profile?target=cartSection');
     } else {
-      window.location.href = '/user-profile?section=cart';
+      window.location.href = '/user-profile?target=cartSection';
     }
   } else {
-    // Redirect to login page
-    if (window.Router) {
-      window.Router.navigate('/login');
-    } else {
-      window.location.href = '/login';
+    // Logic for non-logged in users
+    if (window.AuthGuard) {
+      window.AuthGuard.showModal();
     }
   }
 }
@@ -125,12 +120,34 @@ function handleCartClick() {
 /**
  * Setup profile icon click handler
  */
+/**
+ * Setup profile dropdown handlers
+ */
 function setupProfileIconHandler() {
-  const profileBtn = document.getElementById('profileIconBtn');
-  
-  if (profileBtn) {
-    profileBtn.addEventListener('click', function() {
-      window.location.href = '/user-profile';
+  // Dropdown toggling is handled by Bootstrap attributes in HTML
+
+  // Setup logout button handler
+  const logoutBtn = document.getElementById('headerLogoutBtn');
+
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      // Perform logout
+      if (typeof window.logout === 'function') {
+        window.logout();
+      } else {
+        localStorage.removeItem('userLoggedIn');
+        localStorage.removeItem('userData');
+        window.dispatchEvent(new CustomEvent('authStatusChanged', { detail: { isLoggedIn: false } }));
+      }
+
+      // Redirect to home page
+      if (window.Router) {
+        window.Router.navigate('/');
+      } else {
+        window.location.href = '/';
+      }
     });
   }
 }

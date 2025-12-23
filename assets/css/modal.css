@@ -193,7 +193,7 @@
     border: 1.5px solid #d1d5db;
     border-radius: 6px;
     padding: 6px 16px;
-    height: 36px;
+    /* height: 36px; */
     /* line-height: 1; */
     font-size: 14px;
     transition: all 0.2s;
@@ -422,7 +422,7 @@ form#editProfileForm {
 }
 
 .modal-content {
-    height: 100vh;
+    /* height: 100vh; */
     display: flex;
     flex-direction: column;
     border-radius: 0;
