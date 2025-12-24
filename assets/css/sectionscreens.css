@@ -233,3 +233,69 @@ a.pdf-action:hover {
   .btn-budget:hover {
     background: #198754;
 }
+/* ===================================================== View More ====================================================== */
+.header-line {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #198754, #20c997);
+  border-radius: 10px;
+}
+/* ---------------------------------------------------Video screen css -------------------------------------------------- */
+    /* ===== GRID VIEW ===== */
+    .video-card {
+      position: relative;
+      cursor: pointer;
+      transition: .3s;
+    }
+    .video-card:hover {
+      transform: translateY(-5px);
+    }
+    .play-btn {
+         position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    .play-btn i {
+      font-size: 2rem;
+      background: rgba(0,0,0,.65);
+      color: #fff;
+      border-radius: 50%;
+      padding: 0px 10px;
+    }
+.video-title {
+    margin-top: 10px;
+    line-height: 15px;
+    font-weight: 500;
+    font-size: 14px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;    
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+    /* ===== PLAYER VIEW ===== */
+    .yt-suggest {
+      cursor: pointer;
+      border: none;
+      border-bottom: 1px solid #eee;
+    }
+    .yt-suggest:hover {
+      background: #f9fafb;
+    }
+    .yt-suggest.active {
+      background: #004d40;
+    }
+    .yt-duration {
+      position: absolute;
+      bottom: 6px;
+      right: 6px;
+      background: rgba(0,0,0,.75);
+      color: #fff;
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }

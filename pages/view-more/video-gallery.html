@@ -6,12 +6,157 @@
   </p>
 </section>
 
-<section class="content-section container">
-  <h4 class="section-title">Video Collection</h4>
-  <div class="highlight-box">
-    <p>
-      Explore our video gallery featuring book launches, author interviews, events, and other multimedia content related to Publications Division's activities and publications.
-    </p>
+<section class="video-page my-5">
+  <div class="container">
+
+    <!-- ================= GRID VIEW ================= -->
+    <div id="videoGrid">
+      <div class="row g-4">
+
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="video-card card p-2"
+               onclick="openPlayer('dQw4w9WgXcQ','Introduction to Publications Division')">
+            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg"
+                 class="img-fluid rounded-3">
+            <span class="play-btn"><i class="bi bi-play-fill"></i></span>
+            <p class="video-title">Introduction to Publications Division</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="video-card card p-2"
+               onclick="openPlayer('9bZkp7q19f0','Citizen Charter Overview')">
+            <img src="https://img.youtube.com/vi/9bZkp7q19f0/hqdefault.jpg"
+                 class="img-fluid rounded-3">
+            <span class="play-btn"><i class="bi bi-play-fill"></i></span>
+            <p class="video-title">Citizen Charter Overview</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="video-card card p-2"
+               onclick="openPlayer('3tmd-ClpJxA','Our Publications & Services')">
+            <img src="https://img.youtube.com/vi/3tmd-ClpJxA/hqdefault.jpg"
+                 class="img-fluid rounded-3">
+            <span class="play-btn"><i class="bi bi-play-fill"></i></span>
+            <p class="video-title">Our Publications & Services</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ================= PLAYER VIEW ================= -->
+    <div id="videoPlayerView" class="d-none">
+
+      <button class="btn btn-outline-secondary mb-3"
+              onclick="closePlayer()">
+        ← Back to Videos
+      </button>
+
+      <div class="row g-4">
+
+        <!-- MAIN VIDEO -->
+        <div class="col-lg-8">
+          <div class="card p-3">
+<div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow">
+            <iframe id="mainPlayer"
+                    src=""
+                    allow="autoplay; fullscreen"
+                    allowfullscreen></iframe>
+          </div>
+
+          <h5 class="mt-3 fw-semibold" id="mainTitle"></h5>
+          </div>
+          
+        </div>
+
+        <!-- SUGGESTED VIDEOS -->
+        <div class="col-lg-4">
+          <div class="list-group card p-3">
+
+            <div class="list-group-item yt-suggest active"
+                 onclick="switchVideo('dQw4w9WgXcQ','Introduction to Publications Division',this)">
+              <div class="row g-2">
+                <div class="col-5 position-relative">
+                  <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg"
+                       class="img-fluid rounded">
+                  <span class="yt-duration">4:12</span>
+                </div>
+                <div class="col-7">
+                  <p class="mb-1 small fw-semibold">Introduction to Publications Division</p>
+                  <span class="fs-13">Publications Division</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="list-group-item yt-suggest"
+                 onclick="switchVideo('9bZkp7q19f0','Citizen Charter Overview',this)">
+              <div class="row g-2">
+                <div class="col-5 position-relative">
+                  <img src="https://img.youtube.com/vi/9bZkp7q19f0/hqdefault.jpg"
+                       class="img-fluid rounded">
+                  <span class="yt-duration">3:45</span>
+                </div>
+                <div class="col-7">
+                  <p class="mb-1 small fw-semibold">Citizen Charter Overview</p>
+                  <span class="fs-13">Ministry Channel</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="list-group-item yt-suggest"
+                 onclick="switchVideo('3tmd-ClpJxA','Our Publications & Services',this)">
+              <div class="row g-2">
+                <div class="col-5 position-relative">
+                  <img src="https://img.youtube.com/vi/3tmd-ClpJxA/hqdefault.jpg"
+                       class="img-fluid rounded">
+                  <span class="yt-duration">5:10</span>
+                </div>
+                <div class="col-7">
+                  <p class="mb-1 small fw-semibold">Our Publications & Services</p>
+                  <span class="fs-13">Official Media</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </section>
+
+<!-- JS -->
+<script>
+function openPlayer(videoId, title) {
+  document.getElementById('videoGrid').classList.add('d-none');
+  document.getElementById('videoPlayerView').classList.remove('d-none');
+
+  document.getElementById('mainPlayer').src =
+    "https://www.youtube.com/embed/" + videoId + "?autoplay=1";
+
+  document.getElementById('mainTitle').innerText = title;
+}
+
+function switchVideo(videoId, title, element) {
+  document.getElementById('mainPlayer').src =
+    "https://www.youtube.com/embed/" + videoId + "?autoplay=1";
+
+  document.getElementById('mainTitle').innerText = title;
+
+  document.querySelectorAll('.yt-suggest').forEach(item => {
+    item.classList.remove('active');
+  });
+  element.classList.add('active');
+}
+
+function closePlayer() {
+  document.getElementById('mainPlayer').src = "";
+  document.getElementById('videoPlayerView').classList.add('d-none');
+  document.getElementById('videoGrid').classList.remove('d-none');
+}
+</script>
 
