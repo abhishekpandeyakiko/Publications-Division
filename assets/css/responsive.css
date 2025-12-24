@@ -23,6 +23,9 @@ p{
     --bs-btn-disabled-border-color: #00695c;
     --bs-gradient: none;
 }
+button:focus:not(:focus-visible) {
+    box-shadow: none !important;
+}
 @media (min-width: 1200px) {
   .body-container {
     padding-left: 2%;

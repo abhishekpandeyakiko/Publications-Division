@@ -249,17 +249,21 @@
 
 /* ---------- Buttons ---------- */
 .btn-teal {
-  background: linear-gradient(135deg, #004d40, #00695c);
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 500;
-  border-radius: 8px;
-  padding: 8px;
+         background: #004d40;
+        border: 1px solid #004b4b;
+        color: white;
+        font-size: 14px;
+        box-shadow: 0 8px 18px rgb(215 255 248 / 35%);
+        transition: all 0.4s ease;
 }
 
 .btn-teal:hover {
-  background: linear-gradient(135deg, #00695c, #00897b);
-  color: white;
+          background-color: #ffffff;
+        color: #004b4b;
+        font-weight: 600;
+        border: 1px solid #004b4b;
+        box-shadow: 2px 6px 11px #b3fff273;
+        transform: translateY(-3px);
 }
 
 /* Wishlist */

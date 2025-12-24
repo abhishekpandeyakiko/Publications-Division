@@ -541,3 +541,89 @@ a.pdf-action:hover {
     color: #444;
     font-size: 1rem;
   }
+  /*---------------------------------------------------------------- FAQ ------------------------------------------------------*/
+
+/* Section Header */
+.faq-section-header {
+  display: flex;
+  align-items: center;
+  margin: 40px 0 25px;
+  position: relative;
+}
+
+.faq-section-pill {
+  background: #ffffff;
+  padding: 8px 10px;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  font-weight: 700;
+  color: #004d40;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  border: 1px solid rgba(13, 110, 253, 0.1);
+  z-index: 2;
+}
+
+.faq-section-pill i {
+  background: rgba(13, 110, 253, 0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.faq-section-divider {
+  height: 2px;
+  background: #e9ecef;
+  flex-grow: 1;
+  margin-left: -20px;
+}
+
+/* Accordion Cards */
+.faq-accordion-item {
+  border: none;
+  margin-bottom: 15px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: 0.2s ease;
+  overflow: hidden;
+}
+
+.faq-accordion-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.faq-accordion-btn {
+  background: #ffffff;
+  font-weight: 600;
+  color: #212529;
+  padding: 20px 25px;
+}
+
+.faq-accordion-btn:not(.collapsed) {
+  color: #004d40;
+  background: #1987541f;
+}
+
+.faq-accordion-body {
+  padding: 20px 25px 30px;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* Support Box */
+.faq-support-card {
+  background: #19875414;
+  border-radius: 15px;
+  padding: 40px;
+  text-align: center;
+  margin-top: 60px;
+  border: 1px dashed #004d4d;
+}
