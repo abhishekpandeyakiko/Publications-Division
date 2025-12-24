@@ -1,17 +1,164 @@
-<!-- Image Gallery Page Content -->
-<section class="intro-section">
-  <h1>Image Gallery</h1>
-  <p>
-    Explore our collection of images from events, book launches, and activities of Publications Division.
-  </p>
-</section>
-
-<section class="content-section container">
-  <h4 class="section-title">Image Collection</h4>
-  <div class="highlight-box">
-    <p>
-      Browse our image gallery featuring photographs from book launches, author events, exhibitions, and other activities organized by Publications Division.
+<section class="intro-section text-center py-5 bg-light">
+  <div class="container">
+    <h1 class="display-4 fw-bold">Image Gallery</h1>
+    <p class="lead">
+      Explore our collection of images from events, book launches, and activities of Publications Division.
     </p>
+    <span>Home > Image Gallery</span>
   </div>
 </section>
 
+<!-- Gallery Grid -->
+<div class="container gallery-container">
+  <div class="row g-4">
+    <!-- Image 1 -->
+    <div class="col-md-4 col-lg-4 col-xl-3">
+      <div class="gallery-img-wrapper" onclick="openLightbox(this)">
+        <img src="../../images/books/23 Aug to 29 Aug 2025 English_001.jpg" alt="English Book Launch"
+          class="gallery-thumb">
+        <div class="gallery-overlay">
+          <i class="fas fa-search-plus zoom-icon"></i>
+        </div>
+      </div>
+      <div class="gallery-caption">English Publications Launch</div>
+    </div>
+
+    <!-- Image 2 -->
+    <div class="col-md-4 col-lg-4 col-xl-3">
+      <div class="gallery-img-wrapper" onclick="openLightbox(this)">
+        <img src="../../images/books/23Aug to 29Aug 2025 hindi_001.jpg" alt="Hindi Book Launch" class="gallery-thumb">
+        <div class="gallery-overlay">
+          <i class="fas fa-search-plus zoom-icon"></i>
+        </div>
+      </div>
+      <div class="gallery-caption">Hindi Publications Launch</div>
+    </div>
+
+    <!-- Image 3 -->
+    <div class="col-md-4 col-lg-4 col-xl-3">
+      <div class="gallery-img-wrapper" onclick="openLightbox(this)">
+        <img src="../../images/books/Cover-YE-October-2025-final without price.jpg" alt="Yojana Magazine"
+          class="gallery-thumb">
+        <div class="gallery-overlay">
+          <i class="fas fa-search-plus zoom-icon"></i>
+        </div>
+      </div>
+      <div class="gallery-caption">Yojana Special Edition</div>
+    </div>
+
+    <!-- Image 4 -->
+    <div class="col-md-4 col-lg-4 col-xl-3">
+      <div class="gallery-img-wrapper" onclick="openLightbox(this)">
+        <img src="../../images/books/Ajkal_Hindi_September_2025.jpg" alt="Ajkal Magazine" class="gallery-thumb">
+        <div class="gallery-overlay">
+          <i class="fas fa-search-plus zoom-icon"></i>
+        </div>
+      </div>
+      <div class="gallery-caption">Ajkal Magazine Showcase</div>
+    </div>
+
+    <!-- Image 5 -->
+    <div class="col-md-4 col-lg-4 col-xl-3">
+      <div class="gallery-img-wrapper" onclick="openLightbox(this)">
+        <img src="../../images/books/Kurukshetra_Hindi_September_2025.jpg" alt="Kurukshetra Magazine"
+          class="gallery-thumb">
+        <div class="gallery-overlay">
+          <i class="fas fa-search-plus zoom-icon"></i>
+        </div>
+      </div>
+      <div class="gallery-caption">New Delhi World Book Fair</div>
+    </div>
+
+    <!-- Image 6 -->
+    <div class="col-md-4 col-lg-4 col-xl-3">
+      <div class="gallery-img-wrapper" onclick="openLightbox(this)">
+        <img src="../../images/books/cover balbhati Oct 2025 without price.jpg" alt="Bal Bharti" class="gallery-thumb">
+        <div class="gallery-overlay">
+          <i class="fas fa-search-plus zoom-icon"></i>
+        </div>
+      </div>
+      <div class="gallery-caption">Bal Bharti Children's Event</div>
+    </div>
+
+    <!-- Image 7 -->
+    <div class="col-md-4 col-lg-4 col-xl-3">
+      <div class="gallery-img-wrapper" onclick="openLightbox(this)">
+        <img src="../../images/slider1.jpeg" alt="Slider Event 1" class="gallery-thumb">
+        <div class="gallery-overlay">
+          <i class="fas fa-search-plus zoom-icon"></i>
+        </div>
+      </div>
+      <div class="gallery-caption">Annual Book Fair 2025</div>
+    </div>
+
+    <!-- Image 8 -->
+    <div class="col-md-4 col-lg-4 col-xl-3">
+      <div class="gallery-img-wrapper" onclick="openLightbox(this)">
+        <img src="../../images/slider2.png" alt="Slider Event 2" class="gallery-thumb">
+        <div class="gallery-overlay">
+          <i class="fas fa-search-plus zoom-icon"></i>
+        </div>
+      </div>
+      <div class="gallery-caption">Author Meet & Greet</div>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox-overlay" onclick="closeLightbox(event)">
+  <span class="lightbox-close-btn" onclick="closeLightbox(event)">&times;</span>
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <!-- Stop propagation so clicking image doesn't close -->
+    <img id="lightbox-image" src="" class="lightbox-img" alt="Full Screen View">
+    <div id="lightbox-caption" class="text-white text-center mt-2"></div>
+  </div>
+</div>
+
+<script>
+  function openLightbox(element) {
+    const img = element.querySelector('.gallery-thumb');
+    const src = img.src;
+    // Find the caption: it's the next sibling of the wrapper
+    const captionText = element.nextElementSibling ? element.nextElementSibling.innerText : '';
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-image');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+
+    lightboxImg.src = src;
+    if (lightboxCaption) {
+      lightboxCaption.innerText = captionText;
+    }
+
+    lightbox.style.display = 'flex';
+    // Force reflow for fade animation
+    void lightbox.offsetWidth;
+    lightbox.classList.add('active');
+
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  }
+
+  function closeLightbox(event) {
+    const lightbox = document.getElementById('lightbox');
+    lightbox.classList.remove('active');
+
+    // Wait for animation to finish before hiding
+    setTimeout(() => {
+      lightbox.style.display = 'none';
+      document.body.style.overflow = 'auto';
+      document.getElementById('lightbox-image').src = ''; // Clear src
+      const lightboxCaption = document.getElementById('lightbox-caption');
+      if (lightboxCaption) lightboxCaption.innerText = '';
+    }, 300);
+  }
+
+  // Keyboard support (ESC to close)
+  document.addEventListener('keydown', function (event) {
+    if (event.key === "Escape") {
+      const lightbox = document.getElementById('lightbox');
+      if (lightbox.style.display === 'flex') {
+        closeLightbox();
+      }
+    }
+  });
+</script>
