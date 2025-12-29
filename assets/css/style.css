@@ -2055,3 +2055,107 @@
        line-height: 1.6;
        font-size: 1rem;
      }
+
+     /* ---------------------------------------------------------- announcement ------------------------- */
+     .announcement-item {
+       transition: all 0.2s ease;
+       border-color: #eee !important;
+     }
+
+     .announcement-item:hover {
+       border-color: #004d4d !important;
+       background-color: #fcfdfd !important;
+       transform: translateX(5px);
+     }
+
+     .date-box {
+       min-width: 60px;
+       color: #004d4d;
+       border-right: 1px solid #eee;
+       padding-right: 20px;
+     }
+
+     .badge-dot {
+       display: inline-block;
+       width: 8px;
+       height: 8px;
+       border-radius: 50%;
+     }
+
+     .btn-filter {
+       border: 1px solid transparent;
+       color: #666;
+       font-weight: 500;
+       padding: 6px 18px;
+       border-radius: 8px;
+       font-size: 14px;
+       transition: all 0.3s;
+     }
+
+     .btn-filter.active {
+       background-color: #004d4d;
+       color: #fff;
+     }
+
+     .btn-filter:hover:not(.active) {
+       background-color: #f0f7f7;
+       color: #004d4d;
+     }
+
+     .fs-12 {
+       font-size: 11px;
+       letter-spacing: 0.5px;
+     }
+
+     .fs-14 {
+       font-size: 14px;
+       line-height: 1.6;
+     }
+
+     .text-teal {
+       color: #004d4d;
+     }
+
+     /* Pagination Styles */
+     .bg-theme-teal {
+       background-color: #004d4d !important;
+     }
+
+     .page-link {
+       color: #004d4d;
+       font-weight: 500;
+     }
+
+     .page-link:hover {
+       color: #006b7a;
+     }
+
+     /* Clean Search Input */
+     .form-control:focus {
+       box-shadow: none;
+       border-color: #ccc;
+       background-color: #fff !important;
+     }
+
+     @media (max-width: 768px) {
+       .announcement-item {
+         flex-direction: column;
+         gap: 15px !important;
+       }
+
+       .date-box {
+         border-right: none;
+         border-bottom: 1px solid #eee;
+         padding-right: 0;
+         padding-bottom: 10px;
+         width: 100%;
+         text-align: left !important;
+         display: flex;
+         align-items: center;
+         gap: 10px;
+       }
+
+       .date-box span {
+         display: inline !important;
+       }
+     }

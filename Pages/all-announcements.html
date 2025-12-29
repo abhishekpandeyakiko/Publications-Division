@@ -1,54 +1,118 @@
 <!-- All Announcements Page Content -->
-<section class="intro-section bg-light py-4 border-bottom">
-        <h1>All Announcements</h1>
-        <p class="">
-            Stay updated with the latest news, offers, and events from Publications Division.
-        </p>
-        <span>Home > All Announcements</span>
+<section class="intro-section">
+    <h1>Announcements</h1>
+    <p>Official updates, news releases, and notifications from the Publications Division.</p>
+    <span>Home > Announcements</span>
 </section>
 
-<section class="container py-5">
+<div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-lg-10">
-            <div class="card shadow-sm border-0 rounded-4 overflow-hidden">
-                <div class="card-header bg-white py-3 border-bottom d-flex justify-content-between align-items-center">
-                    <h5 class="mb-0 fw-bold">Latest Updates</h5>
-                    <div class="search-box position-relative">
-                        <input type="text" class="form-control form-control-sm ps-4"
-                            placeholder="Search announcements...">
-                        <i class="bi bi-search position-absolute start-0 top-50 translate-middle-y ms-2 text-muted"
-                            style="font-size: 0.8rem;"></i>
+            <!-- Simple Filter & Search Bar -->
+            <div
+                class="d-flex flex-wrap justify-content-between align-items-center mb-5 gap-3 p-3 bg-white rounded-3 border shadow-sm">
+                <div class="d-flex gap-2">
+                    <button class="btn btn-filter active" data-filter="all">All</button>
+                    <button class="btn btn-filter" data-filter="news">News</button>
+                    <button class="btn btn-filter" data-filter="events">Events</button>
+                    <button class="btn btn-filter" data-filter="results">Results</button>
+                </div>
+                <div class="search-wrapper position-relative" style="min-width: 250px;">
+                    <i class="bi bi-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+                    <input type="text" class="form-control ps-5 rounded-pill border-light bg-light"
+                        placeholder="Search notices...">
+                </div>
+            </div>
+
+            <!-- Announcements List -->
+            <div class="announcement-list">
+                <!-- Item 1 -->
+                <div class="announcement-item p-4 mb-3 bg-white border rounded-3 d-flex align-items-start gap-4">
+                    <div class="date-box text-center">
+                        <span class="d-block fw-bold fs-4 mb-0">25</span>
+                        <span class="text-uppercase small text-muted">Oct</span>
+                    </div>
+                    <div class="content-box flex-grow-1">
+                        <div class="mb-2">
+                            <span class="badge-dot bg-danger me-2"></span>
+                            <span class="text-uppercase fw-bold fs-12 text-danger">Event</span>
+                        </div>
+                        <h5 class="fw-bold mb-2">Festive Book Fair 2025: Exclusive Inauguration at Pragati Maidan</h5>
+                        <p class="text-muted mb-0 fs-14">Join us for the grand opening ceremony of our annual book fair.
+                            Special presence by renowned authors and cultural dignitaries.</p>
                     </div>
                 </div>
-                <div class="card-body p-0">
-                    <div id="announcement-container">
-                        <!-- Component will be loaded here -->
-                        <div class="text-center py-5">
-                            <div class="spinner-border text-primary" role="status">
-                                <span class="visually-hidden">Loading...</span>
-                            </div>
+
+                <!-- Item 2 -->
+                <div class="announcement-item p-4 mb-3 bg-white border rounded-3 d-flex align-items-start gap-4">
+                    <div class="date-box text-center">
+                        <span class="d-block fw-bold fs-4 mb-0">22</span>
+                        <span class="text-uppercase small text-muted">Oct</span>
+                    </div>
+                    <div class="content-box flex-grow-1">
+                        <div class="mb-2">
+                            <span class="badge-dot bg-success me-2"></span>
+                            <span class="text-uppercase fw-bold fs-12 text-success">Result</span>
                         </div>
+                        <h5 class="fw-bold mb-2">Final Selection List: Editorial Assistant Recruitment 2024</h5>
+                        <p class="text-muted mb-0 fs-14">The Directorate is pleased to announce the final results for
+                            the recently conducted recruitment drive for Editorial Assistants.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="announcement-item p-4 mb-3 bg-white border rounded-3 d-flex align-items-start gap-4">
+                    <div class="date-box text-center">
+                        <span class="d-block fw-bold fs-4 mb-0">20</span>
+                        <span class="text-uppercase small text-muted">Oct</span>
+                    </div>
+                    <div class="content-box flex-grow-1">
+                        <div class="mb-2">
+                            <span class="badge-dot bg-primary me-2"></span>
+                            <span class="text-uppercase fw-bold fs-12 text-primary">Notice</span>
+                        </div>
+                        <h5 class="fw-bold mb-2">Notice for Empanelled Printers: Upcoming Bharat 2026 Reference Book
+                        </h5>
+                        <p class="text-muted mb-0 fs-14">All empanelled printers are requested to submit their technical
+                            bids for the upcoming publications by Oct 30.</p>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="announcement-item p-4 mb-3 bg-white border rounded-3 d-flex align-items-start gap-4">
+                    <div class="date-box text-center">
+                        <span class="d-block fw-bold fs-4 mb-0">15</span>
+                        <span class="text-uppercase small text-muted">Oct</span>
+                    </div>
+                    <div class="content-box flex-grow-1">
+                        <div class="mb-2">
+                            <span class="badge-dot bg-warning me-2"></span>
+                            <span class="text-uppercase fw-bold fs-12 text-warning"
+                                style="color: #856404 !important;">Offer</span>
+                        </div>
+                        <h5 class="fw-bold mb-2">Special Commemorative Discount on Gandhian Literature Online</h5>
+                        <p class="text-muted mb-0 fs-14">Get a flat 25% discount on all books related to Mahatma Gandhi
+                            throughout the month of October via our store.</p>
                     </div>
                 </div>
             </div>
+
+            <!-- Pagination -->
+            <nav class="mt-5">
+                <ul class="pagination justify-content-center border-0">
+                    <li class="page-item disabled">
+                        <a class="page-link border-0 shadow-sm mx-1 rounded-2" href="#" tabindex="-1">Prev</a>
+                    </li>
+                    <li class="page-item active"><a
+                            class="page-link border-0 shadow-sm mx-1 rounded-2 bg-theme-teal text-white" href="#">1</a>
+                    </li>
+                    <li class="page-item"><a class="page-link border-0 shadow-sm mx-1 rounded-2" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link border-0 shadow-sm mx-1 rounded-2" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link border-0 shadow-sm mx-1 rounded-2" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </div>
-</section>
-
-<script>
-    // Load the announcement-list component
-    (async function loadAnnouncementComponent() {
-        try {
-            const container = document.getElementById('announcement-container');
-            const response = await fetch('components/announcement-list.html');
-            if (response.ok) {
-                const html = await response.text();
-                container.innerHTML = html;
-            } else {
-                container.innerHTML = '<div class="alert alert-warning m-4">Failed to load announcements.</div>';
-            }
-        } catch (error) {
-            console.error('Error loading announcement component:', error);
-        }
-    })();
-</script>
+</div>
