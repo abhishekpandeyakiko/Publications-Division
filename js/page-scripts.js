@@ -8,7 +8,7 @@
 function initHomePage() {
   // Category slider functionality
   initCategorySlider();
-  
+
   // Social media scroll functionality
   initSocialMediaScroll();
 }
@@ -22,47 +22,76 @@ function initCategorySlider() {
 
   const prev = document.querySelector(".slider-btn.prev");
   const next = document.querySelector(".slider-btn.next");
-
   if (!prev || !next) return;
 
-  let index = 0;
+  // Get original cards
+  let cards = Array.from(track.querySelectorAll(".category-card"));
+  const originalCount = cards.length;
+  if (originalCount === 0) return;
 
-  const slide = () => {
-    const cards = document.querySelectorAll(".category-card");
-    const totalCards = cards.length;
-    if (totalCards === 0) return;
-
-    let visibleCards = 6;
+  // Determine visible cards to know how many to clone
+  const getVisibleCards = () => {
     const width = window.innerWidth;
-    if (width <= 768) visibleCards = 2;
-    else if (width <= 1024) visibleCards = 4;
+    if (width <= 768) return 2;
+    if (width <= 1024) return 4;
+    return 5; // Match CSS (flex: 0 0 calc(20% - 16px))
+  };
 
+  let visibleCards = getVisibleCards();
+
+  // Clone cards for infinite effect
+  // Append first few to end
+  for (let i = 0; i < visibleCards; i++) {
+    const clone = cards[i].cloneNode(true);
+    clone.classList.add('clone-end');
+    track.appendChild(clone);
+  }
+  // Prepend last few to start
+  for (let i = originalCount - 1; i >= originalCount - visibleCards; i--) {
+    const clone = cards[i].cloneNode(true);
+    clone.classList.add('clone-start');
+    track.insertBefore(clone, track.firstChild);
+  }
+
+  // Update cards list to include clones
+  let allCards = track.querySelectorAll(".category-card");
+  let index = visibleCards; // Start at the first original card
+  let isTransitioning = false;
+
+  const updatePosition = (animation = true) => {
     const moveBy = 100 / visibleCards;
-    index = (index + 1) % totalCards;
+    track.style.transition = animation ? "transform 0.5s ease-in-out" : "none";
     track.style.transform = `translateX(-${index * moveBy}%)`;
   };
 
-  const manualSlide = (direction) => {
-    const cards = document.querySelectorAll(".category-card");
-    const totalCards = cards.length;
-    if (totalCards === 0) return;
+  // Initial position
+  updatePosition(false);
 
-    let visibleCards = 5;
-    const width = window.innerWidth;
-    if (width <= 768) visibleCards = 2;
-    else if (width <= 1024) visibleCards = 4;
-
-    const moveBy = 100 / visibleCards;
-    index = (index + direction + totalCards) % totalCards;
-    track.style.transform = `translateX(-${index * moveBy}%)`;
+  const slide = (direction) => {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    index += direction;
+    updatePosition();
   };
 
-  prev.addEventListener("click", () => manualSlide(-1));
-  next.addEventListener("click", () => manualSlide(1));
+  track.addEventListener("transitionend", () => {
+    isTransitioning = false;
+    // Silent jump if we reached clones
+    if (index >= originalCount + visibleCards) {
+      index = visibleCards;
+      updatePosition(false);
+    } else if (index < visibleCards) {
+      index = originalCount + index;
+      updatePosition(false);
+    }
+  });
+
+  prev.addEventListener("click", () => slide(-1));
+  next.addEventListener("click", () => slide(1));
 
   let autoSlideInterval;
   const startAutoSlide = () => {
-    autoSlideInterval = setInterval(() => slide(), 4000);
+    autoSlideInterval = setInterval(() => slide(1), 3000);
   };
 
   const stopAutoSlide = () => {
@@ -71,6 +100,17 @@ function initCategorySlider() {
 
   track.addEventListener("mouseenter", stopAutoSlide);
   track.addEventListener("mouseleave", startAutoSlide);
+
+  // Re-calculate on resize
+  window.addEventListener("resize", () => {
+    const newVisible = getVisibleCards();
+    if (newVisible !== visibleCards) {
+      // For simplicity, reload or re-init if layout changes significantly
+      // But here we'll just update moveBy calculation in updatePosition
+      visibleCards = newVisible;
+      updatePosition(false);
+    }
+  });
 
   startAutoSlide();
 }

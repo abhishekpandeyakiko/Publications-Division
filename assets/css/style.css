@@ -403,12 +403,7 @@
      }
 
      @media (max-width: 768px) {
-       .announcement-bar {
-         flex-direction: column;
-       }
-
        .announcement-content {
-         margin-top: 5px;
          font-size: 12px;
        }
      }

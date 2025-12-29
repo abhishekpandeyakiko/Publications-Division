@@ -1,0 +1,55 @@
+<!-- All Announcements Page Content -->
+<section class="intro-section bg-light py-4 border-bottom">
+    <div class="container">
+        <h1>All Announcements</h1>
+        <p class="text-muted">
+            Stay updated with the latest news, offers, and events from Publications Division.
+        </p>
+    </div>
+</section>
+
+<section class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow-sm border-0 rounded-4 overflow-hidden">
+                <div class="card-header bg-white py-3 border-bottom d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0 fw-bold">Latest Updates</h5>
+                    <div class="search-box position-relative">
+                        <input type="text" class="form-control form-control-sm ps-4"
+                            placeholder="Search announcements...">
+                        <i class="bi bi-search position-absolute start-0 top-50 translate-middle-y ms-2 text-muted"
+                            style="font-size: 0.8rem;"></i>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    <div id="announcement-container">
+                        <!-- Component will be loaded here -->
+                        <div class="text-center py-5">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Load the announcement-list component
+    (async function loadAnnouncementComponent() {
+        try {
+            const container = document.getElementById('announcement-container');
+            const response = await fetch('components/announcement-list.html');
+            if (response.ok) {
+                const html = await response.text();
+                container.innerHTML = html;
+            } else {
+                container.innerHTML = '<div class="alert alert-warning m-4">Failed to load announcements.</div>';
+            }
+        } catch (error) {
+            console.error('Error loading announcement component:', error);
+        }
+    })();
+</script>

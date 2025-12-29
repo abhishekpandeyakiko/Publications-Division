@@ -379,12 +379,6 @@ const Routes = {
     layout: 'default',
     title: 'Terms & Conditions - Publications Division'
   },
-  contactUs: {
-    path: '/contact-us',
-    page: 'pages/contact-us.html',
-    layout: 'default',
-    title: 'Contact Us - Publications Division'
-  },
   privacyPolicy: {
     path: '/privacy-policy',
     page: 'pages/privacy-policy.html',
@@ -409,6 +403,12 @@ const Routes = {
     page: 'pages/cart.html',
     layout: 'default',
     title: 'Shopping Cart - Publications Division'
+  },
+  allAnnouncements: {
+    path: '/all-announcements',
+    page: 'pages/all-announcements.html',
+    layout: 'default',
+    title: 'All Announcements - Publications Division'
   },
 
 };

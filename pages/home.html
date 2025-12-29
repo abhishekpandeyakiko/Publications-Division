@@ -4,10 +4,8 @@
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="2"
-                aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
 
         <div class="carousel-inner">
@@ -35,25 +33,69 @@
 </section>
 
 <section class="announcement-bar py-1">
-    <div class="container-fluid d-flex align-items-center">
-        <div class="announcement-title d-flex align-items-center text-white px-3 fw-semibold">
+    <div class="container-fluid d-flex flex-column flex-md-row align-items-center">
+        <div class="announcement-title d-flex align-items-center text-white px-3 fw-semibold mb-1 mb-md-0">
             ANNOUNCEMENTS
-            <img src="images/Play icon.svg" alt="Announcements" class="announcement-icon ms-2">
+            <span id="marqueeToggle" class="ms-2 cursor-pointer" title="Toggle scrolling">
+                <i class="bi bi-pause-circle-fill fs-5" id="toggleIcon"></i>
+            </span>
         </div>
 
-        <div class="announcement-content flex-grow-1 d-flex align-items-center bg-white  mx-2 overflow-hidden">
-            <marquee behavior="scroll" direction="left" scrollamount="5" class="text-danger fw-semibold">
+        <div
+            class="announcement-content flex-grow-1 d-flex align-items-center bg-white mx-2 overflow-hidden mb-2 mb-md-0 w-100 w-md-auto">
+            <marquee id="announcementMarquee" behavior="scroll" direction="left" scrollamount="5"
+                class="text-danger fw-semibold">
                 Mega Book Sale! Up to 20% off on top titles — limited time only! | Buy 2, Get 1 Free — because one
                 story is never enough!
             </marquee>
-            <span class="pe-3 text-success fw-semibold small" style="white-space: pre;">
+            <span class="pe-3 text-success fw-semibold small d-none d-lg-inline-block" style="white-space: pre;">
                 Buy Books from Flipkart, Amazon, Bharatkosh
             </span>
         </div>
 
-        <button class="btn btn-light btn-sm fw-semibold  px-3 me-3">View All</button>
+        <a href="/all-announcements" class="btn btn-light btn-sm fw-semibold px-3 mb-1 mb-md-0">View All</a>
     </div>
 </section>
+
+<style>
+    .cursor-pointer {
+        cursor: pointer;
+    }
+
+    #marqueeToggle {
+        display: flex;
+        align-items: center;
+        transition: transform 0.2s;
+    }
+
+    #marqueeToggle:hover {
+        transform: scale(1.1);
+    }
+</style>
+
+<script>
+    (function initMarqueeToggle() {
+        const marquee = document.getElementById('announcementMarquee');
+        const toggleBtn = document.getElementById('marqueeToggle');
+        const toggleIcon = document.getElementById('toggleIcon');
+        let isRunning = true;
+
+        if (marquee && toggleBtn && toggleIcon) {
+            toggleBtn.addEventListener('click', () => {
+                if (isRunning) {
+                    marquee.stop();
+                    toggleIcon.classList.remove('bi-pause-circle-fill');
+                    toggleIcon.classList.add('bi-play-circle-fill');
+                } else {
+                    marquee.start();
+                    toggleIcon.classList.remove('bi-play-circle-fill');
+                    toggleIcon.classList.add('bi-pause-circle-fill');
+                }
+                isRunning = !isRunning;
+            });
+        }
+    })();
+</script>
 
 <section class="category-section">
     <div class="container">
@@ -179,8 +221,7 @@
                         <div class="book">
                             <div class="book-inner">
                                 <div class="book-cover">
-                                    <img src="images/books/Cover-YE-October-2025-final without price.jpg"
-                                        alt="Book 3">
+                                    <img src="images/books/Cover-YE-October-2025-final without price.jpg" alt="Book 3">
                                 </div>
                                 <div class="book-spine"></div>
                             </div>
@@ -226,20 +267,20 @@
             <div class="filter-links">
                 <ul class="nav nav-tabs border-0 filter-links" id="bookTabs" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active text-tab" id="all-tab" data-bs-toggle="tab"
-                            data-bs-target="#all" type="button" role="tab">
+                        <button class="nav-link active text-tab" id="all-tab" data-bs-toggle="tab" data-bs-target="#all"
+                            type="button" role="tab">
                             All Products |
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link text-tab" id="ebooks-tab" data-bs-toggle="tab"
-                            data-bs-target="#ebooks" type="button" role="tab">
+                        <button class="nav-link text-tab" id="ebooks-tab" data-bs-toggle="tab" data-bs-target="#ebooks"
+                            type="button" role="tab">
                             Latest E-Books |
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link text-tab" id="books-tab" data-bs-toggle="tab"
-                            data-bs-target="#books" type="button" role="tab">
+                        <button class="nav-link text-tab" id="books-tab" data-bs-toggle="tab" data-bs-target="#books"
+                            type="button" role="tab">
                             Latest Books |
                         </button>
                     </li>
@@ -877,195 +918,198 @@
 </section>
 
 <section class="offer-section">
-<div class="container Nmt-4 offer-box">
-<div class="row g-4 justify-content-center">
+    <div class="container Nmt-4 offer-box">
+        <div class="row g-4 justify-content-center">
 
-  <!-- Offer Card 1 -->
-  <div class="col-md-6 col-lg-5 col-xl-4">
-    <div class="card offer-card mt-5 position-relative">
-      <img src="images/books/offerimg.svg" alt="Offer Image" class="offer-image">
-      <span class="offer-label">Special Offer</span>
-      <div class="offer-content">
-        <h4 class="pardentoff">UPTO <span> 20% </span>OFF</h4>
-        <p class="text-muted small mb-3">Upto 20% OFF</p>
-        <button class="btn btn-custom">Buy Now</button>
-      </div>
+            <!-- Offer Card 1 -->
+            <div class="col-md-6 col-lg-5 col-xl-4">
+                <div class="card offer-card mt-5 position-relative">
+                    <img src="images/books/offerimg.svg" alt="Offer Image" class="offer-image">
+                    <span class="offer-label">Special Offer</span>
+                    <div class="offer-content">
+                        <h4 class="pardentoff">UPTO <span> 20% </span>OFF</h4>
+                        <p class="text-muted small mb-3">Upto 20% OFF</p>
+                        <button class="btn btn-custom">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Offer Card 2 -->
+            <div class="col-md-6 col-lg-5 col-xl-5">
+                <div class="card offer-card position-relative">
+                    <img src="images/books/e-book.svg" alt="Audiobooks" class="offer-image">
+                    <span class="offer-label"
+                        style=" background-color: #00796b; align-items: center; display: flex; justify-self: anchor-center;">Audio
+                        Books</span>
+                    <div class="offer-content">
+                        <h4 class="offer-title">Reading or Audiobooks?</h4>
+                        <p class="offer-text">Discover a new way to enjoy stories listen or read anywhere, anytime.
+                            Enjoy the latest bestsellers in audio format.</p>
+                        <button class="btn btn-custom">Explore Now</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
-  </div>
-
-  <!-- Offer Card 2 -->
-  <div class="col-md-6 col-lg-5 col-xl-5">
-    <div class="card offer-card position-relative">
-      <img src="images/books/e-book.svg" alt="Audiobooks" class="offer-image">
-      <span class="offer-label" style=" background-color: #00796b; align-items: center; display: flex; justify-self: anchor-center;">Audio Books</span>
-      <div class="offer-content">
-        <h4 class="offer-title">Reading or Audiobooks?</h4>
-        <p class="offer-text">Discover a new way to enjoy stories  listen or read anywhere, anytime.      Enjoy the latest bestsellers in audio format.</p>
-        <button class="btn btn-custom">Explore Now</button>
-      </div>
-    </div>
-  </div>
-
-</div>
-</div>
 </section>
 
 <section class="social-section">
-<div class="container">
-<h4 class="fw-bold mb-3 d-flex align-items-center gap-2">
-  <i class="fa-solid fa-share-nodes"></i> SOCIAL MEDIA
-</h4>
+    <div class="container">
+        <h4 class="fw-bold mb-3 d-flex align-items-center gap-2">
+            <i class="fa-solid fa-share-nodes"></i> SOCIAL MEDIA
+        </h4>
 
-<div class="d-flex align-items-center gap-3">
-  <!-- Left Button -->
-  <button id="scrollLeft" class="scroll-btn">
-    <i class="fa-solid fa-chevron-left"></i>
-  </button>
+        <div class="d-flex align-items-center gap-3">
+            <!-- Left Button -->
+            <button id="scrollLeft" class="scroll-btn">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
 
-  <!-- Scrollable Cards -->
-  <div class="scroll-container flex-grow-1" id="cardContainer">
-    <!-- Card 1 -->
-    <div class="social-card">
-      <div class="social-header">
-        <div class="platform-badge">
-          <span class="platform-icon"><i class="fa-brands fa-facebook-f"></i></span>
-          <span>Facebook</span>
+            <!-- Scrollable Cards -->
+            <div class="scroll-container flex-grow-1" id="cardContainer">
+                <!-- Card 1 -->
+                <div class="social-card">
+                    <div class="social-header">
+                        <div class="platform-badge">
+                            <span class="platform-icon"><i class="fa-brands fa-facebook-f"></i></span>
+                            <span>Facebook</span>
+                        </div>
+                        <span class="small fw-semibold">Publication Division</span>
+                    </div>
+                    <div class="social-content">
+                        <p>Post text 1... Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <img src="https://via.placeholder.com/300x180.png?text=Facebook+Post" alt="Post image">
+                        <p class="text-muted small mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <p class="text-muted small">Additional details... (scroll inside card)</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="social-card">
+                    <div class="social-header">
+                        <div class="platform-badge">
+                            <span class="platform-icon"><i class="fa-brands fa-x-twitter"></i></span>
+                            <span>X</span>
+                        </div>
+                        <span class="small  fw-semibold">Publication Division</span>
+                    </div>
+                    <div class="social-content">
+                        <p>Post text 2... Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <img src="https://via.placeholder.com/300x180.png?text=X+Post" alt="Post image">
+                        <p class="text-muted small mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <p class="text-muted small">Additional details... (scroll inside card)</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="social-card">
+                    <div class="social-header">
+                        <div class="platform-badge">
+                            <span class="platform-icon"><i class="fa-brands fa-instagram"></i></span>
+                            <span>Instagram</span>
+                        </div>
+                        <span class="small fw-semibold">Publication Division</span>
+                    </div>
+                    <div class="social-content">
+                        <p>Post text 3... Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <img src="https://via.placeholder.com/300x180.png?text=Instagram+Post" alt="Post image">
+                        <p class="text-muted small mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <p class="text-muted small">Additional details... (scroll inside card)</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="social-card">
+                    <div class="social-header">
+                        <div class="platform-badge">
+                            <span class="platform-icon"><i class="fa-brands fa-youtube"></i></span>
+                            <span>YouTube</span>
+                        </div>
+                        <span class="small fw-semibold">Publication Division</span>
+                    </div>
+                    <div class="social-content">
+                        <p>Post text 3... Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <img src="https://via.placeholder.com/300x180.png?text=Instagram+Post" alt="Post image">
+                        <p class="text-muted small mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <p class="text-muted small">Additional details... (scroll inside card)</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="social-card">
+                    <div class="social-header">
+                        <div class="platform-badge">
+                            <span class="platform-icon"><i class="fa-brands fa-instagram"></i></span>
+                            <span>Instagram</span>
+                        </div>
+                        <span class="small fw-semibold">Publication Division</span>
+                    </div>
+                    <div class="social-content">
+                        <p>Post text 3... Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <img src="https://via.placeholder.com/300x180.png?text=Instagram+Post" alt="Post image">
+                        <p class="text-muted small mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <p class="text-muted small">Additional details... (scroll inside card)</p>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- Right Button -->
+            <button id="scrollRight" class="scroll-btn">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
         </div>
-        <span class="small fw-semibold">Publication Division</span>
-      </div>
-      <div class="social-content">
-        <p>Post text 1... Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <img src="https://via.placeholder.com/300x180.png?text=Facebook+Post" alt="Post image">
-        <p class="text-muted small mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <p class="text-muted small">Additional details... (scroll inside card)</p>
-      </div>
     </div>
-
-    <!-- Card 2 -->
-    <div class="social-card">
-      <div class="social-header">
-        <div class="platform-badge">
-          <span class="platform-icon"><i class="fa-brands fa-x-twitter"></i></span>
-          <span>X</span>
-        </div>
-        <span class="small  fw-semibold">Publication Division</span>
-      </div>
-      <div class="social-content">
-        <p>Post text 2... Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <img src="https://via.placeholder.com/300x180.png?text=X+Post" alt="Post image">
-        <p class="text-muted small mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <p class="text-muted small">Additional details... (scroll inside card)</p>
-      </div>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="social-card">
-      <div class="social-header">
-        <div class="platform-badge">
-          <span class="platform-icon"><i class="fa-brands fa-instagram"></i></span>
-          <span>Instagram</span>
-        </div>
-        <span class="small fw-semibold">Publication Division</span>
-      </div>
-      <div class="social-content">
-        <p>Post text 3... Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <img src="https://via.placeholder.com/300x180.png?text=Instagram+Post" alt="Post image">
-        <p class="text-muted small mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <p class="text-muted small">Additional details... (scroll inside card)</p>
-      </div>
-    </div>
-
-<!-- Card 3 -->
-    <div class="social-card">
-      <div class="social-header">
-        <div class="platform-badge">
-          <span class="platform-icon"><i class="fa-brands fa-youtube"></i></span>
-          <span>YouTube</span>
-        </div>
-        <span class="small fw-semibold">Publication Division</span>
-      </div>
-      <div class="social-content">
-        <p>Post text 3... Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <img src="https://via.placeholder.com/300x180.png?text=Instagram+Post" alt="Post image">
-        <p class="text-muted small mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <p class="text-muted small">Additional details... (scroll inside card)</p>
-      </div>
-    </div>
-        <!-- Card 3 -->
-    <div class="social-card">
-      <div class="social-header">
-        <div class="platform-badge">
-          <span class="platform-icon"><i class="fa-brands fa-instagram"></i></span>
-          <span>Instagram</span>
-        </div>
-        <span class="small fw-semibold">Publication Division</span>
-      </div>
-      <div class="social-content">
-        <p>Post text 3... Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <img src="https://via.placeholder.com/300x180.png?text=Instagram+Post" alt="Post image">
-        <p class="text-muted small mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <p class="text-muted small">Additional details... (scroll inside card)</p>
-      </div>
-    </div>
-
-
-  </div>
-
-  <!-- Right Button -->
-  <button id="scrollRight" class="scroll-btn">
-    <i class="fa-solid fa-chevron-right"></i>
-  </button>
-</div>
-</div>
 </section>
 
 
 <section class="support-section text-center">
-<div class="container">
-  <h2 class="support-title text-start">Support</h2>
-  <p class="support-subtext text-start">We're here to help. Reach out anytime!</p>
+    <div class="container">
+        <h2 class="support-title text-start">Support</h2>
+        <p class="support-subtext text-start">We're here to help. Reach out anytime!</p>
 
-  <div class="row justify-content-center g-4">
-    <!-- Card 1 -->
-    <div class="col-md-6">
-      <div class="support-card text-start d-flex flex-column justify-content-between">
-        <div class="d-flex align-items-center mb-3">
-          <div class="support-icon">
-            <img src="images/books/support agent.svg" alt="Agent">
-          </div>
-          <div class="ms-3">
-            <h5>Talk to Our Agents</h5>
-            <p class="mb-1">Connect directly with a support representative.</p>
-             <button class="btn btn-support mt-2 align-self-start">Click & Connect</button>
-          </div>
-        </div>
-       
-      </div>
-    </div>
+        <div class="row justify-content-center g-4">
+            <!-- Card 1 -->
+            <div class="col-md-6">
+                <div class="support-card text-start d-flex flex-column justify-content-between">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="support-icon">
+                            <img src="images/books/support agent.svg" alt="Agent">
+                        </div>
+                        <div class="ms-3">
+                            <h5>Talk to Our Agents</h5>
+                            <p class="mb-1">Connect directly with a support representative.</p>
+                            <button class="btn btn-support mt-2 align-self-start">Click & Connect</button>
+                        </div>
+                    </div>
 
-    <!-- Card 2 -->
-    <div class="col-md-6">
-      <div class="support-card text-start d-flex flex-column justify-content-between">
-        <div class="d-flex align-items-center mb-3">
-          <div class="support-icon">
-            <img src="images/books/support 2.svg" alt="Call" width="28">
-          </div>
-          <div class="ms-3">
-            <h5>Contact Us</h5>
-            <p class="mb-1">Books: 24369509/24367260<br>Journals: 24369513</p>
-            <button class="btn btn-support mt-2 align-self-start">Click & Connect</button>
-          </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-md-6">
+                <div class="support-card text-start d-flex flex-column justify-content-between">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="support-icon">
+                            <img src="images/books/support 2.svg" alt="Call" width="28">
+                        </div>
+                        <div class="ms-3">
+                            <h5>Contact Us</h5>
+                            <p class="mb-1">Books: 24369509/24367260<br>Journals: 24369513</p>
+                            <button class="btn btn-support mt-2 align-self-start">Click & Connect</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
-        
-      </div>
     </div>
-  </div>
-</div>
 </section>
 
 <script>
     // Page-specific initialization
-    window.addEventListener('pageLoaded', function(e) {
+    window.addEventListener('pageLoaded', function (e) {
         if (e.detail.route.path === '/') {
             // Initialize home page specific scripts
             if (typeof initHomePage === 'function') {
@@ -1074,4 +1118,3 @@
         }
     });
 </script>
-
