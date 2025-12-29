@@ -1,154 +1,16 @@
-<!-- Events & Highlights Page Content -->
-<style>
-/* Hero Section */
-.events-hero {
-  background: linear-gradient(135deg, #2c3e50 0%, #343a40 100%);
-  padding: 60px 0;
-  color: #ffffff;
-  margin-bottom: 50px;
-  position: relative;
-}
-
-.events-hero::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 6px;
-  background: linear-gradient(90deg, #0d6efd, #0dcaf0);
-}
-
-.events-hero h1 {
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-/* Grid Layout Styling */
-.event-card {
-  background: #ffffff;
-  border-radius: 15px;
-  overflow: hidden;
-  margin-bottom: 30px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-  border: none;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.event-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-}
-
-.event-img-wrapper {
-  width: 100%;
-  height: 220px;
-  overflow: hidden;
-  position: relative;
-}
-
-.event-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.8s ease;
-}
-
-.event-card:hover .event-img {
-  transform: scale(1.15);
-}
-
-/* Date Badge */
-.event-date-badge {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: rgba(255, 255, 255, 0.95);
-  color: #0d6efd;
-  padding: 8px 12px;
-  border-radius: 50px;
-  font-weight: 700;
-  font-size: 0.8rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  z-index: 10;
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.event-content {
-  padding: 25px;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.event-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #2c3e50;
-  margin-bottom: 15px;
-  line-height: 1.4;
-}
-
-.event-desc {
-  color: #666666;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 25px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.card-footer-custom {
-  margin-top: auto;
-  padding-top: 20px;
-  border-top: 1px solid #eeeeee;
-}
-
-/* Read More Button */
-.read-more-btn {
-  width: 100%;
-  padding: 10px 0;
-  font-size: 0.95rem;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: all 0.2s;
-  border: 2px solid #0d6efd;
-  color: #0d6efd;
-  background: transparent;
-  text-decoration: none;
-  display: inline-block;
-  text-align: center;
-}
-
-.read-more-btn:hover {
-  background: #0d6efd;
-  color: #ffffff;
-}
-
-</style>
-
-<!-- Hero Header -->
-<section class="events-hero text-center">
+<section class="intro-section text-center mb-5 py-5 bg-light">
   <div class="container">
-    <h1 class="display-4">Events & Highlights</h1>
+    <h1 class="display-4 fw-bold">Events & Highlights</h1>
     <p class="lead opacity-75">Visual highlights from our recent book launches and cultural events.</p>
+    <span>Home > Events & Highlights</span>
   </div>
 </section>
 
 <!-- Events Grid -->
 <div class="container pb-5">
-  <div class="row g-4"> <!-- Bootstrap Grid with Gap -->
-
+  <div class="row g-3"> <!-- Bootstrap Grid with Gap -->
     <!-- Event 1 -->
-    <div class="col-md-6 col-lg-4">
+    <div class="col-md-6 col-lg-4 col-xl-3">
       <article class="event-card">
         <div class="event-img-wrapper">
           <img src="../../images/slider1.jpeg" alt="Event 1" class="event-img">
@@ -161,14 +23,13 @@
             event was inaugurated by the Hon'ble Minister.
           </p>
           <div class="card-footer-custom">
-            <a href="#" class="read-more-btn">Read Details</a>
+            <a href="/view-more/event-description" class="btn btn-dark w-100 mt-3 py-2 rounded-3">Read Details</a>
           </div>
         </div>
       </article>
     </div>
-
     <!-- Event 2 -->
-    <div class="col-md-6 col-lg-4">
+    <div class="col-md-6 col-lg-4 col-xl-3">
       <article class="event-card">
         <div class="event-img-wrapper">
           <img src="../../images/slider2.png" alt="Event 2" class="event-img">
@@ -181,14 +42,13 @@
             role of teachers in nation-building.
           </p>
           <div class="card-footer-custom">
-            <a href="#" class="read-more-btn">Read Details</a>
+            <a href="/view-more/event-description" class="btn btn-dark w-100 mt-3 py-2 rounded-3">Read Details</a>
           </div>
         </div>
       </article>
     </div>
-
     <!-- Event 3 -->
-    <div class="col-md-6 col-lg-4">
+    <div class="col-md-6 col-lg-4 col-xl-3">
       <article class="event-card">
         <div class="event-img-wrapper">
           <img src="../../images/books/23 Aug to 29 Aug 2025 English_001.jpg" alt="Event 3" class="event-img">
@@ -201,14 +61,13 @@
             discussions on the importance of Hindi language.
           </p>
           <div class="card-footer-custom">
-            <a href="#" class="read-more-btn">Read Details</a>
+            <a href="/view-more/event-description" class="btn btn-dark w-100 mt-3 py-2 rounded-3">Read Details</a>
           </div>
         </div>
       </article>
     </div>
-
     <!-- Event 4 -->
-    <div class="col-md-6 col-lg-4">
+    <div class="col-md-6 col-lg-4 col-xl-3">
       <article class="event-card">
         <div class="event-img-wrapper">
           <img src="../../images/books/Kurukshetra_Hindi_September_2025.jpg" alt="Event 4" class="event-img">
@@ -221,14 +80,13 @@
             Development and Gandhian values was unveiled.
           </p>
           <div class="card-footer-custom">
-            <a href="#" class="read-more-btn">Read Details</a>
+            <a href="/view-more/event-description" class="btn btn-dark w-100 mt-3 py-2 rounded-3">Read Details</a>
           </div>
         </div>
       </article>
     </div>
-
     <!-- Event 5 -->
-    <div class="col-md-6 col-lg-4">
+    <div class="col-md-6 col-lg-4 col-xl-3">
       <article class="event-card">
         <div class="event-img-wrapper">
           <img src="../../images/books/Ajkal_Hindi_September_2025.jpg" alt="Event 5" class="event-img">
@@ -241,14 +99,13 @@
             books from North East India.
           </p>
           <div class="card-footer-custom">
-            <a href="#" class="read-more-btn">Read Details</a>
+            <a href="/view-more/event-description" class="btn btn-dark w-100 mt-3 py-2 rounded-3">Read Details</a>
           </div>
         </div>
       </article>
     </div>
-
     <!-- Event 6 -->
-    <div class="col-md-6 col-lg-4">
+    <div class="col-md-6 col-lg-4 col-xl-3">
       <article class="event-card">
         <div class="event-img-wrapper">
           <img src="../../images/books/cover balbhati Oct 2025 without price.jpg" alt="Event 6" class="event-img">
@@ -261,7 +118,7 @@
             during the Trade Fair.
           </p>
           <div class="card-footer-custom">
-            <a href="#" class="read-more-btn">Read Details</a>
+            <a href="/view-more/event-description" class="btn btn-dark w-100 mt-3 py-2 rounded-3">Read Details</a>
           </div>
         </div>
       </article>

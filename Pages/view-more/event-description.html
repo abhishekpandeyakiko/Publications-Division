@@ -1,0 +1,270 @@
+<!-- Event Description Page Content -->
+<section class="intro-section text-center py-5 bg-light">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Event Details</h1>
+        <p class="lead opacity-75">Detailed information about the selected event.</p>
+        <span>Home > Events & Highlights > Event Details</span>
+    </div>
+</section>
+
+<!-- Event Detail Content -->
+<section class="event-detail-pro py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-9 col-lg-10">
+
+                <div class="card event-pro-card border-0 rounded-5 overflow-hidden">
+
+                    <!-- Image Header -->
+                    <div class="event-pro-image position-relative">
+
+                        <img src="images/slider1.jpeg" alt="Event Image">
+
+                        <!-- Gradient Overlay -->
+                        <div class="event-overlay"></div>
+
+                        <!-- Floating Date -->
+                        <div class="event-date-glass">
+                            <i class="far fa-calendar-alt me-2"></i> Aug 23 – 29
+                        </div>
+
+                        <!-- Category Chip -->
+                        <div class="event-chip">
+                            <i class="fas fa-book-open me-1"></i> Exhibition
+                        </div>
+
+                    </div>
+
+                    <div class="card-body p-3 p-md-4">
+
+                        <!-- Title -->
+                        <h1 class="event-pro-title">
+                            Book Launch & Exhibition at Delhi World Book Fair
+                        </h1>
+
+                        <!-- Meta Cards -->
+                        <div class="row g-3 my-4">
+                            <div class="col-md-4">
+                                <div class="meta-card">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Pragati Maidan, New Delhi</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="meta-card">
+                                    <i class="fas fa-clock"></i>
+                                    <span>10:00 AM – 08:00 PM</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="meta-card">
+                                    <i class="fas fa-users"></i>
+                                    <span>Open for All</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <p class="event-lead">
+                            Publications Division organized a grand exhibition showcasing its wide
+                            range of books and journals. The event was inaugurated by the Hon’ble
+                            Minister, strengthening India’s reading culture.
+                        </p>
+
+                        <!-- Highlights Timeline -->
+                        <h5 class="fw-bold mt-5 mb-3">🌟 Event Highlights</h5>
+
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <ul class="timeline-list">
+                                    <li>Launch of 5 new publications</li>
+                                    <li>Author meet & signing sessions</li>
+                                    <li>Interactive storytelling</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="timeline-list">
+                                    <li>Student special discounts</li>
+                                    <li>Digital library showcase</li>
+                                    <li>Cultural performances</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Info Glass -->
+                        <div class="glass-info mt-5">
+                            <h6><i class="fas fa-info-circle me-2"></i>Visitor Information</h6>
+                            <p>
+                                Entry is free for school children in uniform. Please carry valid
+                                ID proof for smooth entry.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="card-footer pro-footer d-flex justify-content-between align-items-center">
+                        <a href="/view-more/events-highlights" class="btn btn-outline-primary rounded-pill">
+                            <i class="fas fa-arrow-left me-2"></i>Back to Events
+                        </a>
+
+                        <button class="btn btn-gradient rounded-pill">
+                            <i class="fas fa-share-alt me-2"></i>Share Event
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Card */
+    .event-pro-card {
+        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.08);
+        transition: transform 0.5s ease;
+    }
+
+    .event-pro-card:hover {
+        transform: translateY(-10px);
+    }
+
+    /* Image */
+    .event-pro-image img {
+        width: 100%;
+        height: 450px;
+        object-fit: cover;
+    }
+
+    .event-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.7));
+    }
+
+    /* Glass Date */
+    .event-date-glass {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 8px 16px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 700;
+        color: #dc3545;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        z-index: 2;
+    }
+
+    /* Chip */
+    .event-chip {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        background: linear-gradient(135deg, #004d4d, #6610f2);
+        color: #fff;
+        padding: 8px 18px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 600;
+        z-index: 2;
+    }
+
+    /* Title */
+    .event-pro-title {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #1f2937;
+    }
+
+    /* Meta Cards */
+    .meta-card {
+        background: #fff;
+        border-radius: 18px;
+        padding: 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    .meta-card i {
+        font-size: 20px;
+        color: #004d4d;
+    }
+
+    .meta-card span {
+        font-size: 14px;
+    }
+
+    /* Lead */
+    .event-lead {
+        font-size: 1.1rem;
+        color: #4b5563;
+        margin-top: 30px;
+    }
+
+    /* Timeline */
+    .timeline-list {
+        list-style: none;
+        padding-left: 20px;
+        position: relative;
+    }
+
+    .timeline-list li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 18px;
+        font-weight: 500;
+    }
+
+    .timeline-list li::before {
+        content: "";
+        position: absolute;
+        left: -2px;
+        top: 6px;
+        width: 10px;
+        height: 10px;
+        background: #004d4d;
+        border-radius: 50%;
+    }
+
+    /* Glass Info */
+    .glass-info {
+        backdrop-filter: blur(12px);
+        border-radius: 20px;
+        padding: 25px;
+        background: aliceblue;
+        border-left: 4px solid #004d4d;
+    }
+
+    /* Footer */
+    .pro-footer {
+        padding: 25px 35px;
+        background: #fff;
+    }
+
+    /* Gradient Button */
+    .btn-gradient {
+        background: linear-gradient(135deg, #0d6efd, #6610f2);
+        color: #fff;
+        box-shadow: 0 15px 40px rgba(13, 110, 253, 0.4);
+    }
+
+    .btn-gradient:hover {
+        color: #fff;
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 992px) {
+        .event-pro-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+    }
+</style>

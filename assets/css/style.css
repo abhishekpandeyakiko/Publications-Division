@@ -1955,3 +1955,65 @@ top: 180px;
   background: #dc3545;
   color: #fff;
 }
+/* ------------------------------------------------------------- Terms & Conditions ------------------------------------------------ */
+ .terms-teal {
+  background: linear-gradient(135deg, #e6f3f2, #f5fbfa);
+}
+
+/* Header */
+.terms-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0f5c58;
+}
+
+.terms-subtitle {
+  color: #4b5563;
+  margin-top: 8px;
+}
+
+/* Wrapper */
+.terms-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Item */
+.term-item {
+  display: flex;
+  gap: 20px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+  border-left: 6px solid #0f5c58;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.term-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 60px rgba(15, 92, 88, 0.25);
+}
+
+/* Number */
+.term-number {
+  min-width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0f5c58, #1b8b84);
+  color: #fff;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(15, 92, 88, 0.4);
+}
+
+/* Text */
+.term-item p {
+  margin: 0;
+  color: #374151;
+  line-height: 1.6;
+  font-size: 1rem;
+}

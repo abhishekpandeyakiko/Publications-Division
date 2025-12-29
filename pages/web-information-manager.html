@@ -4,17 +4,140 @@
   <p>
     Information about the web information manager and website administration.
   </p>
+  <span>Home > Web Information Manager</span>
 </section>
+<section class="web-info-modern py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
 
-<section class="content-section container">
-  <h4 class="section-title">Web Information Manager</h4>
-  <div class="highlight-box">
-    <p>
-      The Web Information Manager is responsible for maintaining and updating the Publications Division website, ensuring that all information is current, accurate, and accessible to users.
-    </p>
-    <p>
-      For any queries related to website content, updates, or technical issues, please contact the Web Information Manager through the appropriate channels.
-    </p>
+        <div class="web-info-box">
+
+          <!-- Left Icon Panel -->
+          <div class="info-icon">
+            <i class="fas fa-user-shield"></i>
+          </div>
+
+          <!-- Content -->
+          <div class="info-content">
+            <h5 class="info-title">Web Information Manager</h5>
+
+            <p class="info-desc">
+              This website is owned and maintained by the Head of Department
+            </p>
+
+            <div class="info-details">
+              <h6>Bhupender Kainthola</h6>
+              <span>Principal Director General</span>
+              <span>Publications Division</span>
+
+              <a href="mailto:dpd@nic.in" class="info-email">
+                <i class="fas fa-envelope me-2"></i>dpd@nic.in
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
   </div>
 </section>
+<style>
+  .web-info-modern {
+  background: linear-gradient(135deg, #eef6ff, #f9fbff);
+}
+
+/* Main Box */
+.web-info-box {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(14px);
+    gap: 25px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.1);
+    border-left: 6px solid #004d4d;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.web-info-box:hover {
+  transform: translateY(-6px);
+     box-shadow: 0 40px 90px #00695c3d;
+}
+
+/* Icon Panel */
+.info-icon {
+  min-width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #004d4d, #198754);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 32px;
+  box-shadow: 0 15px 35px #1987546e;
+}
+@media (max-width: 767px) {
+.web-info-box {
+      background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(14px);
+    border-radius: 24px;
+    display: block;
+    align-items: center;
+    padding: 30px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.1);
+    border-left: 6px solid #004d4d;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.info-icon {
+    max-width: 100px;
+    margin-bottom: 10px;
+    box-shadow: none;
+}
+}
+
+/* Title */
+.info-title {
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: #1f2937;
+  margin-bottom: 6px;
+}
+
+/* Description */
+.info-desc {
+  color: #6b7280;
+  margin-bottom: 14px;
+}
+
+/* Details */
+.info-details h6 {
+  font-weight: 700;
+  margin-bottom: 2px;
+  color: #111827;
+}
+
+.info-details span {
+  display: block;
+  color: #4b5563;
+  font-size: 0.95rem;
+}
+
+/* Email */
+.info-email {
+  display: inline-block;
+  margin-top: 10px;
+  color: #0d6efd;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.info-email:hover {
+  text-decoration: underline;
+}
+
+</style>
 

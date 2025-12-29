@@ -189,7 +189,7 @@ const Routes = {
     layout: 'default',
     title: 'Books - Publications Division'
   },
-    productdescription: {
+  productdescription: {
     path: '/description.html',
     page: 'pages/product-description.html',
     layout: 'default',
@@ -361,6 +361,12 @@ const Routes = {
     layout: 'default',
     title: 'Events & Highlights - Publications Division'
   },
+  eventDescription: {
+    path: '/view-more/event-description',
+    page: 'pages/view-more/event-description.html',
+    layout: 'default',
+    title: 'Event Description - Publications Division'
+  },
   webInformationManager: {
     path: '/web-information-manager',
     page: 'pages/web-information-manager.html',
@@ -385,18 +391,7 @@ const Routes = {
     layout: 'default',
     title: 'Privacy Policy - Publications Division'
   },
-  copyrightPolicy: {
-    path: '/copyright-policy',
-    page: 'pages/copyright-policy.html',
-    layout: 'default',
-    title: 'Copyright Policy - Publications Division'
-  },
-  accessibilityStatement: {
-    path: '/accessibility-statement',
-    page: 'pages/accessibility-statement.html',
-    layout: 'default',
-    title: 'Accessibility Statement - Publications Division'
-  },
+
   siteMap: {
     path: '/site-map',
     page: 'pages/site-map.html',
