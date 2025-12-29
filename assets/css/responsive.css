@@ -26,6 +26,8 @@ p{
 button:focus:not(:focus-visible) {
     box-shadow: none !important;
 }
+
+
 @media (min-width: 1200px) {
   .body-container {
     padding-left: 2%;
@@ -78,3 +80,22 @@ section.intro-section h1 {
         font-size: 11px !important;
     }
 }
+/* header css */
+
+/* ===============================
+   Scroll only below 1400px
+   =============================== */
+@media (min-width: 992px) and (max-width: 1400px) {
+    .nav-link {
+        padding: 8px 7px;
+        font-size: 11px !important;
+        color: #222;
+        border-bottom: 2px solid #f8f9fa;
+        font-weight: 500;
+        white-space: nowrap;
+        transition: color 0.2s ease;
+    }
+}
+
+
+
