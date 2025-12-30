@@ -1033,22 +1033,27 @@
      .social-content img {
        width: 100%;
      }
-.social-content {
-    overflow-x: hidden;   /* hide left & right only */
-    overflow-y: auto;     /* allow vertical scroll if needed */
-}
 
-.social-img-link {
-    display: block;
-    width: 100%;
-}
+     .social-content {
+       overflow-x: hidden;
+       /* hide left & right only */
+       overflow-y: auto;
+       /* allow vertical scroll if needed */
+     }
 
-.social-img-link img {
-    width: 100%;
-    height: auto;         /* IMPORTANT: no cropping */
-    object-fit: contain; /* show full image */
-    display: block;
-}
+     .social-img-link {
+       display: block;
+       width: 100%;
+     }
+
+     .social-img-link img {
+       width: 100%;
+       height: auto;
+       /* IMPORTANT: no cropping */
+       object-fit: contain;
+       /* show full image */
+       display: block;
+     }
 
      .scroll-btn {
        background-color: #fff;
@@ -1214,14 +1219,17 @@
        left: 3px;
        /* small movement effect on hover */
      }
-     /* 🔴 REMOVE icon ONLY from Read More */
-.footer a.read-more {
-  padding-left: 0;          /* remove space */
-}
 
-.footer a.read-more::before {
-  content: none;            /* remove arrow */
-}
+     /* 🔴 REMOVE icon ONLY from Read More */
+     .footer a.read-more {
+       padding-left: 0;
+       /* remove space */
+     }
+
+     .footer a.read-more::before {
+       content: none;
+       /* remove arrow */
+     }
 
      .footer .read-more {
        font-weight: 600;
@@ -1281,25 +1289,28 @@
      p.mb-0.Copyright {
        color: black;
      }
-  /* Social icons links – remove arrow */
-          .footer .social-icons a {
-            padding-left: 0;
-          }
 
-          /* Disable ::before arrow */
-          .footer .social-icons a::before {
-            content: none !important;
-          }
-        /* Remove arrow icon from platform icons links */
-        .footer .platform-icons a {
-          padding-left: 0;
-          /* remove space */
-        }
+     /* Social icons links – remove arrow */
+     .footer .social-icons a {
+       padding-left: 0;
+     }
 
-        /* Remove ::before arrow */
-        .footer .platform-icons a::before {
-          content: none !important;
-        }
+     /* Disable ::before arrow */
+     .footer .social-icons a::before {
+       content: none !important;
+     }
+
+     /* Remove arrow icon from platform icons links */
+     .footer .platform-icons a {
+       padding-left: 0;
+       /* remove space */
+     }
+
+     /* Remove ::before arrow */
+     .footer .platform-icons a::before {
+       content: none !important;
+     }
+
      @media (max-width: 768px) {
        .footer-bottom .payment-icons {
          text-align: center;
@@ -2214,5 +2225,86 @@
 
        .date-box span {
          display: inline !important;
+       }
+     }
+
+     /* ------------------------------------- Product Listing Mobile Filter ------------------------------------- */
+
+     /* Toggle Button - Fixed on Left */
+     #mobileFilterToggle {
+       position: fixed;
+       top: 40%;
+       left: 0;
+       z-index: 1060;
+       border-top-left-radius: 0;
+       border-bottom-left-radius: 0;
+       padding: 10px 15px;
+       writing-mode: vertical-rl;
+       text-orientation: mixed;
+       transform: translateY(-50%);
+       transition: all 0.3s ease;
+       display: flex;
+       align-items: center;
+       gap: 8px;
+       box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+     }
+
+     #mobileFilterToggle i {
+       margin-bottom: 5px;
+       /* Adjust for vertical orientation */
+       transform: rotate(90deg);
+     }
+
+     #mobileFilterToggle.active {
+       left: 300px;
+       /* Moves with the sidebar width */
+     }
+
+     /* Mobile Filter Sidebar Styles */
+     @media (max-width: 991px) {
+       #productFilterSidebar {
+         position: fixed;
+         top: 0;
+         left: -320px;
+         /* Initial hidden state */
+         width: 300px;
+         height: 100vh;
+         background-color: #fff;
+         z-index: 1055;
+         transition: left 0.3s ease;
+         overflow-y: auto;
+         padding: 0 !important;
+         /* Reset col padding */
+         box-shadow: 4px 0 12px rgba(0, 0, 0, 0.1);
+       }
+
+       #productFilterSidebar .filter-box {
+         border-radius: 0 !important;
+         min-height: 100vh;
+         box-shadow: none !important;
+       }
+
+       #productFilterSidebar.active {
+         left: 0;
+         /* Slide in */
+       }
+
+       /* Overlay when filter is open */
+       .filter-overlay {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background: rgba(0, 0, 0, 0.5);
+         z-index: 1050;
+         opacity: 0;
+         visibility: hidden;
+         transition: all 0.3s ease;
+       }
+
+       .filter-overlay.active {
+         opacity: 1;
+         visibility: visible;
        }
      }

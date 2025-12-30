@@ -29,9 +29,17 @@
   <!-- Main Section -->
   <div class="container-fluid mt-3">
 
+    <button id="mobileFilterToggle" class="btn btn-teal shadow-lg d-lg-none">
+      <i class="fa-solid fa-filter"></i> Filter
+    </button>
+
     <div class="row">
-      <div class="col-lg-3 col-md-4 mb-4">
+      <div class="col-lg-3 mb-4" id="productFilterSidebar">
         <div class="filter-box p-3 rounded-4 shadow-sm bg-white">
+          <div class="d-flex justify-content-between align-items-center d-lg-none mb-3">
+            <h5 class="fw-bold m-0 text-teal">Filters</h5>
+            <button id="closeFilterBtn" class="btn-close shadow-none"></button>
+          </div>
           <div class="accordion" id="filterAccordion">
 
             <div class="accordion-item">
@@ -198,9 +206,9 @@
       </div>
 
       <!-- PRODUCT GRID -->
-      <div class="col-lg-9 col-md-8">
+      <div class="col-lg-9">
         <div class="row gy-3">
-          <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+          <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
             <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
               <button class="wishlist-btn">
                 <i class="fa-regular fa-heart"></i>
@@ -232,7 +240,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+          <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
             <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
               <button class="wishlist-btn">
                 <i class="fa-regular fa-heart"></i>
@@ -268,7 +276,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+          <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
             <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
               <button class="wishlist-btn">
                 <i class="fa-regular fa-heart"></i>
@@ -299,7 +307,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+          <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
             <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
               <button class="wishlist-btn">
                 <i class="fa-regular fa-heart"></i>
@@ -329,7 +337,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+          <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
             <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
               <button class="wishlist-btn">
                 <i class="fa-regular fa-heart"></i>
@@ -359,7 +367,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+          <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
             <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
               <button class="wishlist-btn">
                 <i class="fa-regular fa-heart"></i>
@@ -389,7 +397,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+          <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
             <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
               <button class="wishlist-btn">
                 <i class="fa-regular fa-heart"></i>
@@ -419,7 +427,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+          <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
             <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
               <button class="wishlist-btn">
                 <i class="fa-regular fa-heart"></i>
@@ -449,7 +457,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+          <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
             <div class="book-card shadow-sm rounded-4 p-3 bg-white position-relative border">
               <button class="wishlist-btn">
                 <i class="fa-regular fa-heart"></i>
@@ -509,6 +517,48 @@
 
 
 <script>
+  // Mobile Filter Sidebar Logic
+  const mobileToggleBtn = document.getElementById('mobileFilterToggle');
+  const filterSidebar = document.getElementById('productFilterSidebar');
+  const closeFilterBtn = document.getElementById('closeFilterBtn');
+
+  // Create overlay
+  const filterOverlay = document.createElement('div');
+  filterOverlay.className = 'filter-overlay';
+  document.body.appendChild(filterOverlay);
+
+  function toggleFilter() {
+    filterSidebar.classList.toggle('active');
+    mobileToggleBtn.classList.toggle('active');
+    filterOverlay.classList.toggle('active');
+
+    // Toggle button icon/text if needed, or just keep it as is
+  }
+
+  function closeFilter() {
+    filterSidebar.classList.remove('active');
+    mobileToggleBtn.classList.remove('active');
+    filterOverlay.classList.remove('active');
+  }
+
+  if (mobileToggleBtn) {
+    mobileToggleBtn.addEventListener('click', toggleFilter);
+  }
+
+  if (closeFilterBtn) {
+    closeFilterBtn.addEventListener('click', closeFilter);
+  }
+
+  // Close on overlay click
+  filterOverlay.addEventListener('click', closeFilter);
+
+  // Close when screen resizes to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 992) {
+      closeFilter();
+    }
+  });
+
   document.querySelectorAll('.wishlist-btn').forEach(btn => {
     btn.addEventListener('click', function (e) {
       e.preventDefault();

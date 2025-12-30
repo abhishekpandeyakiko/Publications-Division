@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,7 +30,7 @@
     }
 
     .btn-login {
-       background: linear-gradient(130deg, #0f5c58 13% 0%, #198958 100%);
+      background: linear-gradient(130deg, #0f5c58 13% 0%, #198958 100%);
       color: #fff;
       font-weight: 600;
       transition: 0.3s;
@@ -73,14 +74,15 @@
       <div class="row g-0 bg-white rounded-4 overflow-hidden shadow-lg w-100" style="max-width:920px;">
 
         <!-- Left Side -->
-        <div class="col-md-5 login-left text-white text-center d-flex flex-column justify-content-center align-items-center p-5">
+        <div
+          class="col-md-5 login-left text-white text-center d-flex flex-column justify-content-center align-items-center p-5">
           <img src="images/Logo.svg" alt="Logo" class="mb-3" style="max-width:120px;">
           <h3 class="fw-semibold mb-2">Publications Division</h3>
           <p class="small opacity-75 mb-0">Ministry of Information &amp; Broadcasting<br>Government of India</p>
         </div>
 
         <!-- Right Side -->
-        <div class="col-md-7 p-5">
+        <div class="col-md-7 p-3 p-md-5">
           <h4 class="fw-bold mb-2">Sign In</h4>
           <p class="text-muted small mb-4">Welcome back! Please login to continue.</p>
 
@@ -93,8 +95,10 @@
             <div class="mb-3">
               <label class="form-label small fw-semibold">Password</label>
               <div class="input-group rounded-3">
-                <input type="password" class="form-control rounded-start-3" id="password" placeholder="Enter your password" required>
-                <button class="btn btn-outline-secondary rounded-end-3" type="button" id="togglePassword" title="Show password">
+                <input type="password" class="form-control rounded-start-3" id="password"
+                  placeholder="Enter your password" required>
+                <button class="btn btn-outline-secondary rounded-end-3" type="button" id="togglePassword"
+                  title="Show password">
                   <i class="fa-regular fa-eye"></i>
                 </button>
               </div>
@@ -105,12 +109,14 @@
               <div class="d-flex align-items-center gap-2">
                 <div class="captcha-img d-flex align-items-center">
                   <canvas id="captchaCanvas" width="140" height="45" class="border rounded-2 bg-white"></canvas>
-                  <button type="button" class="btn btn-light border ms-2 p-2 rounded-2" id="refreshCaptcha" title="Refresh captcha">
+                  <button type="button" class="btn btn-light border ms-2 p-2 rounded-2" id="refreshCaptcha"
+                    title="Refresh captcha">
                     <i class="bi bi-arrow-clockwise"></i>
                   </button>
                 </div>
                 <div class="flex-grow-1">
-                  <input type="text" class="form-control rounded-3" id="captchaInput" placeholder="Enter the code" required autocomplete="off">
+                  <input type="text" class="form-control rounded-3" id="captchaInput" placeholder="Enter the code"
+                    required autocomplete="off">
                   <div class="invalid-feedback small" id="captchaError">Captcha does not match. Please try again.</div>
                 </div>
               </div>
@@ -249,7 +255,7 @@
             captchaInput.classList.remove('is-invalid');
             // Set login status (in production, this would be done after backend verification)
             event.preventDefault(); // Prevent default form submission
-            
+
             // Set login status
             if (typeof window.setLoginStatus === 'function') {
               window.setLoginStatus(true);
@@ -264,7 +270,7 @@
             } else {
               localStorage.setItem('userLoggedIn', 'true');
             }
-            
+
             // Redirect to home or profile page
             setTimeout(() => {
               if (window.Router) {
@@ -281,4 +287,5 @@
     })();
   </script>
 </body>
+
 </html>
