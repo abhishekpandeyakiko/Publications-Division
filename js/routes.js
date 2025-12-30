@@ -163,68 +163,49 @@ const Routes = {
     layout: 'default',
     title: 'User Profile - Publications Division'
   },
-  // BUY sub-pages
-  // buyBooks: {
-  //   path: '/buy/books',
-  //   page: 'pages/buy/books.html',
+
+  // publicationsBooks: {
+  //   path: '/publications/books',
+  //   page: 'pages/publications/books.html',
   //   layout: 'default',
   //   title: 'Books - Publications Division'
   // },
-  // buyEbooks: {
-  //   path: '/buy/ebooks',
-  //   page: 'pages/buy/ebooks.html',
-  //   layout: 'default',
-  //   title: 'EBooks/EJournal - Publications Division'
-  // },
-  // buyJournal: {
-  //   path: '/buy/journal',
-  //   page: 'pages/buy/journal.html',
-  //   layout: 'default',
-  //   title: 'Journal - Publications Division'
-  // },
-  // Publications sub-pages
-  publicationsBooks: {
-    path: '/publications/books',
-    page: 'pages/publications/books.html',
-    layout: 'default',
-    title: 'Books - Publications Division'
-  },
   productdescription: {
     path: '/description.html',
     page: 'pages/product-description.html',
     layout: 'default',
     title: 'description - Publications Division'
   },
-  publicationsEbooks: {
-    path: '/publications/ebooks',
-    page: 'pages/publications/ebooks.html',
-    layout: 'default',
-    title: 'eBooks/eJournals - Publications Division'
-  },
-  publicationsJournals: {
-    path: '/publications/journals',
-    page: 'pages/publications/journals.html',
-    layout: 'default',
-    title: 'Journals - Publications Division'
-  },
-  publicationsCatalogue: {
-    path: '/publications/catalogue',
-    page: 'pages/publications/catalogue.html',
-    layout: 'default',
-    title: 'Catalogue - Publications Division'
-  },
-  publicationsEmpanelledPrinters: {
-    path: '/publications/empanelled-printers',
-    page: 'pages/publications/empanelled-printers.html',
-    layout: 'default',
-    title: 'Empanelled Printers - Publications Division'
-  },
-  publicationsListOfReprints: {
-    path: '/publications/list-of-reprints',
-    page: 'pages/publications/list-of-reprints.html',
-    layout: 'default',
-    title: 'List of Reprints - Publications Division'
-  },
+  // publicationsEbooks: {
+  //   path: '/publications/ebooks',
+  //   page: 'pages/publications/ebooks.html',
+  //   layout: 'default',
+  //   title: 'eBooks/eJournals - Publications Division'
+  // },
+  // publicationsJournals: {
+  //   path: '/publications/journals',
+  //   page: 'pages/publications/journals.html',
+  //   layout: 'default',
+  //   title: 'Journals - Publications Division'
+  // },
+  // publicationsCatalogue: {
+  //   path: '/publications/catalogue',
+  //   page: 'pages/publications/catalogue.html',
+  //   layout: 'default',
+  //   title: 'Catalogue - Publications Division'
+  // },
+  // publicationsEmpanelledPrinters: {
+  //   path: '/publications/empanelled-printers',
+  //   page: 'pages/publications/empanelled-printers.html',
+  //   layout: 'default',
+  //   title: 'Empanelled Printers - Publications Division'
+  // },
+  // publicationsListOfReprints: {
+  //   path: '/publications/list-of-reprints',
+  //   page: 'pages/publications/list-of-reprints.html',
+  //   layout: 'default',
+  //   title: 'List of Reprints - Publications Division'
+  // },
   // Feedback sub-pages
   searchGrievance: {
     path: '/feedback/search-grievance',
