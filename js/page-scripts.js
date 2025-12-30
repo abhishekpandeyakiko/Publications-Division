@@ -149,6 +149,89 @@ function initSocialMediaScroll() {
   updateButtons();
 }
 
-// Make initHomePage globally available
+/**
+ * Initialize product description page functionality
+ */
+function initProductDescriptionPage() {
+  const tabs = document.querySelectorAll('#productTabs .nav-link');
+  const panes = document.querySelectorAll('.tab-content .tab-pane');
+
+  if (tabs.length === 0 || panes.length === 0) {
+    console.warn('Tabs or panes not found for initialization');
+    return;
+  }
+
+  // 1. Set default state: Specifications active, Description hidden
+  function setDefaultTab() {
+    tabs.forEach(tab => {
+      // Use data-bs-target check or just index if preferred, but target is safer
+      const target = tab.getAttribute('data-bs-target');
+      if (target === '#specification') {
+        tab.classList.add('active');
+      } else {
+        tab.classList.remove('active');
+      }
+    });
+
+    panes.forEach(pane => {
+      if (pane.id === 'specification') {
+        pane.classList.add('show', 'active');
+      } else {
+        pane.classList.remove('show', 'active');
+      }
+    });
+  }
+
+  // Initialize default state immediately
+  setDefaultTab();
+
+  // 2. Handle click with explicit condition and first-hide logic
+  tabs.forEach(tabEl => {
+    tabEl.addEventListener('click', function (event) {
+      event.preventDefault();
+      const targetId = this.getAttribute('data-bs-target');
+
+      // FIRST: Hide all panes (Condition: clean slate)
+      panes.forEach(pane => {
+        pane.classList.remove('show', 'active');
+      });
+
+      // Remove active class from all tab buttons
+      tabs.forEach(t => t.classList.remove('active'));
+
+      // THEN: Show the clicked target
+      const targetPane = document.querySelector(targetId);
+      if (targetPane) {
+        this.classList.add('active');
+        targetPane.classList.add('show', 'active');
+      }
+    });
+  });
+
+  // Wishlist toggle
+  const wishlistBtn = document.querySelector('.wishlist-btn-dec');
+  if (wishlistBtn) {
+    wishlistBtn.onclick = function () {
+      this.classList.toggle('active');
+      if (this.classList.contains('active')) {
+        this.innerHTML = '<i class="fa-solid fa-heart"></i>';
+      } else {
+        this.innerHTML = '<i class="fa-regular fa-heart"></i>';
+      }
+    };
+  }
+}
+
+/**
+ * Initialize all reviews page functionality
+ */
+function initAllReviewsPage() {
+  console.log('All Reviews page initialized');
+  // Add interactivity for filters or pagination here if needed
+}
+
+// Make functions globally available
 window.initHomePage = initHomePage;
+window.initProductDescriptionPage = initProductDescriptionPage;
+window.initAllReviewsPage = initAllReviewsPage;
 

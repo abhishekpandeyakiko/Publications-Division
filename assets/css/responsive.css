@@ -26,6 +26,9 @@ p {
     --bs-btn-disabled-border-color: #00695c;
     --bs-gradient: none;
 }
+.progress, .progress-stacked{
+    --bs-progress-bar-bg: #004d40;
+}
 
 button:focus:not(:focus-visible) {
     box-shadow: none !important;

@@ -362,6 +362,13 @@ const Routes = {
     layout: 'default',
     title: 'All Announcements - Publications Division'
   },
+  allReviews: {
+    path: '/all-reviews',
+    page: 'pages/all-reviews.html',
+    layout: 'default',
+    title: 'All Reviews - Publications Division',
+    init: () => window.initAllReviewsPage && window.initAllReviewsPage()
+  },
 
 };
 
