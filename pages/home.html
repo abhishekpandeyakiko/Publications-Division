@@ -1119,6 +1119,26 @@
             if (typeof initHomePage === 'function') {
                 initHomePage();
             }
+
+            // Wishlist Toggle Logic
+            const cardContainer = document.getElementById('bookTabsContent');
+            if (cardContainer) {
+                cardContainer.addEventListener('click', function (event) {
+                    const btn = event.target.closest('.wishlist-btn');
+                    if (btn) {
+                        event.preventDefault();
+                        btn.classList.toggle('active');
+                        const icon = btn.querySelector('i');
+                        if (icon) {
+                            if (btn.classList.contains('active')) {
+                                icon.classList.replace('fa-regular', 'fa-solid');
+                            } else {
+                                icon.classList.replace('fa-solid', 'fa-regular');
+                            }
+                        }
+                    }
+                });
+            }
         }
     });
 </script>

@@ -759,11 +759,17 @@
        .wishlist-btn i {
          color: #555;
          font-size: 16px;
-         transition: color 0.3s;
+         transition: all 0.3s ease;
        }
 
-       .wishlist-btn:hover i {
-         color: #e53935;
+       .wishlist-btn:hover i,
+       .wishlist-btn.active i {
+         color: #e53935 !important;
+       }
+
+       .wishlist-btn.active {
+         border-color: #ffebee !important;
+         background-color: #fff5f5 !important;
        }
 
        .wishlist-btn {
