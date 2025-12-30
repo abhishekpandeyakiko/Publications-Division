@@ -1,14 +1,17 @@
-.heading-title-name{
+.heading-title-name {
     color: #006b7a;
 }
+
 .form-control:focus {
     box-shadow: none !important;
 }
-p{
+
+p {
     margin-bottom: 0px;
 }
+
 .btn-outline-primary {
-        --bs-btn-color: #004d40;
+    --bs-btn-color: #004d40;
     --bs-btn-border-color: #004d4d;
     --bs-btn-hover-color: #fff;
     --bs-btn-hover-bg: #00695c;
@@ -23,63 +26,73 @@ p{
     --bs-btn-disabled-border-color: #00695c;
     --bs-gradient: none;
 }
+
 button:focus:not(:focus-visible) {
     box-shadow: none !important;
 }
 
 
 @media (min-width: 1200px) {
-  .body-container {
-    padding-left: 2%;
-    padding-right: 2%;
-  }
+    .body-container {
+        padding-left: 2%;
+        padding-right: 2%;
+    }
 }
 
 @media (max-width: 992px) {
-section.intro-section h1 {
-    font-size: 22px;
+    section.intro-section h1 {
+        font-size: 22px;
+    }
+
+    .header-serch {
+        width: 70%;
+    }
+
+    .step {
+        position: relative;
+        flex: 1;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
-.header-serch {
-    width: 70%;
-}
-.step {
-  position: relative;
-  flex: 1;
-  text-align: center;
-  display: flex;
-  flex-direction: column; 
-  justify-content: center;
-  align-items: center;
-}
-}
+
 @media (max-width: 768px) {
-  .logo-setup {
-    text-align: left;
-    margin: 0px;
-}
-section.intro-section h1 {
-    font-size: 18px;
-}
+    .logo-setup {
+        text-align: left;
+        margin: 0px;
+    }
+
+    section.intro-section h1 {
+        font-size: 18px;
+    }
+
     .quantity-control {
         flex-direction: row !important;
     }
-    
+
 }
 
 @media (max-width: 567px) {
     .header-serch {
-    width: 77%;
-}
+        width: 77%;
+    }
+
     .logo-setup {
         line-height: 17px;
     }
+
     .main-header h4 {
         font-size: 25px;
     }
-        .main-header small{
+
+    .main-header small {
         font-size: 11px !important;
     }
 }
+
 /* header css */
 
 /* ===============================
@@ -97,5 +110,14 @@ section.intro-section h1 {
     }
 }
 
+.fs-13 {
+    font-size: 13px !important;
+}
 
+.fs-12 {
+    font-size: 12px !important;
+}
 
+.fs-11 {
+    font-size: 11px !important;
+}
