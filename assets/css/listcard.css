@@ -49,7 +49,7 @@
   background: #ffffff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   position: sticky;
-  top: 100px;
+  top: 180px;
   max-height: calc(100vh - 120px);
   overflow-y: auto;
 }

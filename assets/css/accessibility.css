@@ -1,0 +1,465 @@
+﻿/* ----------------------------------------------------Accessibility Sidebar-------------------------------------- */
+#accessibility-sidebar {
+    position: fixed;
+    top: 0;
+    right: -420px;
+    width: 400px;
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    transition: right 0.4s ease-in-out;
+    z-index: 1060;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.access-content-wrapper {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 15px;
+}
+
+.accessibility-header {
+    padding: 15px;
+}
+
+#accessibility-sidebar.active {
+    right: 0;
+}
+
+/* Accessibility Buttons */
+/* Accessibility Buttons */
+.font-btn {
+    border: 2px solid #e0e0e0;
+    color: #4b5563;
+    background: transparent;
+    transition: all 0.3s;
+    border-radius: 8px;
+    padding: 8px 10px;
+    /* Slightly smaller padding for 3 buttons in a row */
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.font-btn:hover {
+    border-color: #004b4b;
+    background-color: #f0f7f7;
+    color: #004b4b;
+}
+
+.font-btn:active,
+.font-btn.active-font {
+    /* In case we add active state later */
+    background-color: #004b4b;
+    color: #fff;
+    border-color: #004b4b;
+    box-shadow: 0 4px 6px rgba(0, 75, 75, 0.2);
+}
+
+.theme-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    width: 80px;
+}
+
+.theme-btn {
+    width: 100%;
+    height: 50px;
+    border-radius: 8px;
+    /* Square with rounded corners */
+    border: 2px solid #e0e0e0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.theme-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.theme-btn.active-theme {
+    border: 3px solid #004b4b;
+    transform: scale(1.05);
+    box-shadow: 0 0 0 4px rgba(0, 75, 75, 0.1);
+}
+
+.theme-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #555;
+    text-align: center;
+}
+
+/* Remove old checkmark */
+.theme-btn.active-theme::after {
+    display: none;
+}
+
+/* Theme Colors */
+.default-theme {
+    background-color: #fff;
+}
+
+.dark-theme {
+    background-color: #1e1e1e;
+}
+
+.light-theme {
+    background-color: #f0f8ff;
+}
+
+.yellow-theme {
+    background-color: #ffeb3b;
+    border-color: #000;
+}
+
+/* Responsive Width */
+@media (max-width: 450px) {
+    #accessibility-sidebar {
+        width: 100%;
+        right: -100%;
+    }
+}
+
+/* ----------------------------------------------------Global Theme Styles-------------------------------------- */
+/* Dark Theme */
+body.theme-dark {
+    background-color: #121212 !important;
+    color: #e0e0e0 !important;
+}
+
+body.theme-dark header,
+body.theme-dark footer,
+body.theme-dark .main-header,
+body.theme-dark .navbar,
+body.theme-dark .announcement-bar,
+body.theme-dark #accessibility-sidebar,
+body.theme-dark .card,
+body.theme-dark .dropdown-menu,
+body.theme-dark .list-group-item,
+body.theme-dark .modal-content,
+body.theme-dark .bg-light,
+body.theme-dark .bg-white {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+    border-color: #333 !important;
+}
+
+body.theme-dark a:not(.btn),
+body.theme-dark .nav-link,
+body.theme-dark .dropdown-item,
+body.theme-dark h1,
+body.theme-dark h2,
+body.theme-dark h3,
+body.theme-dark h4,
+body.theme-dark h5,
+body.theme-dark h6,
+body.theme-dark .text-dark,
+body.theme-dark .text-muted {
+    color: #b0bec5 !important;
+}
+
+body.theme-dark .table {
+    color: #e0e0e0 !important;
+    --bs-table-color: #e0e0e0;
+    --bs-table-bg: transparent;
+}
+
+body.theme-dark .form-control,
+body.theme-dark .form-select {
+    background-color: #2c2c2c !important;
+    border-color: #444 !important;
+    color: #fff !important;
+}
+
+
+/* High Contrast (Yellow/Black) */
+body.theme-yellow {
+    background-color: #000 !important;
+    color: #ffff00 !important;
+}
+
+body.theme-yellow header,
+body.theme-yellow footer,
+body.theme-yellow .main-header,
+body.theme-yellow .navbar,
+body.theme-yellow .announcement-bar,
+body.theme-yellow #accessibility-sidebar,
+body.theme-yellow .card,
+body.theme-yellow .dropdown-menu,
+body.theme-yellow .list-group-item,
+body.theme-yellow .modal-content,
+body.theme-yellow .bg-light,
+body.theme-yellow .bg-white,
+body.theme-yellow section {
+    background-color: #000 !important;
+    color: #ffff00 !important;
+    border: 1px solid #ffff00 !important;
+}
+
+body.theme-yellow a,
+body.theme-yellow .nav-link,
+body.theme-yellow .dropdown-item,
+body.theme-yellow h1,
+body.theme-yellow h2,
+body.theme-yellow h3,
+body.theme-yellow h4,
+body.theme-yellow h5,
+body.theme-yellow h6,
+body.theme-yellow i,
+body.theme-yellow span,
+body.theme-yellow p,
+body.theme-yellow li,
+body.theme-yellow td,
+body.theme-yellow th {
+    color: #ffff00 !important;
+}
+
+body.theme-yellow .btn,
+body.theme-yellow .form-control,
+body.theme-yellow .form-select,
+body.theme-yellow input {
+    border: 2px solid #ffff00 !important;
+    background-color: #000 !important;
+    color: #ffff00 !important;
+}
+
+body.theme-yellow .border,
+body.theme-yellow .border-bottom,
+body.theme-yellow .border-top {
+    border-color: #ffff00 !important;
+}
+
+/* Light Theme (Softer) */
+body.theme-light {
+    background-color: #f0f4f8 !important;
+    color: #1a202c !important;
+}
+
+body.theme-light .card,
+body.theme-light .main-header,
+body.theme-light .navbar,
+body.theme-light footer {
+    background-color: #e2e8f0 !important;
+    color: #000 !important;
+}
+
+/* Spacing Buttons */
+.spacing-btn {
+    border: 2px solid #e0e0e0;
+    color: #4b5563;
+    background: transparent;
+    transition: all 0.3s;
+    border-radius: 8px;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.spacing-btn:hover {
+    border-color: #004b4b;
+    background-color: #f0f7f7;
+    color: #004b4b;
+}
+
+.spacing-btn.active-spacing {
+    background-color: #004b4b;
+    color: #fff;
+    border-color: #004b4b;
+    box-shadow: 0 4px 6px rgba(0, 75, 75, 0.2);
+}
+
+/* Global Spacing Classes */
+body.spacing-tight,
+body.spacing-tight p,
+body.spacing-tight a,
+body.spacing-tight span,
+body.spacing-tight li,
+body.spacing-tight h1,
+body.spacing-tight h2,
+body.spacing-tight h3,
+body.spacing-tight h4,
+body.spacing-tight h5,
+body.spacing-tight h6 {
+    line-height: 1.2 !important;
+}
+
+body.spacing-loose,
+body.spacing-loose p,
+body.spacing-loose a,
+body.spacing-loose span,
+body.spacing-loose li,
+body.spacing-loose h1,
+body.spacing-loose h2,
+body.spacing-loose h3,
+body.spacing-loose h4,
+body.spacing-loose h5,
+body.spacing-loose h6 {
+    line-height: 2.0 !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* Text Alignment Buttons */
+.align-btn {
+    border: 2px solid #e0e0e0;
+    color: #4b5563;
+    background: transparent;
+    transition: all 0.3s;
+    border-radius: 8px;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.align-btn:hover {
+    border-color: #004b4b;
+    background-color: #f0f7f7;
+    color: #004b4b;
+}
+
+.align-btn.active-align {
+    background-color: #004b4b;
+    color: #fff;
+    border-color: #004b4b;
+    box-shadow: 0 4px 6px rgba(0, 75, 75, 0.2);
+}
+
+/* Global Text Alignment Classes */
+body.text-align-left,
+body.text-align-left p,
+body.text-align-left h1,
+body.text-align-left h2,
+body.text-align-left h3,
+body.text-align-left h4,
+body.text-align-left h5,
+body.text-align-left h6,
+body.text-align-left div:not(.d-flex) {
+    text-align: left !important;
+}
+
+body.text-align-center,
+body.text-align-center p,
+body.text-align-center h1,
+body.text-align-center h2,
+body.text-align-center h3,
+body.text-align-center h4,
+body.text-align-center h5,
+body.text-align-center h6,
+body.text-align-center div:not(.d-flex) {
+    text-align: center !important;
+}
+
+body.text-align-end,
+body.text-align-end p,
+body.text-align-end h1,
+body.text-align-end h2,
+body.text-align-end h3,
+body.text-align-end h4,
+body.text-align-end h5,
+body.text-align-end h6,
+body.text-align-end div:not(.d-flex) {
+    text-align: right !important;
+}
+
+/* Section Divider */
+.access-section {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.access-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Visual Options Buttons */
+.visual-btn {
+    border: 2px solid #e0e0e0;
+    color: #4b5563;
+    background: transparent;
+    transition: all 0.3s;
+    border-radius: 8px;
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    cursor: pointer;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+}
+
+.visual-btn:hover {
+    border-color: #004b4b;
+    /* Teal hover */
+    background-color: #f0f7f7;
+}
+
+.visual-btn .icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
+    border: 2px solid #004b4b;
+    /* Teal border default */
+    border-radius: 4px;
+    /* Slightly rounded checkbox */
+    margin-right: 12px;
+    transition: all 0.2s;
+    color: white;
+    /* Icon color */
+}
+
+.visual-btn .icon-box i {
+    font-size: 14px;
+    opacity: 0;
+    /* Hidden by default */
+    transform: scale(0.5);
+    transition: all 0.2s;
+}
+
+.visual-btn.active-visual {
+    border-color: #004b4b;
+    background-color: #fff;
+    color: #004b4b;
+}
+
+.visual-btn.active-visual .icon-box {
+    background-color: #004b4b;
+    /* Solid teal when active */
+    border-color: #004b4b;
+}
+
+.visual-btn.active-visual .icon-box i {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Hide Images Global Class */
+body.hide-images img,
+body.hide-images svg:not(.fa-solid):not(.fa-regular):not(.fa-brands) {
+    opacity: 0 !important;
+    transition: opacity 0.3s;
+}
+
+/* Highlight Links Global Class */
+body.highlight-links a {
+    text-decoration: underline !important;
+    background-color: #ffeb3b !important;
+    color: #000 !important;
+    font-weight: bold !important;
+}

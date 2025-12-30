@@ -62,6 +62,15 @@
          margin-right: 10px;
        }
 
+       @media (max-width: 430px) {
+         .top-bar a {
+           color: #004b4b;
+           text-decoration: none;
+           margin-right: 4px;
+         }
+
+       }
+
        .header-dropdown-one {
          color: #004b4b;
          font-weight: 500;
@@ -529,6 +538,9 @@
      .bookstore-section {
        .text-teal {
          color: #004d4d;
+         font-weight: 700;
+         font-size: 27px;
+         margin-bottom: 20px;
        }
 
        .btn-teal {
@@ -552,7 +564,7 @@
 
        .border-bo {
          border-bottom: 2px solid #0F5757;
-         margin-top: 10%;
+         margin-top: 7%;
        }
 
        /* Perfect 3D book animation */
@@ -1004,7 +1016,6 @@
      }
 
      .social-content {
-       padding: 10px 15px;
        font-size: 14px;
        height: 300px;
        overflow-y: auto;
@@ -1021,9 +1032,23 @@
 
      .social-content img {
        width: 100%;
-       border-radius: 8px;
-       margin-top: 8px;
      }
+.social-content {
+    overflow-x: hidden;   /* hide left & right only */
+    overflow-y: auto;     /* allow vertical scroll if needed */
+}
+
+.social-img-link {
+    display: block;
+    width: 100%;
+}
+
+.social-img-link img {
+    width: 100%;
+    height: auto;         /* IMPORTANT: no cropping */
+    object-fit: contain; /* show full image */
+    display: block;
+}
 
      .scroll-btn {
        background-color: #fff;
@@ -1138,6 +1163,7 @@
      .footer p {
        font-size: 14px;
        line-height: 1.6;
+       text-align: justify;
        color: #e2e2e2;
        display: -webkit-box;
        -webkit-line-clamp: 7;
@@ -1188,20 +1214,27 @@
        left: 3px;
        /* small movement effect on hover */
      }
+     /* 🔴 REMOVE icon ONLY from Read More */
+.footer a.read-more {
+  padding-left: 0;          /* remove space */
+}
+
+.footer a.read-more::before {
+  content: none;            /* remove arrow */
+}
 
      .footer .read-more {
        font-weight: 600;
        cursor: pointer;
        color: #fff;
        text-align: end;
-       font-size: 16px;
+       font-size: 15px;
        padding-right: 5px;
        text-decoration: none;
      }
 
      .footer .social-icons a {
        color: #fff;
-       margin-right: 10px;
        font-size: 18px;
        transition: color 0.3s;
      }
@@ -1226,7 +1259,7 @@
 
      .social-icons img {
        width: 35px;
-       margin-right: 10px;
+       margin-right: 6px;
      }
 
      .footer .payment-icons img {
@@ -1248,7 +1281,25 @@
      p.mb-0.Copyright {
        color: black;
      }
+  /* Social icons links – remove arrow */
+          .footer .social-icons a {
+            padding-left: 0;
+          }
 
+          /* Disable ::before arrow */
+          .footer .social-icons a::before {
+            content: none !important;
+          }
+        /* Remove arrow icon from platform icons links */
+        .footer .platform-icons a {
+          padding-left: 0;
+          /* remove space */
+        }
+
+        /* Remove ::before arrow */
+        .footer .platform-icons a::before {
+          content: none !important;
+        }
      @media (max-width: 768px) {
        .footer-bottom .payment-icons {
          text-align: center;
