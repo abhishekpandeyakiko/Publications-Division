@@ -1,8 +1,8 @@
 <section class="intro-section">
-    <div class="container position-relative z-2 py-4 py-lg-5">
-        <h1>Agent Books Agreement</h1>
-    </div>
-    <span>Home > Agent Books Agreement</span>
+  <div class="container position-relative z-2 py-4 py-lg-5">
+    <h1>Agent Books Agreement</h1>
+  </div>
+  <span>Home > Agent Books Agreement</span>
 </section>
 
 <section class="py-5 bg-light">
@@ -25,28 +25,28 @@
 
           <!-- 1 -->
           <div class="mb-4">
-            <label class="fw-semibold mb-1 d-block">
+            <label for="applicantName" class="fw-semibold mb-1 d-block">
               1. Name of Applicant (in Full)
             </label>
-            <input type="text" class="form-control mb-2">
+            <input type="text" id="applicantName" class="form-control mb-2">
 
-            <label class="text-muted small">
+            <label for="applicantAddress" class="text-muted small">
               (With full postal address)
             </label>
-            <textarea class="form-control" rows="2"></textarea>
+            <textarea id="applicantAddress" class="form-control" rows="2"></textarea>
           </div>
 
           <!-- 2 -->
           <div class="mb-4">
-            <label class="fw-semibold mb-1 d-block">
+            <label for="companyName" class="fw-semibold mb-1 d-block">
               2. Name of Company / Firm / Business
             </label>
-            <input type="text" class="form-control mb-2">
+            <input type="text" id="companyName" class="form-control mb-2">
 
-            <label class="text-muted small">
+            <label for="companyAddress" class="text-muted small">
               (With complete address, if different from S. No. 1)
             </label>
-            <textarea class="form-control" rows="2"></textarea>
+            <textarea id="companyAddress" class="form-control" rows="2"></textarea>
           </div>
 
           <!-- 3 -->
@@ -56,17 +56,17 @@
             </label>
 
             <div class="mb-3">
-              <label class="small fw-medium">
+              <label for="businessType" class="small fw-medium">
                 i) Whether the business is Proprietary / Partnership / Limited Company
               </label>
-              <input type="text" class="form-control">
+              <input type="text" id="businessType" class="form-control">
             </div>
 
             <div class="mb-3">
-              <label class="small fw-medium">
+              <label for="partnerDetails" class="small fw-medium">
                 ii) Give details along with Names and Addresses of the partners
               </label>
-              <textarea class="form-control" rows="3"></textarea>
+              <textarea id="partnerDetails" class="form-control" rows="3"></textarea>
             </div>
 
             <div class="mb-3">
@@ -75,51 +75,53 @@
               </label>
 
               <div class="ms-3 mt-2">
-                <label class="small">
+                <label for="incorporationAct" class="small">
                   a) The Act under which it was incorporated
                 </label>
-                <input type="text" class="form-control mb-2">
+                <input type="text" id="incorporationAct" class="form-control mb-2">
 
-                <label class="small">
+                <label for="registeredAddress" class="small">
                   b) Registered Address
                 </label>
-                <textarea class="form-control mb-2" rows="2"></textarea>
+                <textarea id="registeredAddress" class="form-control mb-2" rows="2"></textarea>
 
-                <label class="small">
+                <label for="branchDetails" class="small">
                   c) Full details of business along with address of the branches, if any
                 </label>
-                <textarea class="form-control" rows="2"></textarea>
+                <textarea id="branchDetails" class="form-control" rows="2"></textarea>
               </div>
             </div>
           </div>
 
           <!-- 4 -->
           <div class="mb-4">
-            <label class="fw-semibold d-block mb-2">
-              4. Details of experience, if any, in selling Books and Journals, along with type of language of publications sold
+            <label for="experienceDetails" class="fw-semibold d-block mb-2">
+              4. Details of experience, if any, in selling Books and Journals, along with type of language of
+              publications sold
             </label>
-            <textarea class="form-control" rows="4"></textarea>
+            <textarea id="experienceDetails" class="form-control" rows="4"></textarea>
           </div>
 
           <!-- Footer -->
           <div class="row mt-5">
             <div class="col-md-6 mb-3">
-              <label class="fw-medium">Dated:</label>
-              <input type="date" class="form-control">
+              <label for="date" class="fw-medium">Dated:</label>
+              <input type="date" id="date" class="form-control">
             </div>
 
             <div class="col-md-6 mb-3">
-              <label class="fw-medium">Signature</label>
-              <input type="text" class="form-control">
+              <label for="signature" class="fw-medium">Signature</label>
+              <input type="text" id="signature" class="form-control">
             </div>
 
             <div class="col-12">
-              <label class="fw-medium">Name and Stamp</label>
-              <textarea class="form-control" rows="2"></textarea>
+              <label for="nameStamp" class="fw-medium">Name and Stamp</label>
+              <textarea id="nameStamp" class="form-control" rows="2"></textarea>
             </div>
           </div>
 
         </form>
+
 
       </div>
     </div>

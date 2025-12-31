@@ -20,9 +20,16 @@
         <div class="d-flex align-items-center gap-2">
           <!-- Search Box -->
           <div class="position-relative wishlist-search w-100 w-md-auto">
-            <input type="text" class="form-control modal-input ps-3 pe-5" placeholder="Search books...">
-            <i class="fas fa-search search-icon-search-box"></i>
+            <label for="wishlistSearch" class="visually-hidden">
+              Search books
+            </label>
+
+            <input type="text" id="wishlistSearch" class="form-control modal-input ps-3 pe-5"
+              placeholder="Search books...">
+
+            <i class="fas fa-search search-icon-search-box" aria-hidden="true"></i>
           </div>
+
         </div>
       </div>
       <!-- Table -->
@@ -43,8 +50,10 @@
               <td>03-08-2021 to 31-08-2021</td>
               <td class="text-center">
                 <a href="#" class="pdf-action">
-                  <i class="bi bi-file-earmark-pdf"></i>
+                  <span class="visually-hidden">Download PDF</span>
+                  <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
                 </a>
+
               </td>
             </tr>
 
@@ -54,8 +63,10 @@
               <td>09-09-2021 to 31-10-2021</td>
               <td class="text-center">
                 <a href="#" class="pdf-action">
-                  <i class="bi bi-file-earmark-pdf"></i>
+                  <span class="visually-hidden">Download PDF</span>
+                  <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
                 </a>
+
               </td>
             </tr>
 
@@ -65,8 +76,10 @@
               <td>29-09-2021 to 31-10-2021</td>
               <td class="text-center">
                 <a href="#" class="pdf-action">
-                  <i class="bi bi-file-earmark-pdf"></i>
+                  <span class="visually-hidden">Download PDF</span>
+                  <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
                 </a>
+
               </td>
             </tr>
 
@@ -76,8 +89,10 @@
               <td>09-09-2021 to 30-11-2021</td>
               <td class="text-center">
                 <a href="#" class="pdf-action">
-                  <i class="bi bi-file-earmark-pdf"></i>
+                  <span class="visually-hidden">Download PDF</span>
+                  <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
                 </a>
+
               </td>
             </tr>
 
@@ -88,8 +103,10 @@
               <td>09-12-2021 to 07-01-2022</td>
               <td class="text-center">
                 <a href="#" class="pdf-action">
-                  <i class="bi bi-file-earmark-pdf"></i>
+                  <span class="visually-hidden">Download PDF</span>
+                  <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
                 </a>
+
               </td>
             </tr>
 
@@ -99,8 +116,10 @@
               <td>18-04-2022 to 25-04-2022</td>
               <td class="text-center">
                 <a href="#" class="pdf-action">
-                  <i class="bi bi-file-earmark-pdf"></i>
+                  <span class="visually-hidden">Download PDF</span>
+                  <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
                 </a>
+
               </td>
             </tr>
 
@@ -110,8 +129,10 @@
               <td>07-09-2022 to 26-09-2022</td>
               <td class="text-center">
                 <a href="#" class="pdf-action">
-                  <i class="bi bi-file-earmark-pdf"></i>
+                  <span class="visually-hidden">Download PDF</span>
+                  <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
                 </a>
+
               </td>
             </tr>
           </tbody>
@@ -128,8 +149,9 @@
         <nav>
           <ul class="pagination mb-0 tender-pagination">
             <li class="page-item disabled">
-              <a class="page-link" href="#">
-                <i class="bi bi-chevron-left"></i>
+              <a class="page-link" href="#" aria-disabled="true">
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+                <span class="visually-hidden">Previous page</span>
               </a>
             </li>
 
@@ -147,7 +169,8 @@
 
             <li class="page-item">
               <a class="page-link" href="#">
-                <i class="bi bi-chevron-right"></i>
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                <span class="visually-hidden">Next page</span>
               </a>
             </li>
           </ul>

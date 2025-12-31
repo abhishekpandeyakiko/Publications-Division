@@ -12,139 +12,166 @@
 
 
     <div class="table-section">
-    <!-- Header -->
-    <div class="card-header tender-header d-flex flex-wrap  justify-content-between align-items-center">
-      <h5 class="mb-0 fw-bold ">
-        <i class="bi bi-file-earmark-text me-2"></i>
-        Tender / Bidding Documents
-      </h5>
-      <div class="d-flex align-items-center gap-2">
+      <!-- Header -->
+      <div class="card-header tender-header d-flex flex-wrap  justify-content-between align-items-center">
+        <h5 class="mb-0 fw-bold ">
+          <i class="bi bi-file-earmark-text me-2"></i>
+          Tender / Bidding Documents
+        </h5>
+        <div class="d-flex align-items-center gap-2">
 
-        <!-- Search Box -->
-        <div class="position-relative wishlist-search w-100 w-md-auto">
-          <input type="text" class="form-control modal-input ps-3 pe-5" placeholder="Search books...">
-          <i class="fas fa-search search-icon-search-box"></i>
+          <!-- Search Box -->
+          <div class="position-relative wishlist-search w-100 w-md-auto">
+            <label for="wishlistSearch" class="visually-hidden">
+              Search books
+            </label>
+
+            <input type="text" id="wishlistSearch" class="form-control modal-input ps-3 pe-5"
+              placeholder="Search books...">
+
+            <i class="fas fa-search search-icon-search-box" aria-hidden="true"></i>
+          </div>
+
+
+
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="table-responsive">
+        <table class="table align-middle mb-0 tender-table">
+          <thead>
+            <tr>
+              <th>S.No.</th>
+              <th>Description</th>
+              <th>Date of Opening</th>
+              <th class="text-center">Download</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>GeM-Bidding-8713617</td>
+              <td>15-12-2025 to 05-01-2026</td>
+              <td class="text-center">
+                <a href="#" class="pdf-action">
+                  <i class="bi bi-file-earmark-pdf"></i>
+                  <span class="visually-hidden">Download PDF</span>
+                </a>
+
+
+              </td>
+            </tr>
+
+            <tr>
+              <td>2</td>
+              <td>Tender Document – BAL-BHARTI (Hindi)</td>
+              <td>16-12-2025 to 02-01-2026</td>
+              <td class="text-center">
+                <a href="#" class="pdf-action">
+                  <i class="bi bi-file-earmark-pdf"></i>
+                  <span class="visually-hidden">Download PDF</span>
+                </a>
+
+
+              </td>
+            </tr>
+
+            <tr>
+              <td>3</td>
+              <td>Tender Document – YOJANA (Odia)</td>
+              <td>16-12-2025 to 02-01-2026</td>
+              <td class="text-center">
+                <a href="#" class="pdf-action">
+                  <i class="bi bi-file-earmark-pdf"></i>
+                  <span class="visually-hidden">Download PDF</span>
+                </a>
+
+
+              </td>
+            </tr>
+
+            <tr>
+              <td>4</td>
+              <td>Tender Document – YOJANA (Punjabi)</td>
+              <td>16-12-2025 to 02-01-2026</td>
+              <td class="text-center">
+                <a href="#" class="pdf-action">
+                  <i class="bi bi-file-earmark-pdf"></i>
+                  <span class="visually-hidden">Download PDF</span>
+                </a>
+
+
+              </td>
+            </tr>
+
+            <tr>
+              <td>5</td>
+              <td>Tender Document – YOJANA (Odia)</td>
+              <td>16-12-2025 to 02-01-2026</td>
+              <td class="text-center">
+                <a href="#" class="pdf-action">
+                  <i class="bi bi-file-earmark-pdf"></i>
+                  <span class="visually-hidden">Download PDF</span>
+                </a>
+
+
+              </td>
+            </tr>
+
+            <tr>
+              <td>6</td>
+              <td>Tender Document – YOJANA (Punjabi)</td>
+              <td>16-12-2025 to 02-01-2026</td>
+              <td class="text-center">
+                <a href="#" class="pdf-action">
+                  <i class="bi bi-file-earmark-pdf"></i>
+                  <span class="visually-hidden">Download PDF</span>
+                </a>
+
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="d-flex justify-content-between align-items-center mt-2 p-4 border-top flex-wrap gap-2">
+        <div class="small text-muted">
+          Showing <strong>1–6</strong> of <strong>20</strong> entries
         </div>
 
+        <nav>
+          <ul class="pagination mb-0 tender-pagination">
+            <li class="page-item disabled">
+              <a class="page-link" href="#">
+                <i class="bi bi-chevron-left"></i>
+                <span class="visually-hidden">Previous</span>
+              </a>
+            </li>
 
+            <li class="page-item active">
+              <a class="page-link" href="#">1</a>
+            </li>
+
+            <li class="page-item">
+              <a class="page-link" href="#">2</a>
+            </li>
+
+            <li class="page-item">
+              <a class="page-link" href="#">3</a>
+            </li>
+
+            <li class="page-item">
+              <a class="page-link" href="#">
+                <i class="bi bi-chevron-right"></i>
+                <span class="visually-hidden">Next</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
-    </div>
-
-    <!-- Table -->
-    <div class="table-responsive">
-  <table class="table align-middle mb-0 tender-table">
-    <thead>
-      <tr>
-        <th>S.No.</th>
-        <th>Description</th>
-        <th>Date of Opening</th>
-        <th class="text-center">Download</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>GeM-Bidding-8713617</td>
-        <td>15-12-2025 to 05-01-2026</td>
-        <td class="text-center">
-          <a href="#" class="pdf-action">
-            <i class="bi bi-file-earmark-pdf"></i>
-          </a>
-        </td>
-      </tr>
-
-      <tr>
-        <td>2</td>
-        <td>Tender Document – BAL-BHARTI (Hindi)</td>
-        <td>16-12-2025 to 02-01-2026</td>
-        <td class="text-center">
-          <a href="#" class="pdf-action">
-            <i class="bi bi-file-earmark-pdf"></i>
-          </a>
-        </td>
-      </tr>
-
-      <tr>
-        <td>3</td>
-        <td>Tender Document – YOJANA (Odia)</td>
-        <td>16-12-2025 to 02-01-2026</td>
-        <td class="text-center">
-          <a href="#" class="pdf-action">
-            <i class="bi bi-file-earmark-pdf"></i>
-          </a>
-        </td>
-      </tr>
-
-      <tr>
-        <td>4</td>
-        <td>Tender Document – YOJANA (Punjabi)</td>
-        <td>16-12-2025 to 02-01-2026</td>
-        <td class="text-center">
-          <a href="#" class="pdf-action">
-            <i class="bi bi-file-earmark-pdf"></i>
-          </a>
-        </td>
-      </tr>
-
-      <tr>
-        <td>5</td>
-        <td>Tender Document – YOJANA (Odia)</td>
-        <td>16-12-2025 to 02-01-2026</td>
-        <td class="text-center">
-          <a href="#" class="pdf-action">
-            <i class="bi bi-file-earmark-pdf"></i>
-          </a>
-        </td>
-      </tr>
-
-      <tr>
-        <td>6</td>
-        <td>Tender Document – YOJANA (Punjabi)</td>
-        <td>16-12-2025 to 02-01-2026</td>
-        <td class="text-center">
-          <a href="#" class="pdf-action">
-            <i class="bi bi-file-earmark-pdf"></i>
-          </a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<!-- Pagination -->
-<div class="d-flex justify-content-between align-items-center mt-2 p-4 border-top flex-wrap gap-2">
-  <div class="small text-muted">
-    Showing <strong>1–6</strong> of <strong>20</strong> entries
-  </div>
-
-  <nav>
-    <ul class="pagination mb-0 tender-pagination">
-      <li class="page-item disabled">
-        <a class="page-link" href="#">
-          <i class="bi bi-chevron-left"></i>
-        </a>
-      </li>
-
-      <li class="page-item active">
-        <a class="page-link" href="#">1</a>
-      </li>
-
-      <li class="page-item">
-        <a class="page-link" href="#">2</a>
-      </li>
-
-      <li class="page-item">
-        <a class="page-link" href="#">3</a>
-      </li>
-
-      <li class="page-item">
-        <a class="page-link" href="#">
-          <i class="bi bi-chevron-right"></i>
-        </a>
-      </li>
-    </ul>
-  </nav>
-</div>
 
     </div>
 

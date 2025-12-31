@@ -10,6 +10,10 @@ p {
     margin-bottom: 0px;
 }
 
+.bg-primary {
+    background-color: #00695c !important;
+}
+
 .btn-outline-primary {
     --bs-btn-color: #004d40;
     --bs-btn-border-color: #004d4d;
@@ -26,10 +30,13 @@ p {
     --bs-btn-disabled-border-color: #00695c;
     --bs-gradient: none;
 }
+
 .shadow-sm {
     box-shadow: 1px 0rem 2rem rgba(0, 0, 0, 0.075) !important;
 }
-.progress, .progress-stacked{
+
+.progress,
+.progress-stacked {
     --bs-progress-bar-bg: #004d40;
 }
 
@@ -97,7 +104,8 @@ button:focus:not(:focus-visible) {
     .main-header small {
         font-size: 10px !important;
     }
-        .main-header h4 {
+
+    .main-header h4 {
         font-size: 24px !important;
     }
 }

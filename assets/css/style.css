@@ -417,6 +417,50 @@
        }
      }
 
+     .marquee-text {
+       white-space: nowrap;
+       animation: scroll-left 20s linear infinite;
+       line-height: 30px;
+       display: inline-block;
+     }
+
+     .marquee-paused {
+       animation-play-state: paused !important;
+     }
+
+     @keyframes scroll-left {
+       0% {
+         transform: translateX(100%);
+       }
+
+       100% {
+         transform: translateX(-100%);
+       }
+     }
+
+     .cursor-pointer {
+       cursor: pointer;
+     }
+
+     .annuncment-options span {
+       transition: color 0.3s;
+       cursor: pointer;
+     }
+
+     .annuncment-options span:hover {
+       color: #198754 !important;
+     }
+
+     #marqueeToggle {
+       display: flex;
+       align-items: center;
+       transition: transform 0.2s;
+     }
+
+     #marqueeToggle:hover {
+       transform: scale(1.1);
+     }
+
      /* ----------------------------------------------------------------------------end section announcement */
 
      /* ----------------------------------------------------Category-section-------------------------------------- */
