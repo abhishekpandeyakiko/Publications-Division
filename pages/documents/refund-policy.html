@@ -4,7 +4,12 @@
   <p>
     Information about refund policies for purchases from Publications Division.
   </p>
-  <span>Home > Refund Policy</span>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Refund Policy</li>
+    </ol>
+  </nav>
 </section>
 
 <section class="refund-policy-modern my-5">
@@ -84,34 +89,32 @@
   </div>
 </section>
 <style>
+  .policy-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
 
-.policy-item {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 16px;
-}
+  .policy-item p {
+    margin: 0;
+    line-height: 1.7;
+    color: #374151;
+  }
 
-.policy-item p {
-  margin: 0;
-  line-height: 1.7;
-  color: #374151;
-}
+  .policy-dot {
+    width: 8px;
+    height: 8px;
+    background: #0f766e;
+    border-radius: 50%;
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
 
-.policy-dot {
-  width: 8px;
-  height: 8px;
-  background: #0f766e;
-  border-radius: 50%;
-  margin-top: 8px;
-  flex-shrink: 0;
-}
+  .refund-policy-modern .card {
+    transition: transform 0.3s ease;
+  }
 
-.refund-policy-modern .card {
-  transition: transform 0.3s ease;
-}
-
-.refund-policy-modern .card:hover {
-  transform: translateY(-4px);
-}
+  .refund-policy-modern .card:hover {
+    transform: translateY(-4px);
+  }
 </style>
-

@@ -42,34 +42,36 @@ class Router {
     try {
       // Strip query parameters for route matching
       const cleanPath = path.split('?')[0];
-      
+
       // Check if getRouteByPath is available
       if (typeof getRouteByPath === 'undefined') {
         console.error('getRouteByPath function not found. Make sure routes.js is loaded before router.js');
         return;
       }
-      
+
       const route = getRouteByPath(cleanPath);
-      
+
       // Debug logging
       console.log(`Router: Handling path "${cleanPath}", found route:`, route);
-      
+
       // Check if route was found
       if (!route) {
         console.warn(`Route not found for path: ${cleanPath}`);
         this.navigate('/404');
         return;
       }
-      
+
       // Check if it's the notFound route
       if (typeof Routes !== 'undefined' && Routes.notFound && route.path === Routes.notFound.path) {
         // Only redirect if we are not already on the 404 path to avoid loops
         if (cleanPath !== '/404') {
-             console.warn(`Route not found for path: ${cleanPath}, redirecting to 404`);
-             this.navigate('/404');
+          console.warn(`Route not found for path: ${cleanPath}, redirecting to 404`);
+          this.navigate('/404');
+          return;
         }
-        return;
+        // If we're already on 404, continue to load the page normally
       }
+
 
       // Update document title
       document.title = route.title || 'Publications Division';
@@ -91,7 +93,7 @@ class Router {
 
       // Execute page-specific scripts
       this.executePageScripts();
-      
+
       // Scroll to top on navigation
       window.scrollTo({ top: 0, behavior: 'smooth' });
 
@@ -99,7 +101,7 @@ class Router {
       console.error('Route handling error:', error);
       // Only navigate to 404 if not already there
       if (path !== '/404') {
-          this.navigate('/404');
+        this.navigate('/404');
       }
     }
   }
@@ -123,7 +125,7 @@ class Router {
       // Load layout template
       const layoutPath = `layouts/${layoutName}.html`;
       const layoutHtml = await this.fetchPage(layoutPath);
-      
+
       // Replace body content with layout
       this.appContainer.innerHTML = layoutHtml;
 
@@ -137,7 +139,7 @@ class Router {
       // This ensures header is loaded before page content
       if (window.LayoutManager) {
         await window.LayoutManager.initLayout(layoutName);
-        
+
         // Verify header was loaded (for default and auth layouts)
         if (layoutName === 'default' || layoutName === 'auth') {
           const headerPlaceholder = document.getElementById('header-placeholder');
@@ -179,13 +181,13 @@ class Router {
     // Ensure path is absolute (starts with /) to work from any route
     let absolutePath = path.startsWith('/') ? path : `/${path}`;
     let response = await fetch(absolutePath);
-    
+
     // If root-relative path fails, try relative path
     if (!response.ok && path.startsWith('/')) {
       absolutePath = path.substring(1); // Remove leading slash
       response = await fetch(absolutePath);
     }
-    
+
     if (!response.ok) {
       throw new Error(`Failed to load: ${response.status} ${response.statusText}`);
     }
@@ -204,7 +206,7 @@ class Router {
     const bodyMatch = html.match(/<body[^>]*>([\s\S]*)<\/body>/i);
     if (bodyMatch) {
       let bodyContent = bodyMatch[1];
-      
+
       // Extract style tags from head (page-specific styles)
       const headMatch = html.match(/<head[^>]*>([\s\S]*)<\/head>/i);
       if (headMatch) {
@@ -214,7 +216,7 @@ class Router {
           bodyContent = styleMatch.join('') + bodyContent;
         }
       }
-      
+
       return bodyContent;
     }
     // Otherwise, return as-is (content fragment)
@@ -237,16 +239,16 @@ class Router {
   executePageScripts() {
     // Find content container (could be in layout or body)
     const contentContainer = document.getElementById('app-content') || document.body;
-    
+
     // Find and execute any script tags in the loaded content
     const scripts = contentContainer.querySelectorAll('script');
-    
+
     scripts.forEach(oldScript => {
       const newScript = document.createElement('script');
       Array.from(oldScript.attributes).forEach(attr => {
         newScript.setAttribute(attr.name, attr.value);
       });
-      
+
       newScript.appendChild(document.createTextNode(oldScript.innerHTML));
       oldScript.parentNode.replaceChild(newScript, oldScript);
     });

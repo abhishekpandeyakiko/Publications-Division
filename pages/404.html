@@ -1,12 +1,847 @@
-<!-- 404 Page Not Found -->
-<section class="container py-5 text-center">
-    <div class="row">
-        <div class="col-12">
-            <h1 class="display-1 mb-4">404</h1>
-            <h2 class="mb-4">Page Not Found</h2>
-            <p class="lead mb-4">The page you are looking for does not exist.</p>
-            <a href="/" class="btn btn-primary btn-lg">Return to Home</a>
+<!-- Modern 404 Error Page Section -->
+<section class="">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-8 col-lg-10">
+
+                <!-- Animated Background Elements -->
+                <div class="error-background-animation">
+                    <div class="floating-shape shape-1"></div>
+                    <div class="floating-shape shape-2"></div>
+                    <div class="floating-shape shape-3"></div>
+                    <div class="floating-shape shape-4"></div>
+                    <div class="floating-shape shape-5"></div>
+                    <div class="floating-shape shape-6"></div>
+                </div>
+
+                <!-- Main Content Card -->
+                <div class="error-card text-center animate__animated animate__fadeIn">
+
+                    <!-- Error Badge with Animation -->
+                    <div class="error-badge-wrapper">
+                        <div class="error-badge animate__animated animate__bounceIn">
+                            <span class="badge-text">404 Error</span>
+                            <div class="badge-dots">
+                                <span class="dot dot-1"></span>
+                                <span class="dot dot-2"></span>
+                                <span class="dot dot-3"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Animated 404 Number -->
+                    <div class="error-number-container">
+                        <div class="error-number animate__animated animate__fadeInUp">
+                            <span class="number-4 digit-1">4</span>
+                            <div class="lost-circle">
+                                <div class="lost-circle-inner">
+                                    <div class="lost-circle-pulse"></div>
+                                    <span class="number-0">0</span>
+                                </div>
+                            </div>
+                            <span class="number-4 digit-2">4</span>
+                        </div>
+                        <div class="error-number-shadow"></div>
+                    </div>
+
+                    <!-- Title and Message -->
+                    <h1 class="error-title display-4 fw-bold mb-3 animate__animated animate__fadeIn animate__delay-1s">
+                        Oops! Page <span class="highlight-text">Lost</span> in Space
+                    </h1>
+
+                    <p class="error-message lead mb-3 px-3 animate__animated animate__fadeIn animate__delay-1s">
+                        The page you're looking for has drifted into the digital void.
+                        Don't worry, even astronauts get lost sometimes!
+                    </p>
+
+                    <!-- Decorative Line -->
+                    <div class="decorative-line mx-auto mb-4 animate__animated animate__fadeIn animate__delay-2s">
+                        <div class="line-dot start-dot"></div>
+                        <div class="line-main"></div>
+                        <div class="line-dot end-dot"></div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div
+                        class="error-actions d-flex justify-content-center gap-4 flex-wrap mb-5 animate__animated animate__fadeInUp animate__delay-2s">
+                        <a href="/" class="btn-home-action">
+                            <div class="btn-content">
+                                <span class="btn-icon">🏠</span>
+                                <span class="btn-text">Return Home</span>
+                            </div>
+                            <div class="btn-hover-effect"></div>
+                        </a>
+
+                        <a href="javascript:history.back()" class="btn-back-action">
+                            <div class="btn-content">
+                                <span class="btn-icon">↶</span>
+                                <span class="btn-text">Go Back</span>
+                            </div>
+                            <div class="btn-hover-effect"></div>
+                        </a>
+
+                    </div>
+
+
+
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
+<style>
+    /* Color Variables - Teal Theme */
+    :root {
+        --primary-teal: #0b5555;
+        --primary-teal-light: #0e6c6c;
+        --primary-teal-dark: #083f3f;
+        --secondary-teal: #0d7373;
+        --accent-teal: #0f8a8a;
+        --light-teal: #e6f2f2;
+        --gradient-teal: linear-gradient(135deg, #0b5555 0%, #0d7373 100%);
+        --gradient-teal-light: linear-gradient(135deg, #0e6c6c 0%, #0f8a8a 100%);
+    }
+
+
+    /* Animated Background */
+    .error-background-animation {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
+
+    .floating-shape {
+        position: absolute;
+        border-radius: 50%;
+        background: var(--light-teal);
+        opacity: 0.6;
+        animation: float 15s infinite linear;
+    }
+
+    .shape-1 {
+        width: 120px;
+        height: 120px;
+        top: 34%;
+        left: 5%;
+        animation-delay: 0s;
+        background: #0b55556b;
+    }
+
+    .shape-2 {
+        width: 80px;
+        height: 80px;
+        top: 85%;
+        right: 10%;
+        animation-delay: 3s;
+        animation-duration: 20s;
+        background: rgb(13 115 115 / 33%);
+    }
+
+    .shape-3 {
+        width: 60px;
+        height: 60px;
+        bottom: 9%;
+        left: 15%;
+        animation-delay: 6s;
+        animation-duration: 25s;
+        background: #0e6c6c;
+    }
+
+    .shape-4 {
+        width: 40px;
+        height: 40px;
+        top: 36%;
+        right: 15%;
+        animation-delay: 9s;
+        background: #0b5555;
+    }
+
+    .shape-5 {
+        width: 30px;
+        height: 30px;
+        bottom: 20%;
+        right: 24%;
+        animation-delay: 12s;
+        background: #0d7373;
+    }
+
+    .shape-6 {
+        width: 90px;
+        height: 90px;
+        top: 81%;
+        left: 10%;
+        animation-delay: 15s;
+        animation-duration: 30s;
+        background: #0e6c6c9c;
+    }
+
+    @keyframes float {
+
+        0%,
+        100% {
+            transform: translateY(0) rotate(0deg) scale(1);
+        }
+
+        25% {
+            transform: translateY(-20px) rotate(90deg) scale(1.05);
+        }
+
+        50% {
+            transform: translateY(0) rotate(180deg) scale(1);
+        }
+
+        75% {
+            transform: translateY(20px) rotate(270deg) scale(0.95);
+        }
+    }
+
+    /* Error Card */
+    .error-card {
+        padding: 2rem;
+        position: relative;
+        z-index: 1;
+        transform-style: preserve-3d;
+        perspective: 1000px;
+    }
+
+    /* Error Badge */
+    .error-badge {
+        display: inline-block;
+        background: var(--gradient-teal);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        box-shadow: 0 8px 20px rgba(11, 85, 85, 0.3);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .error-badge::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(to bottom right,
+                rgba(255, 255, 255, 0.3) 0%,
+                rgba(255, 255, 255, 0) 50%);
+        transform: rotate(30deg);
+    }
+
+    .badge-dots {
+        display: inline-flex;
+        margin-left: 10px;
+        gap: 4px;
+    }
+
+    .badge-dots .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: white;
+        display: inline-block;
+        animation: dotPulse 1.5s infinite;
+    }
+
+    .dot-1 {
+        animation-delay: 0s;
+    }
+
+    .dot-2 {
+        animation-delay: 0.5s;
+    }
+
+    .dot-3 {
+        animation-delay: 1s;
+    }
+
+    @keyframes dotPulse {
+
+        0%,
+        100% {
+            opacity: 0.3;
+            transform: scale(0.8);
+        }
+
+        50% {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+    }
+
+    /* Error Number Animation */
+    .error-number-container {
+        position: relative;
+        margin: 1.2rem 0;
+    }
+
+    .error-number {
+        font-size: 8rem;
+        font-weight: 900;
+        color: var(--primary-teal);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        line-height: 1;
+    }
+
+    .number-4 {
+        position: relative;
+        text-shadow: 4px 4px 0 rgba(11, 85, 85, 0.2);
+        animation: numberFloat 3s infinite ease-in-out;
+    }
+
+    .digit-1 {
+        animation-delay: 0s;
+    }
+
+    .digit-2 {
+        animation-delay: 0.5s;
+    }
+
+    .lost-circle {
+        width: 140px;
+        height: 140px;
+        background: var(--gradient-teal-light);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        box-shadow: 0 10px 30px rgba(11, 85, 85, 0.3);
+        animation: circleRotate 20s infinite linear;
+    }
+
+    .lost-circle-inner {
+        width: 100px;
+        height: 100px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .lost-circle-pulse {
+        position: absolute;
+        width: 120%;
+        height: 120%;
+        border: 3px solid rgba(11, 85, 85, 0.2);
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+    }
+
+    .number-0 {
+        font-size: 5rem;
+        font-weight: 900;
+        color: var(--primary-teal);
+        position: relative;
+        z-index: 2;
+    }
+
+    .error-number-shadow {
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 400px;
+        height: 40px;
+        background: radial-gradient(ellipse at center, rgba(11, 85, 85, 0.2) 0%, transparent 70%);
+        border-radius: 50%;
+        z-index: -1;
+    }
+
+    @keyframes numberFloat {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    @keyframes circleRotate {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        100% {
+            transform: scale(1.5);
+            opacity: 0;
+        }
+    }
+
+    /* Title Styling */
+    .error-title {
+        color: var(--primary-teal-dark);
+        font-family: 'Segoe UI', system-ui, sans-serif;
+        margin-bottom: 1.5rem;
+    }
+
+    .highlight-text {
+        background: var(--gradient-teal);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        position: relative;
+    }
+
+    .error-message {
+        color: #5a7d7d;
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    /* Decorative Line */
+    .decorative-line {
+        display: flex;
+        align-items: center;
+        width: 200px;
+        gap: 10px;
+    }
+
+    .line-main {
+        flex: 1;
+        height: 2px;
+        background: var(--gradient-teal);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .line-main::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, white, transparent);
+        animation: lineShimmer 2s infinite;
+    }
+
+    .line-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--primary-teal);
+    }
+
+    .start-dot {
+        animation: dotGlow 2s infinite;
+    }
+
+    .end-dot {
+        animation: dotGlow 2s infinite 1s;
+    }
+
+    @keyframes lineShimmer {
+        0% {
+            left: -100%;
+        }
+
+        100% {
+            left: 100%;
+        }
+    }
+
+    @keyframes dotGlow {
+
+        0%,
+        100% {
+            box-shadow: 0 0 5px var(--primary-teal);
+        }
+
+        50% {
+            box-shadow: 0 0 15px var(--accent-teal);
+        }
+    }
+
+    /* Action Buttons */
+    .error-actions {
+        gap: 1.5rem;
+    }
+
+    .btn-home-action,
+    .btn-back-action,
+    .btn-help-action {
+        position: relative;
+        padding: 0.3rem 1.5rem;
+        border: none;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        min-width: 160px;
+    }
+
+    .btn-home-action {
+        background: var(--gradient-teal);
+        color: white;
+        box-shadow: 0 8px 20px rgba(11, 85, 85, 0.3);
+    }
+
+    .btn-back-action {
+        background: white;
+        color: var(--primary-teal);
+        border: 2px solid var(--primary-teal);
+    }
+
+    .btn-help-action {
+        background: var(--light-teal);
+        color: var(--primary-teal-dark);
+    }
+
+    .btn-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .btn-icon {
+        font-size: 1.2rem;
+    }
+
+    .btn-hover-effect {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+    }
+
+    .btn-home-action:hover .btn-hover-effect,
+    .btn-back-action:hover .btn-hover-effect,
+    .btn-help-action:hover .btn-hover-effect {
+        width: 300px;
+        height: 300px;
+    }
+
+    .btn-home-action:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(11, 85, 85, 0.4);
+    }
+
+    .btn-back-action:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(11, 85, 85, 0.2);
+        background: var(--light-teal);
+    }
+
+    .btn-help-action:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(11, 85, 85, 0.1);
+    }
+
+    /* Search Section */
+    .search-section {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .search-prompt {
+        color: var(--primary-teal);
+        font-weight: 500;
+    }
+
+    .search-container {
+        position: relative;
+    }
+
+    .search-input-wrapper {
+        position: relative;
+        background: white;
+        border-radius: 50px;
+        padding: 5px;
+        box-shadow: 0 8px 25px rgba(11, 85, 85, 0.15);
+        border: 2px solid var(--light-teal);
+        transition: all 0.3s ease;
+    }
+
+    .search-input-wrapper:focus-within {
+        border-color: var(--primary-teal);
+        box-shadow: 0 8px 30px rgba(11, 85, 85, 0.25);
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        border: none;
+        background: transparent;
+        font-size: 1rem;
+        color: var(--primary-teal-dark);
+        outline: none;
+    }
+
+    .search-input::placeholder {
+        color: #8ab3b3;
+    }
+
+    .search-button {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: var(--gradient-teal);
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+
+    .search-button:hover {
+        transform: translateY(-50%) scale(1.1);
+        box-shadow: 0 5px 15px rgba(11, 85, 85, 0.4);
+    }
+
+    .search-wave {
+        position: absolute;
+        bottom: -10px;
+        left: 20px;
+        width: calc(100% - 40px);
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--primary-teal), transparent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .search-input:focus~.search-wave {
+        opacity: 1;
+        animation: waveMove 2s infinite;
+    }
+
+    @keyframes waveMove {
+        0% {
+            background-position: -100% 0;
+        }
+
+        100% {
+            background-position: 200% 0;
+        }
+    }
+
+    /* Info Cards */
+    .info-card {
+        background: white;
+        border-radius: 16px;
+        padding: 1.5rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(11, 85, 85, 0.1);
+        height: 100%;
+    }
+
+    .info-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(11, 85, 85, 0.15);
+        border-color: var(--primary-teal-light);
+    }
+
+    .info-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .info-text {
+        color: var(--primary-teal);
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .error-card {
+            padding: 2rem 1.5rem;
+            margin: 1rem;
+        }
+
+        .error-number {
+            font-size: 5rem;
+        }
+
+        .lost-circle {
+            width: 100px;
+            height: 100px;
+        }
+
+        .lost-circle-inner {
+            width: 70px;
+            height: 70px;
+        }
+
+        .number-0 {
+            font-size: 3.5rem;
+        }
+
+        .error-actions {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .btn-home-action,
+        .btn-back-action,
+        .btn-help-action {
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .info-cards .col-md-4 {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .error-number {
+            font-size: 4rem;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .lost-circle {
+            width: 80px;
+            height: 80px;
+        }
+
+        .lost-circle-inner {
+            width: 60px;
+            height: 60px;
+        }
+
+        .number-0 {
+            font-size: 3rem;
+        }
+
+        .error-title {
+            font-size: 2rem;
+        }
+
+        .error-message {
+            font-size: 1rem;
+        }
+    }
+</style>
+
+<script>
+    // Add interactivity
+    document.addEventListener('DOMContentLoaded', function () {
+        // Button click animations
+        const buttons = document.querySelectorAll('.btn-home-action, .btn-back-action, .btn-help-action');
+        buttons.forEach(button => {
+            button.addEventListener('click', function (e) {
+                // Add ripple effect
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+
+                ripple.style.cssText = `
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.7);
+        transform: scale(0);
+        animation: ripple-animation 0.6s linear;
+        width: ${size}px;
+        height: ${size}px;
+        top: ${y}px;
+        left: ${x}px;
+        z-index: 1;
+      `;
+
+                this.appendChild(ripple);
+
+                // Remove ripple after animation
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Search input animation
+        const searchInput = document.querySelector('.search-input');
+        const searchButton = document.querySelector('.search-button');
+
+        searchInput.addEventListener('focus', function () {
+            this.parentElement.style.transform = 'scale(1.02)';
+        });
+
+        searchInput.addEventListener('blur', function () {
+            this.parentElement.style.transform = 'scale(1)';
+        });
+
+        searchButton.addEventListener('click', function () {
+            if (searchInput.value.trim() === '') {
+                searchInput.focus();
+                // Add shake animation
+                searchInput.parentElement.style.animation = 'shake 0.5s';
+                setTimeout(() => {
+                    searchInput.parentElement.style.animation = '';
+                }, 500);
+            } else {
+                // Simulate search
+                alert(`Searching for: "${searchInput.value}"`);
+                searchInput.value = '';
+            }
+        });
+
+        // Add CSS for animations
+        const style = document.createElement('style');
+        style.textContent = `
+    @keyframes ripple-animation {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+  `;
+        document.head.appendChild(style);
+    });
+</script>
