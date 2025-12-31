@@ -1,6 +1,6 @@
 <!-- Home Page Content -->
 <section class="slider">
-    <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+    <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Slide 1"></button>
@@ -34,6 +34,7 @@
 
 <section class="announcement-bar py-1">
     <div class="container-fluid d-flex flex-column flex-md-row align-items-center">
+
         <div class="announcement-title d-flex align-items-center text-white px-3 fw-semibold mb-1 mb-md-0">
             ANNOUNCEMENTS
             <span id="marqueeToggle" class="ms-2 cursor-pointer" title="Toggle scrolling">
@@ -43,55 +44,42 @@
 
         <div
             class="announcement-content flex-grow-1 d-flex align-items-center bg-white mx-2 overflow-hidden mb-2 mb-md-0 w-100 w-md-auto">
-            <marquee id="announcementMarquee" behavior="scroll" direction="left" scrollamount="5"
-                class="text-danger fw-semibold">
-                Mega Book Sale! Up to 20% off on top titles — limited time only! | Buy 2, Get 1 Free — because one
-                story is never enough!
-            </marquee>
-            <span class="pe-3 text-success fw-semibold small d-none d-lg-inline-block" style="white-space: pre;">
-                Buy Books from Flipkart, Amazon, Bharatkosh
+            <!-- Marquee Container -->
+            <div class="marquee-wrapper flex-grow-1 overflow-hidden position-relative" style="height: 30px;">
+                <div id="announcementMarquee" class="marquee-text text-danger fw-semibold position-absolute">
+                    Mega Book Sale! Up to 20% off on top titles — limited time only! | Buy 2, Get 1 Free — because one
+                    story
+                    is never enough!
+                </div>
+            </div>
+
+            <!-- Static Options -->
+            <span class="px-2 annuncment-options text-success fw-semibold small d-none d-lg-inline-block border-start"
+                style="white-space: nowrap; background: #fff; z-index: 2;">
+                Buy Books from <span class="text-dark">Flipkart</span>, <span class="text-dark">Amazon</span>, <span
+                    class="text-dark">Bharatkosh</span>
             </span>
         </div>
 
         <a href="/all-announcements" class="btn btn-light btn-sm fw-semibold text-nowrap px-3 mb-1 mb-md-0">View All</a>
     </div>
 </section>
-
-<style>
-    .cursor-pointer {
-        cursor: pointer;
-    }
-
-    #marqueeToggle {
-        display: flex;
-        align-items: center;
-        transition: transform 0.2s;
-    }
-
-    #marqueeToggle:hover {
-        transform: scale(1.1);
-    }
-</style>
-
 <script>
-    (function initMarqueeToggle() {
+    (function () {
         const marquee = document.getElementById('announcementMarquee');
         const toggleBtn = document.getElementById('marqueeToggle');
         const toggleIcon = document.getElementById('toggleIcon');
-        let isRunning = true;
 
-        if (marquee && toggleBtn && toggleIcon) {
+        if (toggleBtn && marquee && toggleIcon) {
             toggleBtn.addEventListener('click', () => {
-                if (isRunning) {
-                    marquee.stop();
-                    toggleIcon.classList.remove('bi-pause-circle-fill');
-                    toggleIcon.classList.add('bi-play-circle-fill');
+                marquee.classList.toggle('marquee-paused');
+                if (marquee.classList.contains('marquee-paused')) {
+                    toggleIcon.classList.replace('bi-pause-circle-fill', 'bi-play-circle-fill');
+                    toggleBtn.setAttribute('title', 'Start scrolling');
                 } else {
-                    marquee.start();
-                    toggleIcon.classList.remove('bi-play-circle-fill');
-                    toggleIcon.classList.add('bi-pause-circle-fill');
+                    toggleIcon.classList.replace('bi-play-circle-fill', 'bi-pause-circle-fill');
+                    toggleBtn.setAttribute('title', 'Pause scrolling');
                 }
-                isRunning = !isRunning;
             });
         }
     })();

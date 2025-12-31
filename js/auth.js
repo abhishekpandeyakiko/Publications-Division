@@ -17,9 +17,16 @@ function isLoggedIn() {
  * @param {boolean} status 
  */
 function setLoginStatus(status) {
+  const wasLoggedIn = isLoggedIn();
   localStorage.setItem('userLoggedIn', status ? 'true' : 'false');
+
   // Dispatch event to update UI
   window.dispatchEvent(new CustomEvent('authStatusChanged', { detail: { isLoggedIn: status } }));
+
+  // If user logged in, set flag for auto-refresh
+  if (status) {
+    localStorage.setItem('login_refresh_pending', 'true');
+  }
 }
 
 /**
@@ -74,3 +81,35 @@ window.getUserData = getUserData;
 window.setUserData = setUserData;
 window.logout = logout;
 window.requireLogin = requireLogin;
+
+// Auto-refresh logic: If a refresh is pending after login, perform it once
+function checkAndPerformRefresh() {
+  if (localStorage.getItem('login_refresh_pending') === 'true') {
+    // For SPA: Wait until we are away from the login page before refreshing
+    const isLoginPage = window.location.href.includes('login') || window.location.hash.includes('login');
+
+    if (!isLoginPage) {
+      // Clear flag immediately to prevent loops
+      localStorage.removeItem('login_refresh_pending');
+
+      console.log('Login detected. Refreshing page for state synchronization...');
+      // Minimal delay to ensure navigation is complete
+      setTimeout(() => {
+        window.location.reload();
+      }, 100);
+    }
+  }
+}
+
+// Check on initial script load
+(function () {
+  checkAndPerformRefresh();
+})();
+
+// Also check on every page navigation (for SPA transitions)
+window.addEventListener('pageLoaded', () => {
+  checkAndPerformRefresh();
+});
+
+// Also check periodically as a fallback
+setInterval(checkAndPerformRefresh, 1000);
