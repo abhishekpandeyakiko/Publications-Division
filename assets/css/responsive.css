@@ -85,6 +85,14 @@ button:focus:not(:focus-visible) {
     .quantity-control {
         flex-direction: row !important;
     }
+    .category-section {
+    .category-header h5 {
+        color: #034b4b;
+        font-weight: 700;
+        font-size: 20px;
+        margin: 0;
+    }
+}
 
 }
 
@@ -108,6 +116,30 @@ button:focus:not(:focus-visible) {
     .main-header h4 {
         font-size: 24px !important;
     }
+            .book {
+            height: 140px !important;
+        }
+        .bookstore-section {
+    .book-container {
+        padding: 11px !important;
+    }
+}
+.popular-section {
+    .nav-tabs {
+        border-bottom: none !important;
+        gap: 4px !important;
+    }
+}
+.popular-section {
+    .nav-tabs .nav-link{
+        font-size: 11px;
+    }
+}
+.popular-section {
+    .section-header h4 {
+        font-size: 20px;
+    }
+}
 }
 
 /* header css */
