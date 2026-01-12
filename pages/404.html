@@ -72,7 +72,7 @@
                             <div class="btn-hover-effect"></div>
                         </a>
 
-                        <a href="javascript:history.back()" class="btn-back-action">
+                        <a href="#" class="btn-back-action" id="goBackBtn">
                             <div class="btn-content">
                                 <span class="btn-icon">↶</span>
                                 <span class="btn-text">Go Back</span>
@@ -766,7 +766,8 @@
 
 <script>
     // Add interactivity
-    document.addEventListener('DOMContentLoaded', function () {
+    // Add interactivity
+    (function () {
         // Button click animations
         const buttons = document.querySelectorAll('.btn-home-action, .btn-back-action, .btn-help-action');
         buttons.forEach(button => {
@@ -799,6 +800,33 @@
                 }, 600);
             });
         });
+
+
+
+        // Handle Go Back with Loader
+        const goBackBtn = document.getElementById('goBackBtn');
+        if (goBackBtn) {
+            goBackBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Ensure loader exists and show it
+                if (window.loaderControl) {
+                    // Re-create loader if it was removed (e.g. by router)
+                    if (window.loaderControl.create) {
+                        window.loaderControl.create();
+                    }
+                    window.loaderControl.show();
+
+                    // Delay navigation to show animation
+                    setTimeout(() => {
+                        window.history.back();
+                    }, 1500);
+                } else {
+                    // Fallback if loader script is missing
+                    window.history.back();
+                }
+            });
+        }
 
         // Search input animation
         const searchInput = document.querySelector('.search-input');
@@ -843,5 +871,5 @@
     }
   `;
         document.head.appendChild(style);
-    });
+    })();
 </script>

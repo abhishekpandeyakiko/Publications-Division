@@ -8,6 +8,8 @@
 
     // Create and inject loader HTML
     function createLoader() {
+        if (document.getElementById('pageLoader')) return;
+
         const loaderHTML = `
             <div class="loader-overlay" id="pageLoader">
                 <!-- Particles Background -->
@@ -95,7 +97,9 @@
     }
 
     // Expose functions globally for manual control if needed
+
     window.loaderControl = {
+        create: createLoader,
         show: showLoader,
         hide: hideLoader
     };
