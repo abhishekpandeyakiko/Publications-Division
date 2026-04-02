@@ -1148,7 +1148,7 @@
                                                     <span>Delivered on Jul 16</span>
                                                 </div>
                                                 <p class="small text-muted mb-1">Your item has been delivered</p>
-                                                <a href="javascript:void(0)" class="review-link">
+                                                <a href="javascript:void(0)" class="review-link" data-bs-toggle="modal" data-bs-target="#reviewModal">
                                                     <i class="fa-solid fa-star"></i> Rate & Review Product
                                                 </a>
                                             </div>
@@ -1177,7 +1177,7 @@
                                                     <span>Delivered on May 09</span>
                                                 </div>
                                                 <p class="small text-muted mb-1">Your item has been delivered</p>
-                                                <a href="javascript:void(0)" class="review-link">
+                                                <a href="javascript:void(0)" class="review-link" data-bs-toggle="modal" data-bs-target="#reviewModal">
                                                     <i class="fa-solid fa-star"></i> Rate & Review Product
                                                 </a>
                                             </div>
@@ -1265,7 +1265,7 @@
                                                         <i class="fa-solid fa-star text-success"></i>
                                                     </div>
 
-                                                    <button class="btn btn-outline-primary btn-sm">
+                                                    <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#reviewModal">
                                                         Add a photo / video
                                                     </button>
                                                 </div>
@@ -2190,5 +2190,118 @@
         </div>
     </div>
 </section>
+
+<!-- Review Side Modal -->
+<div class="modal fade right-side-modal" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-slide-out">
+        <div class="modal-content border-0 h-100 rounded-0">
+            <div class="modal-header border-0 p-4 pb-0">
+                <h5 class="modal-title fw-black text-teal h4" id="reviewModalLabel">Share Your Experience</h5>
+                <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body h-100 d-flex flex-column p-4">
+                <p class="text-muted fs-12 mb-4">Your feedback helps fellow readers make informed choices about their
+                    next read.</p>
+
+                <form id="reviewForm" class="flex-grow-1 d-flex flex-column gap-4">
+                    <!-- Star Rating -->
+                    <fieldset class="rating-selector text-center py-2 bg-teal-subtle rounded-3"
+                        aria-labelledby="ratingLegend">
+
+                        <legend id="ratingLegend" class="form-label fw-bold mb-3">
+                            Overall Rating
+                        </legend>
+
+                        <div class="stars-input d-flex justify-content-center gap-2">
+
+                            <input type="radio" name="rating" id="star5" value="5" class="visually-hidden">
+                            <label for="star5" class="cursor-pointer transition-up">
+                                <span class="visually-hidden">5 stars</span>
+                                <i class="fa-regular fa-star fa-2x text-muted"></i>
+                            </label>
+
+                            <input type="radio" name="rating" id="star4" value="4" class="visually-hidden">
+                            <label for="star4" class="cursor-pointer transition-up">
+                                <span class="visually-hidden">4 stars</span>
+                                <i class="fa-regular fa-star fa-2x text-muted"></i>
+                            </label>
+
+                            <input type="radio" name="rating" id="star3" value="3" class="visually-hidden">
+                            <label for="star3" class="cursor-pointer transition-up">
+                                <span class="visually-hidden">3 stars</span>
+                                <i class="fa-regular fa-star fa-2x text-muted"></i>
+                            </label>
+
+                            <input type="radio" name="rating" id="star2" value="2" class="visually-hidden">
+                            <label for="star2" class="cursor-pointer transition-up">
+                                <span class="visually-hidden">2 stars</span>
+                                <i class="fa-regular fa-star fa-2x text-muted"></i>
+                            </label>
+
+                            <input type="radio" name="rating" id="star1" value="1" class="visually-hidden">
+                            <label for="star1" class="cursor-pointer transition-up">
+                                <span class="visually-hidden">1 star</span>
+                                <i class="fa-regular fa-star fa-2x text-muted"></i>
+                            </label>
+
+                        </div>
+
+                        <span class="small fw-bold text-teal mt-2 d-block" id="ratingCaption">
+                            Select star rating
+                        </span>
+                    </fieldset>
+
+                    <!-- Review Text -->
+                    <div>
+                        <label for="reviewText" class="form-label fw-bold small">Your Thoughts</label>
+                        <textarea id="reviewText" class="form-control bg-light rounded-3 p-2 shadow-none no-resize"
+                            rows="5" placeholder="Tell us what you loved about the book..."></textarea>
+                    </div>
+
+
+                    <!-- Image Upload -->
+                    <div>
+                        <label for="reviewImages" id="reviewImagesLabel" class="form-label fw-bold small text-dark">
+                            Add Photos (Optional)
+                        </label>
+
+                        <div class="upload-zone rounded-3 border-2 border-dashed d-flex flex-column
+                           align-items-center justify-content-center p-2 cursor-pointer
+                           bg-white border-secondary-subtle" role="button" tabindex="0"
+                            onclick="document.getElementById('reviewImages').click()"
+                            onkeydown="if(event.key==='Enter' || event.key===' ') document.getElementById('reviewImages').click()">
+
+                            <!-- Icon -->
+                            <i class="fa-solid fa-cloud-arrow-up fa-2x mb-2 text-secondary" aria-hidden="true"></i>
+
+                            <!-- Main text -->
+                            <span class="small fw-bold text-dark">
+                                Drag & drop or <span class="text-teal fw-bold">browse</span>
+                            </span>
+
+                            <!-- Help text -->
+                            <span id="imageHelp" class="small text-secondary fw-semibold mt-1">
+                                Supported formats: JPG, PNG (Max 5MB)
+                            </span>
+                        </div>
+
+                        <input type="file" id="reviewImages" class="visually-hidden" multiple accept="image/*"
+                            aria-labelledby="reviewImagesLabel" aria-describedby="imageHelp">
+
+                        <div id="imagePreview" class="d-flex flex-wrap gap-2 mt-3"></div>
+                    </div>
+
+
+                    <div class="mt-auto">
+                        <button type="submit" class="btn btn-teal py-2 px-4 w-100 mt-4 text-nowrap rounded-pill">
+                            Submit My Review <i class="fa-solid fa-paper-plane ms-2"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="js/profile-dashboard.js"></script>

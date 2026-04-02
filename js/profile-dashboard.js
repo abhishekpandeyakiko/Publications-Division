@@ -23,6 +23,7 @@ function initProfileDashboard() {
   setupCartActions();
   handleURLSection();
   setupModalRelocation();
+  setupReviewModal();
 
   // Reset initialization flag after a short delay to allow future router navigations
   setTimeout(() => {
@@ -215,7 +216,7 @@ function setupCartActions() {
  * Relocate modals to body to fix backdrop/stacking context issues
  */
 function setupModalRelocation() {
-  const modalIds = ['rtlModal', 'addAddressModal', 'shippingaddAddressModal'];
+  const modalIds = ['rtlModal', 'addAddressModal', 'shippingaddAddressModal', 'reviewModal'];
   
   modalIds.forEach(id => {
     const modalEl = document.getElementById(id);
@@ -228,6 +229,56 @@ function setupModalRelocation() {
       });
     }
   });
+}
+
+/**
+ * Setup Review Modal star rating logic
+ */
+function setupReviewModal() {
+  const modal = document.getElementById('reviewModal');
+  if (!modal) return;
+
+  const stars = modal.querySelectorAll('.stars-input input');
+  const caption = modal.querySelector('#ratingCaption');
+  const captions = {
+    '5': 'Excellent! Love it.',
+    '4': 'Very Good!',
+    '3': 'Good Experience.',
+    '2': 'Could be better.',
+    '1': 'Not satisfied.'
+  };
+
+  stars.forEach(star => {
+    // Use onclick or addEventListener
+    star.addEventListener('change', function () {
+      if (caption) {
+        caption.textContent = captions[this.value] || 'Select star rating';
+      }
+    });
+  });
+
+  // Image upload preview logic
+  const fileInput = modal.querySelector('#reviewImages');
+  const previewContainer = modal.querySelector('#imagePreview');
+  
+  if (fileInput && previewContainer) {
+    fileInput.onchange = function() {
+      previewContainer.innerHTML = ''; // Clear previous
+      const files = Array.from(this.files);
+      files.forEach(file => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const div = document.createElement('div');
+          div.className = 'gallery-item-orb rounded-3 border overflow-hidden';
+          div.style.width = '60px';
+          div.style.height = '60px';
+          div.innerHTML = `<img src="${e.target.result}" class="img-fluid" style="width:100%; height:100%; object-fit:cover;">`;
+          previewContainer.appendChild(div);
+        };
+        reader.readAsDataURL(file);
+      });
+    };
+  }
 }
 
 /**
