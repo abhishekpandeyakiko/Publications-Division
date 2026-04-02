@@ -3,13 +3,31 @@
 
 /**
  * Initialize profile dashboard
+ * This is called every time the profile page is loaded or re-rendered by the router
  */
 function initProfileDashboard() {
+  // Prevent double initialization
+  if (window.profileDashboardInitialized) {
+    console.log('Profile Dashboard already initializing or initialized, skipping...');
+    // Still try to activate the section just in case
+    handleURLSection();
+    return;
+  }
+  
+  window.profileDashboardInitialized = true;
+  console.log('Initializing Profile Dashboard...');
+  
   setupTabSwitching();
   setupMobileSidebar();
   setupQuantityControls();
-  setupWishlistActions();
+  setupCartActions();
   handleURLSection();
+  setupModalRelocation();
+
+  // Reset initialization flag after a short delay to allow future router navigations
+  setTimeout(() => {
+    window.profileDashboardInitialized = false;
+  }, 1000);
 }
 
 /**
@@ -19,9 +37,15 @@ function setupTabSwitching() {
   const navButtons = document.querySelectorAll('.nav-item-btn');
   const sections = document.querySelectorAll('.profile-section');
 
+  if (!navButtons.length) return;
+
   navButtons.forEach(button => {
-    button.addEventListener('click', function () {
+    // Remove existing listener to avoid duplicates if re-injected
+    button.onclick = function () {
       const targetSection = this.getAttribute('data-section');
+      if (!targetSection) return;
+
+      console.log('Switching to section:', targetSection);
 
       // Remove active class from all buttons
       navButtons.forEach(btn => btn.classList.remove('active'));
@@ -35,6 +59,10 @@ function setupTabSwitching() {
       const targetElement = document.getElementById(targetSection + 'Section');
       if (targetElement) {
         targetElement.classList.add('active');
+        // Scroll to top of content area on mobile
+        if (window.innerWidth < 992) {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
       }
 
       // Close mobile sidebar if open
@@ -42,7 +70,7 @@ function setupTabSwitching() {
       if (sidebar && sidebar.classList.contains('mobile-open')) {
         sidebar.classList.remove('mobile-open');
       }
-    });
+    };
   });
 }
 
@@ -52,15 +80,13 @@ function setupTabSwitching() {
 function setupMobileSidebar() {
   const toggleBtn = document.getElementById('sidebarToggle');
   const sidebar = document.querySelector('.profile-sidebar');
-  const overlay = document.querySelector('.profile-overlay');
 
   if (toggleBtn && sidebar) {
-    toggleBtn.addEventListener('click', function () {
+    toggleBtn.onclick = function () {
       sidebar.classList.toggle('mobile-open');
-    });
+    };
 
-    // Close sidebar when clicking outside on mobile
-    document.addEventListener('click', function (e) {
+    document.onclick = function (e) {
       if (window.innerWidth < 992) {
         if (sidebar && sidebar.classList.contains('mobile-open')) {
           if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target)) {
@@ -68,7 +94,7 @@ function setupMobileSidebar() {
           }
         }
       }
-    });
+    };
   }
 }
 
@@ -81,7 +107,7 @@ function setupQuantityControls() {
   const qtyInputs = document.querySelectorAll('.qty-input');
 
   minusButtons.forEach(btn => {
-    btn.addEventListener('click', function () {
+    btn.onclick = function () {
       const input = this.parentElement.querySelector('.qty-input');
       if (input) {
         const currentValue = parseInt(input.value) || 1;
@@ -89,223 +115,171 @@ function setupQuantityControls() {
           input.value = currentValue - 1;
         }
       }
-    });
+    };
   });
 
   plusButtons.forEach(btn => {
-    btn.addEventListener('click', function () {
+    btn.onclick = function () {
       const input = this.parentElement.querySelector('.qty-input');
       if (input) {
         const currentValue = parseInt(input.value) || 1;
         input.value = currentValue + 1;
       }
-    });
+    };
   });
 
   qtyInputs.forEach(input => {
-    input.addEventListener('change', function () {
+    input.onchange = function () {
       const value = parseInt(this.value) || 1;
       if (value < 1) {
         this.value = 1;
       }
-    });
+    };
   });
 }
 
 /**
- * Handle URL section parameter
- */
-/**
- * Handle URL section parameter
+ * Handle URL section parameter with retry mechanism to ensure DOM readiness
  */
 function handleURLSection() {
-  // Try to get params from window.search first
-  let urlParams = new URLSearchParams(window.location.search);
+  let retryCount = 0;
+  const maxRetries = 12; // ~2 seconds total
 
-  // If no params and using hash routing, try to parse from hash
-  if (!urlParams.has('section') && window.location.hash.includes('?')) {
-    const hashQuery = window.location.hash.split('?')[1];
-    if (hashQuery) {
-      urlParams = new URLSearchParams(hashQuery);
-    }
-  }
-
-  const section = urlParams.get('section');
-
-  if (section) {
-    // Map 'cart' to 'cart' section (which we'll add)
-    const sectionMap = {
-      'cart': 'cart',
-      'wishlist': 'wishlist'
-    };
-
-    const targetSection = sectionMap[section] || section;
-    const navButton = document.querySelector(`[data-section="${targetSection}"]`);
-    if (navButton) {
-      navButton.click();
-    } else {
-      // If section doesn't exist, show profile
-      const profileBtn = document.querySelector('[data-section="profile"]');
-      if (profileBtn) {
-        profileBtn.click();
+  const parseAndActivate = () => {
+    // 1. Check global "forced" state FIRST (the most reliable handoff)
+    let section = window.forceProfileSection;
+    
+    // 2. Fallback to URL parsing
+    if (!section) {
+      const currentUrl = window.location.href;
+      const url = new URL(currentUrl.replace('#/', '/'));
+      if (url.searchParams.has('section')) {
+        section = url.searchParams.get('section');
+      } else {
+        const hashPart = window.location.hash;
+        if (hashPart.includes('section=')) {
+          section = hashPart.split('section=')[1].split('&')[0];
+        }
       }
     }
-  }
+
+    if (section) {
+      console.log('Target Section detected:', section);
+      const navButton = document.querySelector(`.nav-item-btn[data-section="${section}"]`);
+      if (navButton) {
+        // Clear global state to consume it
+        window.forceProfileSection = null;
+        
+        // Force activation
+        navButton.click();
+        return true; // Activated successfully
+      }
+    }
+    return false; // Not ready or no section found
+  };
+
+  const attemptActivation = () => {
+    const success = parseAndActivate();
+    if (!success && retryCount < maxRetries) {
+      retryCount++;
+      setTimeout(attemptActivation, 150);
+    }
+  };
+
+  attemptActivation();
 }
 
 /**
- * Address management functions
+ * Setup Add to Cart and Address management logic
  */
-function editAddress(id) {
-  // In production, load address data and populate form
-  const modal = new bootstrap.Modal(document.getElementById('addAddressModal'));
-  document.getElementById('addAddressModalLabel').textContent = 'Edit Address';
-  modal.show();
-}
+function setupCartActions() {
+  // Quantity Controls in Cart section
+  document.querySelectorAll('.quantity-btn').forEach(btn => {
+    btn.onclick = function () {
+      const input = this.parentElement.querySelector('input');
+      const action = this.getAttribute('data-action');
+      if (!input) return;
 
-function setDefaultAddress(id) {
-  // In production, make API call to set default address
-  alert(`Address ${id} set as default`);
-  location.reload();
-}
-
-function deleteAddress(id) {
-  if (confirm('Are you sure you want to delete this address?')) {
-    // In production, make API call to delete address
-    alert(`Address ${id} deleted`);
-    location.reload();
-  }
-}
-
-function saveAddress() {
-  const form = document.getElementById('addressForm');
-  if (form.checkValidity()) {
-    // In production, make API call to save address
-    alert('Address saved successfully!');
-    const modal = bootstrap.Modal.getInstance(document.getElementById('addAddressModal'));
-    modal.hide();
-    form.reset();
-    location.reload();
-  } else {
-    form.reportValidity();
-  }
-}
-
-// Initialize when DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initProfileDashboard);
-} else {
-  initProfileDashboard();
-}
-
-
-// ---------------------------   add to Cart Section   ----------------------------------------------
-
-// Quantity Controls
-document.querySelectorAll('.quantity-btn').forEach(btn => {
-  btn.addEventListener('click', function () {
-    const input = this.parentElement.querySelector('input');
-    const action = this.getAttribute('data-action');
-    let value = parseInt(input.value);
-
-    if (action === 'increase') {
-      value++;
-    } else if (action === 'decrease' && value > 1) {
-      value--;
-    }
-
-    input.value = value;
-    updateCartTotal();
-  });
-});
-
-// Open Address Drawer
-const addAddressBtn = document.getElementById('addAddressBtn');
-const shippingAddress = document.getElementById('shippingAddress');
-const addressDrawer = new bootstrap.Modal(document.getElementById('addressDrawer'));
-
-if (addAddressBtn) {
-  addAddressBtn.addEventListener('click', function (e) {
-    e.preventDefault();
-    addressDrawer.show();
-  });
-}
-
-if (shippingAddress) {
-  shippingAddress.addEventListener('click', function () {
-    addressDrawer.show();
-  });
-}
-
-// Handle Form Submission
-const addressForm = document.getElementById('addressForm');
-if (addressForm) {
-  addressForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    // Get form values
-    const formData = {
-      fullName: document.getElementById('fullName').value,
-      userName: document.getElementById('userName').value,
-      phoneNumber: document.getElementById('phoneNumber').value,
-      emailAddress: document.getElementById('emailAddress').value,
-      addressLine: document.getElementById('addressLine').value,
-      city: document.getElementById('city').value,
-      postCode: document.getElementById('postCode').value,
-      state: document.getElementById('state').value,
-      country: document.getElementById('country').value
+      let value = parseInt(input.value);
+      if (action === 'increase') {
+        value++;
+      } else if (action === 'decrease' && value > 1) {
+        value--;
+      }
+      input.value = value;
     };
-
-    // Update shipping address display
-    updateShippingAddress(formData);
-
-    // Close modal
-    addressDrawer.hide();
-
-    // Reset form
-    addressForm.reset();
   });
 }
 
-function updateShippingAddress(data) {
-  const addressElement = document.getElementById('shippingAddress');
-  if (addressElement) {
-    addressElement.innerHTML = `
-        <h6 class="mb-3 fw-bold">${data.fullName}</h6>
-        <div class="mb-3">
-          <p class="mb-2 small">
-            <i class="fa-solid fa-phone me-2 text-muted"></i><span class="text-dark">${data.phoneNumber}</span>
-          </p>
-          <p class="mb-0 small">
-            <i class="fa-solid fa-envelope me-2 text-muted"></i><span class="text-dark">${data.emailAddress}</span>
-          </p>
-        </div>
-        <div class="pt-3 border-top">
-          <p class="mb-2 small">
-            <span class="text-muted">Address:</span> <span class="text-dark">${data.addressLine}</span>
-          </p>
-          <p class="mb-2 small">
-            <span class="text-muted">City:</span> <span class="text-dark">${data.city}</span>
-          </p>
-          <p class="mb-2 small">
-            <span class="text-muted">State:</span> <span class="text-dark">${data.state}</span>
-          </p>
-          <p class="mb-2 small">
-            <span class="text-muted">Country:</span> <span class="text-dark">${data.country}</span>
-          </p>
-          <p class="mb-0 small">
-            <span class="text-muted">Zip Code:</span> <span class="text-dark">${data.postCode}</span>
-          </p>
-        </div>
-      `;
+/**
+ * Relocate modals to body to fix backdrop/stacking context issues
+ */
+function setupModalRelocation() {
+  const modalIds = ['rtlModal', 'addAddressModal', 'shippingaddAddressModal'];
+  
+  modalIds.forEach(id => {
+    const modalEl = document.getElementById(id);
+    if (modalEl) {
+      // Listen for the native Bootstrap show event
+      modalEl.addEventListener('show.bs.modal', function () {
+        if (this.parentElement !== document.body) {
+          document.body.appendChild(this);
+        }
+      });
+    }
+  });
+}
+
+/**
+ * Global Address management functions
+ */
+window.editAddress = function(id) {
+  console.log('editAddress triggered for ID:', id);
+  const modalEl = document.getElementById('addAddressModal') || document.getElementById('shippingaddAddressModal');
+  
+  if (modalEl) {
+    // Relocate to body immediately for manual triggers
+    if (modalEl.parentElement !== document.body) {
+      document.body.appendChild(modalEl);
+    }
+    
+    // Update title
+    const title = modalEl.querySelector('.modal-title') || modalEl.querySelector('h4') || modalEl.querySelector('h5');
+    if (title) title.textContent = 'Edit Address';
+    
+    // Ensure native backdrop doesn't cover UI
+    modalEl.style.zIndex = '10001';
+    
+    // Show using bootstrap
+    const bs = window.bootstrap || bootstrap;
+    if (bs) {
+      let modalInst = bs.Modal.getInstance(modalEl);
+      if (!modalInst) modalInst = new bs.Modal(modalEl);
+      modalInst.show();
+    }
   }
+};
+
+window.setDefaultAddress = function(id) {
+  alert(`Address ${id} has been set as default.`);
+};
+
+window.deleteAddress = function(id) {
+  if (confirm('Delete this address?')) {
+    alert(`Address ${id} deleted.`);
+  }
+};
+
+// Start logic
+if (document.readyState !== 'loading') {
+  initProfileDashboard();
+} else {
+  document.addEventListener('DOMContentLoaded', initProfileDashboard);
 }
 
-function updateCartTotal() {
-  // Calculate total based on quantities
-  // This is a placeholder - implement actual calculation logic
-  console.log('Cart total updated');
-}
-
-//--------------------------------------------- Frequntly ASK Question ------------------------------------------//
-
+// Global pageLoaded check
+window.addEventListener('pageLoaded', (e) => {
+  if (e.detail && e.detail.route && e.detail.route.path === '/user-profile') {
+    initProfileDashboard();
+  }
+});

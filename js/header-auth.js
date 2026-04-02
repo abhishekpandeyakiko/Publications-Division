@@ -10,11 +10,8 @@ function initHeaderAuth() {
   // Listen for auth status changes
   window.addEventListener('authStatusChanged', updateAuthUI);
 
-  // Setup click handlers for wishlist and cart icons
+  // Setup click handlers for wishlist, cart, and profile icons
   setupIconClickHandlers();
-
-  // Setup profile icon click handler
-  setupProfileIconHandler();
 }
 
 /**
@@ -44,113 +41,114 @@ function updateAuthUI() {
 }
 
 /**
- * Setup click handlers for wishlist and cart icons
+ * Setup click handlers for wishlist, cart, and profile icons
  */
 function setupIconClickHandlers() {
   const wishlistLink = document.getElementById('wishlistHeaderLink');
   const cartLink = document.getElementById('cartHeaderLink');
+  const profileLink = document.getElementById('headerProfileLink');
 
   if (wishlistLink) {
     wishlistLink.addEventListener('click', function (e) {
       e.preventDefault();
-      handleWishlistClick();
+      handleHeaderIconClick('wishlist');
     });
   }
 
   if (cartLink) {
     cartLink.addEventListener('click', function (e) {
       e.preventDefault();
-      handleCartClick();
+      handleHeaderIconClick('cart');
     });
   }
-}
 
-/**
- * Handle wishlist icon click
- */
-function handleWishlistClick() {
-  let loggedIn = false;
-  if (typeof window.isLoggedIn === 'function') {
-    loggedIn = window.isLoggedIn();
-  } else {
-    loggedIn = localStorage.getItem('userLoggedIn') === 'true';
+  if (profileLink) {
+    profileLink.addEventListener('click', function (e) {
+      e.preventDefault();
+      handleHeaderIconClick('profile');
+    });
   }
 
-  if (loggedIn) {
-    // Redirect to profile page with wishlist section ID
-    if (window.Router) {
-      window.Router.navigate('/user-profile?target=wishlistSection');
-    } else {
-      window.location.href = '/user-profile?target=wishlistSection';
-    }
-  } else {
-    // Logic for non-logged in users
-    if (window.AuthGuard) {
-      window.AuthGuard.showModal();
-    }
-  }
-}
-
-/**
- * Handle cart icon click
- */
-function handleCartClick() {
-  let loggedIn = false;
-  if (typeof window.isLoggedIn === 'function') {
-    loggedIn = window.isLoggedIn();
-  } else {
-    loggedIn = localStorage.getItem('userLoggedIn') === 'true';
-  }
-
-  if (loggedIn) {
-    // Redirect to profile page with cart section ID
-    if (window.Router) {
-      window.Router.navigate('/user-profile?target=cartSection');
-    } else {
-      window.location.href = '/user-profile?target=cartSection';
-    }
-  } else {
-    // Logic for non-logged in users
-    if (window.AuthGuard) {
-      window.AuthGuard.showModal();
-    }
-  }
-}
-
-/**
- * Setup profile icon click handler
- */
-/**
- * Setup profile dropdown handlers
- */
-function setupProfileIconHandler() {
-  // Dropdown toggling is handled by Bootstrap attributes in HTML
-
-  // Setup logout button handler
+  // Also setup logout button handler
   const logoutBtn = document.getElementById('headerLogoutBtn');
-
   if (logoutBtn) {
     logoutBtn.addEventListener('click', function (e) {
       e.preventDefault();
-
-      // Perform logout
-      if (typeof window.logout === 'function') {
-        window.logout();
-      } else {
-        localStorage.removeItem('userLoggedIn');
-        localStorage.removeItem('userData');
-        window.dispatchEvent(new CustomEvent('authStatusChanged', { detail: { isLoggedIn: false } }));
-      }
-
-      // Redirect to home page
-      if (window.Router) {
-        window.Router.navigate('/');
-      } else {
-        window.location.href = '/';
-      }
+      handleLogout();
     });
   }
 }
+
+/**
+ * Common handler for header icon clicks (Wishlist, Cart, Profile)
+ * @param {string} section - The target section to open
+ */
+function handleHeaderIconClick(section) {
+  // Check login status
+  let loggedIn = false;
+  if (typeof window.isLoggedIn === 'function') {
+    loggedIn = window.isLoggedIn();
+  } else {
+    loggedIn = localStorage.getItem('userLoggedIn') === 'true';
+  }
+
+  // If not logged in, show auth modal (for wishlist and cart)
+  if (!loggedIn && (section === 'wishlist' || section === 'cart')) {
+    if (window.AuthGuard) {
+      window.AuthGuard.showModal();
+    }
+    return;
+  }
+
+  // If already on profile page, just switch tab
+  const isProfilePage = window.location.hash.startsWith('#/user-profile') || 
+                        document.querySelector('.profile-dashboard');
+  
+  if (isProfilePage) {
+    console.log('Already on profile page, switching tab to:', section);
+    const navButton = document.querySelector(`.nav-item-btn[data-section="${section}"]`);
+    if (navButton) {
+      navButton.click();
+      return;
+    }
+  }
+
+  // Set global target for the profile dashboard to pick up after load
+  window.forceProfileSection = section;
+  console.log('Final handoff - forcing profile section:', section);
+
+  // Otherwise navigate to profile page with section parameter
+  const path = `/user-profile?section=${section}`;
+  console.log('Navigating to profile section:', path);
+  if (window.Router) {
+    window.Router.navigate(path);
+  } else {
+    window.location.hash = path;
+  }
+}
+
+/**
+ * Handle logout process
+ */
+function handleLogout() {
+  // Perform logout
+  if (typeof window.logout === 'function') {
+    window.logout();
+  } else {
+    localStorage.removeItem('userLoggedIn');
+    localStorage.removeItem('userData');
+    window.dispatchEvent(new CustomEvent('authStatusChanged', { detail: { isLoggedIn: false } }));
+  }
+
+  // Redirect to home page
+  if (window.Router) {
+    window.Router.navigate('/');
+  } else {
+    window.location.href = '/';
+  }
+}
+
+// Removed setupProfileIconHandler as logic is now in setupIconClickHandlers
 
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {
